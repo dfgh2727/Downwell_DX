@@ -147,7 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EngineBase.cpp" />
     <ClCompile Include="EngineDebug.cpp" />
     <ClCompile Include="EngineDirectory.cpp" />
     <ClCompile Include="EngineFile.cpp" />
