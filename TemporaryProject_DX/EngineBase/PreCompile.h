@@ -11,5 +11,14 @@
 #include <iostream>
 #include <functional>
 
+// 쉐어드 Ptr을 사용하기 위한 헤더
+#include <memory>
+
 // 수학
 #include "EngineMath.h"
+#include "EngineDirectory.h"
+#include "EngineFile.h"
+#include "EngineSerializer.h"
+#include "EnginePath.h"
+#include "EngineDebug.h"
+#include "EngineDefine.h"
