@@ -1,25 +1,25 @@
-ï»¿// ë¹„ì£¼ì–¼ ì½”ë“œ ì³ì¤Œ.
+// ºñÁÖ¾ó ÄÚµå ÃÄÁÜ.
 #include <EngineBase/EngineMath.h>
 #include <EngineCore/EngineCore.h>
 
-// í”„ë¡œì íŠ¸ ë‹¤ ë§Œë“¤ì—ˆê³ 
-// ë‚´ì¼ ë¶€í„° ë³¸ê²©ìœ¼ë¡œ í•˜ê² ë‹¤.
+// ÇÁ·ÎÁ§Æ® ´Ù ¸¸µé¾ú°í
+// ³»ÀÏ ºÎÅÍ º»°İÀ¸·Î ÇÏ°Ú´Ù.
 #pragma comment(lib, "EngineBase.lib")
 #pragma comment(lib, "EnginePlatform.lib")
 #pragma comment(lib, "EngineCore.lib")
 
-// ì´ë…€ì„ì€ ì •ì ë¡œë”©ìœ¼ë¡œ ì‚¬ìš©í•˜ì§€ ì•Šê² ë‹¤.
+// ÀÌ³à¼®Àº Á¤Àû·ÎµùÀ¸·Î »ç¿ëÇÏÁö ¾Ê°Ú´Ù.
 // #pragma comment(lib, "EngineContents.lib")
 
-// ì˜ˆì „ì—ëŠ” Levelë¨¼ì € ë§Œë“¤ê³ 
-// ì»¨í…Œì¸ ì— ê°€ì„œ ë ˆë²¨ì„ Createí•˜ëŠ” ì‹ìœ¼ë¡œ ê°”ë‹¤.
+// ¿¹Àü¿¡´Â Level¸ÕÀú ¸¸µé°í
+// ÄÁÅ×Ã÷¿¡ °¡¼­ ·¹º§À» CreateÇÏ´Â ½ÄÀ¸·Î °¬´Ù.
 
 int APIENTRY wWinMain(_In_ HINSTANCE _hInstance,
 	_In_opt_ HINSTANCE _hPrevInstance,
 	_In_ LPWSTR    _lpCmdLine,
 	_In_ int       _nCmdShow)
 {
-	// ë™ì  ì—°ê²°ì„ ìœ„í•œ "EngineContents" dllì´ë¦„ì„ ë„£ì–´ì¤˜ì•¼ í•œë‹¤.
+	// µ¿Àû ¿¬°áÀ» À§ÇÑ "EngineContents" dllÀÌ¸§À» ³Ö¾îÁà¾ß ÇÑ´Ù.
 	UEngineCore::EngineStart(_hInstance, "EngineContents.dll");
 	return 0;
 }
