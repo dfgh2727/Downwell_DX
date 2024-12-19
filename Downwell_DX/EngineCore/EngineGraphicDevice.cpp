@@ -45,7 +45,7 @@ IDXGIAdapter* UEngineGraphicDevice::GetHighPerFormanceAdapter()
         return nullptr;
     }
 
-
+    
 
     for (int Index = 0;; ++Index)
     {
