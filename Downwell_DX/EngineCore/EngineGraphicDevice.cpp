@@ -12,17 +12,12 @@ UEngineGraphicDevice::~UEngineGraphicDevice()
 
 void UEngineGraphicDevice::Release()
 {
-    if (nullptr != Context)
-    {
-        Context->Release();
-        Context = nullptr;
-    }
-
-    if (nullptr != Device)
-    {
-        Device->Release();
-        Context = nullptr;
-    }
+    MainAdapter = nullptr;
+    DXBackBufferTexture = nullptr;
+    RTV = nullptr;
+    SwapChain = nullptr;
+    Context = nullptr;
+    Device = nullptr;
 }
 
 IDXGIAdapter* UEngineGraphicDevice::GetHighPerFormanceAdapter()
@@ -115,7 +110,7 @@ void UEngineGraphicDevice::CreateDeviceAndContext()
     // 그래픽카드 2개 달려있는 사람들이 있다.
 
     // 가장 성능 좋은 그래픽 카드를 찾았다.
-    IDXGIAdapter* Adapter = GetHighPerFormanceAdapter();
+    MainAdapter = GetHighPerFormanceAdapter();
 
     int iFlag = 0;
 
@@ -157,8 +152,8 @@ void UEngineGraphicDevice::CreateDeviceAndContext()
     // _Out_opt_ D3D_FEATURE_LEVEL* pFeatureLevel,
     // _COM_Outptr_opt_ ID3D11DeviceContext** ppImmediateContext
 
-    D3D11CreateDevice(
-        Adapter, 
+    HRESULT Result = D3D11CreateDevice(
+        MainAdapter.Get(),
         D3D_DRIVER_TYPE::D3D_DRIVER_TYPE_UNKNOWN,
         nullptr, // 특정 단계를 내가 짠 코드로 대체하겠다.
         iFlag,
@@ -181,10 +176,163 @@ void UEngineGraphicDevice::CreateDeviceAndContext()
         return;
     }
 
-    Adapter->Release();
+    if (Result != S_OK)
+    {
+        MSGASSERT("뭔가 잘못됨.");
+        return;
+    }
+
+    if (ResultLevel != D3D_FEATURE_LEVEL_11_0 
+        && ResultLevel != D3D_FEATURE_LEVEL_11_1)
+    {
+        MSGASSERT("다이렉트 11버전을 지원하지 않는 그래픽카드 입니다.");
+        return;
+    }
+
+    // 다이렉트 x가 기본적으로 쓰레드 안정성을 안챙겨준다.
+    // 고급 랜더링과 서버에서는 쓰레드는 필수이기 때문에
+    // 쓰레드를 사용하겠다는 것을 미리 명시해줄수 있다.
+    Result = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+
+    if (Result != S_OK)
+    {
+        MSGASSERT("쓰레드 안정성 적용에 문제가 생겼습니다.");
+        return;
+    }
+    // 초기화 종료
 }
 
 void UEngineGraphicDevice::CreateBackBuffer(const UEngineWindow& _Window)
 {
-	int a = 0;
+    // 윈도우 크기로 만든게 관례에 가깝다.
+    // 내가 원하는 크기로 만드는게 맞다.
+    // 그런거 안끌어쓰고 직접 만드는 네이티브 다이렉트 x식 리소스는 이게 마지막
+	
+    FVector Size = _Window.GetWindowSize();
+
+    DXGI_SWAP_CHAIN_DESC ScInfo = {0};
+
+    ScInfo.BufferCount = 2;
+    ScInfo.BufferDesc.Width = Size.iX();
+    ScInfo.BufferDesc.Height = Size.iY();
+    ScInfo.OutputWindow = _Window.GetWindowHandle();
+    // 전체화면
+    // false면 전체화면
+    // true면 창화면
+    ScInfo.Windowed = true;
+
+    // 주 사율 모니터에 얼마나 빠르게 갱신할거냐
+    // 할수 있으면 해라.
+    ScInfo.BufferDesc.RefreshRate.Denominator = 1;
+    ScInfo.BufferDesc.RefreshRate.Numerator = 60;
+    // ScInfo.BufferDesc.RefreshRate.Numerator = 144;
+
+    // 백버퍼의 색갈범위
+    // 65536 단계
+    // 색상의 단위가 더 큰 모니터에서는 의미가 있다.
+    //                                     8 8 8 8 32비트 색상으로 백버퍼를 만들어
+    ScInfo.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    // 모니터 때문에 의미 없음. HDR 모니터면 의미를 가질수도 있다.
+    // ScInfo.BufferDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+
+    // 모니터나 윈도우에 픽셀이 갱신되는 순서를 어떻게 
+    // 그냥 제일 빠른걸로 해줘
+    ScInfo.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
+    // 진짜 기억안남 아예 
+    ScInfo.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
+ 
+    // 용도
+    // DXGI_USAGE_RENDER_TARGET_OUTPUT 화면에 그려지는 용도로 사용한다.
+    //                   여기에 그릴수 있음                  쉐이더에서 데이터로도 사용할수 있음
+    ScInfo.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT | DXGI_USAGE_SHADER_INPUT;
+
+    // 샘플링
+    // 퀄리티도 필요없고
+    ScInfo.SampleDesc.Quality = 0;
+    // 점 개수도 1개면 충분하다.
+    ScInfo.SampleDesc.Count = 1;
+
+    // 버퍼 n개 만들었네?
+    // n개의 버퍼에 대한 
+    ScInfo.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
+    // 전혀 기억안남
+    ScInfo.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
+
+    //MainAdapter->Release();
+
+    IDXGIFactory* pF = nullptr;
+
+    // 날 만든 팩토리를 얻어올수 있다.
+    MainAdapter->GetParent(__uuidof(IDXGIFactory), reinterpret_cast<void**>(&pF));
+
+    // IUnknown* pDevice,
+    // DXGI_SWAP_CHAIN_DESC* pDesc,
+    // IDXGISwapChain** ppSwapChain
+
+    pF->CreateSwapChain(Device.Get(), &ScInfo, &SwapChain);
+    pF->Release();
+    MainAdapter->Release();
+
+    if (nullptr == SwapChain)
+    {
+        MSGASSERT("스왑체인 제작에 실패했습니다.");
+    }
+
+    // HDC라고 보면 됩니다.
+    // 스왑체인 내부에 존재하는 
+    // HDC안에 bitmap이 들어있는 개념이었죠?
+    // bitmap => 진짜 색깔 배열에 대한 핸들
+    // FColor Arr[100][100];
+    // directx에서는 이런 bitmap이 id3d11texture2d*
+
+    // SwapChain내부에 id3d11texture2d*들고 있다.
+    // DXBackBufferTexture => 는 BITMAP입니다.
+
+    ID3D11Texture2D* TexPtr = nullptr;
+
+    if (S_OK != SwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>
+        (&TexPtr)))
+    {
+        MSGASSERT("백버퍼 텍스처를 얻어오는데 실패했습니다.");
+    };
+
+    DXBackBufferTexture = TexPtr;
+
+    // id3d11texture2d* 이녀석 만으로는 할수 있는게 많이 없습니다.
+    // 애는 이미지의 2차원 데이터를 나타낼뿐 수정권한은 없기 때문입니다.
+    // 이미지를 수정하거나 사용할수 있는 권한을 id3d11texture2d*을 얻어내야 합니다.
+    // WINAPI에서 HDC 얻어내는 것처럼 id3d11texture2d* 수정권한인
+    // 텍스처에서 만들어내야 합니다.
+
+    //                             HBITMAP                       HDC
+    if (S_OK != Device->CreateRenderTargetView(DXBackBufferTexture.Get(), nullptr, &RTV))
+    {
+        MSGASSERT("텍스처 수정권한 획득에 실패했습니다");
+    }
+
+}
+
+
+void UEngineGraphicDevice::RenderStart()
+{
+    FVector ClearColor;
+
+    ClearColor = FVector(0.0f, 0.0f, 1.0f, 1.0f);
+
+    // 이미지 파란색으로 채색해줘.
+    Context->ClearRenderTargetView(RTV.Get(), ClearColor.Arr1D);
+}
+
+void UEngineGraphicDevice::RenderEnd()
+{
+    // 내가 지정한 hwnd에 다이렉트 랜더링 결과를 출력해라.
+    // 
+    HRESULT Result = SwapChain->Present(0, 0);
+
+    //             디바이스가 랜더링 도중 삭제          디바이스가 리셋되었을경우
+    if (Result == DXGI_ERROR_DEVICE_REMOVED || Result == DXGI_ERROR_DEVICE_RESET)
+    {
+        MSGASSERT("해상도 변경이나 디바이스 관련 설정이 런타임 도중 수정되었습니다");
+        return;
+    }
 }
