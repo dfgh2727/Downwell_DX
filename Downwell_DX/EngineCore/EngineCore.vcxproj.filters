@@ -30,6 +30,12 @@
     <ClInclude Include="EngineGraphicDevice.h">
       <Filter>Graphic</Filter>
     </ClInclude>
+    <ClInclude Include="EngineCamera.h">
+      <Filter>Object\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraActor.h">
+      <Filter>Object\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp" />
@@ -58,6 +64,12 @@
     <ClCompile Include="EngineGraphicDevice.cpp">
       <Filter>Graphic</Filter>
     </ClCompile>
+    <ClCompile Include="EngineCamera.cpp">
+      <Filter>Object\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraActor.cpp">
+      <Filter>Object\Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Interface">
@@ -80,6 +92,9 @@
     </Filter>
     <Filter Include="Graphic">
       <UniqueIdentifier>{27490627-d4db-4c0e-a2da-2174f676fcfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Render">
+      <UniqueIdentifier>{af84143f-11d7-4986-8f8e-8fc5f9e2d1ca}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
