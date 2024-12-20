@@ -36,6 +36,9 @@
     <ClInclude Include="CameraActor.h">
       <Filter>Object\Render</Filter>
     </ClInclude>
+    <ClInclude Include="ThirdParty\DirectxTex\Inc\DirectXTex.h">
+      <Filter>ThirdParty\DirectxTex\Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp" />
@@ -96,5 +99,30 @@
     <Filter Include="Object\Render">
       <UniqueIdentifier>{af84143f-11d7-4986-8f8e-8fc5f9e2d1ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{e8bfa200-d0ff-4a17-a578-4a80296c2dde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\DirectxTex">
+      <UniqueIdentifier>{0c5bd5bf-498a-4dab-a201-ff16debaa548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\DirectxTex\Debug">
+      <UniqueIdentifier>{55e0d781-660a-4e13-86ee-ba97cb353ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\DirectxTex\Release">
+      <UniqueIdentifier>{f72ab297-5ee5-4741-b71b-64586fdb61f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\DirectxTex\Inc">
+      <UniqueIdentifier>{d1bd3c2b-8961-4c00-8bcb-40a1bbf7ca96}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ThirdParty\DirectxTex\Inc\DirectXTex.inl">
+      <Filter>ThirdParty\DirectxTex\Inc</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ThirdParty\DirectxTex\Debug\DirectXTex.lib">
+      <Filter>ThirdParty\DirectxTex\Debug</Filter>
+    </Library>
   </ItemGroup>
 </Project>
