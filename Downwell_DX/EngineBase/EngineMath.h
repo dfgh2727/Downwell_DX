@@ -568,7 +568,7 @@ public:
 		return Dir;
 	}
 
-	FMatrix operator*(const FMatrix& _Value);
+	ENGINEAPI FMatrix operator*(const FMatrix& _Value);
 
 	void Scale(const FVector& _Value)
 	{
