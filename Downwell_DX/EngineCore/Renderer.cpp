@@ -61,7 +61,7 @@ void URenderer::ShaderResInit()
 	}
 
 	UEngineDirectory CurDir;
-	CurDir.MoveParentToDirectory("ContentsResources");
+	CurDir.MoveParentToDirectory("Resources");
 	UEngineFile File = CurDir.GetFile("Player.png");
 
 	std::string Str = File.GetPathToString();
