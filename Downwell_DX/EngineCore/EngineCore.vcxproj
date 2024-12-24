@@ -195,6 +195,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="EngineResources.h" />
     <ClInclude Include="GameMode.h">
       <SubType>
       </SubType>
@@ -220,7 +221,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="ThirdParty\DirectxTex\Inc\DirectXTex.h" />
+    <ClInclude Include="EngineTexture.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp">
@@ -247,6 +256,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="EngineResources.cpp" />
     <ClCompile Include="GameMode.cpp">
       <SubType>
       </SubType>
@@ -277,12 +287,21 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="EngineTexture.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ThirdParty\DirectxTex\Inc\DirectXTex.inl" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="ThirdParty\DirectxTex\Debug\DirectXTex.lib" />
+    <Library Include="ThirdParty\DirectxTex\Debug\DirectXTex_Debug.lib" />
+    <Library Include="ThirdParty\DirectxTex\Release\DirectXTex_Release.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

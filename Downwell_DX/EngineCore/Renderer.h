@@ -8,6 +8,12 @@ struct EngineVertex
 	float4 COLOR;
 };
 
+struct FSpriteData 
+{
+	float4 CuttingPos = {0.0f, 0.0f};
+	float4 CuttingSize = { 1.0f, 1.0f };
+};
+
 // 설명 :
 class URenderer : public USceneComponent
 {
@@ -26,6 +32,14 @@ public:
 
 	void SetOrder(int _Order) override;
 
+	void SetTexture(std::string_view _Value);
+
+	void SetSpriteData(float4 _CuttingPos, float4 _CuttingSize)
+	{
+		SpriteData.CuttingPos = _CuttingPos;
+		SpriteData.CuttingSize = _CuttingSize;
+	}
+
 protected:
 	ENGINEAPI void BeginPlay() override;
 
@@ -33,12 +47,12 @@ private:
 	virtual void Render(UEngineCamera* _Camera, float _DeltaTime);
 
 public:
-	Microsoft::WRL::ComPtr<ID3D11Texture2D> Texture2D = nullptr;
-	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> SRV = nullptr;
+	FSpriteData SpriteData;
 
-	Microsoft::WRL::ComPtr<ID3D11SamplerState> SamplerState = nullptr;
-
-	Microsoft::WRL::ComPtr<ID3D11Buffer> TransformConstBuffer = nullptr;
+	std::shared_ptr<class UEngineTexture> Texture = nullptr;
+	Microsoft::WRL::ComPtr<ID3D11SamplerState> SamplerState = nullptr; // 샘플러 스테이트
+	Microsoft::WRL::ComPtr<ID3D11Buffer> TransformConstBuffer = nullptr; // 상수버퍼
+	Microsoft::WRL::ComPtr<ID3D11Buffer> SpriteConstBuffer = nullptr; // 스프라이트용 상수버퍼
 	void ShaderResInit();
 	void ShaderResSetting();
 
@@ -78,7 +92,5 @@ public:
 	void PixelShaderSetting();
 
 	void OutPutMergeSetting();
-
-
 };
 
