@@ -2,7 +2,10 @@
 #include "EngineCore.h"
 #include <EngineBase/EngineDebug.h>
 #include <EnginePlatform/EngineWindow.h>
+#include <EnginePlatform/EngineInput.h>
 #include "IContentsCore.h"
+#include "EngineResources.h"
+#include "EngineGUI.h"
 #include "Level.h"
 
 UEngineGraphicDevice UEngineCore::Device;
@@ -10,6 +13,8 @@ UEngineWindow UEngineCore::MainWindow;
 HMODULE UEngineCore::ContentsDLL = nullptr;
 std::shared_ptr<IContentsCore> UEngineCore::Core;
 UEngineInitData UEngineCore::Data;
+UEngineTimer UEngineCore::Timer;
+
 
 std::shared_ptr<class ULevel> UEngineCore::NextLevel;
 std::shared_ptr<class ULevel> UEngineCore::CurLevel = nullptr;
@@ -102,7 +107,7 @@ void UEngineCore::EngineStart(HINSTANCE _Instance, std::string_view _DllName)
 			// 디바이스가 만들어지지 않으면 리소스 로드도 할수가 없다.
 			// 여기부터 리소스 로드가 가능하다.
 			
-
+			UEngineGUI::Init();
 		},
 		[]()
 		{
@@ -168,18 +173,28 @@ void UEngineCore::EngineFrame()
 
 		CurLevel->LevelChangeStart();
 		NextLevel = nullptr;
+		Timer.TimeStart();
 	}
 
-	CurLevel->Tick(0.0f);
-	CurLevel->Render(0.0f);
+	Timer.TimeCheck();
+	float DeltaTime = Timer.GetDeltaTime();
+	UEngineInput::KeyCheck(DeltaTime);
+	
+	CurLevel->Tick(DeltaTime);
+	CurLevel->Render(DeltaTime);
+	// GUI랜더링은 기존 랜더링이 다 끝나고 해주는게 좋다.
 
-	// tick
 }
 
 void UEngineCore::EngineEnd()
 {
+
+	UEngineGUI::Release();
+
 	// 리소스 정리도 여기서 할겁니다.
 	Device.Release();
+
+	UEngineResources::Release();
 
 	CurLevel = nullptr;
 	NextLevel = nullptr;

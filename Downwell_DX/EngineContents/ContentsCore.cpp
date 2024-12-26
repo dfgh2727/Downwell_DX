@@ -2,6 +2,7 @@
 #include "ContentsCore.h"
 #include <EngineCore/Level.h>
 #include <EngineCore/EngineTexture.h>
+#include <EngineCore/EngineSprite.h>
 #include "TitleGameMode.h"
 
 // #define은 그냥 무조건 복붙
@@ -31,7 +32,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
 			return;
 		}
-		Dir.Append("Images");
+		Dir.Append("Image");
 		std::vector<UEngineFile> ImageFiles = Dir.GetAllFile(true, {".PNG", ".BMP", ".JPG"});
 		for (size_t i = 0; i < ImageFiles.size(); i++)
 		{
@@ -39,6 +40,8 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 			UEngineTexture::Load(FilePath);
 		}
 	}
+
+	UEngineSprite::CreateSpriteToMeta("Player.png", ".sdata");
 
 
 	UEngineCore::CreateLevel<ATitleGameMode, APawn>("Titlelevel");
