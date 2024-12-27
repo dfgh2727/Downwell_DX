@@ -183,6 +183,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="DefaultSceneComponent.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="EngineCamera.h">
       <SubType>
       </SubType>
@@ -225,6 +229,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="RenderUnit.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="SceneComponent.h">
       <SubType>
       </SubType>
@@ -250,6 +258,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="VertexBuffer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp">
@@ -261,6 +273,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="CameraActor.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="DefaultSceneComponent.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -309,6 +325,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="RenderUnit.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="SceneComponent.cpp">
       <SubType>
       </SubType>
@@ -330,6 +350,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="EngineGUIWindow.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="VertexBuffer.cpp">
       <SubType>
       </SubType>
     </ClCompile>

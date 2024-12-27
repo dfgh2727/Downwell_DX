@@ -46,7 +46,7 @@ public:
 	// 다이렉트 x 디바이스가 되죠.
 	IDXGIAdapter* GetHighPerFormanceAdapter();
 
-	void Release();
+	ENGINEAPI void Release();
 
 	void RenderStart();
 
