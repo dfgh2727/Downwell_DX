@@ -10,7 +10,7 @@ TitleScreen::TitleScreen()
 	{
 		Player = GetWorld()->SpawnActor<MainPlayer>();
 		// Logo->SetActorLocation({ 300.0f, 0.0f, 0.0f });
-		Player->GetRenderer()->SetSpriteData(1);
+		Player->GetRenderer()->SetSpriteData(4);
 	}
 
 	// 카메라를 일정거리 뒤로 가서 
