@@ -2,8 +2,30 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp" />
+    <ClCompile Include="TitleScreen.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPlayer.cpp" />
+    <ClCompile Include="DeveloperLogo.cpp">
+      <Filter>TitleImage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
+    <ClInclude Include="TitleScreen.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPlayer.h" />
+    <ClInclude Include="DeveloperLogo.h">
+      <Filter>TitleImage</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Level">
+      <UniqueIdentifier>{b96aece5-066d-4571-829a-7adf7505eea6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitleImage">
+      <UniqueIdentifier>{b40bf5c5-60be-418f-889a-241162cb8ad2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

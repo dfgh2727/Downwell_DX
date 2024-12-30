@@ -319,9 +319,9 @@ void UEngineGraphicDevice::RenderStart()
 {
     FVector ClearColor;
 
-    ClearColor = FVector(0.0f, 0.0f, 1.0f, 1.0f);
+    ClearColor = FVector(0.0f, 0.0f, 0.0f, 1.0f);
 
-    // 이미지 파란색으로 채색해줘.
+    // 바탕을 검은색으로 설정
     Context->ClearRenderTargetView(RTV.Get(), ClearColor.Arr1D);
 }
 
