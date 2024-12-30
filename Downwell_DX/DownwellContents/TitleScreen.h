@@ -1,7 +1,8 @@
 #pragma once
+#include <EngineCore/Actor.h>
 
 // Ό³Έν :
-class TitleScreen
+class TitleScreen : public AActor
 {
 public:
 	// constrcuter destructer
@@ -14,9 +15,12 @@ public:
 	TitleScreen& operator=(const TitleScreen& _Other) = delete;
 	TitleScreen& operator=(TitleScreen&& _Other) noexcept = delete;
 
+	void Tick(float _DeltaTime);
+
 protected:
 
 private:
+	std::shared_ptr<class MainPlayer> Player;
 
 };
 

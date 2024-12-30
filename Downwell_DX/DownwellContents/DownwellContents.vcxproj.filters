@@ -6,9 +6,7 @@
       <Filter>Level</Filter>
     </ClCompile>
     <ClCompile Include="MainPlayer.cpp" />
-    <ClCompile Include="DeveloperLogo.cpp">
-      <Filter>TitleImage</Filter>
-    </ClCompile>
+    <ClCompile Include="ContentsCore.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -16,9 +14,7 @@
       <Filter>Level</Filter>
     </ClInclude>
     <ClInclude Include="MainPlayer.h" />
-    <ClInclude Include="DeveloperLogo.h">
-      <Filter>TitleImage</Filter>
-    </ClInclude>
+    <ClInclude Include="ContentsCore.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
