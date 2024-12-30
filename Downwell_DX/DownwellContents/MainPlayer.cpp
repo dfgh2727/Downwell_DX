@@ -17,16 +17,16 @@ MainPlayer::MainPlayer()
 	{
 		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Idle");
 		Animation->IsAutoScale = true;
-		Animation->AutoScaleRatio = 4.0f;
+		Animation->AutoScaleRatio = 2.0f;
 	}
 
-	//PlayerRenderer->CreateAnimation("Move", "Player.png", 1, 4, 0.3f);
+	PlayerRenderer->CreateAnimation("Move", "Player_Move.png", 0, 7, 0.1f);
 
-	//{
-	//	USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Move");
-	//	Animation->IsAutoScale = true;
-	//	Animation->AutoScaleRatio = 4.0f;
-	//}
+	{
+		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Move");
+		Animation->IsAutoScale = true;
+		Animation->AutoScaleRatio = 2.0f;
+	}
 
 	PlayerRenderer->ChangeAnimation("Idle");
 
@@ -71,9 +71,9 @@ void MainPlayer::Tick(float _DeltaTime)
 		AddActorRotation(FVector{ 0.0f, 0.0f , 360.0f * _DeltaTime });
 	}
 
-	//if (UEngineInput::IsPress('E'))
-	//{
-	//	PlayerRenderer->ChangeAnimation("Move");
-	//}
+	if (UEngineInput::IsPress('E'))
+	{
+		PlayerRenderer->ChangeAnimation("Move");
+	}
 
 }
