@@ -78,8 +78,9 @@ VertexShaderOutPut VertexToWorld(EngineVertex _Vertex)
 	// Pivot.x = '0.5f' => 0.0f
 	// Pivot.y = '0.5f' => 0.0f
 	
-	//_Vertex.POSITION.x += 0.5f;
-    _Vertex.POSITION.y += 0.5f;
+	//                     1.0f - 0.5           
+    _Vertex.POSITION.x += (1.0f - Pivot.x) - 0.5f;
+    _Vertex.POSITION.y += (1.0f - Pivot.y) - 0.5f;
 	
     OutPut.SVPOSITION = mul(_Vertex.POSITION, WVP);
 	
@@ -91,6 +92,26 @@ VertexShaderOutPut VertexToWorld(EngineVertex _Vertex)
     OutPut.COLOR = _Vertex.COLOR;
     return OutPut;
 }
+
+// 상수버퍼는 아무것도 세팅해주지 않으면 기본값이 0으로 채워집니다.
+cbuffer MatColor : register(b1)
+{
+    float4 Albedo;
+};
+
+
+struct OutTargetColor
+{
+    float4 Target0 : SV_Target0; // 뷰포트행렬이 곱해지는 포지션입니다.
+    float4 Target1 : SV_Target1; // 뷰포트행렬이 곱해지는 포지션입니다.
+    float4 Target2 : SV_Target2; // 뷰포트행렬이 곱해지는 포지션입니다.
+    float4 Target3 : SV_Target3; // 뷰포트행렬이 곱해지는 포지션입니다.
+    float4 Target4 : SV_Target4; // 뷰포트행렬이 곱해지는 포지션입니다.
+    float4 Target5 : SV_Target5; // 뷰포트행렬이 곱해지는 포지션입니다.
+    float4 Target6 : SV_Target6; // 뷰포트행렬이 곱해지는 포지션입니다.
+    float4 Target7 : SV_Target7; // 뷰포트행렬이 곱해지는 포지션입니다.
+};
+
 
 // 텍스처 1장과 
 Texture2D ImageTexture : register(t0);
@@ -104,4 +125,6 @@ float4 PixelToWorld(VertexShaderOutPut _Vertex) : SV_Target0
 	// ImageTexture.Load({0,0));
     float4 Color = ImageTexture.Sample(ImageSampler, _Vertex.UV.xy);
     return Color;
-}
+	
+	// return float4(1.0f, 0.0f, 0.0f, 1.0f);
+};

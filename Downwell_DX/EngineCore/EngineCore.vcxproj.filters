@@ -90,6 +90,18 @@
     <ClInclude Include="VertexBuffer.h">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="EngineVertex.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexBuffer.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineBlend.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp" />
@@ -169,6 +181,18 @@
     <ClCompile Include="VertexBuffer.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
+    <ClCompile Include="EngineGraphicDevice_Resources.cpp">
+      <Filter>Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexBuffer.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineBlend.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Interface">
@@ -235,11 +259,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="ThirdParty\DirectxTex\Debug\DirectXTex_Debug.lib">
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Debug\DirectXTex_Debug.lib">
       <Filter>ThirdParty\DirectxTex\Debug</Filter>
-    </Library>
-    <Library Include="ThirdParty\DirectxTex\Release\DirectXTex_Release.lib">
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Release\DirectXTex_Release.lib">
       <Filter>ThirdParty\DirectxTex\Release</Filter>
-    </Library>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

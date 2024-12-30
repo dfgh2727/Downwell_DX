@@ -70,6 +70,7 @@ public:
 protected:
 
 private:
+
 	// 그래픽디바이스
 	// 9에서는 그려라와 로드해라를 다했다.
 
@@ -94,6 +95,9 @@ private:
 	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> RTV = nullptr;
 
 	//FVector ClearColor = FVector::BLUE;
+	ENGINEAPI void DefaultResourcesInit();
 
+	ENGINEAPI void MeshInit();
+	ENGINEAPI void BlendInit();
 };
 
