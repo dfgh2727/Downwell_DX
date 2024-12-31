@@ -20,12 +20,20 @@ MainPlayer::MainPlayer()
 		Animation->AutoScaleRatio = 2.0f;
 	}
 
-	PlayerRenderer->CreateAnimation("Move", "Player_Move.png", 0, 7, 0.1f);
+	PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23 , 0.08f);
 
 	{
-		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Move");
+		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Balancing");
 		Animation->IsAutoScale = true;
-		Animation->AutoScaleRatio = 2.0f;
+		Animation->AutoScaleRatio = 4.0f;
+	}
+
+	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
+
+	{
+		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Run");
+		Animation->IsAutoScale = true;
+		Animation->AutoScaleRatio = 4.0f;
 	}
 
 	PlayerRenderer->ChangeAnimation("Idle");
@@ -68,12 +76,12 @@ void MainPlayer::Tick(float _DeltaTime)
 
 	if (UEngineInput::IsPress('Q'))
 	{
-		AddActorRotation(FVector{ 0.0f, 0.0f , 360.0f * _DeltaTime });
+		PlayerRenderer->ChangeAnimation("Run");
 	}
 
 	if (UEngineInput::IsPress('E'))
 	{
-		PlayerRenderer->ChangeAnimation("Move");
+		PlayerRenderer->ChangeAnimation("Balancing");
 	}
 
 }
