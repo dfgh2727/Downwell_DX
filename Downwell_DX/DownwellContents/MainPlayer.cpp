@@ -20,12 +20,12 @@ MainPlayer::MainPlayer()
 		Animation->AutoScaleRatio = 2.0f;
 	}
 
-	PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23 , 0.08f);
+	PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
 
 	{
 		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Balancing");
 		Animation->IsAutoScale = true;
-		Animation->AutoScaleRatio = 4.0f;
+		Animation->AutoScaleRatio = 2.0f;
 	}
 
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
@@ -33,7 +33,7 @@ MainPlayer::MainPlayer()
 	{
 		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Run");
 		Animation->IsAutoScale = true;
-		Animation->AutoScaleRatio = 4.0f;
+		Animation->AutoScaleRatio = 2.0f;
 	}
 
 	PlayerRenderer->ChangeAnimation("Idle");
