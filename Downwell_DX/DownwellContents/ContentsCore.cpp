@@ -4,6 +4,7 @@
 #include <EngineCore/EngineTexture.h>
 #include <EngineCore/EngineSprite.h>
 #include "TitleScreen.h"
+#include "OpeningScene.h"
 
 // #define은 그냥 무조건 복붙
 CreateContentsCoreDefine(UContentsCore);
@@ -41,13 +42,26 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 		}
 	}
 
+	{
+		UEngineDirectory Dir;
+		if (false == Dir.MoveParentToDirectory("ContentsResources"))
+		{
+			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
+			return;
+		}
+		Dir.Append("Image/Tevi");
+
+		UEngineSprite::CreateSpriteToFolder(Dir.GetPathToString());
+	}
+
 	UEngineSprite::CreateSpriteToMeta("Player_Idle.png", ".sdata");
 	UEngineSprite::CreateSpriteToMeta("Player_Run.png", ".sdata");
 	UEngineSprite::CreateSpriteToMeta("Player_Balancing.png", ".sdata");
 
 	// 주인공 APawn 상속 받으세요.
 	UEngineCore::CreateLevel<TitleScreen, APawn>("Title");
-	UEngineCore::OpenLevel("Title");
+	UEngineCore::CreateLevel<OpeningScene, APawn>("Opening");
+	UEngineCore::OpenLevel("Opening");
 	
 }
 

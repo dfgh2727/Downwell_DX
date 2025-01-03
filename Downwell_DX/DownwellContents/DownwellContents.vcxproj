@@ -150,7 +150,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp" />
+    <ClCompile Include="HowToPlay.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="MainPlayer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="OpeningScene.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -165,7 +173,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h" />
+    <ClInclude Include="HowToPlay.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="MainPlayer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="OpeningScene.h">
       <SubType>
       </SubType>
     </ClInclude>

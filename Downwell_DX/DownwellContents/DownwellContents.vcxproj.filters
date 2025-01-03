@@ -7,6 +7,12 @@
     </ClCompile>
     <ClCompile Include="MainPlayer.cpp" />
     <ClCompile Include="ContentsCore.cpp" />
+    <ClCompile Include="OpeningScene.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="HowToPlay.cpp">
+      <Filter>OpeningImage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -15,12 +21,18 @@
     </ClInclude>
     <ClInclude Include="MainPlayer.h" />
     <ClInclude Include="ContentsCore.h" />
+    <ClInclude Include="OpeningScene.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="HowToPlay.h">
+      <Filter>OpeningImage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
       <UniqueIdentifier>{b96aece5-066d-4571-829a-7adf7505eea6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TitleImage">
+    <Filter Include="OpeningImage">
       <UniqueIdentifier>{b40bf5c5-60be-418f-889a-241162cb8ad2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
