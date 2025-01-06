@@ -21,6 +21,5 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> PartitionRenderer;
-
 };
 

@@ -22,6 +22,9 @@
     <ClCompile Include="Partition.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="GemStatus.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -43,6 +46,9 @@
       <Filter>OpeningImage</Filter>
     </ClInclude>
     <ClInclude Include="Partition.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GemStatus.h">
       <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
