@@ -31,14 +31,14 @@ void OpeningScene::Tick(float _DeltaTime)
 
 	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
 
-	TimeEventComponent->AddEndEvent(2.0f,
+	TimeEventComponent->AddEndEvent(2.5f,
 		[this]()
 		{
 			OpeningScene::ShowDevelopers();
 		},
 		false);
 
-	TimeEventComponent->AddEndEvent(4.0f,
+	TimeEventComponent->AddEndEvent(5.0f,
 		[this]()
 		{
 			OpeningScene::ShowControl();
