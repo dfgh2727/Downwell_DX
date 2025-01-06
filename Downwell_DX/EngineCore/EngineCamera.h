@@ -3,6 +3,7 @@
 #include <list>
 #include "Renderer.h"
 #include "SceneComponent.h"
+#include "EngineEnums.h"
 
 // MinimapCamera;
 // PlayerCamera
@@ -33,15 +34,27 @@ public:
 
 	void CalculateViewAndProjection();
 
-	void SetFar(float _Value)
+	ENGINEAPI void SetFar(float _Value)
 	{
 		Far = _Value;
 	}
 
-	void SetNear(float _Value)
+	ENGINEAPI void SetNear(float _Value)
 	{
 		Near = _Value;
 	}
+
+	ENGINEAPI void SetFOV(float _Value)
+	{
+		FOV = _Value;
+	}
+
+	ENGINEAPI void SetProjectionType(EProjectionType _Type)
+	{
+		Type = _Type;
+	}
+
+	ENGINEAPI void SetZSort(int _Order, bool _Value);
 
 protected:
 
@@ -50,10 +63,20 @@ private:
 	float Near = 1.0f;
 	float Far = 5000.0f;
 
+	float FOV = 60.0f;
+
+	EProjectionType Type = EProjectionType::Orthographic;
+
+	D3D11_VIEWPORT ViewPortInfo;
+
+
+
 	FVector ProjectionScale = {0.0f, 0.0f};
 
 	// 내가 바라보는 랜더러의 그룹은 카메라가 가진다.
 	std::map<int, std::list<std::shared_ptr<class URenderer>>> Renderers;
+	std::map<int, bool> RendererZSort;
+
 
 	void ChangeRenderGroup(int _PrevGroupOrder, std::shared_ptr<URenderer> _Renderer);
 };
