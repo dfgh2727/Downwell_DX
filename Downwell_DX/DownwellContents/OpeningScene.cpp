@@ -3,6 +3,7 @@
 #include <EngineCore/CameraActor.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineCamera.h>
+#include <EngineCore/TimeEventComponent.h>
 
 #include "DevolverLogo.h"
 #include "Developers.h"
@@ -28,9 +29,31 @@ void OpeningScene::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
-//{
-//	Control = GetWorld()->SpawnActor<HowToPlay>();
-//	// Logo->SetActorLocation({ 300.0f, 0.0f, 0.0f });
-//}
+	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
 
+	TimeEventComponent->AddEndEvent(2.0f,
+		[this]()
+		{
+			OpeningScene::ShowDevelopers();
+		},
+		false);
+
+	TimeEventComponent->AddEndEvent(4.0f,
+		[this]()
+		{
+			OpeningScene::ShowControl();
+		},
+		false);
+}
+
+void OpeningScene::ShowDevelopers()
+{
+	//Logo->Destroy();
+	DevelopersName = GetWorld()->SpawnActor<Developers>();
+}
+
+void OpeningScene::ShowControl()
+{
+	DevelopersName->Destroy();
+	Control = GetWorld()->SpawnActor<HowToPlay>();
 }

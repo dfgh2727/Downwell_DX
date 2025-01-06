@@ -10,7 +10,7 @@ Developers::Developers()
 
 	DevelopersRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DevelopersRenderer->SetupAttachment(RootComponent);
-	DevelopersRenderer->SetTexture("Developers.png", true, 2.0f);
+	DevelopersRenderer->SetTexture("Developers.png", true, 1.0f);
 }
 
 Developers::~Developers()
