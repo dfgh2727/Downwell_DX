@@ -3,6 +3,7 @@
 #include <EngineCore/CameraActor.h>
 #include <EngineCore/SpriteRenderer.h>
 
+#include "Partition.h"
 #include "MainPlayer.h"
 
 TitleScreen::TitleScreen()
@@ -12,6 +13,14 @@ TitleScreen::TitleScreen()
 	std::shared_ptr<ACameraActor> Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation({ 0.0f, 0.0f, -1000.0f, 1.0f });
 
+	{
+		PartitionImage1 = GetWorld()->SpawnActor<Partition>();
+		PartitionImage1->SetActorLocation({ -164.0f, 0.0f, 0.0f, 1.0f });
+	}
+	{
+		PartitionImage2 = GetWorld()->SpawnActor<Partition>();
+		PartitionImage2->SetActorLocation({ 164.0f, 0.0f, 0.0f, 1.0f });
+	}
 }
 
 TitleScreen::~TitleScreen()

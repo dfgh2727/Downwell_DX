@@ -21,6 +21,8 @@ protected:
 
 private:
 	std::shared_ptr<class MainPlayer> Player;
+	std::shared_ptr<class Partition> PartitionImage1;
+	std::shared_ptr<class Partition> PartitionImage2;
 
 };
 

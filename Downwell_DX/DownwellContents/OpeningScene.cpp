@@ -44,11 +44,18 @@ void OpeningScene::Tick(float _DeltaTime)
 			OpeningScene::ShowControl();
 		},
 		false);
+
+	TimeEventComponent->AddEndEvent(7.5f,
+		[]()
+		{
+			UEngineCore::OpenLevel("Title");
+		},
+		false);
 }
 
 void OpeningScene::ShowDevelopers()
 {
-	//Logo->Destroy();
+	Logo = nullptr;
 	DevelopersName = GetWorld()->SpawnActor<Developers>();
 }
 

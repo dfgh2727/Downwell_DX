@@ -19,6 +19,9 @@
     <ClCompile Include="DevolverLogo.cpp">
       <Filter>OpeningImage</Filter>
     </ClCompile>
+    <ClCompile Include="Partition.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -39,6 +42,9 @@
     <ClInclude Include="DevolverLogo.h">
       <Filter>OpeningImage</Filter>
     </ClInclude>
+    <ClInclude Include="Partition.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -46,6 +52,9 @@
     </Filter>
     <Filter Include="OpeningImage">
       <UniqueIdentifier>{b40bf5c5-60be-418f-889a-241162cb8ad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{f4c513d7-263f-4ce9-a5bc-7b28b6bbda0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
