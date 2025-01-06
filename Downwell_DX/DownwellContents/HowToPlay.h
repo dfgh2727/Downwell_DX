@@ -15,10 +15,10 @@ public:
 	HowToPlay& operator=(const HowToPlay& _Other) = delete;
 	HowToPlay& operator=(HowToPlay&& _Other) noexcept = delete;
 
-	std::shared_ptr<class USpriteRenderer> GetRenderer()
-	{
-		return ControlRenderer;
-	}
+	//std::shared_ptr<class USpriteRenderer> GetRenderer()
+	//{
+	//	return ControlRenderer;
+	//}
 
 protected:
 	void BeginPlay() override;

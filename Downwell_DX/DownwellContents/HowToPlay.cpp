@@ -11,8 +11,9 @@ HowToPlay::HowToPlay()
 	// 랜더러를 만든다.
 	ControlRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	ControlRenderer->SetupAttachment(RootComponent);
-	ControlRenderer->SetSprite("Controls.png");
-	ControlRenderer->SetRelativeScale3D({ 50, 50, 1.0f });
+	ControlRenderer->SetTexture("Controls.png", true, 2.0f);
+	/*ControlRenderer->SetSprite("Controls.png");
+	ControlRenderer->SetRelativeScale3D({ 50, 50, 1.0f });*/
 }
 
 HowToPlay::~HowToPlay()

@@ -13,6 +13,12 @@
     <ClCompile Include="HowToPlay.cpp">
       <Filter>OpeningImage</Filter>
     </ClCompile>
+    <ClCompile Include="Developers.cpp">
+      <Filter>OpeningImage</Filter>
+    </ClCompile>
+    <ClCompile Include="DevolverLogo.cpp">
+      <Filter>OpeningImage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -25,6 +31,12 @@
       <Filter>Level</Filter>
     </ClInclude>
     <ClInclude Include="HowToPlay.h">
+      <Filter>OpeningImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Developers.h">
+      <Filter>OpeningImage</Filter>
+    </ClInclude>
+    <ClInclude Include="DevolverLogo.h">
       <Filter>OpeningImage</Filter>
     </ClInclude>
   </ItemGroup>

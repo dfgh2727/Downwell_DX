@@ -49,7 +49,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
 			return;
 		}
-		Dir.Append("Image/Tevi");
+		Dir.Append("Image/OP");
 
 		UEngineSprite::CreateSpriteToFolder(Dir.GetPathToString());
 	}

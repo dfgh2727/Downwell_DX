@@ -20,6 +20,8 @@ public:
 protected:
 
 private:
-
+	std::shared_ptr<class HowToPlay> Control;
+	std::shared_ptr<class Developers> DevelopersName;
+	std::shared_ptr<class DevolverLogo> Logo;
 };
 

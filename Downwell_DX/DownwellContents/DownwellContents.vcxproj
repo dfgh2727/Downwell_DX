@@ -150,6 +150,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp" />
+    <ClCompile Include="Developers.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="DevolverLogo.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="HowToPlay.cpp">
       <SubType>
       </SubType>
@@ -173,6 +181,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h" />
+    <ClInclude Include="Developers.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="DevolverLogo.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="HowToPlay.h">
       <SubType>
       </SubType>
