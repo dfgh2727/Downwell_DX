@@ -20,6 +20,7 @@ TitleScreen::TitleScreen()
 	{
 		PartitionImage2 = GetWorld()->SpawnActor<Partition>();
 		PartitionImage2->SetActorLocation({ 164.0f, 0.0f, 0.0f, 1.0f });
+		PartitionImage2->AddActorRotation(FVector{ 0.0f, 0.0f , 180.0f});
 	}
 }
 
