@@ -1,7 +1,8 @@
 #pragma once
+#include <EngineCore/Actor.h>
 
 // Ό³Έν :
-class GemStatus
+class GemStatus : public AActor
 {
 public:
 	// constrcuter destructer
@@ -15,8 +16,10 @@ public:
 	GemStatus& operator=(GemStatus&& _Other) noexcept = delete;
 
 protected:
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 private:
-
+	std::shared_ptr<class USpriteRenderer> GemStatusRenderer;
 };
 

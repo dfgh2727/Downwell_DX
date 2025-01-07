@@ -25,6 +25,12 @@
     <ClCompile Include="GemStatus.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="HealthStatus.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletStatus.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -49,6 +55,12 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="GemStatus.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthStatus.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletStatus.h">
       <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>

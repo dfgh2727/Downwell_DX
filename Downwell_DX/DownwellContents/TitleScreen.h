@@ -23,6 +23,10 @@ private:
 	std::shared_ptr<class MainPlayer> Player;
 	std::shared_ptr<class Partition> PartitionImage1;
 	std::shared_ptr<class Partition> PartitionImage2;
+	std::shared_ptr<class GemStatus> GemStatusImage;
+	std::shared_ptr<class HealthStatus> HealthStatusImage;
+	std::shared_ptr<class BulletStatus> BulletStatusImage;
+
 
 };
 

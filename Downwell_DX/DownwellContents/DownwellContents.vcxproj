@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BulletStatus.cpp" />
     <ClCompile Include="ContentsCore.cpp" />
     <ClCompile Include="Developers.cpp">
       <SubType>
@@ -162,6 +163,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="HealthStatus.cpp" />
     <ClCompile Include="HowToPlay.cpp">
       <SubType>
       </SubType>
@@ -188,6 +190,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletStatus.h" />
     <ClInclude Include="ContentsCore.h" />
     <ClInclude Include="Developers.h">
       <SubType>
@@ -201,6 +204,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="HealthStatus.h" />
     <ClInclude Include="HowToPlay.h">
       <SubType>
       </SubType>

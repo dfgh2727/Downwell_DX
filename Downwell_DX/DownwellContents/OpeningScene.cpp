@@ -55,12 +55,15 @@ void OpeningScene::Tick(float _DeltaTime)
 
 void OpeningScene::ShowDevelopers()
 {
-	Logo = nullptr;
+	Logo->Destroy();
 	DevelopersName = GetWorld()->SpawnActor<Developers>();
+	DevelopersName->SetActorLocation({ 0.0f, -50.0f, 0.0f });
+	//Logo = nullptr;
 }
 
 void OpeningScene::ShowControl()
 {
 	DevelopersName->Destroy();
+	//DevelopersName = nullptr;
 	Control = GetWorld()->SpawnActor<HowToPlay>();
 }
