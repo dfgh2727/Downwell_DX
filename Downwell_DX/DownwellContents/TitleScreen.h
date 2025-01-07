@@ -1,8 +1,8 @@
 #pragma once
-#include <EngineCore/Actor.h>
+#include "BaseUI.h"
 
 // Ό³Έν :
-class TitleScreen : public AActor
+class TitleScreen : public BaseUI
 {
 public:
 	// constrcuter destructer
@@ -21,13 +21,7 @@ public:
 protected:
 
 private:
-	std::shared_ptr<class MainPlayer> Player;
-	std::shared_ptr<class Partition> PartitionImage1;
-	std::shared_ptr<class Partition> PartitionImage2;
-	std::shared_ptr<class GemStatus> GemStatusImage;
-	std::shared_ptr<class HealthStatus> HealthStatusImage;
-	std::shared_ptr<class BulletStatus> BulletStatusImage;
-
+	std::shared_ptr<class Well> WellSprite;
 
 };
 

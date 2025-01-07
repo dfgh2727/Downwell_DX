@@ -17,7 +17,6 @@ OpeningScene::OpeningScene()
 
 	{
 		Logo = GetWorld()->SpawnActor<DevolverLogo>();
-		// Logo->SetActorLocation({ 300.0f, 0.0f, 0.0f });
 	}
 }
 
