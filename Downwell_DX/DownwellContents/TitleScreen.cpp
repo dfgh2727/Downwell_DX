@@ -43,6 +43,11 @@ TitleScreen::~TitleScreen()
 {
 }
 
+void TitleScreen::BeginPlay()
+{
+	AActor::BeginPlay();
+}
+
 void TitleScreen::Tick(float _DeltaTime)
 {
 	// 부모 호출

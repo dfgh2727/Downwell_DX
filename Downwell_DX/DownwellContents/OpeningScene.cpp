@@ -25,9 +25,9 @@ OpeningScene::~OpeningScene()
 {
 }
 
-void OpeningScene::Tick(float _DeltaTime)
+void OpeningScene::BeginPlay()
 {
-	AActor::Tick(_DeltaTime);
+	AActor::BeginPlay();
 
 	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
 
@@ -51,6 +51,13 @@ void OpeningScene::Tick(float _DeltaTime)
 			UEngineCore::OpenLevel("Title");
 		},
 		false);
+}
+
+void OpeningScene::Tick(float _DeltaTime)
+{
+	AActor::Tick(_DeltaTime);
+
+
 }
 
 void OpeningScene::ShowDevelopers()

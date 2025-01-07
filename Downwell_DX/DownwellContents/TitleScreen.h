@@ -15,7 +15,8 @@ public:
 	TitleScreen& operator=(const TitleScreen& _Other) = delete;
 	TitleScreen& operator=(TitleScreen&& _Other) noexcept = delete;
 
-	void Tick(float _DeltaTime);
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 protected:
 

@@ -15,7 +15,8 @@ public:
 	OpeningScene& operator=(const OpeningScene& _Other) = delete;
 	OpeningScene& operator=(OpeningScene&& _Other) noexcept = delete;
 
-	void Tick(float _DeltaTime);
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 	void ShowDevelopers();
 	void ShowControl();
