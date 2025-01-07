@@ -64,7 +64,7 @@ void OpeningScene::ShowDevelopers()
 {
 	Logo->Destroy();
 	DevelopersName = GetWorld()->SpawnActor<Developers>();
-	DevelopersName->SetActorLocation({ 0.0f, -50.0f, 0.0f });
+	DevelopersName->SetActorLocation({ 0.0f, -61.0f, 0.0f });
 	//Logo = nullptr;
 }
 

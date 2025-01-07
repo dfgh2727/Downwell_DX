@@ -50,6 +50,5 @@ void TitleScreen::BeginPlay()
 
 void TitleScreen::Tick(float _DeltaTime)
 {
-	// 부모 호출
 	AActor::Tick(_DeltaTime);
 }
