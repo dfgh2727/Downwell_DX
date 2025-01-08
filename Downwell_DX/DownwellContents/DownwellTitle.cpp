@@ -13,6 +13,9 @@ DownwellTitle::DownwellTitle()
 	DownwellTitleRenderer->SetupAttachment(RootComponent);
 	DownwellTitleRenderer->CreateAnimation("TitleShowUp", "DownwellTitle", 0, 8, 0.1f, false);
 	DownwellTitleRenderer->ChangeAnimation("TitleShowUp");
+
+	DownwellTitleRenderer->SetAutoScaleRatio(2.0f);
+
 }
 
 DownwellTitle::~DownwellTitle()

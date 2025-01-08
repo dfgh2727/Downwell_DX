@@ -35,19 +35,19 @@ void TitleScreen::BeginPlay()
 
 	{
 		WellSprite = GetWorld()->SpawnActor<Well>();
-		WellSprite->SetActorLocation({ 0.0f, -238.0f, 10.0f });
+		WellSprite->SetActorLocation({ 0.0f, -238.0f, 100.0f });
 	}
 	{
 		NightSkySprite = GetWorld()->SpawnActor<NightSky>();
-		NightSkySprite->SetActorLocation({ -9.0f, 170.0f, 10.0f });
+		NightSkySprite->SetActorLocation({ -9.0f, 170.0f, 200.0f });
 	}
 	{
 		DownwellTitleSprite = GetWorld()->SpawnActor<DownwellTitle>();
-		DownwellTitleSprite->SetActorLocation({ 0.0f, 170.0f, 10.0f });
+		DownwellTitleSprite->SetActorLocation({ 0.0f, 41.0f, 100.0f });
 	}
 	{
 		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();
-		MainPlayerRenderer->SetActorLocation({ 0.0f, 0.0f, 10.0f });
+		MainPlayerRenderer->SetActorLocation({ -100.0f, -110.0f, 10.0f });
 	}
 }
 
