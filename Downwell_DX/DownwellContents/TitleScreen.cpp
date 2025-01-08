@@ -9,6 +9,8 @@
 #include "NightSky.h"
 #include "DownwellTitle.h"
 
+#include "MainPlayer.h"
+
 
 TitleScreen::TitleScreen()
 {
@@ -42,6 +44,10 @@ void TitleScreen::BeginPlay()
 	{
 		DownwellTitleSprite = GetWorld()->SpawnActor<DownwellTitle>();
 		DownwellTitleSprite->SetActorLocation({ 0.0f, 170.0f, 10.0f });
+	}
+	{
+		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();
+		MainPlayerRenderer->SetActorLocation({ 0.0f, 0.0f, 10.0f });
 	}
 }
 

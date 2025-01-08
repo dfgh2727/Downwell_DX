@@ -15,10 +15,10 @@ public:
 	MainPlayer& operator=(const MainPlayer& _Other) = delete;
 	MainPlayer& operator=(MainPlayer&& _Other) noexcept = delete;
 
-	std::shared_ptr<class USpriteRenderer> GetRenderer()
-	{
-		return PlayerRenderer;
-	}
+	//std::shared_ptr<class USpriteRenderer> GetRenderer()
+	//{
+	//	return PlayerRenderer;
+	//}
 
 protected:
 	void BeginPlay() override;

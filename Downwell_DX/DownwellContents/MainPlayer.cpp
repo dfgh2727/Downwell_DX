@@ -11,35 +11,14 @@ MainPlayer::MainPlayer()
 
 	// 랜더러를 만든다.
 	PlayerRenderer = CreateDefaultSubObject<USpriteRenderer>();
-	// PlayerRenderer->SetSprite("Player.png", 0);
+	PlayerRenderer->SetupAttachment(RootComponent);
 
-	PlayerRenderer->CreateAnimation("Idle", "Player_Idle.png", 0, 3, 0.3f);
-	{
-		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Idle");
-		//Animation->IsAutoScale = true;
-		//Animation->AutoScaleRatio = 2.0f;
-	}
-
+	PlayerRenderer->CreateAnimation("Idle", "Player_Idle.png", 0, 3, 0.2f);
 	PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
-
-	{
-		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Balancing");
-		//Animation->IsAutoScale = true;
-		//Animation->AutoScaleRatio = 2.0f;
-	}
-
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
-
-	{
-		USpriteRenderer::FrameAnimation* Animation = PlayerRenderer->FindAnimation("Run");
-		//Animation->IsAutoScale = true;
-		//Animation->AutoScaleRatio = 2.0f;
-	}
-
 	PlayerRenderer->ChangeAnimation("Idle");
 
-	PlayerRenderer->SetRelativeScale3D({ 50, 50, 1.0f });
-	PlayerRenderer->SetupAttachment(RootComponent);
+	PlayerRenderer->SetAutoScaleRatio(2.0f);
 }
 
 MainPlayer::~MainPlayer()
