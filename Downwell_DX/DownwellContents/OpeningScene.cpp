@@ -48,8 +48,14 @@ void OpeningScene::BeginPlay()
 	TimeEventComponent->AddEndEvent(7.5f,
 		[this]()
 		{
-			OpeningScene::FadeIn();
-			//UEngineCore::OpenLevel("Title");
+			OpeningScene::FadeOut();
+		},
+		false);
+
+	TimeEventComponent->AddEndEvent(8.0f,
+		[]()
+		{
+			UEngineCore::OpenLevel("Title");
 		},
 		false);
 }
@@ -57,8 +63,6 @@ void OpeningScene::BeginPlay()
 void OpeningScene::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
-
-
 }
 
 void OpeningScene::ShowDevelopers()
@@ -76,8 +80,9 @@ void OpeningScene::ShowControl()
 	Control = GetWorld()->SpawnActor<HowToPlay>();
 }
 
-void OpeningScene::FadeIn()
+void OpeningScene::FadeOut()
 {
 	Dither = GetWorld()->SpawnActor<DitherFullScreen>();
 	Dither->SetActorLocation({ 0.0f, -285.0f, -50.0f });
+	Dither->FadeOut();
 }

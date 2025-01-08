@@ -20,7 +20,7 @@ public:
 
 	void ShowDevelopers();
 	void ShowControl();
-	void FadeIn();
+	void FadeOut();
 
 protected:
 

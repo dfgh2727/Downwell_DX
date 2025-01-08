@@ -19,6 +19,9 @@ public:
 	{
 		return DFSRenderer;
 	}
+	void FadeIn();
+	void FadeOut();
+
 
 protected:
 	void BeginPlay() override;
