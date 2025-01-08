@@ -52,7 +52,7 @@ void OpeningScene::BeginPlay()
 		},
 		false);
 
-	TimeEventComponent->AddEndEvent(8.0f,
+	TimeEventComponent->AddEndEvent(8.5f,
 		[]()
 		{
 			UEngineCore::OpenLevel("Title");

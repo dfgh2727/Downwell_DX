@@ -11,8 +11,8 @@ DitherFullScreen::DitherFullScreen()
 	// 랜더러를 만든다.
 	DFSRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DFSRenderer->SetupAttachment(RootComponent);
-	DFSRenderer->CreateAnimation("FullScreenFadeIn", "Dither", 0, 4, 0.15f, false);
-	DFSRenderer->CreateAnimation("FullScreenFadeOut", "Dither", 5, 9, 0.15f, false);
+	DFSRenderer->CreateAnimation("FullScreenFadeIn", "Dither", 0, 6, 0.15f, false);
+	DFSRenderer->CreateAnimation("FullScreenFadeOut", "Dither", 7, 13, 0.15f, false);
 	
 	//DFSRenderer->SetTexture("DitherFullScreen.png", true, 2.0f);
 }
