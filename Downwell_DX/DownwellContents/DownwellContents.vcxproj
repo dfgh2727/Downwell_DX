@@ -160,12 +160,12 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="DitherFullScreen.cpp" />
+    <ClCompile Include="DownwellTitle.cpp" />
     <ClCompile Include="GemStatus.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Grass1.cpp" />
-    <ClCompile Include="Grass2.cpp" />
+    <ClCompile Include="Grass.cpp" />
     <ClCompile Include="HealthStatus.cpp" />
     <ClCompile Include="HowToPlay.cpp">
       <SubType>
@@ -210,12 +210,12 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="DitherFullScreen.h" />
+    <ClInclude Include="DownwellTitle.h" />
     <ClInclude Include="GemStatus.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Grass1.h" />
-    <ClInclude Include="Grass2.h" />
+    <ClInclude Include="Grass.h" />
     <ClInclude Include="HealthStatus.h" />
     <ClInclude Include="HowToPlay.h">
       <SubType>

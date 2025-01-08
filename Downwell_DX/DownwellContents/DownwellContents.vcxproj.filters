@@ -40,14 +40,14 @@
     <ClCompile Include="NightSky.cpp">
       <Filter>Images\TitleImage</Filter>
     </ClCompile>
-    <ClCompile Include="Grass1.cpp">
-      <Filter>Images\TitleImage</Filter>
-    </ClCompile>
-    <ClCompile Include="Grass2.cpp">
+    <ClCompile Include="Grass.cpp">
       <Filter>Images\TitleImage</Filter>
     </ClCompile>
     <ClCompile Include="DitherFullScreen.cpp">
       <Filter>Images\Dithering</Filter>
+    </ClCompile>
+    <ClCompile Include="DownwellTitle.cpp">
+      <Filter>Images\TitleImage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,14 +90,14 @@
     <ClInclude Include="NightSky.h">
       <Filter>Images\TitleImage</Filter>
     </ClInclude>
-    <ClInclude Include="Grass1.h">
-      <Filter>Images\TitleImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Grass2.h">
+    <ClInclude Include="Grass.h">
       <Filter>Images\TitleImage</Filter>
     </ClInclude>
     <ClInclude Include="DitherFullScreen.h">
       <Filter>Images\Dithering</Filter>
+    </ClInclude>
+    <ClInclude Include="DownwellTitle.h">
+      <Filter>Images\TitleImage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,9 @@
 
 #include "DitherFullScreen.h"
 #include "Well.h"
+#include "NightSky.h"
+#include "DownwellTitle.h"
+
 
 TitleScreen::TitleScreen()
 {
@@ -31,6 +34,14 @@ void TitleScreen::BeginPlay()
 	{
 		WellSprite = GetWorld()->SpawnActor<Well>();
 		WellSprite->SetActorLocation({ 0.0f, -238.0f, 10.0f });
+	}
+	{
+		NightSkySprite = GetWorld()->SpawnActor<NightSky>();
+		NightSkySprite->SetActorLocation({ 0.0f, 170.0f, 10.0f });
+	}
+	{
+		DownwellTitleSprite = GetWorld()->SpawnActor<DownwellTitle>();
+		DownwellTitleSprite->SetActorLocation({ 0.0f, 170.0f, 10.0f });
 	}
 }
 

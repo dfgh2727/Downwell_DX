@@ -23,6 +23,8 @@ protected:
 private:
 	std::shared_ptr<class DitherFullScreen> Dither;
 	std::shared_ptr<class Well> WellSprite;
+	std::shared_ptr<class NightSky> NightSkySprite;
+	std::shared_ptr<class DownwellTitle> DownwellTitleSprite;
 
 };
 
