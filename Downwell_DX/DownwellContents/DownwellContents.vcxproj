@@ -159,6 +159,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="DitherFullScreen.cpp" />
     <ClCompile Include="GemStatus.cpp">
       <SubType>
       </SubType>
@@ -208,6 +209,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="DitherFullScreen.h" />
     <ClInclude Include="GemStatus.h">
       <SubType>
       </SubType>

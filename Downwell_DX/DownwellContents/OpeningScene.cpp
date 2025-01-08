@@ -8,6 +8,7 @@
 #include "DevolverLogo.h"
 #include "Developers.h"
 #include "HowToPlay.h"
+#include "DitherFullScreen.h"
 
 OpeningScene::OpeningScene()
 {
@@ -45,9 +46,10 @@ void OpeningScene::BeginPlay()
 		false);
 
 	TimeEventComponent->AddEndEvent(7.5f,
-		[]()
+		[this]()
 		{
-			UEngineCore::OpenLevel("Title");
+			OpeningScene::FadeIn();
+			//UEngineCore::OpenLevel("Title");
 		},
 		false);
 }
@@ -72,4 +74,10 @@ void OpeningScene::ShowControl()
 	DevelopersName->Destroy();
 	//DevelopersName = nullptr;
 	Control = GetWorld()->SpawnActor<HowToPlay>();
+}
+
+void OpeningScene::FadeIn()
+{
+	Dither = GetWorld()->SpawnActor<DitherFullScreen>();
+	Dither->SetActorLocation({ 0.0f, -285.0f, -50.0f });
 }

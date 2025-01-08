@@ -46,6 +46,9 @@
     <ClCompile Include="Grass2.cpp">
       <Filter>Images\TitleImage</Filter>
     </ClCompile>
+    <ClCompile Include="DitherFullScreen.cpp">
+      <Filter>Images\Dithering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -93,6 +96,9 @@
     <ClInclude Include="Grass2.h">
       <Filter>Images\TitleImage</Filter>
     </ClInclude>
+    <ClInclude Include="DitherFullScreen.h">
+      <Filter>Images\Dithering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -109,6 +115,9 @@
     </Filter>
     <Filter Include="Images\TitleImage">
       <UniqueIdentifier>{45c4590a-ec0f-4141-8d4c-2a1d4ab5667b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images\Dithering">
+      <UniqueIdentifier>{00e28e13-30ec-4f31-929e-92bc27046009}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
