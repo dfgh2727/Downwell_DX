@@ -1,7 +1,8 @@
 #pragma once
+#include "BaseUI.h"
 
 // Ό³Έν :
-class SelectScreen
+class SelectScreen : public BaseUI
 {
 public:
 	// constrcuter destructer
@@ -13,6 +14,9 @@ public:
 	SelectScreen(SelectScreen&& _Other) noexcept = delete;
 	SelectScreen& operator=(const SelectScreen& _Other) = delete;
 	SelectScreen& operator=(SelectScreen&& _Other) noexcept = delete;
+
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 protected:
 

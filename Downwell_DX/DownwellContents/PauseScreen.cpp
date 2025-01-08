@@ -9,3 +9,13 @@ PauseScreen::~PauseScreen()
 {
 }
 
+void PauseScreen::BeginPlay()
+{
+	AActor::BeginPlay();
+
+}
+
+void PauseScreen::Tick(float _DeltaTime)
+{
+	AActor::Tick(_DeltaTime);
+}

@@ -1,8 +1,8 @@
 #pragma once
-#include <EngineCore/Actor.h>
+#include <EngineCore/GameMode.h>
 
 // Ό³Έν :
-class PauseScreen : public AActor
+class PauseScreen : public AGameMode
 {
 public:
 	// constrcuter destructer
@@ -14,6 +14,9 @@ public:
 	PauseScreen(PauseScreen&& _Other) noexcept = delete;
 	PauseScreen& operator=(const PauseScreen& _Other) = delete;
 	PauseScreen& operator=(PauseScreen&& _Other) noexcept = delete;
+
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 protected:
 
