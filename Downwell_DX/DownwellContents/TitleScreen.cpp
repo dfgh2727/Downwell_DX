@@ -3,6 +3,7 @@
 #include <EngineCore/CameraActor.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineCamera.h>
+#include <EnginePlatform/EngineInput.h>
 
 #include "DitherFullScreen.h"
 #include "Well.h"
@@ -54,4 +55,9 @@ void TitleScreen::BeginPlay()
 void TitleScreen::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+
+	if (UEngineInput::IsPress(VK_ESCAPE))
+	{
+		UEngineCore::OpenLevel("Paused");
+	}
 }

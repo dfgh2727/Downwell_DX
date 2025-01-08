@@ -5,6 +5,7 @@
 #include <EngineCore/EngineSprite.h>
 #include "TitleScreen.h"
 #include "OpeningScene.h"
+#include "PauseScreen.h"
 
 // #define은 그냥 무조건 복붙
 CreateContentsCoreDefine(UContentsCore);
@@ -110,6 +111,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	// 주인공 APawn 상속 받으세요.
 	UEngineCore::CreateLevel<TitleScreen, APawn>("Title");
 	UEngineCore::CreateLevel<OpeningScene, APawn>("Opening");
+	UEngineCore::CreateLevel<PauseScreen, APawn>("Paused");
 	UEngineCore::OpenLevel("Opening");
 	
 }

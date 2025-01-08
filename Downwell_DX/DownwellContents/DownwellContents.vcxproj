@@ -184,11 +184,19 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="PauseScreen.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="BaseUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="SelectScreen.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -234,8 +242,16 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="PauseScreen.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="PreCompile.h" />
     <ClInclude Include="BaseUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="SelectScreen.h">
       <SubType>
       </SubType>
     </ClInclude>
