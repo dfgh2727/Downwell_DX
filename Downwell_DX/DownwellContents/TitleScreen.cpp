@@ -27,7 +27,7 @@ void TitleScreen::BeginPlay()
 
 	{
 		Dither = GetWorld()->SpawnActor<DitherFullScreen>();
-		Dither->SetActorLocation({ 0.0f, -285.0f, -50.0f });
+		Dither->SetActorLocation({ 0.0f, -285.0f, -500.0f });
 		Dither->FadeIn();
 	}
 
@@ -37,7 +37,7 @@ void TitleScreen::BeginPlay()
 	}
 	{
 		NightSkySprite = GetWorld()->SpawnActor<NightSky>();
-		NightSkySprite->SetActorLocation({ 0.0f, 170.0f, 10.0f });
+		NightSkySprite->SetActorLocation({ -9.0f, 170.0f, 10.0f });
 	}
 	{
 		DownwellTitleSprite = GetWorld()->SpawnActor<DownwellTitle>();
