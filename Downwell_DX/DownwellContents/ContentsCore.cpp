@@ -6,6 +6,7 @@
 #include "TitleScreen.h"
 #include "OpeningScene.h"
 #include "PauseScreen.h"
+#include "SelectScreen.h"
 
 // #define은 그냥 무조건 복붙
 CreateContentsCoreDefine(UContentsCore);
@@ -112,6 +113,8 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineCore::CreateLevel<TitleScreen, APawn>("Title");
 	UEngineCore::CreateLevel<OpeningScene, APawn>("Opening");
 	UEngineCore::CreateLevel<PauseScreen, APawn>("Paused");
+	UEngineCore::CreateLevel<SelectScreen, APawn>("Select");
+
 	UEngineCore::OpenLevel("Opening");
 	
 }

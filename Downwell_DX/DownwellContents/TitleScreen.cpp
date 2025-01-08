@@ -56,8 +56,19 @@ void TitleScreen::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
-	if (UEngineInput::IsPress(VK_ESCAPE))
+	if (UEngineInput::IsDown(VK_ESCAPE))
 	{
 		UEngineCore::OpenLevel("Paused");
+	}
+
+	GoToSelectScreen(_DeltaTime);
+}
+
+void TitleScreen::GoToSelectScreen(float _DeltaTime)
+{
+	FVector PlayerPos = MainPlayerRenderer->GetActorLocation();
+	if (PlayerPos.Y <= -400.0f)
+	{
+		UEngineCore::OpenLevel("Select");
 	}
 }
