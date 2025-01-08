@@ -342,7 +342,7 @@ void UEngineGraphicDevice::CreateBackBuffer(const UEngineWindow& _Window)
 void UEngineGraphicDevice::RenderStart()
 {
     FVector ClearColor;
-    ClearColor = FVector(0.0f, 0.0f, 0.0f, 1.0f);
+    ClearColor = FVector(0.0f, 0.0f, 1.0f, 1.0f);
     // 이미지 파란색으로 채색해줘.
     // 한번 싹지우고
     Context->ClearRenderTargetView(RTV.Get(), ClearColor.Arr1D);
@@ -357,9 +357,6 @@ void UEngineGraphicDevice::RenderStart()
     ID3D11RenderTargetView* ArrRtv[16] = { 0 };
     ArrRtv[0] = RTV; // SV_Target0
     Context->OMSetRenderTargets(1, &ArrRtv[0], DepthTex->GetDSV());
-
-    std::shared_ptr<UEngineDepthStencilState> DepthState = UEngineDepthStencilState::Find<UEngineDepthStencilState>("BaseDepth");
-    DepthState->Setting();
 
     // 뎁스텍스처가 
     // 블랜드 스테이트등과 비슷한 녀석이다.
