@@ -171,6 +171,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Land.cpp" />
     <ClCompile Include="MainPlayer.cpp">
       <SubType>
       </SubType>
@@ -229,6 +230,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Land.h" />
     <ClInclude Include="MainPlayer.h">
       <SubType>
       </SubType>

@@ -9,6 +9,7 @@
 #include "Well.h"
 #include "NightSky.h"
 #include "DownwellTitle.h"
+#include "Land.h"
 
 #include "MainPlayer.h"
 
@@ -36,7 +37,7 @@ void TitleScreen::BeginPlay()
 
 	{
 		WellSprite = GetWorld()->SpawnActor<Well>();
-		WellSprite->SetActorLocation({ 0.0f, -238.0f, 100.0f });
+		WellSprite->SetActorLocation({ 0.0f, -238.0f, 200.0f });
 	}
 	{
 		NightSkySprite = GetWorld()->SpawnActor<NightSky>();
@@ -45,6 +46,10 @@ void TitleScreen::BeginPlay()
 	{
 		DownwellTitleSprite = GetWorld()->SpawnActor<DownwellTitle>();
 		DownwellTitleSprite->SetActorLocation({ 0.0f, 41.0f, 100.0f });
+	}
+	{
+		LandSprite = GetWorld()->SpawnActor<Land>();
+		LandSprite->SetActorLocation({ 0.0f, -149.0f, 100.0f });
 	}
 	{
 		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();

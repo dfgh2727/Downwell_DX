@@ -55,6 +55,9 @@
     <ClCompile Include="SelectScreen.cpp">
       <Filter>Level</Filter>
     </ClCompile>
+    <ClCompile Include="Land.cpp">
+      <Filter>Images\TitleImage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -110,6 +113,9 @@
     </ClInclude>
     <ClInclude Include="SelectScreen.h">
       <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Land.h">
+      <Filter>Images\TitleImage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
