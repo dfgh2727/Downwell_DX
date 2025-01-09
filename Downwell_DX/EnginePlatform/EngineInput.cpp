@@ -173,7 +173,7 @@ UEngineInput::UEngineInput()
 	Keys.insert({ VK_INSERT		, UEngineKey(VK_INSERT) });
 	Keys.insert({ VK_DELETE		, UEngineKey(VK_DELETE) });
 	Keys.insert({ VK_HELP		, UEngineKey(VK_HELP) });
-	Keys.insert({ VK_ESCAPE		, UEngineKey(VK_ESCAPE) });
+
 
 	Keys.insert({ VK_NUMPAD0	, UEngineKey(VK_NUMPAD0) });
 	Keys.insert({ VK_NUMPAD1	, UEngineKey(VK_NUMPAD1) });
@@ -228,6 +228,18 @@ void UEngineInput::EventCheck(float _DeltaTime)
 		// 명시적이기 잖고 디버깅이 힘들어서 별로 좋아하지 않게 되었다.
 		UEngineKey& CurKey = StartIter->second;
 		CurKey.EventCheck();
+	}
+}
+
+void UEngineInput::KeyReset()
+{
+	std::map<int, UEngineKey>::iterator StartIter = GetInst().Keys.begin();
+	std::map<int, UEngineKey>::iterator EndIter = GetInst().Keys.end();
+
+	for (; StartIter != EndIter; ++StartIter)
+	{
+		UEngineKey& CurKey = StartIter->second;
+		CurKey.Reset();
 	}
 }
 

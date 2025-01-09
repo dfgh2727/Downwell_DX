@@ -129,6 +129,13 @@ public:
 		Order = _Order;
 	}
 
+	bool& GetIsActiveValueRef()
+	{
+		return IsActiveValue;
+	}
+
+
+
 protected:
 
 private:
