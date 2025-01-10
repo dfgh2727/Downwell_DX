@@ -3,6 +3,7 @@
 #include <EngineCore/SpriteRenderer.h>
 #include <EnginePlatform/EngineInput.h>
 #include <EngineCore/DefaultSceneComponent.h>
+#include <EngineCore/Collision.h>
 
 MainPlayer::MainPlayer()
 {
@@ -19,6 +20,11 @@ MainPlayer::MainPlayer()
 	PlayerRenderer->ChangeAnimation("Idle");
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
+
+	CollisionBox = CreateDefaultSubObject<UCollision>();
+	CollisionBox->SetupAttachment(RootComponent);
+	CollisionBox->SetCollisionProfileName("Monster");
+	CollisionBox->SetScale3D({ 50.0f, 50.0f });
 }
 
 MainPlayer::~MainPlayer()

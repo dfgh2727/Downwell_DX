@@ -5,6 +5,8 @@
 #include <EngineCore/EngineCamera.h>
 #include <EnginePlatform/EngineInput.h>
 
+#include "PausedText.h"
+
 PauseScreen::PauseScreen()
 {
 	std::shared_ptr<ACameraActor> Camera = GetWorld()->GetMainCamera();
@@ -19,6 +21,11 @@ PauseScreen::~PauseScreen()
 void PauseScreen::BeginPlay()
 {
 	AActor::BeginPlay();
+
+	{
+		Paused = GetWorld()->SpawnActor<PausedText>();
+		Paused->SetActorLocation({ 0.0f, 149.0f, -150.0f });
+	}
 
 }
 

@@ -4,6 +4,7 @@
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineCamera.h>
 #include <EngineCore/TimeEventComponent.h>
+#include <EnginePlatform/EngineInput.h>
 
 #include "DevolverLogo.h"
 #include "Developers.h"
@@ -63,6 +64,11 @@ void OpeningScene::BeginPlay()
 void OpeningScene::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+
+	if (UEngineInput::IsDown('P'))
+	{
+		UEngineCore::OpenLevel("Title");
+	}
 }
 
 void OpeningScene::ShowDevelopers()

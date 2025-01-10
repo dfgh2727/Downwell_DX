@@ -15,6 +15,10 @@ public:
 	Grass& operator=(const Grass& _Other) = delete;
 	Grass& operator=(Grass&& _Other) noexcept = delete;
 
+	void SetGrass1();
+	void SetGrass2();
+
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;

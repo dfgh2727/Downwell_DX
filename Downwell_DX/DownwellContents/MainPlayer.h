@@ -1,5 +1,7 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include <EngineCore/SpriteRenderer.h>
+#include <EnginePlatform/EngineWinImage.h>
 
 // Ό³Έν :
 class MainPlayer: public AActor
@@ -26,5 +28,7 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> PlayerRenderer;
+
+	std::shared_ptr<class UCollision> CollisionBox;
 };
 

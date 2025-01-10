@@ -28,6 +28,9 @@ private:
 	std::shared_ptr<class NightSky> NightSkySprite;
 	std::shared_ptr<class DownwellTitle> DownwellTitleSprite;
 	std::shared_ptr<class Land> LandSprite;
+	std::shared_ptr<class Grass> GrassSprite1;
+	std::shared_ptr<class Grass> GrassSprite2;
+	std::shared_ptr<class Grass> GrassSprite3;
 
 	std::shared_ptr<class MainPlayer> MainPlayerRenderer;
 };

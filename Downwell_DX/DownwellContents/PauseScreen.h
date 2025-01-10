@@ -21,6 +21,7 @@ public:
 protected:
 
 private:
+	std::shared_ptr<class PausedText> Paused;
 
 };
 

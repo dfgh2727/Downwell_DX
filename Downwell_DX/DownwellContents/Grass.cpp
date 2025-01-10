@@ -13,6 +13,7 @@ Grass::Grass()
 	GrassRenderer->SetupAttachment(RootComponent);
 	GrassRenderer->CreateAnimation("Grass1", "Grass", 0, 3, 0.1f);
 	GrassRenderer->CreateAnimation("Grass2", "Grass", 4, 7, 0.1f);
+	GrassRenderer->SetAutoScaleRatio(2.0f);
 }
 
 Grass::~Grass()
@@ -27,4 +28,14 @@ void Grass::BeginPlay()
 void Grass::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+}
+
+void Grass::SetGrass1()
+{
+	GrassRenderer->ChangeAnimation("Grass1");
+}
+
+void Grass::SetGrass2()
+{
+	GrassRenderer->ChangeAnimation("Grass2");
 }

@@ -1,30 +1,29 @@
 #include "PreCompile.h"
-#include "Well.h"
+#include "PausedText.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
-#include <EngineCore/Collision.h>
 
-Well::Well()
+PausedText::PausedText()
 {
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 
 	// 랜더러를 만든다.
-	WellRenderer = CreateDefaultSubObject<USpriteRenderer>();
-	WellRenderer->SetupAttachment(RootComponent);
-	WellRenderer->SetTexture("Well.png", true, 2.0f);
+	PausedTextRenderer = CreateDefaultSubObject<USpriteRenderer>();
+	PausedTextRenderer->SetupAttachment(RootComponent);
+	PausedTextRenderer->SetTexture("PST_PAUSED.png", true, 1.0f);
 }
 
-Well::~Well()
+PausedText::~PausedText()
 {
 }
 
-void Well::BeginPlay()
+void PausedText::BeginPlay()
 {
 	AActor::BeginPlay();
 }
 
-void Well::Tick(float _DeltaTime)
+void PausedText::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 }

@@ -185,6 +185,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="PausedText.cpp" />
     <ClCompile Include="PauseScreen.cpp">
       <SubType>
       </SubType>
@@ -244,6 +245,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="PausedText.h" />
     <ClInclude Include="PauseScreen.h">
       <SubType>
       </SubType>

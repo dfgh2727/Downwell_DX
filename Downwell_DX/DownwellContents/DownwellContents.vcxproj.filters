@@ -58,6 +58,9 @@
     <ClCompile Include="Land.cpp">
       <Filter>Images\TitleImage</Filter>
     </ClCompile>
+    <ClCompile Include="PausedText.cpp">
+      <Filter>Images\PSImage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -117,6 +120,9 @@
     <ClInclude Include="Land.h">
       <Filter>Images\TitleImage</Filter>
     </ClInclude>
+    <ClInclude Include="PausedText.h">
+      <Filter>Images\PSImage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -136,6 +142,9 @@
     </Filter>
     <Filter Include="Images\Dithering">
       <UniqueIdentifier>{00e28e13-30ec-4f31-929e-92bc27046009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images\PSImage">
+      <UniqueIdentifier>{c6a96ad1-9eea-4a41-850c-fd3a0d51559d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

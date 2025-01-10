@@ -1,5 +1,7 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include <EngineCore/SpriteRenderer.h>
+#include <EnginePlatform/EngineWinImage.h>
 
 // Ό³Έν :
 class Well : public AActor
@@ -21,5 +23,11 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> WellRenderer;
+
+	std::shared_ptr<class UCollision> CollisionBox1;
+    std::shared_ptr<class UCollision> CollisionBox2;
+    std::shared_ptr<class UCollision> CollisionBox3;
+    std::shared_ptr<class UCollision> CollisionBox4;
+
 };
 

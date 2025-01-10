@@ -10,6 +10,7 @@
 #include "NightSky.h"
 #include "DownwellTitle.h"
 #include "Land.h"
+#include "Grass.h"
 
 #include "MainPlayer.h"
 
@@ -50,6 +51,21 @@ void TitleScreen::BeginPlay()
 	{
 		LandSprite = GetWorld()->SpawnActor<Land>();
 		LandSprite->SetActorLocation({ 0.0f, -149.0f, 100.0f });
+	}
+	{
+		GrassSprite1 = GetWorld()->SpawnActor<Grass>();
+		GrassSprite1->SetActorLocation({ -140.0f, -147.0f, 100.0f });
+		GrassSprite1->SetGrass1();
+	}
+	{
+		GrassSprite2 = GetWorld()->SpawnActor<Grass>();
+		GrassSprite2->SetActorLocation({ -120.0f, -147.0f, 100.0f });
+		GrassSprite2->SetGrass1();
+	}
+	{
+		GrassSprite3 = GetWorld()->SpawnActor<Grass>();
+		GrassSprite3->SetActorLocation({ 140.0f, -147.0f, 100.0f });
+		GrassSprite3->SetGrass2();
 	}
 	{
 		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();

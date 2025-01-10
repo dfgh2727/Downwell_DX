@@ -99,6 +99,30 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
 			return;
 		}
+		Dir.Append("Image/Title/Grass");
+
+		UEngineSprite::CreateSpriteToFolder(Dir.GetPathToString());
+	}
+
+	{
+		UEngineDirectory Dir;
+		if (false == Dir.MoveParentToDirectory("ContentsResources"))
+		{
+			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
+			return;
+		}
+		Dir.Append("Image/PauseScreen");
+
+		UEngineSprite::CreateSpriteToFolder(Dir.GetPathToString());
+	}
+
+	{
+		UEngineDirectory Dir;
+		if (false == Dir.MoveParentToDirectory("ContentsResources"))
+		{
+			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
+			return;
+		}
 		Dir.Append("Image/Dither");
 
 		UEngineSprite::CreateSpriteToFolder(Dir.GetPathToString());
