@@ -1,10 +1,10 @@
 #pragma once
-#include <EngineCore/Actor.h>
+#include <EngineCore/Pawn.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EnginePlatform/EngineWinImage.h>
 
 // Ό³Έν :
-class MainPlayer: public AActor
+class MainPlayer: public APawn
 {
 public:
 	// constrcuter destructer
@@ -28,7 +28,8 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> PlayerRenderer;
+	//std::shared_ptr<class UCollision> CollisionBox;
 
-	std::shared_ptr<class UCollision> CollisionBox;
+	FVector GoDown = FVector::DOWN * 200.0f;
 };
 

@@ -2,7 +2,7 @@
 #include "Well.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
-#include <EngineCore/Collision.h>
+//#include <EngineCore/Collision.h>
 
 Well::Well()
 {

@@ -2,6 +2,7 @@
 #include "Partition.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
+#include <EngineCore/Collision.h>
 
 Partition::Partition()
 {

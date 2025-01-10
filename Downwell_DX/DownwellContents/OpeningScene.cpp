@@ -89,6 +89,6 @@ void OpeningScene::ShowControl()
 void OpeningScene::FadeOut()
 {
 	Dither = GetWorld()->SpawnActor<DitherFullScreen>();
-	Dither->SetActorLocation({ 0.0f, -285.0f, -50.0f });
+	Dither->SetActorLocation({ 0.0f, 0.0f, -50.0f });
 	Dither->FadeOut();
 }

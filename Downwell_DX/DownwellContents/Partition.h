@@ -21,5 +21,7 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> PartitionRenderer;
+
+	std::shared_ptr<class UCollision> CollisionBox;
 };
 

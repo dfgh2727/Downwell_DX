@@ -150,6 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BulletStatus.cpp" />
+    <ClCompile Include="Cavern1.cpp" />
     <ClCompile Include="ContentsCore.cpp" />
     <ClCompile Include="Developers.cpp">
       <SubType>
@@ -210,6 +211,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BulletStatus.h" />
+    <ClInclude Include="Cavern1.h" />
     <ClInclude Include="ContentsCore.h" />
     <ClInclude Include="Developers.h">
       <SubType>

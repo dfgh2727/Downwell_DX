@@ -8,6 +8,10 @@
 #include "PauseScreen.h"
 #include "SelectScreen.h"
 
+#include "MainPlayer.h"
+
+#include "Cavern1.h"
+
 // #define은 그냥 무조건 복붙
 CreateContentsCoreDefine(UContentsCore);
 
@@ -139,7 +143,11 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineCore::CreateLevel<PauseScreen, APawn>("Paused");
 	UEngineCore::CreateLevel<SelectScreen, APawn>("Select");
 
+	UEngineCore::CreateLevel<Cavern1, MainPlayer>("Cavern1");
+
+
 	UEngineCore::OpenLevel("Opening");
+	
 	
 }
 

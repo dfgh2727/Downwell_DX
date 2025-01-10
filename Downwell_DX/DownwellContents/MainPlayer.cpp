@@ -21,10 +21,10 @@ MainPlayer::MainPlayer()
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
 
-	CollisionBox = CreateDefaultSubObject<UCollision>();
-	CollisionBox->SetupAttachment(RootComponent);
-	CollisionBox->SetCollisionProfileName("Monster");
-	CollisionBox->SetScale3D({ 50.0f, 50.0f });
+	//CollisionBox = CreateDefaultSubObject<UCollision>();
+	//CollisionBox->SetupAttachment(RootComponent);
+	//CollisionBox->SetCollisionProfileName("Monster");
+	//CollisionBox->SetScale3D({ 50.0f, 50.0f });
 }
 
 MainPlayer::~MainPlayer()
@@ -39,6 +39,8 @@ void MainPlayer::BeginPlay()
 void MainPlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+
+	AddActorLocation(GoDown * _DeltaTime);
 
 	if (UEngineInput::IsPress('A'))
 	{
@@ -70,3 +72,4 @@ void MainPlayer::Tick(float _DeltaTime)
 	}
 
 }
+

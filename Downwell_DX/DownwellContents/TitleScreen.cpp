@@ -54,19 +54,15 @@ void TitleScreen::BeginPlay()
 	}
 	{
 		GrassSprite1 = GetWorld()->SpawnActor<Grass>();
-		GrassSprite1->SetActorLocation({ -140.0f, -147.0f, 100.0f });
+		GrassSprite1->SetActorLocation({ -145.0f, -139.0f, 100.0f });
 		GrassSprite1->SetGrass1();
 	}
 	{
 		GrassSprite2 = GetWorld()->SpawnActor<Grass>();
-		GrassSprite2->SetActorLocation({ -120.0f, -147.0f, 100.0f });
-		GrassSprite2->SetGrass1();
+		GrassSprite2->SetActorLocation({ 145.0f, -139.0f, 100.0f });
+		GrassSprite2->SetGrass2();
 	}
-	{
-		GrassSprite3 = GetWorld()->SpawnActor<Grass>();
-		GrassSprite3->SetActorLocation({ 140.0f, -147.0f, 100.0f });
-		GrassSprite3->SetGrass2();
-	}
+
 	{
 		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();
 		MainPlayerRenderer->SetActorLocation({ -100.0f, -110.0f, 10.0f });
@@ -80,6 +76,11 @@ void TitleScreen::Tick(float _DeltaTime)
 	if (UEngineInput::IsDown(VK_ESCAPE))
 	{
 		UEngineCore::OpenLevel("Paused");
+	}
+
+	if (UEngineInput::IsDown('R'))
+	{
+		UEngineCore::OpenLevel("Cavern1");
 	}
 
 	GoToSelectScreen(_DeltaTime);
