@@ -342,7 +342,7 @@ void UEngineGraphicDevice::CreateBackBuffer(const UEngineWindow& _Window)
 void UEngineGraphicDevice::RenderStart()
 {
     FVector ClearColor;
-    ClearColor = FVector(0.0f, 0.0f, 1.0f, 1.0f);
+    ClearColor = FVector(0.0f, 0.6f, 0.4f, 1.0f);
     // 이미지 파란색으로 채색해줘.
     // 한번 싹지우고
     Context->ClearRenderTargetView(RTV.Get(), ClearColor.Arr1D);
