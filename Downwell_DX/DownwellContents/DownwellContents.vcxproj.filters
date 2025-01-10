@@ -64,6 +64,21 @@
     <ClCompile Include="Cavern1.cpp">
       <Filter>Level</Filter>
     </ClCompile>
+    <ClCompile Include="MapEditorMode.cpp">
+      <Filter>MapEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="ContentsEditorGUI.cpp">
+      <Filter>MapEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Images\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile001.cpp">
+      <Filter>Images\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile002.cpp">
+      <Filter>Images\Tile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -129,6 +144,21 @@
     <ClInclude Include="Cavern1.h">
       <Filter>Level</Filter>
     </ClInclude>
+    <ClInclude Include="MapEditorMode.h">
+      <Filter>MapEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentsEditorGUI.h">
+      <Filter>MapEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Images\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile001.h">
+      <Filter>Images\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile002.h">
+      <Filter>Images\Tile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -151,6 +181,12 @@
     </Filter>
     <Filter Include="Images\PSImage">
       <UniqueIdentifier>{c6a96ad1-9eea-4a41-850c-fd3a0d51559d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapEditor">
+      <UniqueIdentifier>{5399735e-a246-4550-9693-ee5fa0a5e6da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images\Tile">
+      <UniqueIdentifier>{30a529e0-2283-41c5-9726-1b14450c9199}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

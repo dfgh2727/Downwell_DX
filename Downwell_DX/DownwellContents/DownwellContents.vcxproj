@@ -152,6 +152,7 @@
     <ClCompile Include="BulletStatus.cpp" />
     <ClCompile Include="Cavern1.cpp" />
     <ClCompile Include="ContentsCore.cpp" />
+    <ClCompile Include="ContentsEditorGUI.cpp" />
     <ClCompile Include="Developers.cpp">
       <SubType>
       </SubType>
@@ -177,6 +178,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="MapEditorMode.cpp" />
     <ClCompile Include="NightSky.cpp" />
     <ClCompile Include="OpeningScene.cpp">
       <SubType>
@@ -203,6 +205,12 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Tile001.cpp" />
+    <ClCompile Include="Tile002.cpp" />
     <ClCompile Include="TitleScreen.cpp">
       <SubType>
       </SubType>
@@ -213,6 +221,7 @@
     <ClInclude Include="BulletStatus.h" />
     <ClInclude Include="Cavern1.h" />
     <ClInclude Include="ContentsCore.h" />
+    <ClInclude Include="ContentsEditorGUI.h" />
     <ClInclude Include="Developers.h">
       <SubType>
       </SubType>
@@ -238,6 +247,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="MapEditorMode.h" />
     <ClInclude Include="NightSky.h" />
     <ClInclude Include="OpeningScene.h">
       <SubType>
@@ -261,6 +271,12 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Tile.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Tile001.h" />
+    <ClInclude Include="Tile002.h" />
     <ClInclude Include="TitleScreen.h">
       <SubType>
       </SubType>
