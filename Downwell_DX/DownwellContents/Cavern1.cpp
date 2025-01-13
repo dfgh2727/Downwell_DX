@@ -23,7 +23,7 @@ Cavern1::Cavern1()
 
 	TileMap = CreateDefaultSubObject<UTileMapRenderer>();
 	TileMap->SetupAttachment(RootComponent);
-	FVector TileSize = { 32.0f, 32.0f };
+	TileSize = { 32.0f, 32.0f };
 	TileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, { 0.5f, 0.5f });
 }
 
@@ -36,7 +36,7 @@ void Cavern1::BeginPlay()
 	AActor::BeginPlay();
 
 	{
-		for (int y = -100; y < 10; y++)
+		for (int y = -10; y < 10; y++)
 		{
 			for (int x = -5; x < 6; x++)
 			{
@@ -68,4 +68,9 @@ void Cavern1::Tick(float _DeltaTime)
 		Camera->SetActorLocation(CameraPos);
 	}
 
+}
+
+void Cavern1::MakeMap()
+{
+	//if(PlayerPos.Y >= TileSize.Y)
 }

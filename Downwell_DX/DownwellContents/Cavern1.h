@@ -18,6 +18,8 @@ public:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	void MakeMap();
+
 protected:
 
 private:
@@ -27,5 +29,6 @@ private:
 
 	FVector CameraPos = { 0.0f, 0.0f, -1000.0f, 1.0f };
 	FVector PlayerPos = FVector::ZERO;
+	FVector TileSize = FVector::ZERO;
 };
 
