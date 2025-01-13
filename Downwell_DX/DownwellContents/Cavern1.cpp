@@ -36,7 +36,7 @@ void Cavern1::BeginPlay()
 	AActor::BeginPlay();
 
 	{
-		for (int y = -100; y < 20; y++)
+		for (int y = -100; y < 10; y++)
 		{
 			for (int x = -5; x < 6; x++)
 			{
@@ -47,7 +47,7 @@ void Cavern1::BeginPlay()
 
 	{
 		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();
-		MainPlayerRenderer->SetActorLocation({ 0.0f, 0.0f, 10.0f });
+		MainPlayerRenderer->SetActorLocation({ 0.0f, 0.0f, -10.0f });
 	}
 
 }
