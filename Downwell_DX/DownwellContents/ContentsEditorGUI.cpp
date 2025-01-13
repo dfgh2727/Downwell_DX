@@ -17,7 +17,7 @@ void UContentsEditorGUI::OnGUI()
 
 	for (std::pair<const std::string, std::shared_ptr<class ULevel>>& Pair : Map)
 	{
-		// ??영어넣어줬는데 why ???????????????
+
 		if (ImGui::Button(Pair.first.c_str()))
 		{
 			UEngineCore::OpenLevel(Pair.first);

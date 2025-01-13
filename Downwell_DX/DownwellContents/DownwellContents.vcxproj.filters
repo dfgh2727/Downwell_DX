@@ -64,9 +64,6 @@
     <ClCompile Include="Cavern1.cpp">
       <Filter>Level</Filter>
     </ClCompile>
-    <ClCompile Include="MapEditorMode.cpp">
-      <Filter>MapEditor</Filter>
-    </ClCompile>
     <ClCompile Include="ContentsEditorGUI.cpp">
       <Filter>MapEditor</Filter>
     </ClCompile>
@@ -149,9 +146,6 @@
     </ClInclude>
     <ClInclude Include="Cavern1.h">
       <Filter>Level</Filter>
-    </ClInclude>
-    <ClInclude Include="MapEditorMode.h">
-      <Filter>MapEditor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsEditorGUI.h">
       <Filter>MapEditor</Filter>

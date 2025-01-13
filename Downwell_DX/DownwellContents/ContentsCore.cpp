@@ -20,7 +20,6 @@
 #include "SelectScreen.h"
 
 #include "MainPlayer.h"
-#include "MapEditorMode.h"
 #include "Cavern1.h"
 
 // #define은 그냥 무조건 복붙
@@ -156,13 +155,24 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	}
 
 	{
-		std::shared_ptr<UEngineMaterial> Mat = UEngineMaterial::Create("MyCollisionDebugMaterial");
-		Mat->SetVertexShader("EngineDebugCollisionShader.fx");
-		Mat->SetPixelShader("EngineDebugCollisionShader.fx");
-		// 언제나 화면에 나오는 누구도 이녀석의 앞을 가릴수 없어.
-		Mat->SetDepthStencilState("CollisionDebugDepth");
-		Mat->SetRasterizerState("CollisionDebugRas");
+		UEngineDirectory CurDir;
+		CurDir.MoveParentToDirectory("ContentsShader");
+
+		std::vector<UEngineFile> ShaderFiles = CurDir.GetAllFile(true, { ".fx", ".hlsl" });
+
+		for (size_t i = 0; i < ShaderFiles.size(); i++)
+		{
+			UEngineShader::ReflectionCompile(ShaderFiles[i]);
+		}
 	}
+	//{
+	//	std::shared_ptr<UEngineMaterial> Mat = UEngineMaterial::Create("MyCollisionDebugMaterial");
+	//	Mat->SetVertexShader("EngineDebugCollisionShader.fx");
+	//	Mat->SetPixelShader("EngineDebugCollisionShader.fx");
+	//	// 언제나 화면에 나오는 누구도 이녀석의 앞을 가릴수 없어.
+	//	Mat->SetDepthStencilState("CollisionDebugDepth");
+	//	Mat->SetRasterizerState("CollisionDebugRas");
+	//}
 
 	UEngineSprite::CreateSpriteToMeta("Player_Idle.png", ".sdata");
 	UEngineSprite::CreateSpriteToMeta("Player_Run.png", ".sdata");
@@ -174,7 +184,6 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineCore::CreateLevel<PauseScreen, APawn>("Paused");
 	UEngineCore::CreateLevel<SelectScreen, APawn>("Select");
 	UEngineCore::CreateLevel<Cavern1, MainPlayer>("Cavern1");
-	UEngineCore::CreateLevel<MapEditorMode, APawn>("TileMapEditor");
 
 	UEngineGUI::AllWindowOff();
 
@@ -184,7 +193,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 
 	//UEngineCore::OpenLevel("TileMapEditor");
 
-	UEngineCore::OpenLevel("Opening");
+	UEngineCore::OpenLevel("Cavern1");
 	
 	
 }

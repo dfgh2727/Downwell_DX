@@ -40,7 +40,7 @@ void MainPlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
-	AddActorLocation(GoDown * _DeltaTime);
+	//AddActorLocation(GoDown * _DeltaTime);
 
 	if (UEngineInput::IsPress('A'))
 	{

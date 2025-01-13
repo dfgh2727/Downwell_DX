@@ -45,6 +45,15 @@ FTileIndex UTileMapRenderer::WorldPosToTileIndex(FVector _Pos)
 	case Rect:
 	{
 		FVector ConvertVector = _Pos /= TileSize;
+		if (_Pos.X < 0.0f)
+		{
+			ConvertVector.X = floorf(ConvertVector.X);
+		}
+		if (_Pos.Y < 0.0f)
+		{
+			ConvertVector.Y = floorf(ConvertVector.Y);
+		}
+
 		Result.X = ConvertVector.iX();
 		Result.Y = ConvertVector.iY();
 		break;

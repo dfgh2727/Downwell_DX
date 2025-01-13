@@ -4,43 +4,27 @@
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineCamera.h>
 #include <EnginePlatform/EngineInput.h>
+#include <EngineCore/DefaultSceneComponent.h>
+#include <EngineCore/TileMapRenderer.h>
 
 #include "DitherFullScreen.h"
 #include "Bat.h"
-
 #include "MainPlayer.h"
 
-#include <EngineCore/EngineGUIWindow.h>
-#include <EngineCore/EngineGUI.h>
-#include <EngineCore/imgui.h>
-#include "ContentsEditorGUI.h"
 
-class TestWindow : public UEngineGUIWindow
-{
-public:
-	void OnGUI() override
-	{
-		if (true == ImGui::Button("WindowButton"))
-		{
-			std::shared_ptr<Bat> NewMonster = GetWorld()->SpawnActor<Bat>();
-			NewMonster->SetActorLocation({ 300.0f, 200.0f, 0.0f });
-		}
-
-		if (true == ImGui::Button("FreeCameraOn"))
-		{
-			GetWorld()->GetMainCamera()->FreeCameraSwitch();
-		}
-
-		ImGui::SameLine(); // ÇÑ°£ ¶ç±â
-		ImGui::Text("test");
-
-	}
-};
 Cavern1::Cavern1()
 {
-	/*std::shared_ptr<ACameraActor> */Camera = GetWorld()->GetMainCamera();
+	Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation(CameraPos);
 	Camera->GetCameraComponent()->SetZSort(0, true);
+	
+	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
+	RootComponent = Default;
+
+	TileMap = CreateDefaultSubObject<UTileMapRenderer>();
+	TileMap->SetupAttachment(RootComponent);
+	FVector TileSize = { 32.0f, 32.0f };
+	TileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, { 0.5f, 0.5f });
 }
 
 Cavern1::~Cavern1()
@@ -50,6 +34,16 @@ Cavern1::~Cavern1()
 void Cavern1::BeginPlay()
 {
 	AActor::BeginPlay();
+
+	{
+		for (int y = -100; y < 20; y++)
+		{
+			for (int x = -5; x < 6; x++)
+			{
+				TileMap->SetTile(x, y, 1);	
+			}
+		}
+	}
 
 	{
 		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();

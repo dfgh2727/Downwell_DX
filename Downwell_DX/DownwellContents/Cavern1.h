@@ -23,6 +23,7 @@ protected:
 private:
 	std::shared_ptr<class MainPlayer> MainPlayerRenderer;
 	std::shared_ptr<class ACameraActor> Camera;
+	std::shared_ptr<class UTileMapRenderer> TileMap;
 
 	FVector CameraPos = { 0.0f, 0.0f, -1000.0f, 1.0f };
 	FVector PlayerPos = FVector::ZERO;
