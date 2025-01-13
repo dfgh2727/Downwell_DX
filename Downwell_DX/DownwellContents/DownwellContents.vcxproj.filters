@@ -79,6 +79,12 @@
     <ClCompile Include="Tile002.cpp">
       <Filter>Images\Tile</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -159,6 +165,12 @@
     <ClInclude Include="Tile002.h">
       <Filter>Images\Tile</Filter>
     </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -187,6 +199,9 @@
     </Filter>
     <Filter Include="Images\Tile">
       <UniqueIdentifier>{30a529e0-2283-41c5-9726-1b14450c9199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Monster">
+      <UniqueIdentifier>{d5473c58-f38b-4188-b8fe-6d18fb81278b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

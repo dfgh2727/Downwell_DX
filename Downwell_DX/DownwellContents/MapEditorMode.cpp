@@ -1,6 +1,6 @@
 #include "PreCompile.h"
 #include "MapEditorMode.h"
-
+#include "Bat.h"
 #include <EngineCore/CameraActor.h>
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/SpriteRenderer.h>
@@ -14,7 +14,8 @@
 
 enum class ESpawnList
 {
-	None,
+	Bat,
+	Turtle,
 };
 
 enum class EEditMode
@@ -23,7 +24,7 @@ enum class EEditMode
 	Object,
 };
 
-class MapEditorMode : public UEngineGUIWindow
+class UTileMapWindow : public UEngineGUIWindow
 {
 public:
 	int SelectItem = 0;
@@ -58,7 +59,7 @@ public:
 						ImGui::SameLine();
 					}
 				}
-				
+
 
 				ImVec2 Pos = { Data.CuttingPos.X, Data.CuttingPos.Y };
 				ImVec2 Size = { Data.CuttingPos.X + Data.CuttingSize.X, Data.CuttingPos.Y + Data.CuttingSize.Y };
@@ -88,7 +89,7 @@ public:
 
 			if (true == UEngineInput::IsPress(VK_LBUTTON))
 			{
-				FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos(); 
+				FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos();
 
 				TileMapRenderer->SetTile(ScreenPos, SelectTileIndex);
 			}
@@ -102,92 +103,87 @@ public:
 		}
 	}
 
-	//void ObjectMode()
-	//{
+	void ObjectMode()
+	{
 
-	//	{
-	//		std::vector<const char*> Arr;
-	//		Arr.push_back("Monster");
-	//		Arr.push_back("Monster2");
-
-
-	//		ImGui::ListBox("SpawnList", &SelectItem, &Arr[0], 2);
-
-	//		// GetMainWindow()->IsScreenOut();
-
-	//		if (true == UEngineInput::IsDown(VK_LBUTTON))
-	//		{
-	//			ESpawnList SelectMonster = static_cast<ESpawnList>(SelectItem);
-	//			std::shared_ptr<class ACameraActor> Camera = GetWorld()->GetMainCamera();
-	//			FVector Pos = Camera->ScreenMousePosToWorldPos();
-	//			Pos.Z = 0.0f;
-
-	//			std::shared_ptr<AMon> NewMonster;
-
-	//			switch (SelectMonster)
-	//			{
-	//			case ESpawnList::Monster:
-	//				NewMonster = GetWorld()->SpawnActor<AMonster>("Monster");
-	//				break;
-	//			case ESpawnList::Monster2:
-	//				NewMonster = GetWorld()->SpawnActor<AMonster2>("Monster2");
-	//				break;
-	//			default:
-	//				break;
-	//			}
-
-	//			NewMonster->SetActorLocation(Pos);
-	//		}
-	//	}
-
-	//	{
-	//		if (ImGui::Button("EditObjectDelete"))
-	//		{
-	//			std::list<std::shared_ptr<AMon>> AllMonsterList = GetWorld()->GetAllActorListByClass<AMon>();
-	//			for (std::shared_ptr<AMon> Mon : AllMonsterList)
-	//			{
-	//				Mon->Destroy();
-	//			}
-
-	//		}
-	//	}
-
-	//	{
-	//		std::vector<std::shared_ptr<AMon>> AllMonsterList = GetWorld()->GetAllActorArrayByClass<AMon>();
-
-	//		std::vector<std::string> ArrString;
-	//		for (std::shared_ptr<class AActor> Actor : AllMonsterList)
-	//		{
-	//			ArrString.push_back(Actor->GetName());
-	//		}
-
-	//		std::vector<const char*> Arr;
-	//		for (size_t i = 0; i < ArrString.size(); i++)
-	//		{
-	//			Arr.push_back(ArrString[i].c_str());
-	//		}
+		{
+			std::vector<const char*> Arr;
+			Arr.push_back("Bat");
+			//Arr.push_back("Turtle");
 
 
-	//		if (0 < Arr.size())
-	//		{
-	//			ImGui::ListBox("AllActorList", &ObjectItem, &Arr[0], Arr.size());
+			ImGui::ListBox("SpawnList", &SelectItem, &Arr[0], 2);
 
-	//			// AllMonsterList[SelectItem]->Destroy();
+			// GetMainWindow()->IsScreenOut();
 
-	//			if (ObjectItem != -1)
-	//			{
-	//				// AllMonsterList[ObjectItem]->
-	//			}
+			if (true == UEngineInput::IsDown(VK_LBUTTON))
+			{
+				ESpawnList SelectMonster = static_cast<ESpawnList>(SelectItem);
+				std::shared_ptr<class ACameraActor> Camera = GetWorld()->GetMainCamera();
+				FVector Pos = Camera->ScreenMousePosToWorldPos();
+				Pos.Z = 0.0f;
 
-	//			if (true == ImGui::Button("Delete"))
-	//			{
-	//				AllMonsterList[ObjectItem]->Destroy();
-	//				ObjectItem = -1;
-	//			}
+				std::shared_ptr<Monster> NewMonster;
 
-	//		}
-	//	}
-	//}
+				switch (SelectMonster)
+				{
+				case ESpawnList::Bat:
+					NewMonster = GetWorld()->SpawnActor<Bat>("Bat");
+					break;
+				default:
+					break;
+				}
+
+				NewMonster->SetActorLocation(Pos);
+			}
+		}
+
+		{
+			if (ImGui::Button("EditObjectDelete"))
+			{
+				std::list<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorListByClass<Monster>();
+				for (std::shared_ptr<Monster> Mon : AllMonsterList)
+				{
+					Mon->Destroy();
+				}
+
+			}
+		}
+
+		{
+			std::vector<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorArrayByClass<Monster>();
+
+			std::vector<std::string> ArrString;
+			for (std::shared_ptr<class AActor> Actor : AllMonsterList)
+			{
+				ArrString.push_back(Actor->GetName());
+			}
+
+			std::vector<const char*> Arr;
+			for (size_t i = 0; i < ArrString.size(); i++)
+			{
+				Arr.push_back(ArrString[i].c_str());
+			}
+
+
+			if (0 < Arr.size())
+			{
+				ImGui::ListBox("AllActorList", &ObjectItem, &Arr[0], static_cast<int>(Arr.size()));
+
+				if (ObjectItem != -1)
+				{
+
+				}
+
+				if (true == ImGui::Button("Delete"))
+				{
+					AllMonsterList[ObjectItem]->Destroy();
+					ObjectItem = -1;
+				}
+
+			}
+		}
+	}
 
 	void SaveAndLoad()
 	{
@@ -221,13 +217,13 @@ public:
 
 			if (GetSaveFileNameA(&ofn) == TRUE)
 			{
-				std::list<std::shared_ptr<AMon>> AllMonsterList = GetWorld()->GetAllActorListByClass<AMon>();
+				std::list<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorListByClass<Monster>();
 
 				UEngineSerializer Ser;
 
 				Ser << static_cast<int>(AllMonsterList.size());
 
-				for (std::shared_ptr<AMon> Actor : AllMonsterList)
+				for (std::shared_ptr<Monster> Actor : AllMonsterList)
 				{
 
 					Ser << static_cast<int>(Actor->MonsterTypeValue);
@@ -235,8 +231,9 @@ public:
 					Actor->Serialize(Ser);
 				}
 
-				UEngineFile NewFile = Dir.GetFile(ofn.lpstrFile);
+				TileMapRenderer->Serialize(Ser);
 
+				UEngineFile NewFile = Dir.GetFile(ofn.lpstrFile);
 				NewFile.FileOpen("wb");
 				NewFile.Write(Ser);
 			}
@@ -288,15 +285,12 @@ public:
 
 					EMonsterType MonsterType = static_cast<EMonsterType>(MonsterTypeValue);
 
-					std::shared_ptr<AMon> NewMon = nullptr;
+					std::shared_ptr<Monster> NewMon = nullptr;
 
 					switch (MonsterType)
 					{
-					case Monster:
-						NewMon = GetWorld()->SpawnActor<AMonster>();
-						break;
-					case Monster2:
-						NewMon = GetWorld()->SpawnActor<AMonster2>();
+					case Bat1:
+						NewMon = GetWorld()->SpawnActor<Bat>();
 						break;
 					default:
 						break;
@@ -305,6 +299,7 @@ public:
 					NewMon->DeSerialize(Ser);
 				}
 
+				TileMapRenderer->DeSerialize(Ser);
 
 			}
 		}
@@ -320,7 +315,7 @@ public:
 					Mode = EEditMode::TileMap;
 				}
 			}
-			else 
+			else
 			{
 				if (ImGui::Button("TileMapMode"))
 				{
@@ -334,9 +329,9 @@ public:
 		case EEditMode::TileMap:
 			TileMapMode();
 			break;
-		/*case EEditMode::Object:
+		case EEditMode::Object:
 			ObjectMode();
-			break;*/
+			break;
 		default:
 			break;
 		}
@@ -357,11 +352,11 @@ MapEditorMode::MapEditorMode()
 
 	PivotSpriteRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	PivotSpriteRenderer->SetupAttachment(RootComponent);
-	PivotSpriteRenderer->SetRelativeScale3D({50.0f, 50.0f, 1.0f});
+	PivotSpriteRenderer->SetRelativeScale3D({ 50.0f, 50.0f, 1.0f });
 
 	TileMapRenderer = CreateDefaultSubObject<UTileMapRenderer>();
 	TileMapRenderer->SetupAttachment(RootComponent);
-	TileMapRenderer->SetTileSetting(ETileMapType::Iso, "TileMap.png", { 128.0f, 63.0f }, { 128.0f, 192.0f }, {0.0f, 0.0f});
+	TileMapRenderer->SetTileSetting(ETileMapType::Iso, "Tile", { 128.0f, 63.0f }, { 128.0f, 192.0f }, { 0.0f, 0.0f });
 
 
 
@@ -370,7 +365,7 @@ MapEditorMode::MapEditorMode()
 	// 카메라를 일정거리 뒤로 가서 
 	// 카메라 위치조정을 무조건 해줘야 할것이다.
 	std::shared_ptr<ACameraActor> Camera = GetWorld()->GetMainCamera();
-	Camera->SetActorLocation({0.0f, 0.0f, -1000.0f, 1.0f});
+	Camera->SetActorLocation({ 0.0f, 0.0f, -1000.0f, 1.0f });
 	Camera->GetCameraComponent()->SetZSort(0, true);
 
 }
@@ -402,11 +397,11 @@ void MapEditorMode::LevelChangeStart()
 	}
 
 	{
-		TileMapWindow = UEngineGUI::FindGUIWindow<MapEditorMode>("TileMapWindow");
+		TileMapWindow = UEngineGUI::FindGUIWindow<UTileMapWindow>("TileMapWindow");
 
 		if (nullptr == TileMapWindow)
 		{
-			TileMapWindow = UEngineGUI::CreateGUIWindow<MapEditorMode>("TileMapWindow");
+			TileMapWindow = UEngineGUI::CreateGUIWindow<UTileMapWindow>("TileMapWindow");
 		}
 
 		TileMapWindow->SetActive(true);

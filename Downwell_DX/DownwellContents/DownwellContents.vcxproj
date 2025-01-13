@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BulletStatus.cpp" />
     <ClCompile Include="Cavern1.cpp" />
     <ClCompile Include="ContentsCore.cpp" />
@@ -179,6 +180,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="MapEditorMode.cpp" />
+    <ClCompile Include="Monster.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="NightSky.cpp" />
     <ClCompile Include="OpeningScene.cpp">
       <SubType>
@@ -218,6 +223,7 @@
     <ClCompile Include="Well.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bat.h" />
     <ClInclude Include="BulletStatus.h" />
     <ClInclude Include="Cavern1.h" />
     <ClInclude Include="ContentsCore.h" />
@@ -248,6 +254,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="MapEditorMode.h" />
+    <ClInclude Include="Monster.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="NightSky.h" />
     <ClInclude Include="OpeningScene.h">
       <SubType>

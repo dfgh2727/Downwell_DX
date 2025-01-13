@@ -6,15 +6,36 @@
 #include <EnginePlatform/EngineInput.h>
 
 #include "DitherFullScreen.h"
-#include "Well.h"
-#include "NightSky.h"
-#include "DownwellTitle.h"
-#include "Land.h"
-#include "Grass.h"
+#include "Bat.h"
 
 #include "MainPlayer.h"
 
+#include <EngineCore/EngineGUIWindow.h>
+#include <EngineCore/EngineGUI.h>
+#include <EngineCore/imgui.h>
+#include "ContentsEditorGUI.h"
 
+class TestWindow : public UEngineGUIWindow
+{
+public:
+	void OnGUI() override
+	{
+		if (true == ImGui::Button("WindowButton"))
+		{
+			std::shared_ptr<Bat> NewMonster = GetWorld()->SpawnActor<Bat>();
+			NewMonster->SetActorLocation({ 300.0f, 200.0f, 0.0f });
+		}
+
+		if (true == ImGui::Button("FreeCameraOn"))
+		{
+			GetWorld()->GetMainCamera()->FreeCameraSwitch();
+		}
+
+		ImGui::SameLine(); // ÇÑ°£ ¶ç±â
+		ImGui::Text("test");
+
+	}
+};
 Cavern1::Cavern1()
 {
 	/*std::shared_ptr<ACameraActor> */Camera = GetWorld()->GetMainCamera();

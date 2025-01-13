@@ -1,10 +1,10 @@
 #pragma once
-#include <EngineCore/Actor.h>
+#include "Tile.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EnginePlatform/EngineWinImage.h>
 
 // Ό³Έν :
-class Tile001 : public AActor
+class Tile001 : public Tile
 {
 public:
 	// constrcuter destructer
