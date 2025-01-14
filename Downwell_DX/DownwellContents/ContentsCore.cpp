@@ -18,6 +18,7 @@
 #include "OpeningScene.h"
 #include "PauseScreen.h"
 #include "SelectScreen.h"
+#include "MapEditorMode.h"
 
 #include "MainPlayer.h"
 #include "Cavern1.h"
@@ -184,6 +185,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineCore::CreateLevel<PauseScreen, APawn>("Paused");
 	UEngineCore::CreateLevel<SelectScreen, APawn>("Select");
 	UEngineCore::CreateLevel<Cavern1, MainPlayer>("Cavern1");
+	UEngineCore::CreateLevel<MapEditorMode, APawn>("TileMapEditor");
 
 	UEngineGUI::AllWindowOff();
 

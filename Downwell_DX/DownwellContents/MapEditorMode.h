@@ -15,9 +15,18 @@ public:
 	MapEditorMode& operator=(const MapEditorMode& _Other) = delete;
 	MapEditorMode& operator=(MapEditorMode&& _Other) noexcept = delete;
 
+	void Tick(float _DeltaTime);
+
 protected:
+	void LevelChangeStart() override;
 
 private:
+	std::shared_ptr<class TileMapEditor> TileMapWindow;
+	//std::shared_ptr<class USpriteRenderer> PivotSpriteRenderer;
+	std::shared_ptr<class UTileMapRenderer> RenderTileMap;
+
+	FVector TileSize = { 32.0f, 32.0f };
+	FVector TilePivot = { 0.5f, 0.5f };
 
 };
 
