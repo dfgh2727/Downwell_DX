@@ -36,7 +36,7 @@ void Cavern1::BeginPlay()
 	AActor::BeginPlay();
 
 	{
-		for (int y = -10; y < 10; y++)
+		for (int y = -10; y < 15; y++)
 		{
 			for (int x = -5; x < 6; x++)
 			{
@@ -55,6 +55,7 @@ void Cavern1::BeginPlay()
 void Cavern1::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+	//MapManager();
 
 	if (UEngineInput::IsDown(VK_ESCAPE))
 	{
@@ -70,7 +71,14 @@ void Cavern1::Tick(float _DeltaTime)
 
 }
 
-void Cavern1::MakeMap()
+void Cavern1::MapManager()
 {
-	//if(PlayerPos.Y >= TileSize.Y)
+	STileIndex_Y = static_cast<int>(floorf((PlayerPos.Y - TileSize.Y * (10.0f)) / TileSize.Y));
+	RTileIndex_Y = static_cast<int>(floorf((PlayerPos.Y + TileSize.Y * (15.0f)) / TileSize.Y));
+
+	for (int x = -5; x < 6; x++)
+	{
+		TileMap->SetTile(x, STileIndex_Y, 1);
+		TileMap->RemoveTile(x, RTileIndex_Y);
+	}
 }
