@@ -82,6 +82,9 @@
     <ClCompile Include="Bat.cpp">
       <Filter>Monster</Filter>
     </ClCompile>
+    <ClCompile Include="MapEditorMode.cpp">
+      <Filter>MapEditor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -164,6 +167,9 @@
     </ClInclude>
     <ClInclude Include="Bat.h">
       <Filter>Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MapEditorMode.h">
+      <Filter>MapEditor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
