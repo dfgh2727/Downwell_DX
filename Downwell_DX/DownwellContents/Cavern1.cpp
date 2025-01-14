@@ -63,7 +63,7 @@ void Cavern1::Tick(float _DeltaTime)
 		Camera->SetActorLocation(CameraPos);
 	}
 
-	if (PrevPos != PlayerPos)
+	if (PrevPos.Y > PlayerPos.Y)
 	{
 		MapManager();
 		PrevPos = PlayerPos;
@@ -78,8 +78,8 @@ void Cavern1::Tick(float _DeltaTime)
 
 void Cavern1::MapManager()
 {
-	STileIndex_Y = static_cast<int>(floorf((PlayerPos.Y - TileSize.Y * (10.0f)) / TileSize.Y));
-	RTileIndex_Y = static_cast<int>(floorf((PlayerPos.Y + TileSize.Y * (15.0f)) / TileSize.Y));
+	STileIndex_Y = static_cast<int>(floorf((PlayerPos.Y - TileSize.Y * (5.0f)) / TileSize.Y));
+	RTileIndex_Y = static_cast<int>(floorf((PlayerPos.Y + TileSize.Y * (5.0f)) / TileSize.Y));
 
 	for (int x = -5; x < 6; x++)
 	{
