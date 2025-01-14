@@ -5,6 +5,7 @@
 #include <EngineCore/EngineCamera.h>
 #include <EngineCore/TimeEventComponent.h>
 #include <EnginePlatform/EngineInput.h>
+#include <EngineCore/EngineGUIWindow.h>
 
 #include "DevolverLogo.h"
 #include "Developers.h"

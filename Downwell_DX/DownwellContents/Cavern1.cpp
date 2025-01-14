@@ -36,13 +36,29 @@ void Cavern1::BeginPlay()
 	AActor::BeginPlay();
 
 	{
-		for (int y = -10; y < 15; y++)
+		UEngineDirectory Dir;
+		if (false == Dir.MoveParentToDirectory("ContentsResources"))
 		{
-			for (int x = -5; x < 6; x++)
-			{
-				TileMap->SetTile(x, y, 1);	
-			}
+			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
+			return;
 		}
+		Dir.Append("MapDataFolder");
+		MapDataFiles = Dir.GetAllFile(true, { ".MapData" });
+		ReadDatas.resize(MapDataFiles.size());
+
+		for (size_t i = 0; i < MapDataFiles.size(); i++)
+		{
+			// std::string FilePath = MapDataFiles[i].GetPathToString();
+
+			MapDataFiles[i].FileOpen("rb");
+			MapDataFiles[i].Read(ReadDatas[i]);
+		}
+
+
+	}
+
+	{
+		TileMap->DeSerialize(ReadDatas[1]);
 	}
 
 	{

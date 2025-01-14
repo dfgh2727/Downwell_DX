@@ -4,6 +4,7 @@
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineCamera.h>
 #include <EnginePlatform/EngineInput.h>
+#include <EngineCore/EngineGUIWindow.h>
 
 #include "PausedText.h"
 

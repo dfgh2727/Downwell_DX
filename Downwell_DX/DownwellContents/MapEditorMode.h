@@ -26,7 +26,7 @@ private:
 	std::shared_ptr<class UTileMapRenderer> RenderTileMap;
 
 	FVector TileSize = { 32.0f, 32.0f };
-	FVector TilePivot = { 0.5f, 0.5f };
+	FVector TilePivot = { 0.0f, 0.0f };
 
 };
 

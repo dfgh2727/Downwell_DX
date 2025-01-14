@@ -27,6 +27,7 @@ public:
 	int TileCountX = 10;
 	int TileCountY = 10;
 	int SelectTileIndex = 0;
+	FVector TileSize = { 32.0f, 32.0f };
 
 	void TileMapMode()
 	{
@@ -37,15 +38,15 @@ public:
 				FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos();
 				if (ScreenPos.X < 0.0f)
 				{
-					ScreenPos.X = ScreenPos.X + -50.0f;
+					ScreenPos.X = ScreenPos.X -TileSize.X * 0.5f;
 				}
 		
 				if (ScreenPos.Y < 0.0f)
 				{
-					ScreenPos.Y = ScreenPos.Y + -50.0f;
+					ScreenPos.Y = ScreenPos.Y -TileSize.X * 0.5f;
 				}
 
-				FVector CScreenPos = ScreenPos / 100.0f;
+				FVector CScreenPos = ScreenPos / TileSize;
 		
 				if (ScreenPos.X < 0.0f)
 				{
@@ -241,6 +242,8 @@ MapEditorMode::MapEditorMode()
 	RenderTileMap = CreateDefaultSubObject<UTileMapRenderer>();
 	RenderTileMap->SetupAttachment(RootComponent);
 	RenderTileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, TilePivot);
+	RenderTileMap->SetTile(0, 0, 0);
+
 }
 
 MapEditorMode::~MapEditorMode()
