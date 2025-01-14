@@ -55,18 +55,23 @@ void Cavern1::BeginPlay()
 void Cavern1::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
-	//MapManager();
+	PlayerPos = MainPlayerRenderer->GetActorLocation();
+
+	{
+		CameraPos.X = PlayerPos.X;
+		CameraPos.Y = PlayerPos.Y;
+		Camera->SetActorLocation(CameraPos);
+	}
+
+	if (PrevPos != PlayerPos)
+	{
+		MapManager();
+		PrevPos = PlayerPos;
+	}
 
 	if (UEngineInput::IsDown(VK_ESCAPE))
 	{
 		UEngineCore::OpenLevel("Paused");
-	}
-
-	{
-		PlayerPos = MainPlayerRenderer->GetActorLocation();
-		CameraPos.X = PlayerPos.X;
-		CameraPos.Y = PlayerPos.Y;
-		Camera->SetActorLocation(CameraPos);
 	}
 
 }
