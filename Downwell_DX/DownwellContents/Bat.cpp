@@ -14,7 +14,7 @@ Bat::Bat()
 	// 랜더러를 만든다.
 	BatRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	BatRenderer->SetupAttachment(RootComponent);
-	BatRenderer->SetTexture("Bat.png", true, 2.0f);
+	//BatRenderer->SetTexture("Bat.png", true, 2.0f);
 }
 
 Bat::~Bat()

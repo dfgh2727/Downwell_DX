@@ -82,6 +82,7 @@ public:
 
 	ENGINEAPI void SetTileSetting(ETileMapType _Type, std::string_view _Name, FVector _TileSize, FVector _ImageSize, FVector _Pivot);
 
+	ENGINEAPI void DataSetting(FIntPoint StartIndex, UEngineSerializer& _Data);
 
 	ENGINEAPI void SetTile(FVector _Pos, int _Spriteindex);
 	ENGINEAPI void RemoveTile(FVector _Pos);

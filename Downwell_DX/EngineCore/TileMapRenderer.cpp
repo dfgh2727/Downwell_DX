@@ -239,3 +239,31 @@ void UTileMapRenderer::DeSerialize(UEngineSerializer& _Ser)
 		Tiles.insert({ TileData.Index.Key, TileData });
 	}
 }
+
+void UTileMapRenderer::DataSetting(FIntPoint StartIndex, UEngineSerializer& _Data)
+{
+	int TempTileSize = 0;
+
+	_Data.ResetOffset();
+
+	_Data.Read(&TileMapType, sizeof(int));
+	_Data >> TempTileSize;
+	_Data >> ImageSize;
+	_Data >> TilePivot;
+	std::string Name;
+	_Data >> Name;
+
+
+	int Count = 0;
+	_Data >> Count;
+	for (size_t i = 0; i < Count; i++)
+	{
+		FTileData TileData;
+		_Data.Read(&TileData, sizeof(TileData));
+
+		TileData.Index.X += StartIndex.X;
+		TileData.Index.Y += StartIndex.Y;
+
+		Tiles.insert({ TileData.Index.Key, TileData });
+	}
+}
