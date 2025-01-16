@@ -21,10 +21,13 @@ Cavern1::Cavern1()
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 
-	TileMap = CreateDefaultSubObject<UTileMapRenderer>();
-	TileMap->SetupAttachment(RootComponent);
-	TileSize = { 32.0f, 32.0f };
-	TileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, { 0.5f, 0.5f });
+	TileMap1 = CreateDefaultSubObject<UTileMapRenderer>();
+	TileMap1->SetupAttachment(RootComponent);
+	TileMap1->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, { 0.5f, 0.5f });
+
+	TileMap2 = CreateDefaultSubObject<UTileMapRenderer>();
+	TileMap2->SetupAttachment(RootComponent);
+	TileMap2->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, { 0.5f, 0.5f });
 }
 
 Cavern1::~Cavern1()
@@ -58,7 +61,10 @@ void Cavern1::BeginPlay()
 	}
 
 	{
-		TileMap->DeSerialize(ReadDatas[1]);
+		//TileMap1->DeSerialize(ReadDatas[0]);
+		TileMap2->DataSetting({ 0, 0 }, ReadDatas[1]);
+		TileMap2->DataSetting({ 0, -20 }, ReadDatas[1]);
+
 	}
 
 	{
@@ -94,12 +100,12 @@ void Cavern1::Tick(float _DeltaTime)
 
 void Cavern1::MapManager()
 {
-	STileIndex_Y = static_cast<int>(floorf((PlayerPos.Y - TileSize.Y * (5.0f)) / TileSize.Y));
+	/*STileIndex_Y = static_cast<int>(floorf((PlayerPos.Y - TileSize.Y * (5.0f)) / TileSize.Y));
 	RTileIndex_Y = static_cast<int>(floorf((PlayerPos.Y + TileSize.Y * (5.0f)) / TileSize.Y));
 
 	for (int x = -5; x < 6; x++)
 	{
-		TileMap->SetTile(x, STileIndex_Y, 1);
-		TileMap->RemoveTile(x, RTileIndex_Y);
-	}
+		TileMap1->SetTile(x, STileIndex_Y, 1);
+		TileMap1->RemoveTile(x, RTileIndex_Y);
+	}*/
 }

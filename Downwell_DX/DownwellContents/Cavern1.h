@@ -25,7 +25,8 @@ protected:
 private:
 	std::shared_ptr<class MainPlayer> MainPlayerRenderer;
 	std::shared_ptr<class ACameraActor> Camera;
-	std::shared_ptr<class UTileMapRenderer> TileMap;
+	std::shared_ptr<class UTileMapRenderer> TileMap1;
+	std::shared_ptr<class UTileMapRenderer> TileMap2;
 
 	std::vector<UEngineFile> MapDataFiles;
 	std::vector<UEngineSerializer> ReadDatas;
@@ -33,7 +34,7 @@ private:
 	FVector CameraPos = { 0.0f, 0.0f, -1000.0f, 1.0f };
 	FVector PlayerPos = FVector::ZERO;
 	FVector PrevPos = FVector::ZERO;
-	FVector TileSize = FVector::ZERO;
+	FVector TileSize = { 32.0f, 32.0f };
 
 	int STileIndex_Y = 0;
 	int RTileIndex_Y = 0;

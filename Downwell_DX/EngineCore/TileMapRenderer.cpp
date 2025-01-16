@@ -242,14 +242,16 @@ void UTileMapRenderer::DeSerialize(UEngineSerializer& _Ser)
 
 void UTileMapRenderer::DataSetting(FIntPoint StartIndex, UEngineSerializer& _Data)
 {
-	int TempTileSize = 0;
+	FVector TempTileSize = FVector::ZERO;
+	FVector TempImageSize = FVector::ZERO;
+	FVector TempTilePivot = FVector::ZERO;
 
 	_Data.ResetOffset();
 
 	_Data.Read(&TileMapType, sizeof(int));
 	_Data >> TempTileSize;
-	_Data >> ImageSize;
-	_Data >> TilePivot;
+	_Data >> TempImageSize;
+	_Data >> TempTilePivot;
 	std::string Name;
 	_Data >> Name;
 
