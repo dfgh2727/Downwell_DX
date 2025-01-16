@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ecbce818-edcc-47a0-bb79-f2e96f758e74}</ProjectGuid>
+    <ProjectGuid>{ce3eb1c6-aa43-4547-b50b-62788bea5e14}</ProjectGuid>
     <RootNamespace>EngineShader</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -70,12 +70,6 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
-  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -135,6 +129,7 @@
   <ItemGroup>
     <FxCompile Include="EngineDebugCollisionShader.fx" />
     <FxCompile Include="EngineSpriteShader.fx" />
+    <FxCompile Include="EngineTargetMergeShader.fx" />
     <FxCompile Include="EngineTileMapShader.fx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
