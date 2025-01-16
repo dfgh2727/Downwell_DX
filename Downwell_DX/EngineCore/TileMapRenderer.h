@@ -30,7 +30,7 @@ struct FTileData
 	bool IsBlock = false;
 	int SpriteIndex = 0;
 	FTileIndex Index;
-	ResultColor ColorData;
+	FResultColor ColorData;
 	FSpriteData SpriteData;
 };
 
@@ -82,10 +82,11 @@ public:
 
 	ENGINEAPI void SetTileSetting(ETileMapType _Type, std::string_view _Name, FVector _TileSize, FVector _ImageSize, FVector _Pivot);
 
-	ENGINEAPI void DataSetting(FIntPoint StartIndex, UEngineSerializer& _Data);
 
 	ENGINEAPI void SetTile(FVector _Pos, int _Spriteindex);
 	ENGINEAPI void RemoveTile(FVector _Pos);
+
+	ENGINEAPI void DataSetting(FIntPoint StartIndex, UEngineSerializer& _Data);
 
 	// 없으면 만들어요.
 	ENGINEAPI void SetTile(int _X, int _Y, int _Spriteindex);
@@ -110,7 +111,6 @@ protected:
 	ENGINEAPI void Render(class UEngineCamera* _Camera, float _DeltaTime) override;
 	void BeginPlay() override;
 	void ComponentTick(float _DeltaTime) override;
-	ENGINEAPI void RenderTransUpdate(UEngineCamera* _Camera) override;
 
 private:
 	bool IsAutoScale = true;

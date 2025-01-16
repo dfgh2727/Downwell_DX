@@ -12,6 +12,7 @@
 #include <EngineCore/EngineBlend.h>
 #include <EngineCore/EngineShader.h>
 #include <EngineCore/EngineMaterial.h>
+#include <EngineCore/HUD.h>
 
 #include "ContentsEditorGUI.h"
 #include "TitleScreen.h"
@@ -180,12 +181,12 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineSprite::CreateSpriteToMeta("Player_Balancing.png", ".sdata");
 
 	// 주인공 APawn 상속 받으세요.
-	UEngineCore::CreateLevel<TitleScreen, APawn>("Title");
-	UEngineCore::CreateLevel<OpeningScene, APawn>("Opening");
-	UEngineCore::CreateLevel<PauseScreen, APawn>("Paused");
-	UEngineCore::CreateLevel<SelectScreen, APawn>("Select");
-	UEngineCore::CreateLevel<Cavern1, MainPlayer>("Cavern1");
-	UEngineCore::CreateLevel<MapEditorMode, APawn>("TileMapEditor");
+	UEngineCore::CreateLevel<TitleScreen, APawn, AHUD>("Title");
+	UEngineCore::CreateLevel<OpeningScene, APawn, AHUD>("Opening");
+	UEngineCore::CreateLevel<PauseScreen, APawn, AHUD>("Paused");
+	UEngineCore::CreateLevel<SelectScreen, APawn, AHUD>("Select");
+	UEngineCore::CreateLevel<Cavern1, MainPlayer, AHUD>("Cavern1");
+	UEngineCore::CreateLevel<MapEditorMode, APawn, AHUD>("TileMapEditor");
 
 	UEngineGUI::AllWindowOff();
 
