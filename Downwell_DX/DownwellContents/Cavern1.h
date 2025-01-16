@@ -18,15 +18,14 @@ public:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	void MapManager();
+	//void MapManager();
 
 protected:
 
 private:
 	std::shared_ptr<class MainPlayer> MainPlayerRenderer;
 	std::shared_ptr<class ACameraActor> Camera;
-	std::shared_ptr<class UTileMapRenderer> TileMap1;
-	std::shared_ptr<class UTileMapRenderer> TileMap2;
+	std::shared_ptr<class UTileMapRenderer> TileMap;
 
 	std::vector<UEngineFile> MapDataFiles;
 	std::vector<UEngineSerializer> ReadDatas;

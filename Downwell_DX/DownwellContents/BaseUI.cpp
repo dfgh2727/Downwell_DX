@@ -18,11 +18,11 @@ BaseUI::BaseUI()
 
 	{
 		PartitionImage1 = GetWorld()->SpawnActor<Partition>();
-		PartitionImage1->SetActorLocation({ -271.0f, 0.0f, -100.0f, 1.0f });
+		PartitionImage1->SetActorLocation({ -268.0f, 0.0f, -100.0f, 1.0f });
 	}
 	{
 		PartitionImage2 = GetWorld()->SpawnActor<Partition>();
-		PartitionImage2->SetActorLocation({ 271.0f, 0.0f, -100.0f, 1.0f });
+		PartitionImage2->SetActorLocation({ 268.0f, 0.0f, -100.0f, 1.0f });
 		PartitionImage2->AddActorRotation(FVector{ 0.0f, 0.0f , 180.0f});
 	}
 	{
