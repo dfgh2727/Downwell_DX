@@ -18,7 +18,7 @@ public:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	//void MapManager();
+	void MapManager();
 
 protected:
 

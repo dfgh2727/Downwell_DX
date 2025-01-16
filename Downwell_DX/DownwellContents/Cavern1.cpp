@@ -59,7 +59,7 @@ void Cavern1::BeginPlay()
 	{
 		//TileMap1->DeSerialize(ReadDatas[0]);
 		TileMap->DataSetting({ 0, 0 }, ReadDatas[0]);
-		//TileMap->DataSetting({ 0, -20 }, ReadDatas[1]);
+		TileMap->DataSetting({ 0, -18 }, ReadDatas[0]);
 
 	}
 
@@ -81,11 +81,11 @@ void Cavern1::Tick(float _DeltaTime)
 		Camera->SetActorLocation(CameraPos);
 	}
 
-	/*if (PrevPos.Y > PlayerPos.Y)
+	if (PrevPos.Y > PlayerPos.Y)
 	{
 		MapManager();
 		PrevPos = PlayerPos;
-	}*/
+	}
 
 	if (UEngineInput::IsDown(VK_ESCAPE))
 	{
@@ -94,14 +94,14 @@ void Cavern1::Tick(float _DeltaTime)
 
 }
 
-//void Cavern1::MapManager()
-//{
-//	STileIndex_Y = static_cast<int>(floorf((PlayerPos.Y - TileSize.Y * (5.0f)) / TileSize.Y));
-//	RTileIndex_Y = static_cast<int>(floorf((PlayerPos.Y + TileSize.Y * (5.0f)) / TileSize.Y));
-//
-//	for (int x = -5; x < 6; x++)
-//	{
-//		TileMap->SetTile(x, STileIndex_Y, 1);
-//		TileMap->RemoveTile(x, RTileIndex_Y);
-//	}
-//}
+void Cavern1::MapManager()
+{
+	//STileIndex_Y = static_cast<int>(floorf((PlayerPos.Y - TileSize.Y * (5.0f)) / TileSize.Y));
+	RTileIndex_Y = static_cast<int>(floorf((PlayerPos.Y + TileSize.Y * (5.0f)) / TileSize.Y));
+
+	for (int x = -5; x < 6; x++)
+	{
+		//TileMap->SetTile(x, STileIndex_Y, 1);
+		TileMap->RemoveTile(x, RTileIndex_Y);
+	}
+}
