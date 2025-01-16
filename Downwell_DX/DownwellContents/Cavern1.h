@@ -1,8 +1,8 @@
 #pragma once
-#include "BaseUI.h"
+#include <EngineCore/GameMode.h>
 
 // Ό³Έν :
-class Cavern1 : public BaseUI
+class Cavern1 : public AGameMode
 {
 public:
 	// constrcuter destructer

@@ -149,6 +149,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BulletStatus.cpp" />
     <ClCompile Include="Cavern1.cpp" />
@@ -205,10 +209,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="BaseUI.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
     <ClCompile Include="SelectScreen.cpp">
       <SubType>
       </SubType>
@@ -226,6 +226,10 @@
     <ClCompile Include="Well.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BasicUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BulletStatus.h" />
     <ClInclude Include="Cavern1.h" />
@@ -279,10 +283,6 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="PreCompile.h" />
-    <ClInclude Include="BaseUI.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="SelectScreen.h">
       <SubType>
       </SubType>

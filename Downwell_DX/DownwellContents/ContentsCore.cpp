@@ -14,6 +14,7 @@
 #include <EngineCore/EngineMaterial.h>
 #include <EngineCore/HUD.h>
 
+#include "BasicUI.h"
 #include "ContentsEditorGUI.h"
 #include "TitleScreen.h"
 #include "OpeningScene.h"
@@ -42,7 +43,8 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	// 넌 컨텐츠잖아 엔진이 관리하는 윈도우라는게 존재하는지도 몰라야한다.
 
 	_Data.WindowPos = { 540, 200 };
-	_Data.WindowSize = { 760, 570 };
+	//_Data.WindowSize = { 760, 570 };
+	_Data.WindowSize = { 1000, 800 };
 
 	{
 		UEngineDirectory Dir;
@@ -181,12 +183,12 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineSprite::CreateSpriteToMeta("Player_Balancing.png", ".sdata");
 
 	// 주인공 APawn 상속 받으세요.
-	UEngineCore::CreateLevel<TitleScreen, APawn, AHUD>("Title");
+	UEngineCore::CreateLevel<TitleScreen, APawn, BasicUI>("Title");
 	UEngineCore::CreateLevel<OpeningScene, APawn, AHUD>("Opening");
-	UEngineCore::CreateLevel<PauseScreen, APawn, AHUD>("Paused");
-	UEngineCore::CreateLevel<SelectScreen, APawn, AHUD>("Select");
-	UEngineCore::CreateLevel<Cavern1, MainPlayer, AHUD>("Cavern1");
-	UEngineCore::CreateLevel<MapEditorMode, APawn, AHUD>("TileMapEditor");
+	UEngineCore::CreateLevel<PauseScreen, APawn, BasicUI>("Paused");
+	UEngineCore::CreateLevel<SelectScreen, APawn, BasicUI>("Select");
+	UEngineCore::CreateLevel<Cavern1, MainPlayer, BasicUI>("Cavern1");
+	UEngineCore::CreateLevel<MapEditorMode, APawn, BasicUI>("TileMapEditor");
 
 	UEngineGUI::AllWindowOff();
 

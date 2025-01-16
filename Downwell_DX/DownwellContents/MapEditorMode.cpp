@@ -211,10 +211,15 @@ public:
 
 	void OnGUI() override
 	{
-		if (ImGui::Button("TileMapMode"))
+		if (true == ImGui::Button("FreeCameraOn"))
+		{
+			GetWorld()->GetMainCamera()->FreeCameraSwitch();
+		}
+
+		/*if (ImGui::Button("TileMapMode"))
 		{
 			Mode = EditMode::TileMapMode;
-		}
+		}*/
 
 		switch (Mode)
 		{
@@ -242,7 +247,7 @@ MapEditorMode::MapEditorMode()
 	RenderTileMap = CreateDefaultSubObject<UTileMapRenderer>();
 	RenderTileMap->SetupAttachment(RootComponent);
 	RenderTileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, TilePivot);
-	RenderTileMap->SetTile(0, 0, 0);
+	//RenderTileMap->SetTile(0, 0, 0);	
 
 }
 

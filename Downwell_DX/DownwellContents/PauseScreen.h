@@ -1,8 +1,8 @@
 #pragma once
-#include "BaseUI.h"
+#include <EngineCore/GameMode.h>
 
 // Ό³Έν :
-class PauseScreen : public BaseUI
+class PauseScreen : public AGameMode
 {
 public:
 	// constrcuter destructer

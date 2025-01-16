@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="PreCompile.cpp" />
-    <ClCompile Include="BaseUI.cpp">
-      <Filter>Level</Filter>
-    </ClCompile>
     <ClCompile Include="MainPlayer.cpp" />
     <ClCompile Include="ContentsCore.cpp" />
     <ClCompile Include="OpeningScene.cpp">
@@ -85,12 +82,12 @@
     <ClCompile Include="MapEditorMode.cpp">
       <Filter>MapEditor</Filter>
     </ClCompile>
+    <ClCompile Include="BasicUI.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
-    <ClInclude Include="BaseUI.h">
-      <Filter>Level</Filter>
-    </ClInclude>
     <ClInclude Include="MainPlayer.h" />
     <ClInclude Include="ContentsCore.h" />
     <ClInclude Include="OpeningScene.h">
@@ -171,6 +168,9 @@
     <ClInclude Include="MapEditorMode.h">
       <Filter>MapEditor</Filter>
     </ClInclude>
+    <ClInclude Include="BasicUI.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -202,6 +202,9 @@
     </Filter>
     <Filter Include="Monster">
       <UniqueIdentifier>{d5473c58-f38b-4188-b8fe-6d18fb81278b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD">
+      <UniqueIdentifier>{a8dfb10c-1dbc-400e-a144-4ad9df4b1582}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

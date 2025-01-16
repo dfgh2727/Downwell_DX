@@ -1,19 +1,19 @@
 #pragma once
-#include <EngineCore/GameMode.h>
+#include <EngineCore/HUD.h>
 
 // Ό³Έν :
-class BaseUI : public AGameMode
+class BasicUI : public AHUD
 {
 public:
 	// constrcuter destructer
-	BaseUI();
-	~BaseUI();
+	BasicUI();
+	~BasicUI();
 
 	// delete Function
-	BaseUI(const BaseUI& _Other) = delete;
-	BaseUI(BaseUI&& _Other) noexcept = delete;
-	BaseUI& operator=(const BaseUI& _Other) = delete;
-	BaseUI& operator=(BaseUI&& _Other) noexcept = delete;
+	BasicUI(const BasicUI& _Other) = delete;
+	BasicUI(BasicUI&& _Other) noexcept = delete;
+	BasicUI& operator=(const BasicUI& _Other) = delete;
+	BasicUI& operator=(BasicUI&& _Other) noexcept = delete;
 
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -21,6 +21,8 @@ public:
 protected:
 
 private:
+	//std::shared_ptr<class UImageWidget> UIWidget;
+
 	std::shared_ptr<class MainPlayer> Player;
 	std::shared_ptr<class Partition> PartitionImage1;
 	std::shared_ptr<class Partition> PartitionImage2;
