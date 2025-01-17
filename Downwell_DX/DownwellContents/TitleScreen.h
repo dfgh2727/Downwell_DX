@@ -31,7 +31,8 @@ private:
 	std::shared_ptr<class Grass> GrassSprite1;
 	std::shared_ptr<class Grass> GrassSprite2;
 	//std::shared_ptr<class Grass> GrassSprite3;
-
+	
+	//std::shared_ptr<class UCollision> Collision;
 	std::shared_ptr<class MainPlayer> MainPlayerRenderer;
 };
 

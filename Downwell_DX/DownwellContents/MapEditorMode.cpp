@@ -246,8 +246,7 @@ MapEditorMode::MapEditorMode()
 
 	RenderTileMap = CreateDefaultSubObject<UTileMapRenderer>();
 	RenderTileMap->SetupAttachment(RootComponent);
-	RenderTileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, TilePivot);
-	//RenderTileMap->SetTile(0, 0, 0);	
+	RenderTileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, TilePivot);	
 
 }
 

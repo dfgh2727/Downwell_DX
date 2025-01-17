@@ -85,6 +85,7 @@
     <ClCompile Include="BasicUI.cpp">
       <Filter>HUD</Filter>
     </ClCompile>
+    <ClCompile Include="MapActor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="BasicUI.h">
       <Filter>HUD</Filter>
     </ClInclude>
+    <ClInclude Include="MapActor.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">

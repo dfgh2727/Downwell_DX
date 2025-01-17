@@ -21,10 +21,11 @@ MainPlayer::MainPlayer()
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
 
-	//CollisionBox = CreateDefaultSubObject<UCollision>();
-	//CollisionBox->SetupAttachment(RootComponent);
-	//CollisionBox->SetCollisionProfileName("Monster");
-	//CollisionBox->SetScale3D({ 50.0f, 50.0f });
+	CollisionBox = CreateDefaultSubObject<UCollision>();
+	CollisionBox->SetupAttachment(RootComponent);
+	CollisionBox->SetCollisionProfileName("MainPlayer");
+	CollisionBox->SetScale3D({ 20.0f, 30.0f });
+	CollisionBox->SetRelativeLocation({ 0.0f, 15.0f });
 
 	/*{
 		FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos();

@@ -183,6 +183,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="MapActor.cpp" />
     <ClCompile Include="MapEditorMode.cpp">
       <SubType>
       </SubType>
@@ -260,6 +261,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="MapActor.h" />
     <ClInclude Include="MapEditorMode.h">
       <SubType>
       </SubType>

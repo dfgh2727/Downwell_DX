@@ -28,7 +28,7 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> PlayerRenderer;
-	//std::shared_ptr<class UCollision> CollisionBox;
+	std::shared_ptr<class UCollision> CollisionBox;
 
 	FVector GoDown = FVector::DOWN * 200.0f;
 };

@@ -6,6 +6,7 @@
 #include <EnginePlatform/EngineInput.h>
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/TileMapRenderer.h>
+#include <EnginePlatform/EngineWinImage.h>
 
 #include "DitherFullScreen.h"
 #include "Bat.h"
@@ -24,6 +25,10 @@ Cavern1::Cavern1()
 	TileMap = CreateDefaultSubObject<UTileMapRenderer>();
 	TileMap->SetupAttachment(RootComponent);
 	TileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, { 0.5f, 0.5f });
+
+	
+	
+	
 }
 
 Cavern1::~Cavern1()
@@ -58,14 +63,15 @@ void Cavern1::BeginPlay()
 
 	{
 		//TileMap1->DeSerialize(ReadDatas[0]);
-		TileMap->DataSetting({ 0, 0 }, ReadDatas[0]);
-		TileMap->DataSetting({ 0, -18 }, ReadDatas[0]);
+		TileMap->DataSetting({ 0, 0 }, ReadDatas[2]);
+		//TileMap->DataSetting({ 0, -18 }, ReadDatas[2]);
 
 	}
 
 	{
 		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();
 		MainPlayerRenderer->SetActorLocation({ 0.0f, 0.0f, -10.0f });
+		UColor = UEngineWinImage::GetColor
 	}
 
 }
@@ -83,7 +89,7 @@ void Cavern1::Tick(float _DeltaTime)
 
 	if (PrevPos.Y > PlayerPos.Y)
 	{
-		MapManager();
+		//MapManager();
 		PrevPos = PlayerPos;
 	}
 

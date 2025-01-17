@@ -5,6 +5,8 @@
 #include <EngineCore/EngineCamera.h>
 #include <EnginePlatform/EngineInput.h>
 #include <EngineCore/EngineGUIWindow.h>
+#include <EngineCore/EngineGUIWindow.h>
+//#include <EngineCore/Collision.h>
 
 #include "DitherFullScreen.h"
 #include "Well.h"
@@ -21,6 +23,8 @@ TitleScreen::TitleScreen()
 	std::shared_ptr<ACameraActor> Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation({ 0.0f, 0.0f, -1000.0f, 1.0f });
 	Camera->GetCameraComponent()->SetZSort(0, true);
+
+	//GetWorld()->CreateCollisionProfile("MainPlayer");
 }
 
 TitleScreen::~TitleScreen()

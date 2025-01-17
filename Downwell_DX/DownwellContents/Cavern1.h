@@ -26,6 +26,7 @@ private:
 	std::shared_ptr<class MainPlayer> MainPlayerRenderer;
 	std::shared_ptr<class ACameraActor> Camera;
 	std::shared_ptr<class UTileMapRenderer> TileMap;
+	std::shared_ptr<class UEngineWinImage> ColMap;
 
 	std::vector<UEngineFile> MapDataFiles;
 	std::vector<UEngineSerializer> ReadDatas;
