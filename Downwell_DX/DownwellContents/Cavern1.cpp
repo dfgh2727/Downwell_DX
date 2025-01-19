@@ -61,6 +61,18 @@ void Cavern1::BeginPlay()
 
 	}
 
+	/*{
+		UEngineDirectory Dir;
+		if (false == Dir.MoveParentToDirectory("ContentsResources"))
+		{
+			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
+			return;
+		}
+		Dir.Append("CollisionMap");
+		ColMapFile = Dir.GetFile("ColMap.png");
+		ColMap->Load(nullptr, ColMapFile.GetPathToString());
+	}*/
+
 	{
 		//TileMap1->DeSerialize(ReadDatas[0]);
 		TileMap->DataSetting({ 0, 0 }, ReadDatas[2]);

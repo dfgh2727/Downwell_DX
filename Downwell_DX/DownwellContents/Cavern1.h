@@ -28,6 +28,8 @@ private:
 	std::shared_ptr<class UTileMapRenderer> TileMap;
 	std::shared_ptr<class UEngineWinImage> ColMap;
 
+	class UEngineFile ColMapFile;
+
 	std::vector<UEngineFile> MapDataFiles;
 	std::vector<UEngineSerializer> ReadDatas;
 
