@@ -71,7 +71,7 @@ void Cavern1::BeginPlay()
 	{
 		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();
 		MainPlayerRenderer->SetActorLocation({ 0.0f, 0.0f, -10.0f });
-		UColor = UEngineWinImage::GetColor
+		//UColor = UEngineWinImage::GetColor
 	}
 
 }

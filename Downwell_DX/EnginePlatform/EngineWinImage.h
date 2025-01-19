@@ -11,10 +11,10 @@ public:
 	ENGINEAPI ~UEngineWinImage();
 
 	// delete Function
-	UEngineWinImage(const UEngineWinImage& _Other) = delete;
-	UEngineWinImage(UEngineWinImage&& _Other) noexcept = delete;
-	UEngineWinImage& operator=(const UEngineWinImage& _Other) = delete;
-	UEngineWinImage& operator=(UEngineWinImage&& _Other) noexcept = delete;
+	//UEngineWinImage(const UEngineWinImage& _Other) = delete;
+	//UEngineWinImage(UEngineWinImage&& _Other) noexcept = delete;
+	//UEngineWinImage& operator=(const UEngineWinImage& _Other) = delete;
+	//UEngineWinImage& operator=(UEngineWinImage&& _Other) noexcept = delete;
 
 	// void Load(std::string_view _Path);
 	ENGINEAPI HDC GetDC()
