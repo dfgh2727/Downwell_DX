@@ -86,9 +86,6 @@
       <Filter>HUD</Filter>
     </ClCompile>
     <ClCompile Include="MapActor.cpp" />
-    <ClCompile Include="PlayableGameMode.cpp">
-      <Filter>Level</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -176,9 +173,6 @@
       <Filter>HUD</Filter>
     </ClInclude>
     <ClInclude Include="MapActor.h" />
-    <ClInclude Include="PlayableGameMode.h">
-      <Filter>Level</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">

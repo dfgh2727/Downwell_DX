@@ -206,7 +206,6 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="PlayableGameMode.cpp" />
     <ClCompile Include="PreCompile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -285,7 +284,6 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="PlayableGameMode.h" />
     <ClInclude Include="PreCompile.h" />
     <ClInclude Include="SelectScreen.h">
       <SubType>
