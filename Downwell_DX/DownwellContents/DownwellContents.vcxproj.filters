@@ -86,6 +86,7 @@
       <Filter>HUD</Filter>
     </ClCompile>
     <ClCompile Include="MapActor.cpp" />
+    <ClCompile Include="FSMStateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -173,6 +174,7 @@
       <Filter>HUD</Filter>
     </ClInclude>
     <ClInclude Include="MapActor.h" />
+    <ClInclude Include="FSMStateManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">

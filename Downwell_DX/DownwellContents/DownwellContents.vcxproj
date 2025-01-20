@@ -168,6 +168,7 @@
     </ClCompile>
     <ClCompile Include="DitherFullScreen.cpp" />
     <ClCompile Include="DownwellTitle.cpp" />
+    <ClCompile Include="FSMStateManager.cpp" />
     <ClCompile Include="GemStatus.cpp">
       <SubType>
       </SubType>
@@ -246,6 +247,7 @@
     </ClInclude>
     <ClInclude Include="DitherFullScreen.h" />
     <ClInclude Include="DownwellTitle.h" />
+    <ClInclude Include="FSMStateManager.h" />
     <ClInclude Include="GemStatus.h">
       <SubType>
       </SubType>

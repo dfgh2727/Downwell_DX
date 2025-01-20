@@ -2,8 +2,18 @@
 #include <EngineCore/Actor.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EnginePlatform/EngineWinImage.h>
+#include "FSMStateManager.h"
 
 // Ό³Έν :
+enum class MainPlayerState
+{
+	Idle,
+	Run,
+	Jump,
+	Shoot,
+
+};
+
 class MainPlayer: public AActor//APawn
 {
 public:
@@ -27,6 +37,12 @@ public:
 		TRenderer = _Renderer;
 	}
 
+	void Idle(float _DeltaTime);
+	void Run(float _DeltaTime);
+	void Jump(float _DeltaTime);
+	void Shoot(float _DeltaTime);
+
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -36,7 +52,13 @@ private:
 	std::shared_ptr<class UCollision> CollisionBox = nullptr;
 	class UTileMapRenderer* TRenderer = nullptr;
 	class FTileData* TData = nullptr;
-	FVector GoDown = FVector::DOWN * 200.0f;
+
+	FVector GForce = FVector::DOWN * 200.0f;
+	FVector Gravity = FVector::ZERO;
+
 	FVector PrevLocation = FVector::ZERO;
+	UFSMStateManager FSM;
+
+	bool IsOnTheGround = false;
 };
 

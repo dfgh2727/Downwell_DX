@@ -18,7 +18,8 @@ MainPlayer::MainPlayer()
 	PlayerRenderer->CreateAnimation("Idle", "Player_Idle.png", 0, 3, 0.2f);
 	PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
-	PlayerRenderer->ChangeAnimation("Idle");
+	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.3f);
+	//PlayerRenderer->ChangeAnimation("Idle");
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
 
@@ -67,37 +68,36 @@ MainPlayer::~MainPlayer()
 void MainPlayer::BeginPlay()
 {
 	AActor::BeginPlay();
+
+	FSM.CreateState(MainPlayerState::Idle, std::bind(&MainPlayer::Idle, this, std::placeholders::_1),
+		[this]()
+		{
+			PlayerRenderer->ChangeAnimation("Idle");
+		});
+
+	FSM.CreateState(MainPlayerState::Run, std::bind(&MainPlayer::Run, this, std::placeholders::_1),
+		[this]()
+		{
+			PlayerRenderer->ChangeAnimation("Run");
+		});
+
+	FSM.CreateState(MainPlayerState::Jump, std::bind(&MainPlayer::Jump, this, std::placeholders::_1),
+		[this]()
+		{
+			PlayerRenderer->ChangeAnimation("Jump");
+		});
+	FSM.CreateState(MainPlayerState::Shoot, std::bind(&MainPlayer::Shoot, this, std::placeholders::_1),
+		[this]()
+		{
+			//PlayerRenderer->ChangeAnimation("Shoot");
+		});
+
+		FSM.ChangeState(MainPlayerState::Idle);
 }
 
 void MainPlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
-
-	//AddActorLocation(GoDown * _DeltaTime);
-
-	if (UEngineInput::IsPress('A'))
-	{
-		AddRelativeLocation(FVector{ -100.0f * _DeltaTime, 0.0f, 0.0f });
-	}
-	if (UEngineInput::IsPress('D'))
-	{
-		AddRelativeLocation(FVector{ 100.0f * _DeltaTime, 0.0f, 0.0f });
-	}
-
-	if (UEngineInput::IsPress('W'))
-	{
-		AddRelativeLocation(FVector{ 0.0f, 100.0f * _DeltaTime, 0.0f });
-	}
-
-	if (UEngineInput::IsPress('S'))
-	{
-		AddRelativeLocation(FVector{ 0.0f, -100.0f * _DeltaTime, 0.0f });
-	}
-
-	if (UEngineInput::IsPress('Q'))
-	{
-		PlayerRenderer->ChangeAnimation("Run");
-	}
 
 	if (UEngineInput::IsPress('E'))
 	{
@@ -110,14 +110,80 @@ void MainPlayer::Tick(float _DeltaTime)
 
 		if (nullptr != TData)
 		{
+			IsOnTheGround = true;
+			Gravity = FVector::ZERO;
 			SetActorLocation(PrevLocation);
+			AddActorLocation(FVector::UP);
 		}
 		else
 		{
+			IsOnTheGround = false;
+			Gravity += GForce * _DeltaTime;
+			AddActorLocation(Gravity * _DeltaTime);
 			PrevLocation = GetActorLocation();
 		}
 		int a = 0;
 	}
 
+	FSM.Update(_DeltaTime);
 }
 
+void MainPlayer::Idle(float _DeltaTime)
+{
+	if (UEngineInput::IsPress('A')|| UEngineInput::IsPress('D'))
+	{
+		FSM.ChangeState(MainPlayerState::Run);
+	}
+	else if (UEngineInput::IsPress(VK_SPACE))
+	{
+		FSM.ChangeState(MainPlayerState::Jump);
+	}
+}
+
+void MainPlayer::Run(float _DeltaTime)
+{
+	if (UEngineInput::IsPress('A'))
+	{
+		AddActorLocation(FVector{ -100.0f * _DeltaTime, 0.0f, 0.0f });
+	}
+	else if (UEngineInput::IsPress('D'))
+	{
+		AddActorLocation(FVector{ 100.0f * _DeltaTime, 0.0f, 0.0f });
+	}
+	else if (UEngineInput::IsPress(VK_SPACE))
+	{
+		FSM.ChangeState(MainPlayerState::Jump);
+	}
+	else
+	{
+		FSM.ChangeState(MainPlayerState::Idle);
+	}
+}
+
+void MainPlayer::Jump(float _DeltaTime)
+{
+	AddActorLocation(FVector::UP * 200.0f * _DeltaTime);
+
+	if (UEngineInput::IsDown(VK_SPACE))
+	{
+		FSM.ChangeState(MainPlayerState::Shoot);
+	}
+	else if (UEngineInput::IsPress('A'))
+	{
+		AddActorLocation(FVector{ -100.0f * _DeltaTime, 0.0f, 0.0f });
+	}
+	else if (UEngineInput::IsPress('D'))
+	{
+		AddActorLocation(FVector{ 100.0f * _DeltaTime, 0.0f, 0.0f });
+	}
+
+	/*if (true == IsOnTheGround)
+	{
+		FSM.ChangeState(MainPlayerState::Idle);
+	}*/
+}
+
+void MainPlayer::Shoot(float _DeltaTime)
+{
+
+}
