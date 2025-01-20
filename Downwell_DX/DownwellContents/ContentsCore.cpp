@@ -182,6 +182,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineSprite::CreateSpriteToMeta("Player_Run.png", ".sdata");
 	UEngineSprite::CreateSpriteToMeta("Player_Balancing.png", ".sdata");
 	UEngineSprite::CreateSpriteToMeta("Player_Jump.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_Shoot.png", ".sdata");
 
 	// 주인공 APawn 상속 받으세요.
 	UEngineCore::CreateLevel<TitleScreen, APawn, BasicUI>("Title");

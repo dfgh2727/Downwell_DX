@@ -19,6 +19,7 @@ MainPlayer::MainPlayer()
 	//PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
 	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.3f);
+	PlayerRenderer->CreateAnimation("Shoot", "Player_Shoot.png", 0, 3, 0.15f);
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
 
@@ -91,7 +92,7 @@ void MainPlayer::BeginPlay()
 	FSM.CreateState(MainPlayerState::Shoot, std::bind(&MainPlayer::Shoot, this, std::placeholders::_1),
 		[this]()
 		{
-			//PlayerRenderer->ChangeAnimation("Shoot");
+			PlayerRenderer->ChangeAnimation("Shoot");
 		});
 
 		FSM.ChangeState(MainPlayerState::Idle);
