@@ -16,18 +16,16 @@ MainPlayer::MainPlayer()
 	PlayerRenderer->SetupAttachment(RootComponent);
 
 	PlayerRenderer->CreateAnimation("Idle", "Player_Idle.png", 0, 3, 0.2f);
-	PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
+	//PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
 	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.3f);
-	//PlayerRenderer->ChangeAnimation("Idle");
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
 
 	CollisionBox = CreateDefaultSubObject<UCollision>();
 	CollisionBox->SetupAttachment(RootComponent);
 	CollisionBox->SetCollisionProfileName("MainPlayer");
-	CollisionBox->SetScale3D({ 20.0f, 30.0f });
-	CollisionBox->SetRelativeLocation({ 0.0f, 15.0f });
+	
 
 	/*{
 		FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos();
@@ -73,12 +71,16 @@ void MainPlayer::BeginPlay()
 		[this]()
 		{
 			PlayerRenderer->ChangeAnimation("Idle");
+			CollisionBox->SetScale3D({ 20.0f, 30.0f });
+			CollisionBox->SetRelativeLocation({ 0.0f, 15.0f });
 		});
 
 	FSM.CreateState(MainPlayerState::Run, std::bind(&MainPlayer::Run, this, std::placeholders::_1),
 		[this]()
 		{
 			PlayerRenderer->ChangeAnimation("Run");
+			CollisionBox->SetScale3D({ 25.0f, 20.0f });
+			CollisionBox->SetRelativeLocation({ 15.0f, 15.0f });
 		});
 
 	FSM.CreateState(MainPlayerState::Jump, std::bind(&MainPlayer::Jump, this, std::placeholders::_1),
@@ -98,11 +100,6 @@ void MainPlayer::BeginPlay()
 void MainPlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
-
-	if (UEngineInput::IsPress('E'))
-	{
-		PlayerRenderer->ChangeAnimation("Balancing");
-	}
 
 	if (nullptr != TRenderer)
 	{
@@ -135,7 +132,7 @@ void MainPlayer::Idle(float _DeltaTime)
 		FSM.ChangeState(MainPlayerState::Run);
 	}
 
-	 if (UEngineInput::IsPress(VK_SPACE))
+	if (UEngineInput::IsPress(VK_SPACE))
 	{
 		FSM.ChangeState(MainPlayerState::Jump);
 	}
