@@ -107,6 +107,8 @@ public:
 	// 데이터를 복구(할때)
 	ENGINEAPI void DeSerialize(UEngineSerializer& _Ser) override;
 
+	ENGINEAPI FTileData* GetTile(FVector _Pos);
+
 protected:
 	ENGINEAPI void Render(class UEngineCamera* _Camera, float _DeltaTime) override;
 	void BeginPlay() override;

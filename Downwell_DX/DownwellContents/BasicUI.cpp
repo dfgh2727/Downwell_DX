@@ -26,24 +26,24 @@ void BasicUI::BeginPlay()
 	{
 		//PartitionImage1 = UIWidget->GetWorld()->SpawnActor<Partition>();
 		PartitionImage1 = GetWorld()->SpawnActor<Partition>();
-		PartitionImage1->SetActorLocation({ -268.0f, 0.0f, -100.0f });
+		PartitionImage1->SetActorLocation({ -252.0f, 0.0f, -100.0f });
 	}
 	{
 		PartitionImage2 = GetWorld()->SpawnActor<Partition>();
-		PartitionImage2->SetActorLocation({ 268.0f, 0.0f, -100.0f });
+		PartitionImage2->SetActorLocation({ 284.0f, 0.0f, -100.0f });
 		PartitionImage2->AddActorRotation(FVector{ 0.0f, 0.0f , 180.0f });
 	}
 	{
 		GemStatusImage = GetWorld()->SpawnActor<GemStatus>();
-		GemStatusImage->SetActorLocation({ 300.0f, 249.0f, -200.0f });
+		GemStatusImage->SetActorLocation({ 316.0f, 249.0f, -200.0f });
 	}
 	{
 		HealthStatusImage = GetWorld()->SpawnActor<HealthStatus>();
-		HealthStatusImage->SetActorLocation({ -274.0f, 251.0f, -200.0f });
+		HealthStatusImage->SetActorLocation({ -258.0f, 251.0f, -200.0f });
 	}
 	{
 		BulletStatusImage = GetWorld()->SpawnActor<BulletStatus>();
-		BulletStatusImage->SetActorLocation({ 209.0f, 0.0f, -200.0f });
+		BulletStatusImage->SetActorLocation({ 225.0f, 0.0f, -200.0f });
 	}
 }
 

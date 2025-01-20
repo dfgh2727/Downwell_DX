@@ -76,8 +76,8 @@ FVector UTileMapRenderer::TileIndexToWorldPos(FTileIndex _Index)
 	switch (TileMapType)
 	{
 	case Rect:
-		Result.X = _Index.X * TileSize.X - 0.5f * TileSize.X;
-		Result.Y = _Index.Y * TileSize.X - 0.5f * TileSize.X;
+		Result.X = _Index.X * TileSize.X; //- 0.5f * TileSize.X;
+		Result.Y = _Index.Y * TileSize.X; //- 0.5f * TileSize.X;
 		break;
 	case Iso:
 	{
@@ -264,4 +264,17 @@ void UTileMapRenderer::DataSetting(FIntPoint StartIndex, UEngineSerializer& _Dat
 
 		Tiles.insert({ TileData.Index.Key, TileData });
 	}
+}
+
+FTileData* UTileMapRenderer::GetTile(FVector _Pos)
+{
+	FTileIndex Index = WorldPosToTileIndex(_Pos);
+	
+	if (false == Tiles.contains(Index.Key))
+	{
+		return nullptr;
+	}
+	FTileData& TempData = Tiles[Index.Key];
+	//FTileData* DataPtr = &TempData;
+	return &TempData;
 }

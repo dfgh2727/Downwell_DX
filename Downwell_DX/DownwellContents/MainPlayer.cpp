@@ -4,6 +4,7 @@
 #include <EnginePlatform/EngineInput.h>
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/Collision.h>
+#include <EngineCore/TileMapRenderer.h>
 
 MainPlayer::MainPlayer()
 {
@@ -101,6 +102,21 @@ void MainPlayer::Tick(float _DeltaTime)
 	if (UEngineInput::IsPress('E'))
 	{
 		PlayerRenderer->ChangeAnimation("Balancing");
+	}
+
+	if (nullptr != TRenderer)
+	{
+		TData = TRenderer->GetTile(GetActorLocation());
+
+		if (nullptr != TData)
+		{
+			SetActorLocation(PrevLocation);
+		}
+		else
+		{
+			PrevLocation = GetActorLocation();
+		}
+		int a = 0;
 	}
 
 }

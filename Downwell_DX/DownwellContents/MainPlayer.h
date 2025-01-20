@@ -1,10 +1,10 @@
 #pragma once
-#include <EngineCore/Pawn.h>
+#include <EngineCore/Actor.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EnginePlatform/EngineWinImage.h>
 
 // Ό³Έν :
-class MainPlayer: public APawn
+class MainPlayer: public AActor//APawn
 {
 public:
 	// constrcuter destructer
@@ -22,14 +22,21 @@ public:
 	//	return PlayerRenderer;
 	//}
 
+	void SetTileMapRenderer(class UTileMapRenderer* _Renderer)
+	{
+		TRenderer = _Renderer;
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
-	std::shared_ptr<class USpriteRenderer> PlayerRenderer;
-	std::shared_ptr<class UCollision> CollisionBox;
-
+	std::shared_ptr<class USpriteRenderer> PlayerRenderer = nullptr;
+	std::shared_ptr<class UCollision> CollisionBox = nullptr;
+	class UTileMapRenderer* TRenderer = nullptr;
+	class FTileData* TData = nullptr;
 	FVector GoDown = FVector::DOWN * 200.0f;
+	FVector PrevLocation = FVector::ZERO;
 };
 

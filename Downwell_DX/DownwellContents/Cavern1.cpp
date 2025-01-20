@@ -26,9 +26,7 @@ Cavern1::Cavern1()
 	TileMap->SetupAttachment(RootComponent);
 	TileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, { 0.5f, 0.5f });
 
-	
-	
-	
+	GetWorld()->CreateCollisionProfile("MainPlayer");
 }
 
 Cavern1::~Cavern1()
@@ -81,8 +79,9 @@ void Cavern1::BeginPlay()
 	}
 
 	{
-		MainPlayerRenderer = GetWorld()->SpawnActor<MainPlayer>();
-		MainPlayerRenderer->SetActorLocation({ 0.0f, 0.0f, -10.0f });
+		MainPlayerInst = GetWorld()->SpawnActor<MainPlayer>();
+		MainPlayerInst->SetActorLocation({ 0.0f, 0.0f, -10.0f });
+		MainPlayerInst->SetTileMapRenderer(TileMap.get());
 		//UColor = UEngineWinImage::GetColor
 	}
 
@@ -91,7 +90,7 @@ void Cavern1::BeginPlay()
 void Cavern1::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
-	PlayerPos = MainPlayerRenderer->GetActorLocation();
+	PlayerPos = MainPlayerInst->GetActorLocation();
 
 	{
 		CameraPos.X = PlayerPos.X;

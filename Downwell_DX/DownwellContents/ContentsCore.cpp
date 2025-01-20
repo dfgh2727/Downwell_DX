@@ -187,7 +187,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineCore::CreateLevel<OpeningScene, APawn, AHUD>("Opening");
 	UEngineCore::CreateLevel<PauseScreen, APawn, BasicUI>("Paused");
 	UEngineCore::CreateLevel<SelectScreen, APawn, BasicUI>("Select");
-	UEngineCore::CreateLevel<Cavern1, MainPlayer, BasicUI>("Cavern1");
+	UEngineCore::CreateLevel<Cavern1, APawn, BasicUI>("Cavern1");
 	UEngineCore::CreateLevel<MapEditorMode, APawn, BasicUI>("TileMapEditor");
 
 	UEngineGUI::AllWindowOff();
