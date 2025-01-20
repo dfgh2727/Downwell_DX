@@ -110,10 +110,10 @@ void MainPlayer::Tick(float _DeltaTime)
 
 		if (nullptr != TData)
 		{
+			AddActorLocation(FVector::UP);
 			IsOnTheGround = true;
 			Gravity = FVector::ZERO;
 			SetActorLocation(PrevLocation);
-			AddActorLocation(FVector::UP);
 		}
 		else
 		{
@@ -134,7 +134,8 @@ void MainPlayer::Idle(float _DeltaTime)
 	{
 		FSM.ChangeState(MainPlayerState::Run);
 	}
-	else if (UEngineInput::IsPress(VK_SPACE))
+
+	 if (UEngineInput::IsPress(VK_SPACE))
 	{
 		FSM.ChangeState(MainPlayerState::Jump);
 	}
@@ -168,19 +169,19 @@ void MainPlayer::Jump(float _DeltaTime)
 	{
 		FSM.ChangeState(MainPlayerState::Shoot);
 	}
-	else if (UEngineInput::IsPress('A'))
+	if (UEngineInput::IsPress('A'))
 	{
 		AddActorLocation(FVector{ -100.0f * _DeltaTime, 0.0f, 0.0f });
 	}
-	else if (UEngineInput::IsPress('D'))
+	if (UEngineInput::IsPress('D'))
 	{
 		AddActorLocation(FVector{ 100.0f * _DeltaTime, 0.0f, 0.0f });
 	}
 
-	/*if (true == IsOnTheGround)
+	if (true == IsOnTheGround)
 	{
 		FSM.ChangeState(MainPlayerState::Idle);
-	}*/
+	}
 }
 
 void MainPlayer::Shoot(float _DeltaTime)
