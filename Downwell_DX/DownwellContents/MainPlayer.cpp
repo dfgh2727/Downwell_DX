@@ -166,10 +166,12 @@ void MainPlayer::Jump(float _DeltaTime)
 	{
 		FSM.ChangeState(MainPlayerState::Shoot);
 	}
+
 	if (UEngineInput::IsPress('A'))
 	{
 		AddActorLocation(FVector{ -100.0f * _DeltaTime, 0.0f, 0.0f });
 	}
+
 	if (UEngineInput::IsPress('D'))
 	{
 		AddActorLocation(FVector{ 100.0f * _DeltaTime, 0.0f, 0.0f });
