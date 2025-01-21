@@ -75,6 +75,11 @@ public:
 		}
 	}
 
+	FSMState* GetCurState()
+	{
+		return CurState;
+	}
+
 protected:
 	// ChangeState("Idle")
 	// ChangeState(EPlayerState::Idle)

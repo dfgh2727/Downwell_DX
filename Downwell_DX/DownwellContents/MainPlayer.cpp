@@ -20,7 +20,7 @@ MainPlayer::MainPlayer()
 	//PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
 	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.5f);
-	PlayerRenderer->CreateAnimation("Shoot", "Player_Shoot.png", 0, 3, 0.15f);
+	PlayerRenderer->CreateAnimation("Shoot", "Player_Shoot.png", 0, 3, 0.1f);
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
 
@@ -97,18 +97,17 @@ bool MainPlayer::TileCheck(FVector _AddPos)
 
 void MainPlayer::GravityManager(float _DeltaTime)
 {
-	IsOnTheGround = TileCheck(FVector::DOWN);
+	IsOnTheGround = TileCheck(Gravity * _DeltaTime);
 
-	if (false == IsOnTheGround)
+	if (true == IsOnTheGround)
+	{
+		Gravity = FVector::ZERO;
+	}
+	else
 	{
 		Gravity += GForce * _DeltaTime;
 		AddActorLocation(Gravity * _DeltaTime);
 		PrevLocation = GetActorLocation();
-	}
-	else
-	{
-		Gravity = FVector::ZERO;
-		//SetActorLocation(PrevLocation);
 	}
 }
 
@@ -129,7 +128,10 @@ void MainPlayer::Idle(float _DeltaTime)
 
 void MainPlayer::Run(float _DeltaTime)
 {
-	PrevLocation = GetActorLocation();
+	if (true == TileCheck(FVector::DOWN))
+	{
+		AddActorLocation(FVector::UP);
+	}
 
 	if (UEngineInput::IsPress('A'))
 	{
@@ -161,7 +163,7 @@ void MainPlayer::Run(float _DeltaTime)
 
 void MainPlayer::Jump(float _DeltaTime)
 {
-	AddActorLocation(FVector::UP * 200.0f * _DeltaTime);
+	AddActorLocation(FVector::UP * 250.0f * _DeltaTime);
 
 	if (UEngineInput::IsDown(VK_SPACE))
 	{
