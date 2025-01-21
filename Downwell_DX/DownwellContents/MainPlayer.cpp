@@ -78,7 +78,7 @@ void MainPlayer::Tick(float _DeltaTime)
 
 	FSM.Update(_DeltaTime);
 
-	if (UEngineInput::IsPress('C'))
+	if (UEngineInput::IsDown('C'))
 	{
 		TempCart = GetWorld()->SpawnActor<Cartridge>();
 	}

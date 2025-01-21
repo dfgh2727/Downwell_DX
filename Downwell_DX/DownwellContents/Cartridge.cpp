@@ -34,5 +34,5 @@ void Cartridge::Tick(float _DeltaTime)
 
 	AddActorLocation(FVector{ 20.0f, 10.0f, 0.0f } * _DeltaTime);
 
-	//Destroy();
+	//Destroy(1.0f);
 }
