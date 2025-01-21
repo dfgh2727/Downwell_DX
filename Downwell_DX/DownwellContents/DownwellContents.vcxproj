@@ -149,12 +149,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicBullet.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="BasicUI.cpp">
       <SubType>
       </SubType>
     </ClCompile>
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BulletStatus.cpp" />
+    <ClCompile Include="Cartridge.cpp" />
     <ClCompile Include="Cavern1.cpp" />
     <ClCompile Include="ContentsCore.cpp" />
     <ClCompile Include="ContentsEditorGUI.cpp" />
@@ -174,6 +179,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="Health.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="HealthStatus.cpp" />
     <ClCompile Include="HowToPlay.cpp">
       <SubType>
@@ -228,12 +237,17 @@
     <ClCompile Include="Well.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BasicBullet.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="BasicUI.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BulletStatus.h" />
+    <ClInclude Include="Cartridge.h" />
     <ClInclude Include="Cavern1.h" />
     <ClInclude Include="ContentsCore.h" />
     <ClInclude Include="ContentsEditorGUI.h" />
@@ -253,6 +267,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Grass.h" />
+    <ClInclude Include="Health.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="HealthStatus.h" />
     <ClInclude Include="HowToPlay.h">
       <SubType>

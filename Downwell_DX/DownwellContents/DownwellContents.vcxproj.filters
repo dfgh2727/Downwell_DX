@@ -87,6 +87,15 @@
     </ClCompile>
     <ClCompile Include="MapActor.cpp" />
     <ClCompile Include="FSMStateManager.cpp" />
+    <ClCompile Include="Health.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicBullet.cpp">
+      <Filter>Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Cartridge.cpp">
+      <Filter>Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -175,6 +184,15 @@
     </ClInclude>
     <ClInclude Include="MapActor.h" />
     <ClInclude Include="FSMStateManager.h" />
+    <ClInclude Include="Health.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicBullet.h">
+      <Filter>Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Cartridge.h">
+      <Filter>Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -209,6 +227,12 @@
     </Filter>
     <Filter Include="HUD">
       <UniqueIdentifier>{a8dfb10c-1dbc-400e-a144-4ad9df4b1582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{824f02ac-72da-4bbe-b8f5-4da85622de07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bullet">
+      <UniqueIdentifier>{6e424311-3088-42de-9ed7-aec9524c0f7f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

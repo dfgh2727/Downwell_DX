@@ -29,11 +29,6 @@ public:
 	MainPlayer& operator=(const MainPlayer& _Other) = delete;
 	MainPlayer& operator=(MainPlayer&& _Other) noexcept = delete;
 
-	//std::shared_ptr<class USpriteRenderer> GetRenderer()
-	//{
-	//	return PlayerRenderer;
-	//}
-
 	void SetTileMapRenderer(class UTileMapRenderer* _Renderer)
 	{
 		TRenderer = _Renderer;
@@ -59,6 +54,8 @@ private:
 	class UTileMapRenderer* TRenderer = nullptr;
 	class FTileData* TData = nullptr;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
+
+	std::shared_ptr<class Cartridge> TempCart = nullptr;
 
 	FVector GForce = FVector::DOWN * 300.0f;
 	FVector Gravity = FVector::ZERO;

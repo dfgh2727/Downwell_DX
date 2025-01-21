@@ -7,6 +7,8 @@
 #include <EngineCore/TileMapRenderer.h>
 #include <EngineCore/TimeEventComponent.h>
 
+#include "Cartridge.h"
+
 MainPlayer::MainPlayer()
 {
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
@@ -75,6 +77,11 @@ void MainPlayer::Tick(float _DeltaTime)
 	GravityManager(_DeltaTime);
 
 	FSM.Update(_DeltaTime);
+
+	if (UEngineInput::IsPress('C'))
+	{
+		TempCart = GetWorld()->SpawnActor<Cartridge>();
+	}
 }
 
 bool MainPlayer::TileCheck(FVector _AddPos)
