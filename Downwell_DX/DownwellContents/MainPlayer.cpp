@@ -5,6 +5,7 @@
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/Collision.h>
 #include <EngineCore/TileMapRenderer.h>
+#include <EngineCore/TimeEventComponent.h>
 
 MainPlayer::MainPlayer()
 {
@@ -18,7 +19,7 @@ MainPlayer::MainPlayer()
 	PlayerRenderer->CreateAnimation("Idle", "Player_Idle.png", 0, 3, 0.2f);
 	//PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
-	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.3f);
+	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.5f);
 	PlayerRenderer->CreateAnimation("Shoot", "Player_Shoot.png", 0, 3, 0.15f);
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
@@ -26,7 +27,8 @@ MainPlayer::MainPlayer()
 	CollisionBox = CreateDefaultSubObject<UCollision>();
 	CollisionBox->SetupAttachment(RootComponent);
 	CollisionBox->SetCollisionProfileName("MainPlayer");
-	
+
+	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
 
 	/*{
 		FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos();
@@ -101,29 +103,44 @@ void MainPlayer::BeginPlay()
 void MainPlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+	GravityManager(_DeltaTime);
 
+	FSM.Update(_DeltaTime);
+}
+
+bool MainPlayer::TileCheck(FVector _AddPos)
+{
 	if (nullptr != TRenderer)
 	{
-		TData = TRenderer->GetTile(GetActorLocation());
+		TData = TRenderer->GetTile(GetActorLocation() + _AddPos);
 
 		if (nullptr != TData)
 		{
-			AddActorLocation(FVector::UP);
-			IsOnTheGround = true;
-			Gravity = FVector::ZERO;
-			SetActorLocation(PrevLocation);
+			IsTile = true;
 		}
 		else
 		{
-			IsOnTheGround = false;
-			Gravity += GForce * _DeltaTime;
-			AddActorLocation(Gravity * _DeltaTime);
-			PrevLocation = GetActorLocation();
+			IsTile = false;
 		}
-		int a = 0;
+		return IsTile;
 	}
+}
 
-	FSM.Update(_DeltaTime);
+void MainPlayer::GravityManager(float _DeltaTime)
+{
+	IsOnTheGround = TileCheck(Gravity * _DeltaTime);
+
+	if (false == IsOnTheGround)
+	{
+		Gravity += GForce * _DeltaTime;
+		AddActorLocation(Gravity * _DeltaTime);
+		PrevLocation = GetActorLocation();
+	}
+	else
+	{
+		Gravity = FVector::ZERO;
+		SetActorLocation(PrevLocation);
+	}
 }
 
 void MainPlayer::Idle(float _DeltaTime)
@@ -143,11 +160,19 @@ void MainPlayer::Run(float _DeltaTime)
 {
 	if (UEngineInput::IsPress('A'))
 	{
-		AddActorLocation(FVector{ -100.0f * _DeltaTime, 0.0f, 0.0f });
+		FVector GoLeft = FVector::LEFT * 100.0f * _DeltaTime;
+		if (false == TileCheck(GoLeft))
+		{
+			AddActorLocation(GoLeft);
+		}
 	}
 	else if (UEngineInput::IsPress('D'))
 	{
-		AddActorLocation(FVector{ 100.0f * _DeltaTime, 0.0f, 0.0f });
+		FVector GoRight = FVector::RIGHT * 100.0f * _DeltaTime;
+		if (false == TileCheck(GoRight))
+		{
+			AddActorLocation(GoRight);
+		}
 	}
 	else if (UEngineInput::IsPress(VK_SPACE))
 	{
@@ -186,5 +211,10 @@ void MainPlayer::Jump(float _DeltaTime)
 
 void MainPlayer::Shoot(float _DeltaTime)
 {
-
+	TimeEventComponent->AddEndEvent(0.5f,
+		[this]()
+		{
+			FSM.ChangeState(MainPlayerState::Idle);
+		},
+		false);
 }

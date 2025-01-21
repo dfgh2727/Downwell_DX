@@ -37,6 +37,10 @@ public:
 		TRenderer = _Renderer;
 	}
 
+	bool TileCheck(FVector _AddPos);
+	void GravityManager(float _DeltaTime);
+
+
 	void Idle(float _DeltaTime);
 	void Run(float _DeltaTime);
 	void Jump(float _DeltaTime);
@@ -52,13 +56,15 @@ private:
 	std::shared_ptr<class UCollision> CollisionBox = nullptr;
 	class UTileMapRenderer* TRenderer = nullptr;
 	class FTileData* TData = nullptr;
+	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
 
-	FVector GForce = FVector::DOWN * 200.0f;
+	FVector GForce = FVector::DOWN * 300.0f;
 	FVector Gravity = FVector::ZERO;
 
 	FVector PrevLocation = FVector::ZERO;
 	UFSMStateManager FSM;
 
+	bool IsTile = false;
 	bool IsOnTheGround = false;
 };
 
