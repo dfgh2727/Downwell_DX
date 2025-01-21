@@ -258,6 +258,23 @@ MapEditorMode::~MapEditorMode()
 void MapEditorMode::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+
+	if (UEngineInput::IsPress('W'))
+	{
+		GetWorld()->GetMainCamera()->AddActorLocation(FVector::UP * 300.0f * _DeltaTime);
+	}
+	if (UEngineInput::IsPress('A'))
+	{
+		GetWorld()->GetMainCamera()->AddActorLocation(FVector::LEFT * 300.0f * _DeltaTime);
+	}
+	if (UEngineInput::IsPress('S'))
+	{
+		GetWorld()->GetMainCamera()->AddActorLocation(FVector::DOWN * 300.0f * _DeltaTime);
+	}
+	if (UEngineInput::IsPress('D'))
+	{
+		GetWorld()->GetMainCamera()->AddActorLocation(FVector::RIGHT * 300.0f * _DeltaTime);
+	}
 }
 
 void MapEditorMode::LevelChangeStart()
