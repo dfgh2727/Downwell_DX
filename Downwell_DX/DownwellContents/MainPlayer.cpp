@@ -91,15 +91,13 @@ bool MainPlayer::TileCheck(FVector _AddPos)
 		{
 			IsTile = false;
 		}
-		int a = 0;
-
 		return IsTile;	
 	}	
 }
 
 void MainPlayer::GravityManager(float _DeltaTime)
 {
-	IsOnTheGround = TileCheck(Gravity * _DeltaTime);
+	IsOnTheGround = TileCheck(FVector::DOWN);
 
 	if (false == IsOnTheGround)
 	{
@@ -131,10 +129,7 @@ void MainPlayer::Idle(float _DeltaTime)
 
 void MainPlayer::Run(float _DeltaTime)
 {
-	if (true == TileCheck(FVector::DOWN))
-	{
-		AddActorLocation(FVector::UP);
-	}
+	PrevLocation = GetActorLocation();
 
 	if (UEngineInput::IsPress('A'))
 	{
@@ -197,4 +192,9 @@ void MainPlayer::Shoot(float _DeltaTime)
 			FSM.ChangeState(MainPlayerState::Idle);
 		},
 		false);
+
+	if (true == IsOnTheGround)
+	{
+		FSM.ChangeState(MainPlayerState::Idle);
+	}
 }
