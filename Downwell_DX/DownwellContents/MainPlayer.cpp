@@ -105,9 +105,9 @@ void MainPlayer::GravityManager(float _DeltaTime)
 	}
 	else
 	{
-		Gravity += GForce * _DeltaTime;
 		AddActorLocation(Gravity * _DeltaTime);
 		PrevLocation = GetActorLocation();
+		Gravity += GForce * _DeltaTime;
 	}
 }
 
@@ -128,10 +128,6 @@ void MainPlayer::Idle(float _DeltaTime)
 
 void MainPlayer::Run(float _DeltaTime)
 {
-	if (true == TileCheck(FVector::DOWN))
-	{
-		AddActorLocation(FVector::UP);
-	}
 
 	if (UEngineInput::IsPress('A'))
 	{
