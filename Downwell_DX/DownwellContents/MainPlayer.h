@@ -11,6 +11,8 @@ enum class MainPlayerState
 	Run,
 	Jump,
 	Shoot,
+	Fall,
+	Spin,
 
 };
 

@@ -29,37 +29,6 @@ MainPlayer::MainPlayer()
 	CollisionBox->SetCollisionProfileName("MainPlayer");
 
 	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
-
-	/*{
-		FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos();
-		if (ScreenPos.X < 0.0f)
-		{
-			ScreenPos.X = ScreenPos.X + -50.0f;
-		}
-		if (ScreenPos.Y < 0.0f)
-		{
-			ScreenPos.Y = ScreenPos.Y + -50.0f;
-		}
-
-		FVector CScreenPos = ScreenPos / 100.0f;
-
-		if (ScreenPos.X < 0.0f)
-		{
-			CScreenPos.X = roundf(CScreenPos.X);
-		}
-		if (ScreenPos.Y < 0.0f)
-		{
-			CScreenPos.Y = roundf(CScreenPos.Y);
-		}
-
-
-		ImGui::Text("ScreenPos %s", ScreenPos.ToString().c_str());
-
-		ImGui::Text("TilePos %s ", CScreenPos.ToString().c_str());
-
-		ImGui::Text("Index %s %s", std::to_string(CScreenPos.iX()).c_str(), std::to_string(CScreenPos.iY()).c_str());
-
-	}*/
 }
 
 MainPlayer::~MainPlayer()
@@ -122,8 +91,10 @@ bool MainPlayer::TileCheck(FVector _AddPos)
 		{
 			IsTile = false;
 		}
-		return IsTile;
-	}
+		int a = 0;
+
+		return IsTile;	
+	}	
 }
 
 void MainPlayer::GravityManager(float _DeltaTime)
@@ -139,12 +110,14 @@ void MainPlayer::GravityManager(float _DeltaTime)
 	else
 	{
 		Gravity = FVector::ZERO;
-		SetActorLocation(PrevLocation);
+		//SetActorLocation(PrevLocation);
 	}
 }
 
 void MainPlayer::Idle(float _DeltaTime)
 {
+	SetActorLocation(PrevLocation);
+
 	if (UEngineInput::IsPress('A')|| UEngineInput::IsPress('D'))
 	{
 		FSM.ChangeState(MainPlayerState::Run);
@@ -158,6 +131,11 @@ void MainPlayer::Idle(float _DeltaTime)
 
 void MainPlayer::Run(float _DeltaTime)
 {
+	if (true == TileCheck(FVector::DOWN))
+	{
+		AddActorLocation(FVector::UP);
+	}
+
 	if (UEngineInput::IsPress('A'))
 	{
 		FVector GoLeft = FVector::LEFT * 100.0f * _DeltaTime;
@@ -174,14 +152,16 @@ void MainPlayer::Run(float _DeltaTime)
 			AddActorLocation(GoRight);
 		}
 	}
-	else if (UEngineInput::IsPress(VK_SPACE))
-	{
-		FSM.ChangeState(MainPlayerState::Jump);
-	}
 	else
 	{
 		FSM.ChangeState(MainPlayerState::Idle);
 	}
+
+	if (UEngineInput::IsPress(VK_SPACE))
+	{
+		FSM.ChangeState(MainPlayerState::Jump);
+	}
+	
 }
 
 void MainPlayer::Jump(float _DeltaTime)

@@ -48,7 +48,7 @@ void UContentsEditorGUI::OnGUI()
 		}*/
 
 
-		ImGui::Text("ScreenPos %s", ScreenPos.ToString().c_str());
+		ImGui::Text("MouseOnScreenPos %s", ScreenPos.ToString().c_str());
 
 		//ImGui::Text("TilePos %s ", CScreenPos.ToString().c_str());
 
