@@ -108,8 +108,8 @@ void Cavern1::BeginPlay()
 
 	{
 		//int Index = 0;
-		CreateMap({ 0, 0 }, 0);
-		CreateMap({ 0, -18 }, 0);
+		CreateMap({ 0, 0 }, 1);
+		//CreateMap({ 0, -18 }, 0);
 
 		//TileMap->DataSetting({ 0, -18 }, ReadDatas[1]);
 	}
