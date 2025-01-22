@@ -16,13 +16,14 @@ public:
 	Bat(Bat&& _Other) noexcept = delete;
 	Bat& operator=(const Bat& _Other) = delete;
 	Bat& operator=(Bat&& _Other) noexcept = delete;
+	
+	void Serialize(UEngineSerializer& _Ser) override;
+	void DeSerialize(UEngineSerializer& _Ser) override;
 
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-	void Serialize(UEngineSerializer& _Ser) override;
-	void DeSerialize(UEngineSerializer& _Ser) override;
 
 private:
 	std::shared_ptr<class USpriteRenderer> BatRenderer;

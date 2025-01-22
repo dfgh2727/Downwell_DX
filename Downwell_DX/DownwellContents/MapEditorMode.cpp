@@ -367,25 +367,6 @@ public:
 			break;
 		}
 
-		//if (true == ImGui::Button("FreeCameraOn"))
-		//{
-		//	GetWorld()->GetMainCamera()->FreeCameraSwitch();
-		//}
-
-		///*if (ImGui::Button("TileMapMode"))
-		//{
-		//	Mode = EditMode::TileMapMode;
-		//}*/
-
-		//switch (Mode)
-		//{
-		//case EditMode::TileMapMode:
-		//	TileMapMode();
-		//	break;
-		//default:
-		//	break;
-		//}
-
 		SaveAndLoad();
 	}
 };
@@ -396,9 +377,9 @@ MapEditorMode::MapEditorMode()
 	RootComponent = Default;
 
 
-	PivotSpriteRenderer = CreateDefaultSubObject<USpriteRenderer>();
-	PivotSpriteRenderer->SetupAttachment(RootComponent);
-	PivotSpriteRenderer->SetRelativeScale3D({ 50.0f, 50.0f, 1.0f });
+	//PivotSpriteRenderer = CreateDefaultSubObject<USpriteRenderer>();
+	//PivotSpriteRenderer->SetupAttachment(RootComponent);
+	//PivotSpriteRenderer->SetRelativeScale3D({ 50.0f, 50.0f, 1.0f });
 
 	RenderTileMap = CreateDefaultSubObject<UTileMapRenderer>();
 	RenderTileMap->SetupAttachment(RootComponent);
@@ -407,6 +388,8 @@ MapEditorMode::MapEditorMode()
 	std::shared_ptr<ACameraActor> Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation({ 0.0f, 0.0f, -1000.0f, 1.0f });
 	Camera->GetCameraComponent()->SetZSort(0, true);
+
+	GetWorld()->CreateCollisionProfile("Monster");
 }
 
 MapEditorMode::~MapEditorMode()

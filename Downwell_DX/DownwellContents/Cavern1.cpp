@@ -74,7 +74,7 @@ void Cavern1::BeginPlay()
 
 	{
 		//TileMap1->DeSerialize(ReadDatas[0]);
-		TileMap->DataSetting({ 0, 0 }, ReadDatas[1]);
+		TileMap->DataSetting({ 0, 0 }, ReadDatas[3]);
 		TileMap->DataSetting({ 0, -18 }, ReadDatas[1]);
 
 	}
