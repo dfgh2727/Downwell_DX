@@ -20,6 +20,8 @@ public:
 
 	void MapManager();
 
+	void CreateMap(FIntPoint StartPos, int _MapIndex);
+
 
 protected:
 

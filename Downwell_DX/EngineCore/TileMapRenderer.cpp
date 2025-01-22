@@ -238,11 +238,13 @@ void UTileMapRenderer::DeSerialize(UEngineSerializer& _Ser)
 
 void UTileMapRenderer::DataSetting(FIntPoint StartIndex, UEngineSerializer& _Data)
 {
+
+
 	FVector TempTileSize = FVector::ZERO;
 	FVector TempImageSize = FVector::ZERO;
 	FVector TempTilePivot = FVector::ZERO;
 
-	_Data.ResetOffset();
+	// _Data.ResetOffset();
 
 	_Data.Read(&TileMapType, sizeof(int));
 	_Data >> TempTileSize;

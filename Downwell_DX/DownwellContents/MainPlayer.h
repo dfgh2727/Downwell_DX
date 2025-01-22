@@ -52,7 +52,7 @@ private:
 	std::shared_ptr<class USpriteRenderer> PlayerRenderer = nullptr;
 	std::shared_ptr<class UCollision> CollisionBox = nullptr;
 	class UTileMapRenderer* TRenderer = nullptr;
-	class FTileData* TData = nullptr;
+	struct FTileData* TData = nullptr;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
 
 	std::shared_ptr<class Cartridge> TempCart = nullptr;

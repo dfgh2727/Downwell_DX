@@ -34,6 +34,40 @@ Cavern1::~Cavern1()
 {
 }
 
+void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
+{
+	{
+		UEngineSerializer& Ser = ReadDatas[_MapIndex];
+
+		Ser.ResetOffset();
+		int MonsterCount = 0;
+
+		Ser >> MonsterCount;
+
+		for (size_t i = 0; i < MonsterCount; i++)
+		{
+			int MonsterTypeValue = 0;
+			Ser >> MonsterTypeValue;
+
+			EMonsterType MonsterType = static_cast<EMonsterType>(MonsterTypeValue);
+
+			std::shared_ptr<Monster> NewMon = nullptr;
+
+			switch (MonsterType)
+			{
+			case MonBat:
+				NewMon = GetWorld()->SpawnActor<Bat>();
+				break;
+			default:
+				break;
+			}
+
+			NewMon->DeSerialize(Ser);
+		}
+		TileMap->DataSetting(StartPos, Ser);
+	}
+}
+
 void Cavern1::BeginPlay()
 {
 	AActor::BeginPlay();
@@ -73,10 +107,11 @@ void Cavern1::BeginPlay()
 	}*/
 
 	{
-		//TileMap1->DeSerialize(ReadDatas[0]);
-		TileMap->DataSetting({ 0, 0 }, ReadDatas[3]);
-		TileMap->DataSetting({ 0, -18 }, ReadDatas[1]);
+		//int Index = 0;
+		CreateMap({ 0, 0 }, 0);
+		CreateMap({ 0, -18 }, 0);
 
+		//TileMap->DataSetting({ 0, -18 }, ReadDatas[1]);
 	}
 
 	{
