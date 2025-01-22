@@ -11,16 +11,25 @@
 #include "ContentsEditorGUI.h"
 #include <EnginePlatform/EngineInput.h>
 
+#include "Bat.h"
+
+
 enum class EditMode
 {
 	TileMapMode,
+	ObjectMode,
+};
+
+enum class ESpawnList
+{
+	SpawnBat,
 };
 
 class TileMapEditor : public UEngineGUIWindow
 {
 public:
-	/*int SelectItem = 0;
-	int ObjectItem = -1;*/
+	int SelectItem = 0;
+	int ObjectItem = -1;
 	UTileMapRenderer* TileMapRenderer = nullptr;
 	EditMode Mode = EditMode::TileMapMode;
 
@@ -127,6 +136,88 @@ public:
 		}
 	}
 
+	void ObjectMode()
+	{
+
+		{
+			std::vector<const char*> Arr;
+			Arr.push_back("Bat");
+			//Arr.push_back("Monster2");
+
+
+			ImGui::ListBox("SpawnList", &SelectItem, &Arr[0], 1);
+
+			// GetMainWindow()->IsScreenOut();
+
+			if (true == UEngineInput::IsDown(VK_LBUTTON))
+			{
+				ESpawnList SelectMonster = static_cast<ESpawnList>(SelectItem);
+				std::shared_ptr<class ACameraActor> Camera = GetWorld()->GetMainCamera();
+				FVector Pos = Camera->ScreenMousePosToWorldPos();
+				Pos.Z = 0.0f;
+
+				std::shared_ptr<Monster> NewMonster;
+
+				switch (SelectMonster)
+				{
+				case ESpawnList::SpawnBat:
+					NewMonster = GetWorld()->SpawnActor<Bat>("Bat");
+					break;
+				default:
+					break;
+				}
+
+				NewMonster->SetActorLocation(Pos);
+			}
+		}
+
+		{
+			if (ImGui::Button("EditObjectDelete"))
+			{
+				std::list<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorListByClass<Monster>();
+				for (std::shared_ptr<Monster> MonsterSpawned : AllMonsterList)
+				{
+					MonsterSpawned->Destroy();
+				}
+
+			}
+		}
+
+		{
+			std::vector<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorArrayByClass<Monster>();
+
+			std::vector<std::string> ArrString;
+			for (std::shared_ptr<class AActor> Actor : AllMonsterList)
+			{
+				ArrString.push_back(Actor->GetName());
+			}
+
+			std::vector<const char*> Arr;
+			for (size_t i = 0; i < ArrString.size(); i++)
+			{
+				Arr.push_back(ArrString[i].c_str());
+			}
+
+
+			if (0 < Arr.size())
+			{
+				ImGui::ListBox("AllActorList", &ObjectItem, &Arr[0], static_cast<int>(Arr.size()));
+
+				if (ObjectItem != -1)
+				{
+
+				}
+
+				if (true == ImGui::Button("Delete"))
+				{
+					AllMonsterList[ObjectItem]->Destroy();
+					ObjectItem = -1;
+				}
+
+			}
+		}
+	}
+
 	void SaveAndLoad()
 	{
 
@@ -159,7 +250,19 @@ public:
 
 			if (GetSaveFileNameA(&ofn) == TRUE)
 			{
+				std::list<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorListByClass<Monster>();
+
 				UEngineSerializer Ser;
+
+				Ser << static_cast<int>(AllMonsterList.size());
+
+				for (std::shared_ptr<Monster> Actor : AllMonsterList)
+				{
+
+					Ser << static_cast<int>(Actor->MonsterTypeValue);
+					// 여기 저장된다는 이야기
+					Actor->Serialize(Ser);
+				}
 
 				TileMapRenderer->Serialize(Ser);
 
@@ -203,6 +306,30 @@ public:
 				NewFile.FileOpen("rb");
 				NewFile.Read(Ser);
 
+				int MonsterCount = 0;
+
+				Ser >> MonsterCount;
+
+				for (size_t i = 0; i < MonsterCount; i++)
+				{
+					int MonsterTypeValue = 0;
+					Ser >> MonsterTypeValue;
+
+					EMonsterType MonsterType = static_cast<EMonsterType>(MonsterTypeValue);
+
+					std::shared_ptr<Monster> NewMon = nullptr;
+
+					switch (MonsterType)
+					{
+					case MonBat:
+						NewMon = GetWorld()->SpawnActor<Bat>();
+						break;
+					default:
+						break;
+					}
+
+					NewMon->DeSerialize(Ser);
+				}
 				TileMapRenderer->DeSerialize(Ser);
 
 			}
@@ -211,24 +338,53 @@ public:
 
 	void OnGUI() override
 	{
-		if (true == ImGui::Button("FreeCameraOn"))
 		{
-			GetWorld()->GetMainCamera()->FreeCameraSwitch();
+			if (Mode == EditMode::ObjectMode)
+			{
+				if (ImGui::Button("TileMapMode"))
+				{
+					Mode = EditMode::TileMapMode;
+				}
+			}
+			else
+			{
+				if (ImGui::Button("ObjectMode"))
+				{
+					Mode = EditMode::ObjectMode;
+				}
+			}
 		}
-
-		/*if (ImGui::Button("TileMapMode"))
-		{
-			Mode = EditMode::TileMapMode;
-		}*/
 
 		switch (Mode)
 		{
 		case EditMode::TileMapMode:
 			TileMapMode();
 			break;
+		case EditMode::ObjectMode:
+			ObjectMode();
+			break;
 		default:
 			break;
 		}
+
+		//if (true == ImGui::Button("FreeCameraOn"))
+		//{
+		//	GetWorld()->GetMainCamera()->FreeCameraSwitch();
+		//}
+
+		///*if (ImGui::Button("TileMapMode"))
+		//{
+		//	Mode = EditMode::TileMapMode;
+		//}*/
+
+		//switch (Mode)
+		//{
+		//case EditMode::TileMapMode:
+		//	TileMapMode();
+		//	break;
+		//default:
+		//	break;
+		//}
 
 		SaveAndLoad();
 	}
@@ -240,14 +396,17 @@ MapEditorMode::MapEditorMode()
 	RootComponent = Default;
 
 
-	//PivotSpriteRenderer = CreateDefaultSubObject<USpriteRenderer>();
-	//PivotSpriteRenderer->SetupAttachment(RootComponent);
-	//PivotSpriteRenderer->SetRelativeScale3D({ 50.0f, 50.0f, 1.0f });
+	PivotSpriteRenderer = CreateDefaultSubObject<USpriteRenderer>();
+	PivotSpriteRenderer->SetupAttachment(RootComponent);
+	PivotSpriteRenderer->SetRelativeScale3D({ 50.0f, 50.0f, 1.0f });
 
 	RenderTileMap = CreateDefaultSubObject<UTileMapRenderer>();
 	RenderTileMap->SetupAttachment(RootComponent);
 	RenderTileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, TilePivot);	
 
+	std::shared_ptr<ACameraActor> Camera = GetWorld()->GetMainCamera();
+	Camera->SetActorLocation({ 0.0f, 0.0f, -1000.0f, 1.0f });
+	Camera->GetCameraComponent()->SetZSort(0, true);
 }
 
 MapEditorMode::~MapEditorMode()

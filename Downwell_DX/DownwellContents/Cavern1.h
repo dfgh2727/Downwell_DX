@@ -28,6 +28,7 @@ private:
 	std::shared_ptr<class ACameraActor> Camera;
 	std::shared_ptr<class UTileMapRenderer> TileMap;
 	std::shared_ptr<class UEngineWinImage> ColMap;
+	std::shared_ptr<class Bat> TempBat;
 
 	class UEngineFile ColMapFile;
 

@@ -27,6 +27,7 @@ Cavern1::Cavern1()
 	TileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, { 0.5f, 0.5f });
 
 	GetWorld()->CreateCollisionProfile("MainPlayer");
+	GetWorld()->CreateCollisionProfile("Monster");
 }
 
 Cavern1::~Cavern1()
@@ -83,6 +84,11 @@ void Cavern1::BeginPlay()
 		MainPlayerInst->SetActorLocation({ 0.0f, 0.0f, -10.0f });
 		MainPlayerInst->SetTileMapRenderer(TileMap.get());
 		//UColor = UEngineWinImage::GetColor
+	}
+
+	{
+		TempBat = GetWorld()->SpawnActor<Bat>();
+		TempBat->SetActorLocation({ 0.0f, 0.0f, -10.0f });
 	}
 
 }

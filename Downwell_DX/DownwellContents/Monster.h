@@ -3,8 +3,8 @@
 
 enum EMonsterType
 {
-	Bat1,
-	Turtle,
+	MonBat,
+	MonTurtle,
 };
 
 class Monster : public AActor
@@ -25,6 +25,7 @@ public:
 protected:
 
 private:
+
 
 };
 

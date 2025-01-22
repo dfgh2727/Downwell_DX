@@ -2,11 +2,11 @@
 #include "Bat.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
-//#include <EngineCore/Collision.h>
+#include <EngineCore/Collision.h>
 
 Bat::Bat()
 {
-	MonsterTypeValue = EMonsterType::Bat1;
+	MonsterTypeValue = EMonsterType::MonBat;
 
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
@@ -14,7 +14,14 @@ Bat::Bat()
 	// 랜더러를 만든다.
 	BatRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	BatRenderer->SetupAttachment(RootComponent);
-	//BatRenderer->SetTexture("Bat.png", true, 2.0f);
+	BatRenderer->CreateAnimation("Bat_Fly", "Bat", 0, 3, 0.1f);
+	BatRenderer->ChangeAnimation("Bat_Fly");
+	BatRenderer->SetAutoScaleRatio(2.0f);
+
+	CollisionBox = CreateDefaultSubObject< UCollision>();
+	CollisionBox->SetupAttachment(RootComponent);
+	CollisionBox->SetCollisionProfileName("Monster");
+	CollisionBox->SetScale3D({ 25.0f, 20.0f });
 }
 
 Bat::~Bat()

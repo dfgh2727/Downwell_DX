@@ -26,6 +26,8 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> BatRenderer;
+	std::shared_ptr<class UCollision> CollisionBox;
+
 	
 };
 

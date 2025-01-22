@@ -22,7 +22,7 @@ protected:
 
 private:
 	std::shared_ptr<class TileMapEditor> TileMapWindow;
-	//std::shared_ptr<class USpriteRenderer> PivotSpriteRenderer;
+	std::shared_ptr<class USpriteRenderer> PivotSpriteRenderer;
 	std::shared_ptr<class UTileMapRenderer> RenderTileMap;
 
 	FVector TileSize = { 32.0f, 32.0f };
