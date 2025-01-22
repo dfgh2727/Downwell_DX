@@ -261,5 +261,8 @@
     <Filter Include="Interactive Thing\Monster">
       <UniqueIdentifier>{d5473c58-f38b-4188-b8fe-6d18fb81278b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DummyMonster">
+      <UniqueIdentifier>{cfd3951e-5c65-442d-85cb-f1c3a0e9e547}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

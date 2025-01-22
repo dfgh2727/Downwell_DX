@@ -24,7 +24,7 @@ TitleScreen::TitleScreen()
 	Camera->SetActorLocation({ 0.0f, 0.0f, -1000.0f, 1.0f });
 	Camera->GetCameraComponent()->SetZSort(0, true);
 
-	//GetWorld()->CreateCollisionProfile("MainPlayer");
+	GetWorld()->CreateCollisionProfile("MainPlayer");
 }
 
 TitleScreen::~TitleScreen()
