@@ -22,7 +22,7 @@ public:
 	virtual void Tick(float _DeltaTime);
 	virtual void Render(class UEngineCamera* Camera, float _DeltaTime);
 
-	class ULevel* GetWorld();
+	ENGINEAPI class ULevel* GetWorld();
 
 
 	void SetHoverEvent(std::function<void()> _Value)
