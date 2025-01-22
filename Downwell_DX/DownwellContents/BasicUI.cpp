@@ -20,12 +20,12 @@ BasicUI::~BasicUI()
 void BasicUI::BeginPlay()
 {
 	AHUD::BeginPlay();
-
-	//UIWidget = CreateWidget<UImageWidget>(-1);
+	
+	UIWidget = CreateWidget<UImageWidget>(-10);
 
 	{
-		//PartitionImage1 = UIWidget->GetWorld()->SpawnActor<Partition>();
-		PartitionImage1 = GetWorld()->SpawnActor<Partition>();
+		PartitionImage1 = UIWidget->GetWorld()->SpawnActor<Partition>();
+		//PartitionImage1 = GetWorld()->SpawnActor<Partition>();
 		PartitionImage1->SetActorLocation({ -252.0f, 0.0f, -100.0f });
 	}
 	{

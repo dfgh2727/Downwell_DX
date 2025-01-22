@@ -20,6 +20,6 @@ protected:
 	void Tick(float _DeltaTime) override;
 private:
 	std::shared_ptr<class USpriteRenderer> BasicBulletRenderer = nullptr;
-
+	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
 };
 

@@ -21,7 +21,7 @@ public:
 protected:
 
 private:
-	//std::shared_ptr<class UImageWidget> UIWidget;
+	std::shared_ptr<class UImageWidget> UIWidget;
 
 	std::shared_ptr<class MainPlayer> Player;
 	std::shared_ptr<class Partition> PartitionImage1;

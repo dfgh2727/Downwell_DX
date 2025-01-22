@@ -74,10 +74,10 @@
       <Filter>Images\Tile</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>Monster</Filter>
+      <Filter>Interactive Thing\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Bat.cpp">
-      <Filter>Monster</Filter>
+      <Filter>Interactive Thing\Monster</Filter>
     </ClCompile>
     <ClCompile Include="MapEditorMode.cpp">
       <Filter>MapEditor</Filter>
@@ -95,6 +95,15 @@
     </ClCompile>
     <ClCompile Include="Cartridge.cpp">
       <Filter>Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="StepsB.cpp">
+      <Filter>Interactive Thing\Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="StepsS.cpp">
+      <Filter>Interactive Thing\Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Block1.cpp">
+      <Filter>Interactive Thing\Block</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,10 +180,10 @@
       <Filter>Images\Tile</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>Monster</Filter>
+      <Filter>Interactive Thing\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Bat.h">
-      <Filter>Monster</Filter>
+      <Filter>Interactive Thing\Monster</Filter>
     </ClInclude>
     <ClInclude Include="MapEditorMode.h">
       <Filter>MapEditor</Filter>
@@ -192,6 +201,15 @@
     </ClInclude>
     <ClInclude Include="Cartridge.h">
       <Filter>Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="StepsB.h">
+      <Filter>Interactive Thing\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="StepsS.h">
+      <Filter>Interactive Thing\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Block1.h">
+      <Filter>Interactive Thing\Block</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -222,9 +240,6 @@
     <Filter Include="Images\Tile">
       <UniqueIdentifier>{30a529e0-2283-41c5-9726-1b14450c9199}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Monster">
-      <UniqueIdentifier>{d5473c58-f38b-4188-b8fe-6d18fb81278b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="HUD">
       <UniqueIdentifier>{a8dfb10c-1dbc-400e-a144-4ad9df4b1582}</UniqueIdentifier>
     </Filter>
@@ -233,6 +248,18 @@
     </Filter>
     <Filter Include="Bullet">
       <UniqueIdentifier>{6e424311-3088-42de-9ed7-aec9524c0f7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing">
+      <UniqueIdentifier>{c48cb57a-7319-46a5-a6c9-50c00368ef17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing\Stuff">
+      <UniqueIdentifier>{4f91fbe8-72ff-422c-9096-4daacaeefd89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing\Block">
+      <UniqueIdentifier>{ab946c5d-496d-4f87-b4bd-f4da4570a75f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing\Monster">
+      <UniqueIdentifier>{d5473c58-f38b-4188-b8fe-6d18fb81278b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

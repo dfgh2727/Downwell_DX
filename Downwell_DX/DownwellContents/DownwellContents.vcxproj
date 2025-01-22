@@ -158,6 +158,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="Block1.cpp" />
     <ClCompile Include="BulletStatus.cpp" />
     <ClCompile Include="Cartridge.cpp" />
     <ClCompile Include="Cavern1.cpp" />
@@ -224,6 +225,8 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="StepsB.cpp" />
+    <ClCompile Include="StepsS.cpp" />
     <ClCompile Include="Tile.cpp">
       <SubType>
       </SubType>
@@ -246,6 +249,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Bat.h" />
+    <ClInclude Include="Block1.h" />
     <ClInclude Include="BulletStatus.h" />
     <ClInclude Include="Cartridge.h" />
     <ClInclude Include="Cavern1.h" />
@@ -309,6 +313,8 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="StepsB.h" />
+    <ClInclude Include="StepsS.h" />
     <ClInclude Include="Tile.h">
       <SubType>
       </SubType>
