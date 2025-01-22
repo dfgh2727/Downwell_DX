@@ -12,8 +12,8 @@ BasicBullet::BasicBullet()
 	// 랜더러를 만든다.
 	BasicBulletRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	BasicBulletRenderer->SetupAttachment(RootComponent);
-	BasicBulletRenderer->CreateAnimation("FullScreenFadeOut", "Bullet", 0, 5, 0.1f);
-	BasicBulletRenderer->ChangeAnimation("FullScreenFadeOut");
+	BasicBulletRenderer->CreateAnimation("Bullet", "Bullet", 0, 5, 0.1f);
+	BasicBulletRenderer->ChangeAnimation("Bullet");
 	BasicBulletRenderer->SetAutoScaleRatio(2.0f);
 
 	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
