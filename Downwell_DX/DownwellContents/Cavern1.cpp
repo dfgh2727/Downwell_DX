@@ -60,7 +60,7 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 			{
 			case EMonsterType::Bat:
 				TempBat = GetWorld()->SpawnActor<Bat>();
-				//TempBat->SetActorLocation(MonsterLocation);
+				TempBat->SetActorLocation(MonsterLocation);
 				break;
 			case EMonsterType::Crawler:
 				break;
@@ -78,7 +78,6 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 				break;
 			}
 
-			//NewMon->DeSerialize(Ser);
 		}
 
 		TileMap->DataSetting(StartPos, Ser);
