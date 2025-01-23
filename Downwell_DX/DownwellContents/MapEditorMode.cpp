@@ -355,34 +355,7 @@ public:
 
 					EMonsterType MonsterType = static_cast<EMonsterType>(DummyTypeValue);
 
-					std::shared_ptr<Dummy> NewDummy = nullptr;
-
-					/*switch (DummyType)
-					{
-					case DBat:
-						NewDummy = GetWorld()->SpawnActor<DummyBat>();
-						break;
-					case DCrawler:
-						NewDummy = GetWorld()->SpawnActor<DummyCrawler>();
-						break;
-					case DFrog:
-						NewDummy = GetWorld()->SpawnActor<DummyFrog>();
-						break;
-					case DJelly:
-						NewDummy = GetWorld()->SpawnActor<DummyJelly>();
-						break;
-					case DSnail:
-						NewDummy = GetWorld()->SpawnActor<DummySnail>();
-						break;
-					case DSnake:
-						NewDummy = GetWorld()->SpawnActor<DummySnake>();
-						break;
-					case DTurtle:
-						NewDummy = GetWorld()->SpawnActor<DummyTurtle>();
-						break;
-					default:
-						break;
-					}*/
+					std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>();
 
 					NewDummy->DeSerialize(Ser);
 				}

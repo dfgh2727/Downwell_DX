@@ -45,6 +45,8 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 
 		Ser >> MonsterCount;
 
+		std::shared_ptr<Dummy> NewMon = GetWorld()->SpawnActor<Dummy>();
+
 		for (size_t i = 0; i < MonsterCount; i++)
 		{
 			int MonsterTypeValue = 0;
@@ -57,9 +59,10 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 
 			switch (MonsterType)
 			{
-			case EMonsterType::Bat:
-				break;
 			case EMonsterType::Crawler:
+				break;
+			case EMonsterType::Bat:
+				 TempBat = GetWorld()->SpawnActor<Bat>();
 				break;
 			case EMonsterType::Frog:
 				break;
@@ -75,7 +78,7 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 				break;
 			}
 
-			//NewMon->DeSerialize(Ser);
+			NewMon->DeSerialize(Ser);
 		}
 
 		TileMap->DataSetting(StartPos, Ser);
@@ -108,21 +111,9 @@ void Cavern1::BeginPlay()
 
 	}
 
-	/*{
-		UEngineDirectory Dir;
-		if (false == Dir.MoveParentToDirectory("ContentsResources"))
-		{
-			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
-			return;
-		}
-		Dir.Append("CollisionMap");
-		ColMapFile = Dir.GetFile("ColMap.png");
-		ColMap->Load(nullptr, ColMapFile.GetPathToString());
-	}*/
-
 	{
 		//int Index = 0;
-		CreateMap({ 0, 0 }, 2);
+		CreateMap({ 0, 0 }, 0);
 		//CreateMap({ 0, -18 }, 0);
 
 		//TileMap->DataSetting({ 0, -18 }, ReadDatas[1]);
@@ -135,10 +126,10 @@ void Cavern1::BeginPlay()
 		//UColor = UEngineWinImage::GetColor
 	}
 
-	{
+	/*{
 		TempBat = GetWorld()->SpawnActor<Bat>();
 		TempBat->SetActorLocation({ 0.0f, 0.0f, -10.0f });
-	}
+	}*/
 
 }
 
