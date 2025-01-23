@@ -27,6 +27,7 @@ public:
 
 	EDummyType DummyTypeValue;
 
+	std::shared_ptr<class USpriteRenderer> DummyRenderer;
 protected:
 
 private:

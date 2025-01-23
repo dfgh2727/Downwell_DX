@@ -53,7 +53,6 @@ public:
 	void TileMapMode()
 	{
 		{
-			UEngineSprite* Sprite = TileMapRenderer->GetSprite();
 
 			{
 				FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos();
@@ -87,6 +86,7 @@ public:
 	
 			}
 
+			UEngineSprite* Sprite = TileMapRenderer->GetSprite();
 			for (size_t i = 0; i < Sprite->GetSpriteCount(); i++)
 			{
 				UEngineTexture* Texture = Sprite->GetTexture(i);
@@ -146,21 +146,41 @@ public:
 			}
 		}
 	}
+	int SelectMonsterIndex = 0;
 
 	void ObjectMode()
 	{
 
+		std::shared_ptr<UEngineSprite> Sprite = UEngineSprite::Find<UEngineSprite>("Dummy");
+		for (size_t i = 0; i < Sprite->GetSpriteCount(); i++)
 		{
-			std::vector<const char*> Arr;
-			Arr.push_back("Bat");
-			Arr.push_back("Crawler");
-			Arr.push_back("Frog");
-			Arr.push_back("Jelly");
-			Arr.push_back("Snail");
-			Arr.push_back("Snake");
-			Arr.push_back("Turtle");
+			UEngineTexture* Texture = Sprite->GetTexture(i);
+			FSpriteData Data = Sprite->GetSpriteData(i);
 
-			ImGui::ListBox("SpawnList", &SelectItem, &Arr[0], 7);
+			//SRV¿‘¥œ¥Ÿ
+			ImTextureID SRV = reinterpret_cast<ImTextureID>(Texture->GetSRV());
+
+			std::string Text = std::to_string(i);
+
+			if (i != 0)
+			{
+				if (0 != (i % 10))
+				{
+					ImGui::SameLine();
+				}
+			}
+
+
+			ImVec2 Pos = { Data.CuttingPos.X, Data.CuttingPos.Y };
+			ImVec2 Size = { Data.CuttingPos.X + Data.CuttingSize.X, Data.CuttingPos.Y + Data.CuttingSize.Y };
+
+			if (ImGui::ImageButton(Text.c_str(), SRV, { 60, 60 }, Pos, Size))
+			{
+				SelectMonsterIndex = static_cast<int>(i);
+			}
+		}
+
+		{
 
 			if (true == UEngineInput::IsDown(VK_LBUTTON))
 			{
@@ -169,34 +189,35 @@ public:
 				FVector Pos = Camera->ScreenMousePosToWorldPos();
 				Pos.Z = 0.0f;
 
-				std::shared_ptr<Dummy> NewDummy;
-
-				switch (SelectDummy)
-				{
-				case ESpawnList::SpawnBat:
-					NewDummy = GetWorld()->SpawnActor<DummyBat>("Bat");
-					break;
-				case ESpawnList::SpawnCrawler:			
-					NewDummy = GetWorld()->SpawnActor<DummyCrawler>("Crawler");
-					break;
-				case ESpawnList::SpawnFrog:				
-					NewDummy = GetWorld()->SpawnActor<DummyFrog>("Frog");
-					break;
-				case ESpawnList::SpawnJelly:			
-					NewDummy = GetWorld()->SpawnActor<DummyJelly>("Jelly");
-					break;
-				case ESpawnList::SpawnSnail:			
-					NewDummy = GetWorld()->SpawnActor<DummySnail>("Snail");
-					break;								
-				case ESpawnList::SpawnSnake:			
-					NewDummy = GetWorld()->SpawnActor<DummySnake>("Snake");
-					break;								
-				case ESpawnList::SpawnTurtle:			
-					NewDummy = GetWorld()->SpawnActor<DummyTurtle>("Turtle");
-					break;
-				default:
-					break;
-				}
+				std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>("Monster");;
+				NewDummy->DummyRenderer->SetSprite("Dummy", SelectMonsterIndex);
+				ESpawnList::SpawnBat;
+				//switch (SelectDummy)
+				//{
+				//case ESpawnList::SpawnBat:
+				//	NewDummy = GetWorld()->SpawnActor<DummyBat>("Bat");
+				//	break;
+				//case ESpawnList::SpawnCrawler:			
+				//	NewDummy = GetWorld()->SpawnActor<DummyCrawler>("Crawler");
+				//	break;
+				//case ESpawnList::SpawnFrog:				
+				//	NewDummy = GetWorld()->SpawnActor<DummyFrog>("Frog");
+				//	break;
+				//case ESpawnList::SpawnJelly:			
+				//	NewDummy = GetWorld()->SpawnActor<DummyJelly>("Jelly");
+				//	break;
+				//case ESpawnList::SpawnSnail:			
+				//	NewDummy = GetWorld()->SpawnActor<DummySnail>("Snail");
+				//	break;								
+				//case ESpawnList::SpawnSnake:			
+				//	NewDummy = GetWorld()->SpawnActor<DummySnake>("Snake");
+				//	break;								
+				//case ESpawnList::SpawnTurtle:			
+				//	NewDummy = GetWorld()->SpawnActor<DummyTurtle>("Turtle");
+				//	break;
+				//default:
+				//	break;
+				//}
 
 				NewDummy->SetActorLocation(Pos);
 			}
