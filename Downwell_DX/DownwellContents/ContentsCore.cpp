@@ -24,6 +24,7 @@
 
 #include "MainPlayer.h"
 #include "Cavern1.h"
+#include "Cave.h"
 
 // #define은 그냥 무조건 복붙
 CreateContentsCoreDefine(UContentsCore);
@@ -222,6 +223,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineCore::CreateLevel<PauseScreen, APawn, BasicUI>("Paused");
 	UEngineCore::CreateLevel<SelectScreen, APawn, BasicUI>("Select");
 	UEngineCore::CreateLevel<Cavern1, APawn, BasicUI>("Cavern1");
+	UEngineCore::CreateLevel<Cave, APawn, BasicUI>("Cave");
 	UEngineCore::CreateLevel<MapEditorMode, APawn, BasicUI>("TileMapEditor");
 
 	UEngineGUI::AllWindowOff();

@@ -1,5 +1,5 @@
 #include "PreCompile.h"
-#include "Cavern1.h"
+#include "Cave.h"
 #include <EngineCore/CameraActor.h>
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/EngineCamera.h>
@@ -13,7 +13,7 @@
 #include "MainPlayer.h"
 
 
-Cavern1::Cavern1()
+Cave::Cave()
 {
 	Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation(CameraPos);
@@ -30,11 +30,11 @@ Cavern1::Cavern1()
 	GetWorld()->CreateCollisionProfile("Monster");
 }
 
-Cavern1::~Cavern1()
+Cave::~Cave()
 {
 }
 
-void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
+void Cave::CreateMap(FIntPoint StartPos, int _MapIndex)
 {
 	{
 		UEngineSerializer& Ser = ReadDatas[_MapIndex];
@@ -68,7 +68,7 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 	}
 }
 
-void Cavern1::BeginPlay()
+void Cave::BeginPlay()
 {
 	AActor::BeginPlay();
 
@@ -116,23 +116,22 @@ void Cavern1::BeginPlay()
 
 	{
 		MainPlayerInst = GetWorld()->SpawnActor<MainPlayer>();
-		MainPlayerInst->SetActorLocation({ 0.0f, 0.0f, -10.0f });
+		MainPlayerInst->SetActorLocation({ 200.0f, 0.0f, -10.0f });
 		MainPlayerInst->SetTileMapRenderer(TileMap.get());
 		//UColor = UEngineWinImage::GetColor
 	}
 
-	{
-		TempBat = GetWorld()->SpawnActor<Bat>();
-		TempBat->SetActorLocation({ 0.0f, 0.0f, -10.0f });
-	}
+	//{
+	//	TempBat = GetWorld()->SpawnActor<Bat>();
+	//	TempBat->SetActorLocation({ 0.0f, 0.0f, -10.0f });
+	//}
 
 }
 
-void Cavern1::Tick(float _DeltaTime)
+void Cave::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 	PlayerPos = MainPlayerInst->GetActorLocation();
-	GoToSelectScreen(_DeltaTime);
 
 	{
 		CameraPos.X = PlayerPos.X;
@@ -153,7 +152,7 @@ void Cavern1::Tick(float _DeltaTime)
 
 }
 
-void Cavern1::MapManager()
+void Cave::MapManager()
 {
 	//STileIndex_Y = static_cast<int>(floorf((PlayerPos.Y - TileSize.Y * (5.0f)) / TileSize.Y));
 	RTileIndex_Y = static_cast<int>(floorf((PlayerPos.Y + TileSize.Y * (5.0f)) / TileSize.Y));
@@ -162,14 +161,5 @@ void Cavern1::MapManager()
 	{
 		//TileMap->SetTile(x, STileIndex_Y, 1);
 		TileMap->RemoveTile(x, RTileIndex_Y);
-	}
-}
-
-void Cavern1::GoToSelectScreen(float _DeltaTime)
-{
-	FVector PlayerPos = MainPlayerInst->GetActorLocation();
-	if (PlayerPos.X <= -150.0f)
-	{
-		UEngineCore::OpenLevel("Cave");
 	}
 }

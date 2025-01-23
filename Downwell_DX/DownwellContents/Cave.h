@@ -2,18 +2,18 @@
 #include <EngineCore/GameMode.h>
 
 // Ό³Έν :
-class Cavern1 : public AGameMode
+class Cave : public AGameMode
 {
 public:
 	// constrcuter destructer
-	Cavern1();
-	~Cavern1();
+	Cave();
+	~Cave();
 
 	// delete Function
-	Cavern1(const Cavern1& _Other) = delete;
-	Cavern1(Cavern1&& _Other) noexcept = delete;
-	Cavern1& operator=(const Cavern1& _Other) = delete;
-	Cavern1& operator=(Cavern1&& _Other) noexcept = delete;
+	Cave(const Cave& _Other) = delete;
+	Cave(Cave&& _Other) noexcept = delete;
+	Cave& operator=(const Cave& _Other) = delete;
+	Cave& operator=(Cave&& _Other) noexcept = delete;
 
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -21,7 +21,7 @@ public:
 	void MapManager();
 
 	void CreateMap(FIntPoint StartPos, int _MapIndex);
-	void GoToSelectScreen(float _DeltaTime);
+
 
 protected:
 
