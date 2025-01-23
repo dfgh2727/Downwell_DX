@@ -235,7 +235,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	UEngineCore::CreateLevel<SelectScreen, APawn, BasicUI>("Select");
 	UEngineCore::CreateLevel<Cavern1, APawn, BasicUI>("Cavern1");
 	UEngineCore::CreateLevel<Cave, APawn, BasicUI>("Cave");
-	UEngineCore::CreateLevel<MapEditorMode, APawn, BasicUI>("TileMapEditor");
+	UEngineCore::CreateLevel<MapEditorMode, APawn, BasicUI>("MapEditor");
 
 	UEngineGUI::AllWindowOff();
 
@@ -243,7 +243,7 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	std::shared_ptr<UContentsEditorGUI> Window = UEngineGUI::FindGUIWindow<UContentsEditorGUI>("ContentsEditorGUI");
 	Window->SetActive(true);
 
-	//UEngineCore::OpenLevel("TileMapEditor");
+	//UEngineCore::OpenLevel("MapEditor");
 
 	UEngineCore::OpenLevel("Cavern1");
 	

@@ -108,16 +108,13 @@
     <ClCompile Include="Cave.cpp">
       <Filter>Level</Filter>
     </ClCompile>
-    <ClCompile Include="DummyTurtle.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyBat.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyCrawler.cpp">
+    <ClCompile Include="Dummy.cpp">
       <Filter>DummyMonster</Filter>
     </ClCompile>
     <ClCompile Include="DummyFrog.cpp">
+      <Filter>DummyMonster</Filter>
+    </ClCompile>
+    <ClCompile Include="DummyJelly.cpp">
       <Filter>DummyMonster</Filter>
     </ClCompile>
     <ClCompile Include="DummySnail.cpp">
@@ -126,10 +123,13 @@
     <ClCompile Include="DummySnake.cpp">
       <Filter>DummyMonster</Filter>
     </ClCompile>
-    <ClCompile Include="Dummy.cpp">
+    <ClCompile Include="DummyTurtle.cpp">
       <Filter>DummyMonster</Filter>
     </ClCompile>
-    <ClCompile Include="DummyJelly.cpp">
+    <ClCompile Include="DummyBat.cpp">
+      <Filter>DummyMonster</Filter>
+    </ClCompile>
+    <ClCompile Include="DummyCrawler.cpp">
       <Filter>DummyMonster</Filter>
     </ClCompile>
   </ItemGroup>
@@ -241,16 +241,13 @@
     <ClInclude Include="Cave.h">
       <Filter>Level</Filter>
     </ClInclude>
-    <ClInclude Include="DummyTurtle.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyBat.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyCrawler.h">
+    <ClInclude Include="Dummy.h">
       <Filter>DummyMonster</Filter>
     </ClInclude>
     <ClInclude Include="DummyFrog.h">
+      <Filter>DummyMonster</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyJelly.h">
       <Filter>DummyMonster</Filter>
     </ClInclude>
     <ClInclude Include="DummySnail.h">
@@ -259,10 +256,13 @@
     <ClInclude Include="DummySnake.h">
       <Filter>DummyMonster</Filter>
     </ClInclude>
-    <ClInclude Include="Dummy.h">
+    <ClInclude Include="DummyTurtle.h">
       <Filter>DummyMonster</Filter>
     </ClInclude>
-    <ClInclude Include="DummyJelly.h">
+    <ClInclude Include="DummyBat.h">
+      <Filter>DummyMonster</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyCrawler.h">
       <Filter>DummyMonster</Filter>
     </ClInclude>
   </ItemGroup>

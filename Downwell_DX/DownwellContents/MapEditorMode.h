@@ -21,7 +21,7 @@ protected:
 	void LevelChangeStart() override;
 
 private:
-	std::shared_ptr<class TileMapEditor> TileMapWindow;
+	std::shared_ptr<class MapEditor> MapEditorWindow;
 	std::shared_ptr<class USpriteRenderer> PivotSpriteRenderer;
 	std::shared_ptr<class UTileMapRenderer> RenderTileMap;
 

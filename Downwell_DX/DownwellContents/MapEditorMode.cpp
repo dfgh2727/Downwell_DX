@@ -11,7 +11,13 @@
 #include "ContentsEditorGUI.h"
 #include <EnginePlatform/EngineInput.h>
 
-#include "Bat.h"
+#include "DummyBat.h"
+#include "DummyCrawler.h"
+#include "DummyFrog.h"
+#include "DummyJelly.h"
+#include "DummySnail.h"
+#include "DummySnake.h"
+#include "DummyTurtle.h"
 
 
 enum class EditMode
@@ -23,9 +29,15 @@ enum class EditMode
 enum class ESpawnList
 {
 	SpawnBat,
+	SpawnCrawler,
+	SpawnFrog,
+	SpawnJelly,
+	SpawnSnail,
+	SpawnSnake,
+	SpawnTurtle,
 };
 
-class TileMapEditor : public UEngineGUIWindow
+class MapEditor : public UEngineGUIWindow
 {
 public:
 	int SelectItem = 0;
@@ -101,7 +113,6 @@ public:
 				{
 					SelectTileIndex = static_cast<int>(i);
 				}
-				// 엔터를 치지 않는개념.
 			}
 
 
@@ -142,52 +153,72 @@ public:
 		{
 			std::vector<const char*> Arr;
 			Arr.push_back("Bat");
-			//Arr.push_back("Monster2");
+			Arr.push_back("Crawler");
+			Arr.push_back("Frog");
+			Arr.push_back("Jelly");
+			Arr.push_back("Snail");
+			Arr.push_back("Snake");
+			Arr.push_back("Turtle");
 
-
-			ImGui::ListBox("SpawnList", &SelectItem, &Arr[0], 1);
-
-			// GetMainWindow()->IsScreenOut();
+			ImGui::ListBox("SpawnList", &SelectItem, &Arr[0], 7);
 
 			if (true == UEngineInput::IsDown(VK_LBUTTON))
 			{
-				ESpawnList SelectMonster = static_cast<ESpawnList>(SelectItem);
+				ESpawnList SelectDummy = static_cast<ESpawnList>(SelectItem);
 				std::shared_ptr<class ACameraActor> Camera = GetWorld()->GetMainCamera();
 				FVector Pos = Camera->ScreenMousePosToWorldPos();
 				Pos.Z = 0.0f;
 
-				std::shared_ptr<Monster> NewMonster;
+				std::shared_ptr<Dummy> NewDummy;
 
-				switch (SelectMonster)
+				switch (SelectDummy)
 				{
 				case ESpawnList::SpawnBat:
-					NewMonster = GetWorld()->SpawnActor<Bat>("Bat");
+					NewDummy = GetWorld()->SpawnActor<DummyBat>("Bat");
+					break;
+				case ESpawnList::SpawnCrawler:			
+					NewDummy = GetWorld()->SpawnActor<DummyCrawler>("Crawler");
+					break;
+				case ESpawnList::SpawnFrog:				
+					NewDummy = GetWorld()->SpawnActor<DummyFrog>("Frog");
+					break;
+				case ESpawnList::SpawnJelly:			
+					NewDummy = GetWorld()->SpawnActor<DummyJelly>("Jelly");
+					break;
+				case ESpawnList::SpawnSnail:			
+					NewDummy = GetWorld()->SpawnActor<DummySnail>("Snail");
+					break;								
+				case ESpawnList::SpawnSnake:			
+					NewDummy = GetWorld()->SpawnActor<DummySnake>("Snake");
+					break;								
+				case ESpawnList::SpawnTurtle:			
+					NewDummy = GetWorld()->SpawnActor<DummyTurtle>("Turtle");
 					break;
 				default:
 					break;
 				}
 
-				NewMonster->SetActorLocation(Pos);
+				NewDummy->SetActorLocation(Pos);
 			}
 		}
 
 		{
 			if (ImGui::Button("EditObjectDelete"))
 			{
-				std::list<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorListByClass<Monster>();
-				for (std::shared_ptr<Monster> MonsterSpawned : AllMonsterList)
+				std::list<std::shared_ptr<Dummy>> AllDummyList = GetWorld()->GetAllActorListByClass<Dummy>();
+				for (std::shared_ptr<Dummy> DummySpawned : AllDummyList)
 				{
-					MonsterSpawned->Destroy();
+					DummySpawned->Destroy();
 				}
 
 			}
 		}
 
 		{
-			std::vector<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorArrayByClass<Monster>();
+			std::vector<std::shared_ptr<Dummy>> AllDummyList = GetWorld()->GetAllActorArrayByClass<Dummy>();
 
 			std::vector<std::string> ArrString;
-			for (std::shared_ptr<class AActor> Actor : AllMonsterList)
+			for (std::shared_ptr<class AActor> Actor : AllDummyList)
 			{
 				ArrString.push_back(Actor->GetName());
 			}
@@ -210,7 +241,7 @@ public:
 
 				if (true == ImGui::Button("Delete"))
 				{
-					AllMonsterList[ObjectItem]->Destroy();
+					AllDummyList[ObjectItem]->Destroy();
 					ObjectItem = -1;
 				}
 
@@ -250,16 +281,16 @@ public:
 
 			if (GetSaveFileNameA(&ofn) == TRUE)
 			{
-				std::list<std::shared_ptr<Monster>> AllMonsterList = GetWorld()->GetAllActorListByClass<Monster>();
+				std::list<std::shared_ptr<Dummy>> AllDummyList = GetWorld()->GetAllActorListByClass<Dummy>();
 
 				UEngineSerializer Ser;
 
-				Ser << static_cast<int>(AllMonsterList.size());
+				Ser << static_cast<int>(AllDummyList.size());
 
-				for (std::shared_ptr<Monster> Actor : AllMonsterList)
+				for (std::shared_ptr<Dummy> Actor : AllDummyList)
 				{
 
-					Ser << static_cast<int>(Actor->MonsterTypeValue);
+					Ser << static_cast<int>(Actor->DummyTypeValue);
 					// 여기 저장된다는 이야기
 					Actor->Serialize(Ser);
 				}
@@ -306,29 +337,47 @@ public:
 				NewFile.FileOpen("rb");
 				NewFile.Read(Ser);
 
-				int MonsterCount = 0;
+				int DummyCount = 0;
 
-				Ser >> MonsterCount;
+				Ser >> DummyCount;
 
-				for (size_t i = 0; i < MonsterCount; i++)
+				for (size_t i = 0; i < DummyCount; i++)
 				{
-					int MonsterTypeValue = 0;
-					Ser >> MonsterTypeValue;
+					int DummyTypeValue = 0;
+					Ser >> DummyTypeValue;
 
-					EMonsterType MonsterType = static_cast<EMonsterType>(MonsterTypeValue);
+					EDummyType DummyType = static_cast<EDummyType>(DummyTypeValue);
 
-					std::shared_ptr<Monster> NewMon = nullptr;
+					std::shared_ptr<Dummy> NewDummy = nullptr;
 
-					switch (MonsterType)
+					switch (DummyType)
 					{
-					case MonBat:
-						NewMon = GetWorld()->SpawnActor<Bat>();
+					case DBat:
+						NewDummy = GetWorld()->SpawnActor<DummyBat>();
+						break;
+					case DCrawler:
+						NewDummy = GetWorld()->SpawnActor<DummyCrawler>();
+						break;
+					case DFrog:
+						NewDummy = GetWorld()->SpawnActor<DummyFrog>();
+						break;
+					case DJelly:
+						NewDummy = GetWorld()->SpawnActor<DummyJelly>();
+						break;
+					case DSnail:
+						NewDummy = GetWorld()->SpawnActor<DummySnail>();
+						break;
+					case DSnake:
+						NewDummy = GetWorld()->SpawnActor<DummySnake>();
+						break;
+					case DTurtle:
+						NewDummy = GetWorld()->SpawnActor<DummyTurtle>();
 						break;
 					default:
 						break;
 					}
 
-					NewMon->DeSerialize(Ser);
+					NewDummy->DeSerialize(Ser);
 				}
 				TileMapRenderer->DeSerialize(Ser);
 
@@ -377,10 +426,6 @@ MapEditorMode::MapEditorMode()
 	RootComponent = Default;
 
 
-	//PivotSpriteRenderer = CreateDefaultSubObject<USpriteRenderer>();
-	//PivotSpriteRenderer->SetupAttachment(RootComponent);
-	//PivotSpriteRenderer->SetRelativeScale3D({ 50.0f, 50.0f, 1.0f });
-
 	RenderTileMap = CreateDefaultSubObject<UTileMapRenderer>();
 	RenderTileMap->SetupAttachment(RootComponent);
 	RenderTileMap->SetTileSetting(ETileMapType::Rect, "Tile", TileSize, TileSize, TilePivot);	
@@ -389,7 +434,7 @@ MapEditorMode::MapEditorMode()
 	Camera->SetActorLocation({ 0.0f, 0.0f, -1000.0f, 1.0f });
 	Camera->GetCameraComponent()->SetZSort(0, true);
 
-	GetWorld()->CreateCollisionProfile("Monster");
+	//GetWorld()->CreateCollisionProfile("Monster");
 }
 
 MapEditorMode::~MapEditorMode()
@@ -435,15 +480,15 @@ void MapEditorMode::LevelChangeStart()
 	}
 
 	{
-		TileMapWindow = UEngineGUI::FindGUIWindow<TileMapEditor>("TileMapEditor");
+		MapEditorWindow = UEngineGUI::FindGUIWindow<MapEditor>("MapEditor");
 
-		if (nullptr == TileMapWindow)
+		if (nullptr == MapEditorWindow)
 		{
-			TileMapWindow = UEngineGUI::CreateGUIWindow<TileMapEditor>("TileMapEditor");
+			MapEditorWindow = UEngineGUI::CreateGUIWindow<MapEditor>("MapEditor");
 		}
 
-		TileMapWindow->SetActive(true);
-		TileMapWindow->TileMapRenderer = RenderTileMap.get();
+		MapEditorWindow->SetActive(true);
+		MapEditorWindow->TileMapRenderer = RenderTileMap.get();
 	}
 
 }
