@@ -14,7 +14,7 @@ DummyFrog::DummyFrog()
 	// 랜더러를 만든다.
 	DummyFrogRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DummyFrogRenderer->SetupAttachment(RootComponent);
-	DummyFrogRenderer->SetTexture("DummyFrog.png", true, 2.0f);
+	DummyFrogRenderer->SetTexture("DFrog.png", true, 2.0f);
 }
 
 DummyFrog::~DummyFrog()

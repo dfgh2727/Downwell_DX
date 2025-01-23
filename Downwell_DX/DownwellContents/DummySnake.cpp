@@ -14,7 +14,7 @@ DummySnake::DummySnake()
 	// 랜더러를 만든다.
 	DummySnakeRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DummySnakeRenderer->SetupAttachment(RootComponent);
-	DummySnakeRenderer->SetTexture("DummySnake.png", true, 2.0f);
+	DummySnakeRenderer->SetTexture("DSnake.png", true, 2.0f);
 }
 
 DummySnake::~DummySnake()

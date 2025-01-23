@@ -14,7 +14,7 @@ DummyTurtle::DummyTurtle()
 	// 랜더러를 만든다.
 	DummyTurtleRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DummyTurtleRenderer->SetupAttachment(RootComponent);
-	DummyTurtleRenderer->SetTexture("DummyTurtle.png", true, 2.0f);
+	DummyTurtleRenderer->SetTexture("DTurtle.png", true, 2.0f);
 }
 
 DummyTurtle::~DummyTurtle()

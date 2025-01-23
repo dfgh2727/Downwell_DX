@@ -14,7 +14,7 @@ DummyCrawler::DummyCrawler()
 	// 랜더러를 만든다.
 	DummyCrawlerRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DummyCrawlerRenderer->SetupAttachment(RootComponent);
-	DummyCrawlerRenderer->SetTexture("DummyCrawler.png", true, 2.0f);
+	DummyCrawlerRenderer->SetTexture("DCrawler.png", true, 2.0f);
 }
 
 DummyCrawler::~DummyCrawler()

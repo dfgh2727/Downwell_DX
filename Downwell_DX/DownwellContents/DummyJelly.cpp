@@ -14,7 +14,7 @@ DummyJelly::DummyJelly()
 	// 랜더러를 만든다.
 	DummyJellyRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DummyJellyRenderer->SetupAttachment(RootComponent);
-	DummyJellyRenderer->SetTexture("DummyJelly.png", true, 2.0f);
+	DummyJellyRenderer->SetTexture("DJelly.png", true, 2.0f);
 }
 
 DummyJelly::~DummyJelly()

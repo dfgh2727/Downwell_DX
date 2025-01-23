@@ -14,7 +14,7 @@ DummySnail::DummySnail()
 	// 랜더러를 만든다.
 	DummySnailRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DummySnailRenderer->SetupAttachment(RootComponent);
-	DummySnailRenderer->SetTexture("DummySnail.png", true, 2.0f);
+	DummySnailRenderer->SetTexture("DSnail.png", true, 2.0f);
 }
 
 DummySnail::~DummySnail()

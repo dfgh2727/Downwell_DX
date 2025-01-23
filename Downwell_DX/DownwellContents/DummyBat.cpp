@@ -14,7 +14,7 @@ DummyBat::DummyBat()
 	// 랜더러를 만든다.
 	DummyBatRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	DummyBatRenderer->SetupAttachment(RootComponent);
-	DummyBatRenderer->SetTexture("DummyBat.png", true, 2.0f);
+	DummyBatRenderer->SetTexture("DBat.png", true, 2.0f);
 }
 
 DummyBat::~DummyBat()
