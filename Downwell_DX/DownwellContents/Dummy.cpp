@@ -18,21 +18,3 @@ Dummy::Dummy()
 Dummy::~Dummy()
 {
 }
-
-void Dummy::Serialize(UEngineSerializer& _Ser)
-{
-	_Ser << static_cast<int>(MonsterTypeValue);
-	_Ser << GetActorLocation();
-}
-
-
-void Dummy::DeSerialize(UEngineSerializer& _Ser)
-{
-	FVector SavePos;
-	int MonsterType = -1;
-	_Ser >> MonsterType;
-	_Ser >> SavePos;
-	MonsterTypeValue = static_cast<EMonsterType>(MonsterType);
-	SetActorLocation(SavePos);
-
-}

@@ -56,13 +56,13 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 			FVector MonsterLocation;
 			Ser >> MonsterLocation;
 
-
 			switch (MonsterType)
 			{
-			case EMonsterType::Crawler:
-				break;
 			case EMonsterType::Bat:
-				 TempBat = GetWorld()->SpawnActor<Bat>();
+				TempBat = GetWorld()->SpawnActor<Bat>();
+				//TempBat->SetActorLocation(MonsterLocation);
+				break;
+			case EMonsterType::Crawler:
 				break;
 			case EMonsterType::Frog:
 				break;
@@ -78,7 +78,7 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 				break;
 			}
 
-			NewMon->DeSerialize(Ser);
+			//NewMon->DeSerialize(Ser);
 		}
 
 		TileMap->DataSetting(StartPos, Ser);

@@ -17,8 +17,8 @@ public:
 	Dummy& operator=(Dummy&& _Other) noexcept = delete;
 
 	EMonsterType MonsterTypeValue;
-	void Serialize(UEngineSerializer& _Ser);
-	void DeSerialize(UEngineSerializer& _Ser);
+	//void Serialize(UEngineSerializer& _Ser);
+	//void DeSerialize(UEngineSerializer& _Ser);
 
 	std::shared_ptr<class USpriteRenderer> DummyRenderer;
 protected:

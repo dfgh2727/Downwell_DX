@@ -176,6 +176,7 @@ public:
 
 				std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>("Monster");;
 				NewDummy->DummyRenderer->SetSprite("Dummy", SelectMonsterIndex);
+				NewDummy->MonsterTypeValue = static_cast<EMonsterType>(SelectMonsterIndex);
 
 				//ESpawnList::SpawnBat;
 				//switch (SelectDummy)
@@ -298,8 +299,9 @@ public:
 				{
 
 					Ser << static_cast<int>(Actor->MonsterTypeValue);
+					Ser << Actor->GetActorLocation();
 					// 여기 저장된다는 이야기
-					Actor->Serialize(Ser);
+					// Actor->Serialize(Ser);
 				}
 
 				TileMapRenderer->Serialize(Ser);
@@ -352,12 +354,16 @@ public:
 				{
 					int DummyTypeValue = 0;
 					Ser >> DummyTypeValue;
+					FVector Pos;
+					Ser >> Pos;
 
 					EMonsterType MonsterType = static_cast<EMonsterType>(DummyTypeValue);
 
 					std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>();
+					NewDummy->SetActorLocation(Pos);
+					NewDummy->DummyRenderer->SetSprite("Dummy", DummyTypeValue);
 
-					NewDummy->DeSerialize(Ser);
+					//NewDummy->DeSerialize(Ser);
 				}
 				TileMapRenderer->DeSerialize(Ser);
 
