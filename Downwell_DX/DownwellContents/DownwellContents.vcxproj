@@ -175,13 +175,6 @@
     <ClCompile Include="DitherFullScreen.cpp" />
     <ClCompile Include="DownwellTitle.cpp" />
     <ClCompile Include="Dummy.cpp" />
-    <ClCompile Include="DummyBat.cpp" />
-    <ClCompile Include="DummyCrawler.cpp" />
-    <ClCompile Include="DummyFrog.cpp" />
-    <ClCompile Include="DummyJelly.cpp" />
-    <ClCompile Include="DummySnail.cpp" />
-    <ClCompile Include="DummySnake.cpp" />
-    <ClCompile Include="DummyTurtle.cpp" />
     <ClCompile Include="FSMStateManager.cpp" />
     <ClCompile Include="GemStatus.cpp">
       <SubType>
@@ -264,6 +257,7 @@
     <ClInclude Include="Cavern1.h" />
     <ClInclude Include="ContentsCore.h" />
     <ClInclude Include="ContentsEditorGUI.h" />
+    <ClInclude Include="ContentsEnum.h" />
     <ClInclude Include="Developers.h">
       <SubType>
       </SubType>
@@ -275,13 +269,6 @@
     <ClInclude Include="DitherFullScreen.h" />
     <ClInclude Include="DownwellTitle.h" />
     <ClInclude Include="Dummy.h" />
-    <ClInclude Include="DummyBat.h" />
-    <ClInclude Include="DummyCrawler.h" />
-    <ClInclude Include="DummyFrog.h" />
-    <ClInclude Include="DummyJelly.h" />
-    <ClInclude Include="DummySnail.h" />
-    <ClInclude Include="DummySnake.h" />
-    <ClInclude Include="DummyTurtle.h" />
     <ClInclude Include="FSMStateManager.h" />
     <ClInclude Include="GemStatus.h">
       <SubType>

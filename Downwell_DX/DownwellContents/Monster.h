@@ -1,11 +1,7 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include "ContentsEnum.h"
 
-enum EMonsterType
-{
-	MonBat,
-	MonTurtle,
-};
 
 class Monster : public AActor
 {

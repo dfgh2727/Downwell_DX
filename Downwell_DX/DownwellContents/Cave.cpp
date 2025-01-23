@@ -53,14 +53,14 @@ void Cave::CreateMap(FIntPoint StartPos, int _MapIndex)
 
 			std::shared_ptr<Monster> NewMon = nullptr;
 
-			switch (MonsterType)
+			/*switch (MonsterType)
 			{
-			case MonBat:
+			case Bat:
 				NewMon = GetWorld()->SpawnActor<Bat>();
 				break;
 			default:
 				break;
-			}
+			}*/
 
 			NewMon->DeSerialize(Ser);
 		}

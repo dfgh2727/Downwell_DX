@@ -111,27 +111,6 @@
     <ClCompile Include="Dummy.cpp">
       <Filter>DummyMonster</Filter>
     </ClCompile>
-    <ClCompile Include="DummyFrog.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyJelly.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="DummySnail.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="DummySnake.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyTurtle.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyBat.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyCrawler.cpp">
-      <Filter>DummyMonster</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -244,27 +223,7 @@
     <ClInclude Include="Dummy.h">
       <Filter>DummyMonster</Filter>
     </ClInclude>
-    <ClInclude Include="DummyFrog.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyJelly.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="DummySnail.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="DummySnake.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyTurtle.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyBat.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyCrawler.h">
-      <Filter>DummyMonster</Filter>
-    </ClInclude>
+    <ClInclude Include="ContentsEnum.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">

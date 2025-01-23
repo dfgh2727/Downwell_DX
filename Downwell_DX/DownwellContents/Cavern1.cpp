@@ -11,6 +11,7 @@
 #include "DitherFullScreen.h"
 #include "Bat.h"
 #include "MainPlayer.h"
+#include "Dummy.h"
 
 
 Cavern1::Cavern1()
@@ -50,20 +51,33 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 			Ser >> MonsterTypeValue;
 
 			EMonsterType MonsterType = static_cast<EMonsterType>(MonsterTypeValue);
+			FVector MonsterLocation;
+			Ser >> MonsterLocation;
 
-			std::shared_ptr<Monster> NewMon = nullptr;
 
 			switch (MonsterType)
 			{
-			case MonBat:
-				NewMon = GetWorld()->SpawnActor<Bat>();
+			case EMonsterType::Bat:
+				break;
+			case EMonsterType::Crawler:
+				break;
+			case EMonsterType::Frog:
+				break;
+			case EMonsterType::Jelly:
+				break;
+			case EMonsterType::Snail:
+				break;
+			case EMonsterType::Snake:
+				break;
+			case EMonsterType::Turtle:
 				break;
 			default:
 				break;
 			}
 
-			NewMon->DeSerialize(Ser);
+			//NewMon->DeSerialize(Ser);
 		}
+
 		TileMap->DataSetting(StartPos, Ser);
 	}
 }
@@ -108,7 +122,7 @@ void Cavern1::BeginPlay()
 
 	{
 		//int Index = 0;
-		CreateMap({ 0, 0 }, 1);
+		CreateMap({ 0, 0 }, 2);
 		//CreateMap({ 0, -18 }, 0);
 
 		//TileMap->DataSetting({ 0, -18 }, ReadDatas[1]);

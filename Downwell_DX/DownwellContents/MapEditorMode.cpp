@@ -11,13 +11,8 @@
 #include "ContentsEditorGUI.h"
 #include <EnginePlatform/EngineInput.h>
 
-#include "DummyBat.h"
-#include "DummyCrawler.h"
-#include "DummyFrog.h"
-#include "DummyJelly.h"
-#include "DummySnail.h"
-#include "DummySnake.h"
-#include "DummyTurtle.h"
+#include "ContentsEnum.h"
+#include "Dummy.h"
 
 
 enum class EditMode
@@ -26,16 +21,6 @@ enum class EditMode
 	ObjectMode,
 };
 
-enum class ESpawnList
-{
-	SpawnBat,
-	SpawnCrawler,
-	SpawnFrog,
-	SpawnJelly,
-	SpawnSnail,
-	SpawnSnake,
-	SpawnTurtle,
-};
 
 class MapEditor : public UEngineGUIWindow
 {
@@ -191,7 +176,8 @@ public:
 
 				std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>("Monster");;
 				NewDummy->DummyRenderer->SetSprite("Dummy", SelectMonsterIndex);
-				ESpawnList::SpawnBat;
+
+				//ESpawnList::SpawnBat;
 				//switch (SelectDummy)
 				//{
 				//case ESpawnList::SpawnBat:
@@ -311,7 +297,7 @@ public:
 				for (std::shared_ptr<Dummy> Actor : AllDummyList)
 				{
 
-					Ser << static_cast<int>(Actor->DummyTypeValue);
+					Ser << static_cast<int>(Actor->MonsterTypeValue);
 					// 여기 저장된다는 이야기
 					Actor->Serialize(Ser);
 				}
@@ -367,11 +353,11 @@ public:
 					int DummyTypeValue = 0;
 					Ser >> DummyTypeValue;
 
-					EDummyType DummyType = static_cast<EDummyType>(DummyTypeValue);
+					EMonsterType MonsterType = static_cast<EMonsterType>(DummyTypeValue);
 
 					std::shared_ptr<Dummy> NewDummy = nullptr;
 
-					switch (DummyType)
+					/*switch (DummyType)
 					{
 					case DBat:
 						NewDummy = GetWorld()->SpawnActor<DummyBat>();
@@ -396,7 +382,7 @@ public:
 						break;
 					default:
 						break;
-					}
+					}*/
 
 					NewDummy->DeSerialize(Ser);
 				}

@@ -1,16 +1,7 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include "ContentsEnum.h"
 
-enum EDummyType
-{
-	DBat,
-	DCrawler,
-	DFrog,
-	DJelly,
-	DSnail,
-	DSnake,
-	DTurtle
-};
 
 class Dummy : public AActor
 {
@@ -25,7 +16,9 @@ public:
 	Dummy& operator=(const Dummy& _Other) = delete;
 	Dummy& operator=(Dummy&& _Other) noexcept = delete;
 
-	EDummyType DummyTypeValue;
+	EMonsterType MonsterTypeValue;
+	void Serialize(UEngineSerializer& _Ser);
+	void DeSerialize(UEngineSerializer& _Ser);
 
 	std::shared_ptr<class USpriteRenderer> DummyRenderer;
 protected:
