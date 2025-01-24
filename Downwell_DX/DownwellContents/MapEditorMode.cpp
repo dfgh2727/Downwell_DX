@@ -166,7 +166,7 @@ public:
 		}
 
 		{
-
+			
 			if (true == UEngineInput::IsDown(VK_LBUTTON))
 			{
 				ESpawnList SelectDummy = static_cast<ESpawnList>(SelectItem);
@@ -205,7 +205,7 @@ public:
 				//default:
 				//	break;
 				//}
-
+			
 				NewDummy->SetActorLocation(Pos);
 			}
 		}
@@ -448,6 +448,8 @@ void MapEditorMode::Tick(float _DeltaTime)
 	{
 		GetWorld()->GetMainCamera()->AddActorLocation(FVector::RIGHT * 300.0f * _DeltaTime);
 	}
+
+	
 }
 
 void MapEditorMode::LevelChangeStart()
