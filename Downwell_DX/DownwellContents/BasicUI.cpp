@@ -22,8 +22,7 @@ void BasicUI::BeginPlay()
 	AHUD::BeginPlay();
 	
 	UIWidget = CreateWidget<UImageWidget>(-10);
-
-
+	
 
 	{
 		PartitionImage1 = UIWidget->GetWorld()->SpawnActor<Partition>();

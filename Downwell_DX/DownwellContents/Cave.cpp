@@ -36,36 +36,37 @@ Cave::~Cave()
 
 void Cave::CreateMap(FIntPoint StartPos, int _MapIndex)
 {
-	{
-		UEngineSerializer& Ser = ReadDatas[_MapIndex];
+	//{
+	//	UEngineSerializer& Ser = ReadDatas[_MapIndex];
 
-		Ser.ResetOffset();
-		int MonsterCount = 0;
+	//	Ser.ResetOffset();
+	//	int MonsterCount = 0;
 
-		Ser >> MonsterCount;
+	//	Ser >> MonsterCount;
 
-		for (size_t i = 0; i < MonsterCount; i++)
-		{
-			int MonsterTypeValue = 0;
-			Ser >> MonsterTypeValue;
+	//	for (size_t i = 0; i < MonsterCount; i++)
+	//	{
+	//		int MonsterTypeValue = 0;
+	//		Ser >> MonsterTypeValue;
 
-			EMonsterType MonsterType = static_cast<EMonsterType>(MonsterTypeValue);
+	//		EMonsterType MonsterType = static_cast<EMonsterType>(MonsterTypeValue);
 
-			std::shared_ptr<Monster> NewMon = nullptr;
+	//		std::shared_ptr<Monster> NewMon = nullptr;
 
-			/*switch (MonsterType)
-			{
-			case Bat:
-				NewMon = GetWorld()->SpawnActor<Bat>();
-				break;
-			default:
-				break;
-			}*/
+	//		/*switch (MonsterType)
+	//		{
+	//		case Bat:
+	//			NewMon = GetWorld()->SpawnActor<Bat>();
+	//			break;
+	//		default:
+	//			break;
+	//		}*/
 
-			NewMon->DeSerialize(Ser);
-		}
-		TileMap->DataSetting(StartPos, Ser);
-	}
+
+	//		NewMon->DeSerialize(Ser);
+	//	}
+	//	TileMap->DataSetting(StartPos, Ser);
+	//}
 }
 
 void Cave::BeginPlay()

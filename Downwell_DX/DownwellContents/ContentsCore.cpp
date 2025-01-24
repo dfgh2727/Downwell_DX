@@ -243,9 +243,9 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	std::shared_ptr<UContentsEditorGUI> Window = UEngineGUI::FindGUIWindow<UContentsEditorGUI>("ContentsEditorGUI");
 	Window->SetActive(true);
 
-	UEngineCore::OpenLevel("MapEditor");
+	//UEngineCore::OpenLevel("MapEditor");
 
-	//UEngineCore::OpenLevel("Cavern1");
+	UEngineCore::OpenLevel("Cavern1");
 	
 	
 }
