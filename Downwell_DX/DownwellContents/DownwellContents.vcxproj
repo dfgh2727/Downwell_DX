@@ -149,7 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BasicBullet.cpp">
+    <ClCompile Include="NormalBullet.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -242,7 +242,7 @@
     <ClCompile Include="Well.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BasicBullet.h">
+    <ClInclude Include="NormalBullet.h">
       <SubType>
       </SubType>
     </ClInclude>

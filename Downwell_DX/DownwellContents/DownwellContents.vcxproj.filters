@@ -90,7 +90,7 @@
     <ClCompile Include="Health.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="BasicBullet.cpp">
+    <ClCompile Include="NormalBullet.cpp">
       <Filter>Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Cartridge.cpp">
@@ -202,7 +202,7 @@
     <ClInclude Include="Health.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="BasicBullet.h">
+    <ClInclude Include="NormalBullet.h">
       <Filter>Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Cartridge.h">

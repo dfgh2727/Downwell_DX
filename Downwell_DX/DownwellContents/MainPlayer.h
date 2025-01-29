@@ -51,6 +51,8 @@ protected:
 private:
 	std::shared_ptr<class USpriteRenderer> PlayerRenderer = nullptr;
 	std::shared_ptr<class UCollision> CollisionBox = nullptr;
+	std::shared_ptr<class NormalBullet> NBullet = nullptr;
+
 	class UTileMapRenderer* TRenderer = nullptr;
 	struct FTileData* TData = nullptr;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;

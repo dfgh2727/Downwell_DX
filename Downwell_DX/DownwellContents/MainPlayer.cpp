@@ -8,6 +8,7 @@
 #include <EngineCore/TimeEventComponent.h>
 
 #include "Cartridge.h"
+#include "NormalBullet.h"
 
 MainPlayer::MainPlayer()
 {
@@ -66,6 +67,9 @@ void MainPlayer::BeginPlay()
 		[this]()
 		{
 			PlayerRenderer->ChangeAnimation("Shoot");
+			NBullet = GetWorld()->SpawnActor<NormalBullet>();
+			FVector PlayerPos = GetActorLocation();
+			NBullet->SetActorLocation(PlayerPos);
 		});
 
 		FSM.ChangeState(MainPlayerState::Idle);
@@ -191,6 +195,8 @@ void MainPlayer::Jump(float _DeltaTime)
 
 void MainPlayer::Shoot(float _DeltaTime)
 {
+	NBullet->AddActorLocation(FVector::DOWN * 500.0f * _DeltaTime);
+
 	TimeEventComponent->AddEndEvent(0.5f,
 		[this]()
 		{
