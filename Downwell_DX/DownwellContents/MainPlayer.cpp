@@ -69,7 +69,7 @@ void MainPlayer::BeginPlay()
 			PlayerRenderer->ChangeAnimation("Shoot");
 			NBullet = GetWorld()->SpawnActor<NormalBullet>();
 			FVector PlayerPos = GetActorLocation();
-			NBullet->SetActorLocation(PlayerPos);
+			NBullet->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
 		});
 
 		FSM.ChangeState(MainPlayerState::Idle);
