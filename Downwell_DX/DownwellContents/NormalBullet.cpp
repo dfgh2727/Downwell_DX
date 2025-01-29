@@ -12,7 +12,7 @@ NormalBullet::NormalBullet()
 	// 랜더러를 만든다.
 	NormalBulletRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	NormalBulletRenderer->SetupAttachment(RootComponent);
-	NormalBulletRenderer->CreateAnimation("Bullet", "Bullet", 0, 5, 0.05f, false);
+	NormalBulletRenderer->CreateAnimation("Bullet", "Bullet", 0, 5, 0.08f, false);
 	NormalBulletRenderer->ChangeAnimation("Bullet");
 	NormalBulletRenderer->SetAutoScaleRatio(2.0f);
 
@@ -31,4 +31,11 @@ void NormalBullet::BeginPlay()
 void NormalBullet::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+
+	Timer -= _DeltaTime;
+
+	if (Timer < 0.0f)
+	{
+		Destroy();
+	}
 }

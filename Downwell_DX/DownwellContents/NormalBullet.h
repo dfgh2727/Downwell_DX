@@ -21,5 +21,7 @@ protected:
 private:
 	std::shared_ptr<class USpriteRenderer> NormalBulletRenderer = nullptr;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
+
+	float Timer = 0.5f;
 };
 

@@ -277,5 +277,8 @@
     <Filter Include="DummyMonster">
       <UniqueIdentifier>{cfd3951e-5c65-442d-85cb-f1c3a0e9e547}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Block">
+      <UniqueIdentifier>{dd114530-cd11-43ff-bf6d-e2ef2364cb64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
