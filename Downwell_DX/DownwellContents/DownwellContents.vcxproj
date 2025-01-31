@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BulletChange.cpp" />
     <ClCompile Include="NormalBullet.cpp">
       <SubType>
       </SubType>
@@ -242,6 +243,7 @@
     <ClCompile Include="Well.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletChange.h" />
     <ClInclude Include="NormalBullet.h">
       <SubType>
       </SubType>

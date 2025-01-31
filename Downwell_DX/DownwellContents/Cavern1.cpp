@@ -13,6 +13,8 @@
 #include "MainPlayer.h"
 #include "Dummy.h"
 
+#include "BulletChange.h"
+
 
 Cavern1::Cavern1()
 {

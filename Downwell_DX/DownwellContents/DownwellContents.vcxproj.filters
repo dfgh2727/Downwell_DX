@@ -111,6 +111,9 @@
     <ClCompile Include="Dummy.cpp">
       <Filter>DummyMonster</Filter>
     </ClCompile>
+    <ClCompile Include="BulletChange.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -224,6 +227,9 @@
       <Filter>DummyMonster</Filter>
     </ClInclude>
     <ClInclude Include="ContentsEnum.h" />
+    <ClInclude Include="BulletChange.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">

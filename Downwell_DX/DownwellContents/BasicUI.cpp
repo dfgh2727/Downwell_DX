@@ -9,6 +9,7 @@
 #include "GemStatus.h"
 #include "HealthStatus.h"
 #include "BulletStatus.h"
+#include "BulletChange.h"
 
 BasicUI::BasicUI()
 {
@@ -34,26 +35,31 @@ void BasicUI::BeginPlay()
 		PartitionImage1->SetActorLocation(Partition1Pos);
 	}
 	{
-		PartitionImage2 = GetWorld()->SpawnActor<Partition>();
+		PartitionImage2 = UIWidget->GetWorld()->SpawnActor<Partition>();
 		//PartitionImage2->SetActorLocation({ 284.0f, 0.0f, -100.0f });
 		PartitionImage2->SetActorLocation(Partition2Pos);
 		PartitionImage2->AddActorRotation(FVector{ 0.0f, 0.0f , 180.0f });
 	}
 	{
-		GemStatusImage = GetWorld()->SpawnActor<GemStatus>();
+		GemStatusImage = UIWidget->GetWorld()->SpawnActor<GemStatus>();
 		GemStatusImage->SetActorLocation(GemStatusPos);
 		//GemStatusImage->SetActorLocation({ 316.0f, 249.0f, -200.0f });
 	}
 	{
-		HealthStatusImage = GetWorld()->SpawnActor<HealthStatus>();
+		HealthStatusImage = UIWidget->GetWorld()->SpawnActor<HealthStatus>();
 		HealthStatusImage->SetActorLocation(HealthStatusPos);
 		//HealthStatusImage->SetActorLocation({ -258.0f, 251.0f, -200.0f });
 	}
 	{
-		BulletStatusImage = GetWorld()->SpawnActor<BulletStatus>();
+		BulletStatusImage = UIWidget->GetWorld()->SpawnActor<BulletStatus>();
 		BulletStatusImage->SetActorLocation(BulletStatusPos);
 		//BulletStatusImage->SetActorLocation({ 225.0f, 0.0f, -200.0f });
 	}
+
+	/*{
+		ShowBulletChange = UIWidget->GetWorld()->SpawnActor<BulletChange>();
+		ShowBulletChange->SetActorLocation(BulletStatusPos);
+	}*/
 }
 
 void BasicUI::Tick(float _DeltaTime)
@@ -73,5 +79,7 @@ void BasicUI::SetUIPos()
 	GemStatusImage->SetActorLocation(GemStatusPos + ScreenPos);
 	HealthStatusImage->SetActorLocation(HealthStatusPos + ScreenPos);
 	BulletStatusImage->SetActorLocation(BulletStatusPos + ScreenPos);
+	//ShowBulletChange->SetActorLocation(BulletStatusPos + ScreenPos);
+
 
 }

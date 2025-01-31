@@ -32,6 +32,7 @@ private:
 	std::shared_ptr<class GemStatus> GemStatusImage;
 	std::shared_ptr<class HealthStatus> HealthStatusImage;
 	std::shared_ptr<class BulletStatus> BulletStatusImage;
+	std::shared_ptr<class BulletChange> ShowBulletChange;
 
 	std::shared_ptr<class ACameraActor> Camera;
 	FVector ScreenPos = FVector::ZERO;
