@@ -13,7 +13,7 @@ BulletStatus::BulletStatus()
 	BulletStatusRenderer->SetupAttachment(RootComponent);
 	BulletStatusRenderer->SetTexture("BulletStatus.png", true, 2.0f);
 }
-
+ 
 BulletStatus::~BulletStatus()
 {
 }
