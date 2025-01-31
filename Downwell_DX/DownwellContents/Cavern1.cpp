@@ -132,6 +132,11 @@ void Cavern1::BeginPlay()
 		TempBat->SetActorLocation({ 0.0f, 0.0f, -10.0f });
 	}*/
 
+	{
+		ShowBullet = GetWorld()->SpawnActor<BulletChange>();
+		ShowBullet->SetActorLocation({ 0.0f, 0.0f, -10.0f });
+	}
+
 }
 
 void Cavern1::Tick(float _DeltaTime)

@@ -28,7 +28,8 @@ void BulletChange::Tick(float _DeltaTime)
 	AActor::Tick(_DeltaTime);
 
 	FVector StautsBarScale = BulletGauge->GetWorldScale3D();
-	StautsBarScale.Y = 388.0f;
-	BulletGauge->SetScale3D(StautsBarScale);
+	//StautsBarScale.Y = 250.0f;
+	//StautsBarScale.X = 100.0f;
+	//BulletGauge->SetScale3D(StautsBarScale);
 
 }
