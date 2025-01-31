@@ -18,6 +18,9 @@ public:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	void SetUIPos();
+
+
 protected:
 
 private:
@@ -29,5 +32,14 @@ private:
 	std::shared_ptr<class GemStatus> GemStatusImage;
 	std::shared_ptr<class HealthStatus> HealthStatusImage;
 	std::shared_ptr<class BulletStatus> BulletStatusImage;
+
+	std::shared_ptr<class ACameraActor> Camera;
+	FVector ScreenPos = FVector::ZERO;
+	FVector Partition1Pos= { -252.0f, 0.0f, -100.0f };
+	FVector Partition2Pos = { 284.0f, 0.0f, -100.0f };
+	FVector GemStatusPos = { 316.0f, 249.0f, -200.0f };
+	FVector HealthStatusPos = { -258.0f, 251.0f, -200.0f };
+	FVector BulletStatusPos = { 225.0f, 0.0f, -200.0f };
+
 };
 
