@@ -150,9 +150,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Block1.cpp" />
+    <ClCompile Include="Block2.cpp" />
+    <ClCompile Include="Block3.cpp" />
     <ClCompile Include="BulletChange.cpp" />
     <ClCompile Include="Crawler.cpp" />
     <ClCompile Include="Frog.cpp" />
+    <ClCompile Include="GemBlock.cpp" />
     <ClCompile Include="Jelly.cpp" />
     <ClCompile Include="NormalBullet.cpp">
       <SubType>
@@ -251,9 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block1.h" />
+    <ClInclude Include="Block2.h" />
+    <ClInclude Include="Block3.h" />
     <ClInclude Include="BulletChange.h" />
     <ClInclude Include="Crawler.h" />
     <ClInclude Include="Frog.h" />
+    <ClInclude Include="GemBlock.h" />
     <ClInclude Include="Jelly.h" />
     <ClInclude Include="NormalBullet.h">
       <SubType>

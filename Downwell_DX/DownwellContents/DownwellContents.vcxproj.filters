@@ -135,6 +135,15 @@
     <ClCompile Include="Block1.cpp">
       <Filter>Interactive Thing\Block</Filter>
     </ClCompile>
+    <ClCompile Include="Block2.cpp">
+      <Filter>Interactive Thing\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="Block3.cpp">
+      <Filter>Interactive Thing\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="GemBlock.cpp">
+      <Filter>Interactive Thing\Block</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -272,6 +281,15 @@
       <Filter>Interactive Thing\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Block1.h">
+      <Filter>Interactive Thing\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Block2.h">
+      <Filter>Interactive Thing\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Block3.h">
+      <Filter>Interactive Thing\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="GemBlock.h">
       <Filter>Interactive Thing\Block</Filter>
     </ClInclude>
   </ItemGroup>

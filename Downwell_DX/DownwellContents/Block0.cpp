@@ -14,7 +14,7 @@ Block0::Block0()
 	// 랜더러를 만든다.
 	Block0Renderer = CreateDefaultSubObject<USpriteRenderer>();
 	Block0Renderer->SetupAttachment(RootComponent);
-	Block0Renderer->SetTexture("Block00.png", true, 2.0f);
+	Block0Renderer->SetTexture("Block0.png", true, 2.0f);
 
 	CollisionBox = CreateDefaultSubObject<UCollision>();
 	CollisionBox->SetupAttachment(RootComponent);
