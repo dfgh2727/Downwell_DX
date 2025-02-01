@@ -73,6 +73,8 @@ void BasicUI::SetUIPos()
 {
 	ScreenPos = GetWorld()->GetMainCamera()->GetActorLocation();
 	ScreenPos.Z = 0.0f;
+	//ScreenPos.X = 0.0f;
+
 
 	PartitionImage1->SetActorLocation(Partition1Pos + ScreenPos);
 	PartitionImage2->SetActorLocation(Partition2Pos + ScreenPos);
