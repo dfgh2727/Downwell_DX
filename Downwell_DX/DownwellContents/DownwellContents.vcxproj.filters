@@ -74,7 +74,7 @@
       <Filter>Images\Tile</Filter>
     </ClCompile>
     <ClCompile Include="Bat.cpp">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClCompile>
     <ClCompile Include="MapEditorMode.cpp">
       <Filter>MapEditor</Filter>
@@ -94,13 +94,13 @@
       <Filter>Interactive Thing\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="StepsB.cpp">
-      <Filter>Interactive Thing\Stuff</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Stuff</Filter>
     </ClCompile>
     <ClCompile Include="StepsS.cpp">
-      <Filter>Interactive Thing\Stuff</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Stuff</Filter>
     </ClCompile>
     <ClCompile Include="Block0.cpp">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
     </ClCompile>
     <ClCompile Include="Cave.cpp">
       <Filter>Level</Filter>
@@ -111,38 +111,38 @@
     <ClCompile Include="BulletChange.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="SpawnedActor.cpp">
-      <Filter>Interactive Thing</Filter>
-    </ClCompile>
     <ClCompile Include="Snail.cpp">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Crawler.cpp">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Frog.cpp">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Jelly.cpp">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Snake.cpp">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Turtle.cpp">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Block1.cpp">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
     </ClCompile>
     <ClCompile Include="Block2.cpp">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
     </ClCompile>
     <ClCompile Include="Block3.cpp">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
     </ClCompile>
     <ClCompile Include="GemBlock.cpp">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnedActor.cpp">
+      <Filter>Interactive Thing\SpawnedActor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -219,7 +219,7 @@
       <Filter>Images\Tile</Filter>
     </ClInclude>
     <ClInclude Include="Bat.h">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClInclude>
     <ClInclude Include="MapEditorMode.h">
       <Filter>MapEditor</Filter>
@@ -239,13 +239,13 @@
       <Filter>Interactive Thing\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="StepsB.h">
-      <Filter>Interactive Thing\Stuff</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Stuff</Filter>
     </ClInclude>
     <ClInclude Include="StepsS.h">
-      <Filter>Interactive Thing\Stuff</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Stuff</Filter>
     </ClInclude>
     <ClInclude Include="Block0.h">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
     </ClInclude>
     <ClInclude Include="Cave.h">
       <Filter>Level</Filter>
@@ -256,41 +256,41 @@
     <ClInclude Include="BulletChange.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="SpawnedActor.h">
-      <Filter>Interactive Thing</Filter>
-    </ClInclude>
     <ClInclude Include="ContentsEnum.h">
       <Filter>Enum</Filter>
     </ClInclude>
     <ClInclude Include="Snail.h">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Crawler.h">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Frog.h">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Jelly.h">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Snake.h">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Turtle.h">
-      <Filter>Interactive Thing\Monster</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Block1.h">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
     </ClInclude>
     <ClInclude Include="Block2.h">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
     </ClInclude>
     <ClInclude Include="Block3.h">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
     </ClInclude>
     <ClInclude Include="GemBlock.h">
-      <Filter>Interactive Thing\Block</Filter>
+      <Filter>Interactive Thing\SpawnedActor\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnedActor.h">
+      <Filter>Interactive Thing\SpawnedActor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -330,15 +330,6 @@
     <Filter Include="Interactive Thing">
       <UniqueIdentifier>{c48cb57a-7319-46a5-a6c9-50c00368ef17}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interactive Thing\Stuff">
-      <UniqueIdentifier>{4f91fbe8-72ff-422c-9096-4daacaeefd89}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Interactive Thing\Block">
-      <UniqueIdentifier>{ab946c5d-496d-4f87-b4bd-f4da4570a75f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Interactive Thing\Monster">
-      <UniqueIdentifier>{d5473c58-f38b-4188-b8fe-6d18fb81278b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Dummy">
       <UniqueIdentifier>{cfd3951e-5c65-442d-85cb-f1c3a0e9e547}</UniqueIdentifier>
     </Filter>
@@ -347,6 +338,18 @@
     </Filter>
     <Filter Include="Enum">
       <UniqueIdentifier>{850c270e-bfbb-471a-ae8a-8818fab3f25c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing\SpawnedActor">
+      <UniqueIdentifier>{c4a28b48-4c8e-44bf-83bc-070363aa5c59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing\SpawnedActor\Stuff">
+      <UniqueIdentifier>{4f91fbe8-72ff-422c-9096-4daacaeefd89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing\SpawnedActor\Monster">
+      <UniqueIdentifier>{d5473c58-f38b-4188-b8fe-6d18fb81278b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing\SpawnedActor\Block">
+      <UniqueIdentifier>{ab946c5d-496d-4f87-b4bd-f4da4570a75f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

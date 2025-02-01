@@ -179,7 +179,7 @@ public:
 				NewDummy->DummyRenderer->SetSprite("Dummy", SelectMonsterIndex);
 				NewDummy->SpawnTypeValue = static_cast<ESpawnType>(SelectMonsterIndex);
 			
-				if (SelectMonsterIndex > 3)
+				if (SelectMonsterIndex > 6 /*&& SelectMonsterIndex < 12*/)
 				{
 					Pos.X = floorf(Pos.X/fTileSize);
 					Pos.X *= fTileSize;

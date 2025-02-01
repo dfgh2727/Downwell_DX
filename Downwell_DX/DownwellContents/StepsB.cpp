@@ -6,6 +6,8 @@
 
 StepsB::StepsB()
 {
+	SpawnTypeValue = ESpawnType::SStepB;
+
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 

@@ -14,6 +14,8 @@ enum class ESpawnType
 	SBlock2,
 	SBlock3,
 	SBlock4,
+	SStepB,
+	SStepS,
 
 };
 
