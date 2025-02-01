@@ -99,7 +99,7 @@
     <ClCompile Include="StepsS.cpp">
       <Filter>Interactive Thing\Stuff</Filter>
     </ClCompile>
-    <ClCompile Include="Block1.cpp">
+    <ClCompile Include="Block0.cpp">
       <Filter>Interactive Thing\Block</Filter>
     </ClCompile>
     <ClCompile Include="Cave.cpp">
@@ -113,6 +113,27 @@
     </ClCompile>
     <ClCompile Include="SpawnedActor.cpp">
       <Filter>Interactive Thing</Filter>
+    </ClCompile>
+    <ClCompile Include="Snail.cpp">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Crawler.cpp">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Frog.cpp">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Jelly.cpp">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Turtle.cpp">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Block1.cpp">
+      <Filter>Interactive Thing\Block</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -214,7 +235,7 @@
     <ClInclude Include="StepsS.h">
       <Filter>Interactive Thing\Stuff</Filter>
     </ClInclude>
-    <ClInclude Include="Block1.h">
+    <ClInclude Include="Block0.h">
       <Filter>Interactive Thing\Block</Filter>
     </ClInclude>
     <ClInclude Include="Cave.h">
@@ -231,6 +252,27 @@
     </ClInclude>
     <ClInclude Include="ContentsEnum.h">
       <Filter>Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="Snail.h">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Crawler.h">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Frog.h">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Jelly.h">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Turtle.h">
+      <Filter>Interactive Thing\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Block1.h">
+      <Filter>Interactive Thing\Block</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,11 @@ enum class ESpawnType
 	MSnail,
 	MSnake,
 	MTurtle,
+	SBlock0,
+	SBlock1,
+	SBlock2,
+	SBlock3,
+	SBlock4,
 
 };
 

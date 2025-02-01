@@ -27,6 +27,7 @@ private:
 
 	FVector TileSize = { 32.0f, 32.0f };
 	FVector TilePivot = { 0.0f, 0.0f };
+	
 
 };
 

@@ -1,34 +1,35 @@
 #include "PreCompile.h"
-#include "Block1.h"
+#include "Block0.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/Collision.h>
 
-Block1::Block1()
+Block0::Block0()
 {
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 
 	// 랜더러를 만든다.
-	Block1Renderer = CreateDefaultSubObject<USpriteRenderer>();
-	Block1Renderer->SetupAttachment(RootComponent);
-	Block1Renderer->SetTexture("Block01.png", true, 2.0f);
+	Block0Renderer = CreateDefaultSubObject<USpriteRenderer>();
+	Block0Renderer->SetupAttachment(RootComponent);
+	Block0Renderer->SetTexture("Block00.png", true, 2.0f);
 
 	CollisionBox = CreateDefaultSubObject<UCollision>();
 	CollisionBox->SetupAttachment(RootComponent);
+	CollisionBox->SetCollisionProfileName("Block");
 	CollisionBox->SetScale3D({ 32.0f, 32.0f });
 }
 
-Block1::~Block1()
+Block0::~Block0()
 {
 }
 
-void Block1::BeginPlay()
+void Block0::BeginPlay()
 {
 	AActor::BeginPlay();
 }
 
-void Block1::Tick(float _DeltaTime)
+void Block0::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 }

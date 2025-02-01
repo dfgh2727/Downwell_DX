@@ -34,6 +34,7 @@ public:
 	int TileCountY = 10;
 	int SelectTileIndex = 0;
 	FVector TileSize = { 32.0f, 32.0f };
+	float fTileSize = 32.0f;
 
 	void TileMapMode()
 	{
@@ -180,12 +181,10 @@ public:
 			
 				if (SelectMonsterIndex > 3)
 				{
-					//Pos.X = floorf(Pos.X);
-					//Pos.Y = floorf(Pos.Y);
-					Pos.X = floorf(Pos.X/50.0f);
-					Pos.X *= 50.0f;
-					Pos.Y = floorf(Pos.Y / 50.0f);
-					Pos.Y *= 50.0f;
+					Pos.X = floorf(Pos.X/fTileSize);
+					Pos.X *= fTileSize;
+					Pos.Y = floorf(Pos.Y/fTileSize);
+					Pos.Y *= fTileSize;
 					NewDummy->SetActorLocation(Pos);
 				}
 				else

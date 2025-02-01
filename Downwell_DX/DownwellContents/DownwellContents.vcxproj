@@ -149,7 +149,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Block1.cpp" />
     <ClCompile Include="BulletChange.cpp" />
+    <ClCompile Include="Crawler.cpp" />
+    <ClCompile Include="Frog.cpp" />
+    <ClCompile Include="Jelly.cpp" />
     <ClCompile Include="NormalBullet.cpp">
       <SubType>
       </SubType>
@@ -159,7 +163,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Bat.cpp" />
-    <ClCompile Include="Block1.cpp" />
+    <ClCompile Include="Block0.cpp" />
     <ClCompile Include="BulletStatus.cpp" />
     <ClCompile Include="Cartridge.cpp" />
     <ClCompile Include="Cavern1.cpp" />
@@ -201,6 +205,8 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Snail.cpp" />
+    <ClCompile Include="Snake.cpp" />
     <ClCompile Include="SpawnedActor.cpp">
       <SubType>
       </SubType>
@@ -240,10 +246,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Turtle.cpp" />
     <ClCompile Include="Well.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Block1.h" />
     <ClInclude Include="BulletChange.h" />
+    <ClInclude Include="Crawler.h" />
+    <ClInclude Include="Frog.h" />
+    <ClInclude Include="Jelly.h" />
     <ClInclude Include="NormalBullet.h">
       <SubType>
       </SubType>
@@ -253,7 +264,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Bat.h" />
-    <ClInclude Include="Block1.h" />
+    <ClInclude Include="Block0.h" />
     <ClInclude Include="BulletStatus.h" />
     <ClInclude Include="Cartridge.h" />
     <ClInclude Include="Cavern1.h" />
@@ -296,6 +307,8 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Snail.h" />
+    <ClInclude Include="Snake.h" />
     <ClInclude Include="SpawnedActor.h">
       <SubType>
       </SubType>
@@ -332,6 +345,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Turtle.h" />
     <ClInclude Include="Well.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
