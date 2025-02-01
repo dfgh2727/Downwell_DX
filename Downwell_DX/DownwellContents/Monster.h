@@ -16,7 +16,7 @@ public:
 	Monster& operator=(const Monster& _Other) = delete;
 	Monster& operator=(Monster&& _Other) noexcept = delete;
 
-	EMonsterType MonsterTypeValue;
+	ESpawnType SpawnTypeValue;
 
 protected:
 

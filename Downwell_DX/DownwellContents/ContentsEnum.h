@@ -1,14 +1,15 @@
 #pragma once
 
-enum class EMonsterType
+enum class ESpawnType
 {
-	Bat,
-	Crawler,
-	Frog,
-	Jelly,
-	Snail,
-	Snake,
-	Turtle
+	MBat,
+	MCrawler,
+	MFrog,
+	MJelly,
+	MSnail,
+	MSnake,
+	MTurtle,
+
 };
 
 

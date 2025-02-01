@@ -73,9 +73,6 @@
     <ClCompile Include="Tile002.cpp">
       <Filter>Images\Tile</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>Interactive Thing\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Bat.cpp">
       <Filter>Interactive Thing\Monster</Filter>
     </ClCompile>
@@ -91,10 +88,10 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="NormalBullet.cpp">
-      <Filter>Bullet</Filter>
+      <Filter>Interactive Thing\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Cartridge.cpp">
-      <Filter>Bullet</Filter>
+      <Filter>Interactive Thing\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="StepsB.cpp">
       <Filter>Interactive Thing\Stuff</Filter>
@@ -109,10 +106,13 @@
       <Filter>Level</Filter>
     </ClCompile>
     <ClCompile Include="Dummy.cpp">
-      <Filter>DummyMonster</Filter>
+      <Filter>Dummy</Filter>
     </ClCompile>
     <ClCompile Include="BulletChange.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Interactive Thing</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,9 +188,6 @@
     <ClInclude Include="Tile002.h">
       <Filter>Images\Tile</Filter>
     </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Interactive Thing\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="Bat.h">
       <Filter>Interactive Thing\Monster</Filter>
     </ClInclude>
@@ -206,10 +203,10 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="NormalBullet.h">
-      <Filter>Bullet</Filter>
+      <Filter>Interactive Thing\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Cartridge.h">
-      <Filter>Bullet</Filter>
+      <Filter>Interactive Thing\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="StepsB.h">
       <Filter>Interactive Thing\Stuff</Filter>
@@ -224,11 +221,16 @@
       <Filter>Level</Filter>
     </ClInclude>
     <ClInclude Include="Dummy.h">
-      <Filter>DummyMonster</Filter>
+      <Filter>Dummy</Filter>
     </ClInclude>
-    <ClInclude Include="ContentsEnum.h" />
     <ClInclude Include="BulletChange.h">
       <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Interactive Thing</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentsEnum.h">
+      <Filter>Enum</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -265,9 +267,6 @@
     <Filter Include="UI">
       <UniqueIdentifier>{824f02ac-72da-4bbe-b8f5-4da85622de07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Bullet">
-      <UniqueIdentifier>{6e424311-3088-42de-9ed7-aec9524c0f7f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Interactive Thing">
       <UniqueIdentifier>{c48cb57a-7319-46a5-a6c9-50c00368ef17}</UniqueIdentifier>
     </Filter>
@@ -280,11 +279,14 @@
     <Filter Include="Interactive Thing\Monster">
       <UniqueIdentifier>{d5473c58-f38b-4188-b8fe-6d18fb81278b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DummyMonster">
+    <Filter Include="Dummy">
       <UniqueIdentifier>{cfd3951e-5c65-442d-85cb-f1c3a0e9e547}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Block">
-      <UniqueIdentifier>{dd114530-cd11-43ff-bf6d-e2ef2364cb64}</UniqueIdentifier>
+    <Filter Include="Interactive Thing\Bullet">
+      <UniqueIdentifier>{6e424311-3088-42de-9ed7-aec9524c0f7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enum">
+      <UniqueIdentifier>{850c270e-bfbb-471a-ae8a-8818fab3f25c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

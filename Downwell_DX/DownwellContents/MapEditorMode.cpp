@@ -176,7 +176,7 @@ public:
 
 				std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>("Monster");;
 				NewDummy->DummyRenderer->SetSprite("Dummy", SelectMonsterIndex);
-				NewDummy->MonsterTypeValue = static_cast<EMonsterType>(SelectMonsterIndex);
+				NewDummy->SpawnTypeValue = static_cast<ESpawnType>(SelectMonsterIndex);
 			
 				NewDummy->SetActorLocation(Pos);
 			}
@@ -270,7 +270,7 @@ public:
 				for (std::shared_ptr<Dummy> Actor : AllDummyList)
 				{
 
-					Ser << static_cast<int>(Actor->MonsterTypeValue);
+					Ser << static_cast<int>(Actor->SpawnTypeValue);
 					Ser << Actor->GetActorLocation();
 					// 여기 저장된다는 이야기
 					// Actor->Serialize(Ser);
@@ -329,7 +329,7 @@ public:
 					FVector Pos;
 					Ser >> Pos;
 
-					EMonsterType MonsterType = static_cast<EMonsterType>(DummyTypeValue);
+					ESpawnType SpawnType = static_cast<ESpawnType>(DummyTypeValue);
 
 					std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>();
 					NewDummy->SetActorLocation(Pos);

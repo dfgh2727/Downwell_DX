@@ -16,7 +16,7 @@ public:
 	Dummy& operator=(const Dummy& _Other) = delete;
 	Dummy& operator=(Dummy&& _Other) noexcept = delete;
 
-	EMonsterType MonsterTypeValue;
+	ESpawnType SpawnTypeValue;
 	//void Serialize(UEngineSerializer& _Ser);
 	//void DeSerialize(UEngineSerializer& _Ser);
 

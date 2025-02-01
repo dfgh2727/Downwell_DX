@@ -6,7 +6,7 @@
 
 Bat::Bat()
 {
-	MonsterTypeValue = EMonsterType::Bat;
+	SpawnTypeValue = ESpawnType::MBat;
 
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
