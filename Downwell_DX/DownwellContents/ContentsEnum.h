@@ -12,19 +12,13 @@ enum class EMonsterType
 };
 
 
-enum class ESpawnList
-{
-	SpawnBat,
-	SpawnCrawler,
-	SpawnFrog,
-	SpawnJelly,
-	SpawnSnail,
-	SpawnSnake,
-	SpawnTurtle,
-};
-//
-//enum EMonsterType
+//enum class ESpawnList
 //{
-//	MonBat,
-//	MonTurtle,
+//	SpawnBat,
+//	SpawnCrawler,
+//	SpawnFrog,
+//	SpawnJelly,
+//	SpawnSnail,
+//	SpawnSnake,
+//	SpawnTurtle,
 //};

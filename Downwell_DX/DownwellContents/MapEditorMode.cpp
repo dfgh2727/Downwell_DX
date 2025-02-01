@@ -169,7 +169,7 @@ public:
 			
 			if (true == UEngineInput::IsDown(VK_LBUTTON))
 			{
-				ESpawnList SelectDummy = static_cast<ESpawnList>(SelectItem);
+				//ESpawnList SelectDummy = static_cast<ESpawnList>(SelectItem);
 				std::shared_ptr<class ACameraActor> Camera = GetWorld()->GetMainCamera();
 				FVector Pos = Camera->ScreenMousePosToWorldPos();
 				Pos.Z = 0.0f;
@@ -177,34 +177,6 @@ public:
 				std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>("Monster");;
 				NewDummy->DummyRenderer->SetSprite("Dummy", SelectMonsterIndex);
 				NewDummy->MonsterTypeValue = static_cast<EMonsterType>(SelectMonsterIndex);
-
-				//ESpawnList::SpawnBat;
-				//switch (SelectDummy)
-				//{
-				//case ESpawnList::SpawnBat:
-				//	NewDummy = GetWorld()->SpawnActor<DummyBat>("Bat");
-				//	break;
-				//case ESpawnList::SpawnCrawler:			
-				//	NewDummy = GetWorld()->SpawnActor<DummyCrawler>("Crawler");
-				//	break;
-				//case ESpawnList::SpawnFrog:				
-				//	NewDummy = GetWorld()->SpawnActor<DummyFrog>("Frog");
-				//	break;
-				//case ESpawnList::SpawnJelly:			
-				//	NewDummy = GetWorld()->SpawnActor<DummyJelly>("Jelly");
-				//	break;
-				//case ESpawnList::SpawnSnail:			
-				//	NewDummy = GetWorld()->SpawnActor<DummySnail>("Snail");
-				//	break;								
-				//case ESpawnList::SpawnSnake:			
-				//	NewDummy = GetWorld()->SpawnActor<DummySnake>("Snake");
-				//	break;								
-				//case ESpawnList::SpawnTurtle:			
-				//	NewDummy = GetWorld()->SpawnActor<DummyTurtle>("Turtle");
-				//	break;
-				//default:
-				//	break;
-				//}
 			
 				NewDummy->SetActorLocation(Pos);
 			}
