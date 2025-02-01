@@ -54,27 +54,27 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 			int MonsterTypeValue = 0;
 			Ser >> MonsterTypeValue;
 
-			EMonsterType MonsterType = static_cast<EMonsterType>(MonsterTypeValue);
+			ESpawnType MonsterType = static_cast<ESpawnType>(MonsterTypeValue);
 			FVector MonsterLocation;
 			Ser >> MonsterLocation;
 
 			switch (MonsterType)
 			{
-			case EMonsterType::Bat:
+			case ESpawnType::MBat:
 				TempBat = GetWorld()->SpawnActor<Bat>();
 				TempBat->SetActorLocation(MonsterLocation);
 				break;
-			case EMonsterType::Crawler:
+			case ESpawnType::MCrawler:
 				break;
-			case EMonsterType::Frog:
+			case ESpawnType::MFrog:
 				break;
-			case EMonsterType::Jelly:
+			case ESpawnType::MJelly:
 				break;
-			case EMonsterType::Snail:
+			case ESpawnType::MSnail:
 				break;
-			case EMonsterType::Snake:
+			case ESpawnType::MSnake:
 				break;
-			case EMonsterType::Turtle:
+			case ESpawnType::MTurtle:
 				break;
 			default:
 				break;
