@@ -1,10 +1,10 @@
 #pragma once
-#include <EngineCore/Actor.h>
+#include "SpawnedActor.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EnginePlatform/EngineWinImage.h>
 
 // Ό³Έν :
-class StepsS : public AActor
+class StepsS : public SpawnedActor
 {
 public:
 	// constrcuter destructer

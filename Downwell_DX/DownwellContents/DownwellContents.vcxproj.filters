@@ -111,7 +111,7 @@
     <ClCompile Include="BulletChange.cpp">
       <Filter>UI</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
+    <ClCompile Include="SpawnedActor.cpp">
       <Filter>Interactive Thing</Filter>
     </ClCompile>
   </ItemGroup>
@@ -226,7 +226,7 @@
     <ClInclude Include="BulletChange.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="Monster.h">
+    <ClInclude Include="SpawnedActor.h">
       <Filter>Interactive Thing</Filter>
     </ClInclude>
     <ClInclude Include="ContentsEnum.h">

@@ -201,7 +201,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
+    <ClCompile Include="SpawnedActor.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -296,7 +296,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Monster.h">
+    <ClInclude Include="SpawnedActor.h">
       <SubType>
       </SubType>
     </ClInclude>
