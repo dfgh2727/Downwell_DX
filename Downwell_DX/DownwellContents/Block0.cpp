@@ -6,6 +6,8 @@
 
 Block0::Block0()
 {
+	SpawnTypeValue = ESpawnType::SBlock0;
+
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 
