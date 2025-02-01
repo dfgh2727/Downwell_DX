@@ -167,7 +167,6 @@ public:
 		}
 
 		{
-			
 			if (true == UEngineInput::IsDown(VK_LBUTTON))
 			{
 				//ESpawnList SelectDummy = static_cast<ESpawnList>(SelectItem);

@@ -18,6 +18,7 @@ Block1::Block1()
 
 	CollisionBox = CreateDefaultSubObject<UCollision>();
 	CollisionBox->SetupAttachment(RootComponent);
+	CollisionBox->SetCollisionProfileName("Block");
 	CollisionBox->SetScale3D({ 32.0f, 32.0f });
 }
 
