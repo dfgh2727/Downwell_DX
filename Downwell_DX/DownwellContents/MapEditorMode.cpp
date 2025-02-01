@@ -178,7 +178,20 @@ public:
 				NewDummy->DummyRenderer->SetSprite("Dummy", SelectMonsterIndex);
 				NewDummy->SpawnTypeValue = static_cast<ESpawnType>(SelectMonsterIndex);
 			
-				NewDummy->SetActorLocation(Pos);
+				if (SelectMonsterIndex > 3)
+				{
+					//Pos.X = floorf(Pos.X);
+					//Pos.Y = floorf(Pos.Y);
+					Pos.X = floorf(Pos.X/50.0f);
+					Pos.X *= 50.0f;
+					Pos.Y = floorf(Pos.Y / 50.0f);
+					Pos.Y *= 50.0f;
+					NewDummy->SetActorLocation(Pos);
+				}
+				else
+				{
+					NewDummy->SetActorLocation(Pos);
+				}
 			}
 		}
 
