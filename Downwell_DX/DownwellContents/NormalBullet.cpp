@@ -3,6 +3,7 @@
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/TimeEventComponent.h>
+#include <EngineCore/Collision.h>
 
 NormalBullet::NormalBullet()
 {
@@ -15,6 +16,11 @@ NormalBullet::NormalBullet()
 	NormalBulletRenderer->CreateAnimation("Bullet", "Bullet", 0, 5, 0.08f, false);
 	NormalBulletRenderer->ChangeAnimation("Bullet");
 	NormalBulletRenderer->SetAutoScaleRatio(2.0f);
+
+	CollisionBox = CreateDefaultSubObject<UCollision>();
+	CollisionBox->SetupAttachment(RootComponent);
+	CollisionBox->SetCollisionProfileName("Bullet");
+	CollisionBox->SetScale3D({ 8.0f, 12.0f });
 
 	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
 }

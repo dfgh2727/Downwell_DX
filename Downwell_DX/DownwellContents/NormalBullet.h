@@ -22,6 +22,7 @@ private:
 	std::shared_ptr<class USpriteRenderer> NormalBulletRenderer = nullptr;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
 
+	std::shared_ptr<class UCollision> CollisionBox;
 	float Timer = 0.5f;
 };
 

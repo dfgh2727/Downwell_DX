@@ -13,6 +13,7 @@
 #include "MainPlayer.h"
 #include "Dummy.h"
 
+#include "Block0.h"
 #include "BulletChange.h"
 
 
@@ -32,6 +33,7 @@ Cavern1::Cavern1()
 	GetWorld()->CreateCollisionProfile("MainPlayer");
 	GetWorld()->CreateCollisionProfile("Monster");
 	GetWorld()->CreateCollisionProfile("Block");
+	GetWorld()->CreateCollisionProfile("Bullet");
 }
 
 Cavern1::~Cavern1()
@@ -65,7 +67,11 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 				TempBat = GetWorld()->SpawnActor<Bat>();
 				TempBat->SetActorLocation(MonsterLocation);
 				break;
-			case ESpawnType::MCrawler:
+			case ESpawnType::SBlock0:
+				Block00 = GetWorld()->SpawnActor<Block0>();
+				Block00->SetActorLocation(MonsterLocation);
+				break;
+			/*case ESpawnType::MCrawler:
 				break;
 			case ESpawnType::MFrog:
 				break;
@@ -76,7 +82,7 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 			case ESpawnType::MSnake:
 				break;
 			case ESpawnType::MTurtle:
-				break;
+				break;*/
 			default:
 				break;
 			}

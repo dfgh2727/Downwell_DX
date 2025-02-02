@@ -33,6 +33,9 @@ private:
 	std::shared_ptr<class Bat> TempBat;
 	std::shared_ptr<class BulletChange> ShowBullet;
 
+	std::shared_ptr<class Block0> Block00;
+
+
 
 	class UEngineFile ColMapFile;
 
