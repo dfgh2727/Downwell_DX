@@ -62,6 +62,8 @@ void MainPlayer::BeginPlay()
 		[this]()
 		{
 			PlayerRenderer->ChangeAnimation("Jump");
+			CollisionBox->SetScale3D({ 25.0f, 20.0f });
+			CollisionBox->SetRelativeLocation({ 15.0f, 15.0f });
 		});
 	FSM.CreateState(MainPlayerState::Shoot, std::bind(&MainPlayer::Shoot, this, std::placeholders::_1),
 		[this]()
