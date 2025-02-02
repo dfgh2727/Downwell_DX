@@ -15,6 +15,7 @@
 
 #include "Block0.h"
 #include "BulletChange.h"
+#include "Debris.h"
 
 
 Cavern1::Cavern1()
@@ -139,11 +140,17 @@ void Cavern1::BeginPlay()
 		TempBat->SetActorLocation({ 0.0f, 0.0f, -10.0f });
 	}*/
 
-	{
+	/*{
 		ShowBullet = GetWorld()->SpawnActor<BulletChange>();
 		ShowBullet->SetActorLocation({ 0.0f, 0.0f, -10.0f });
-	}
+	}*/
 
+	{
+		Debris0 = GetWorld()->SpawnActor<Debris>();
+		Debris0->SetActorLocation({ 0.0f, 100.0f, -10.0f });
+		Debris0->SetTileMapRenderer(TileMap.get());
+
+	}
 }
 
 void Cavern1::Tick(float _DeltaTime)

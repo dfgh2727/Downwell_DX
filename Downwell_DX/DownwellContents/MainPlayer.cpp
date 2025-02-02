@@ -111,6 +111,19 @@ bool MainPlayer::TileCheck(FVector _AddPos)
 void MainPlayer::GravityManager(float _DeltaTime)
 {
 	IsOnTheGround = TileCheck(Gravity * _DeltaTime);
+	bool IsOnTheBlock = false;
+
+	std::vector<UCollision*> BlockCollision;
+	if (true == CollisionBox->CollisionCheck("Block", Gravity * _DeltaTime, BlockCollision))
+	{
+		IsOnTheBlock = true;
+		//IsOnTheGround = true;
+	}
+
+	if (true == IsOnTheBlock)
+	{
+		IsOnTheGround = true;
+	}
 
 	if (true == IsOnTheGround)
 	{

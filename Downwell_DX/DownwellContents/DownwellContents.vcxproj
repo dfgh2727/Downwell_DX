@@ -154,6 +154,7 @@
     <ClCompile Include="Block3.cpp" />
     <ClCompile Include="BulletChange.cpp" />
     <ClCompile Include="Crawler.cpp" />
+    <ClCompile Include="Debris.cpp" />
     <ClCompile Include="Frog.cpp" />
     <ClCompile Include="GemBlock.cpp" />
     <ClCompile Include="Jelly.cpp" />
@@ -258,6 +259,7 @@
     <ClInclude Include="Block3.h" />
     <ClInclude Include="BulletChange.h" />
     <ClInclude Include="Crawler.h" />
+    <ClInclude Include="Debris.h" />
     <ClInclude Include="Frog.h" />
     <ClInclude Include="GemBlock.h" />
     <ClInclude Include="Jelly.h" />

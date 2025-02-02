@@ -144,6 +144,9 @@
     <ClCompile Include="SpawnedActor.cpp">
       <Filter>Interactive Thing\SpawnedActor</Filter>
     </ClCompile>
+    <ClCompile Include="Debris.cpp">
+      <Filter>Interactive Thing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -291,6 +294,9 @@
     </ClInclude>
     <ClInclude Include="SpawnedActor.h">
       <Filter>Interactive Thing\SpawnedActor</Filter>
+    </ClInclude>
+    <ClInclude Include="Debris.h">
+      <Filter>Interactive Thing</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

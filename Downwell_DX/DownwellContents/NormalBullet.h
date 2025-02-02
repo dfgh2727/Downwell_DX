@@ -18,6 +18,9 @@ public:
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
+
+	//void Break();
+
 private:
 	std::shared_ptr<class USpriteRenderer> NormalBulletRenderer = nullptr;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
