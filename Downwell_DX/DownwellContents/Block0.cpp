@@ -34,4 +34,14 @@ void Block0::BeginPlay()
 void Block0::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+	Break();
+}
+
+void Block0::Break()
+{
+	std::vector<UCollision*> BulletCollision;
+	if (true == CollisionBox->CollisionCheck("Bullet", BulletCollision))
+	{
+		Destroy();
+	}
 }

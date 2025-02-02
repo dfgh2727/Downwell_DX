@@ -20,6 +20,7 @@ public:
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
+	void Break();
 
 private:
 	std::shared_ptr<class USpriteRenderer> Block0Renderer;
