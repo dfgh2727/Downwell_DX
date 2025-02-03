@@ -25,6 +25,11 @@ TitleScreen::TitleScreen()
 	Camera->GetCameraComponent()->SetZSort(0, true);
 
 	GetWorld()->CreateCollisionProfile("MainPlayer");
+	GetWorld()->CreateCollisionProfile("Monster");
+	GetWorld()->CreateCollisionProfile("Block");
+	GetWorld()->CreateCollisionProfile("Bullet");
+	GetWorld()->CreateCollisionProfile("Debris");
+	//GetWorld()->CreateCollisionProfile("MainPlayer");
 }
 
 TitleScreen::~TitleScreen()

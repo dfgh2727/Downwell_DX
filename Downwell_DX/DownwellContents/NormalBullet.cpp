@@ -14,7 +14,7 @@ NormalBullet::NormalBullet()
 	// 랜더러를 만든다.
 	NormalBulletRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	NormalBulletRenderer->SetupAttachment(RootComponent);
-	//float4 { 0.0f, 0.0f } = NormalBulletRenderer->SpriteData.Pivot;
+	float4 { 0.0f, 1.0f } = NormalBulletRenderer->SpriteData.Pivot;
 	NormalBulletRenderer->CreateAnimation("Bullet", "Bullet", 0, 5, 0.08f, false);
 	NormalBulletRenderer->CreateAnimation("BulletHitTheWall", "BulletHitTheWall", 0, 7, 0.08f, false);
 	NormalBulletRenderer->ChangeAnimation("Bullet");
@@ -52,7 +52,7 @@ void NormalBullet::Tick(float _DeltaTime)
 
 	if (nullptr != TRenderer)
 	{
-		TData = TRenderer->GetTile(GetActorLocation() + FVector::DOWN * 5.0f + FVector::DOWN * 500.0f * _DeltaTime);
+		TData = TRenderer->GetTile(GetActorLocation() + /*FVector::DOWN * 5.0f +*/ FVector::DOWN * 500.0f * _DeltaTime);
 		
 		if (nullptr != TData)
 		{

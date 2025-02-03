@@ -24,10 +24,10 @@ protected:
 private:
 	std::shared_ptr<class USpriteRenderer> WellRenderer;
 
-	//std::shared_ptr<class UCollision> CollisionBox1;
-    //std::shared_ptr<class UCollision> CollisionBox2;
-    //std::shared_ptr<class UCollision> CollisionBox3;
-    //std::shared_ptr<class UCollision> CollisionBox4;
+	std::shared_ptr<class UCollision> CollisionBox1;
+    std::shared_ptr<class UCollision> CollisionBox2;
+    std::shared_ptr<class UCollision> CollisionBox3;
+    std::shared_ptr<class UCollision> CollisionBox4;
 
 };
 
