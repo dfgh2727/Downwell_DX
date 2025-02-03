@@ -147,6 +147,12 @@
     <ClCompile Include="Debris.cpp">
       <Filter>Interactive Thing</Filter>
     </ClCompile>
+    <ClCompile Include="Flash.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
+    <ClCompile Include="SmokeBall.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -297,6 +303,12 @@
     </ClInclude>
     <ClInclude Include="Debris.h">
       <Filter>Interactive Thing</Filter>
+    </ClInclude>
+    <ClInclude Include="Flash.h">
+      <Filter>Images</Filter>
+    </ClInclude>
+    <ClInclude Include="SmokeBall.h">
+      <Filter>Images</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

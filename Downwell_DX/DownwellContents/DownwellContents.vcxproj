@@ -155,6 +155,7 @@
     <ClCompile Include="BulletChange.cpp" />
     <ClCompile Include="Crawler.cpp" />
     <ClCompile Include="Debris.cpp" />
+    <ClCompile Include="Flash.cpp" />
     <ClCompile Include="Frog.cpp" />
     <ClCompile Include="GemBlock.cpp" />
     <ClCompile Include="Jelly.cpp" />
@@ -209,6 +210,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="SmokeBall.cpp" />
     <ClCompile Include="Snail.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="SpawnedActor.cpp">
@@ -260,6 +262,7 @@
     <ClInclude Include="BulletChange.h" />
     <ClInclude Include="Crawler.h" />
     <ClInclude Include="Debris.h" />
+    <ClInclude Include="Flash.h" />
     <ClInclude Include="Frog.h" />
     <ClInclude Include="GemBlock.h" />
     <ClInclude Include="Jelly.h" />
@@ -315,6 +318,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="SmokeBall.h" />
     <ClInclude Include="Snail.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="SpawnedActor.h">

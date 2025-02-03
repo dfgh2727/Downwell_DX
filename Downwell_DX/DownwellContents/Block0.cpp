@@ -4,6 +4,10 @@
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/Collision.h>
 
+#include "Debris.h"
+#include "Flash.h"
+#include "SmokeBall.h"
+
 Block0::Block0()
 {
 	SpawnTypeValue = ESpawnType::SBlock0;
@@ -29,6 +33,7 @@ Block0::~Block0()
 void Block0::BeginPlay()
 {
 	AActor::BeginPlay();
+	CurLocation = GetActorLocation();
 }
 
 void Block0::Tick(float _DeltaTime)
@@ -42,6 +47,13 @@ void Block0::Break()
 	std::vector<UCollision*> BulletCollision;
 	if (true == CollisionBox->CollisionCheck("Bullet", BulletCollision))
 	{
+		
+		FlashForBlock = GetWorld()->SpawnActor<Flash>();
+		FlashForBlock->SetActorLocation(CurLocation);
+		Debris1 = GetWorld()->SpawnActor<Debris>();
+		Debris1->SetActorLocation(CurLocation);
+		SmokeBall1 = GetWorld()->SpawnActor<SmokeBall>();
+		SmokeBall1->SetActorLocation(CurLocation);
 		Destroy();
 	}
 }
