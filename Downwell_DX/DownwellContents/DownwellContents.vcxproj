@@ -158,6 +158,7 @@
     <ClCompile Include="Flash.cpp" />
     <ClCompile Include="Frog.cpp" />
     <ClCompile Include="GemBlock.cpp" />
+    <ClCompile Include="GunShotSmoke.cpp" />
     <ClCompile Include="Jelly.cpp" />
     <ClCompile Include="NormalBullet.cpp">
       <SubType>
@@ -265,6 +266,7 @@
     <ClInclude Include="Flash.h" />
     <ClInclude Include="Frog.h" />
     <ClInclude Include="GemBlock.h" />
+    <ClInclude Include="GunShotSmoke.h" />
     <ClInclude Include="Jelly.h" />
     <ClInclude Include="NormalBullet.h">
       <SubType>

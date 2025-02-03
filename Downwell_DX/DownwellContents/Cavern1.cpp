@@ -133,25 +133,14 @@ void Cavern1::BeginPlay()
 		MainPlayerInst = GetWorld()->SpawnActor<MainPlayer>();
 		MainPlayerInst->SetActorLocation({ 0.0f, 0.0f, -10.0f });
 		MainPlayerInst->SetTileMapRenderer(TileMap.get());
-		//UColor = UEngineWinImage::GetColor
 	}
 
 	/*{
-		TempBat = GetWorld()->SpawnActor<Bat>();
-		TempBat->SetActorLocation({ 0.0f, 0.0f, -10.0f });
-	}*/
-
-	/*{
-		ShowBullet = GetWorld()->SpawnActor<BulletChange>();
-		ShowBullet->SetActorLocation({ 0.0f, 0.0f, -10.0f });
-	}*/
-
-	{
 		Debris0 = GetWorld()->SpawnActor<Debris>();
 		Debris0->SetActorLocation({ 0.0f, 100.0f, -10.0f });
 		Debris0->SetTileMapRenderer(TileMap.get());
 
-	}
+	}*/
 }
 
 void Cavern1::Tick(float _DeltaTime)

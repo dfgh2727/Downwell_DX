@@ -153,6 +153,9 @@
     <ClCompile Include="SmokeBall.cpp">
       <Filter>Images</Filter>
     </ClCompile>
+    <ClCompile Include="GunShotSmoke.cpp">
+      <Filter>Images</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -308,6 +311,9 @@
       <Filter>Images</Filter>
     </ClInclude>
     <ClInclude Include="SmokeBall.h">
+      <Filter>Images</Filter>
+    </ClInclude>
+    <ClInclude Include="GunShotSmoke.h">
       <Filter>Images</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,6 +9,7 @@
 
 #include "Cartridge.h"
 #include "NormalBullet.h"
+#include "GunShotSmoke.h"
 
 MainPlayer::MainPlayer()
 {
@@ -69,11 +70,13 @@ void MainPlayer::BeginPlay()
 		[this]()
 		{
 			PlayerRenderer->ChangeAnimation("Shoot");
-			NBullet = GetWorld()->SpawnActor<NormalBullet>();
 			FVector PlayerPos = GetActorLocation();
+			NBullet = GetWorld()->SpawnActor<NormalBullet>();
 			NBullet->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
 			TempCart = GetWorld()->SpawnActor<Cartridge>();
 			TempCart->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
+			Smoke = GetWorld()->SpawnActor<GunShotSmoke>();
+			Smoke->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f + FVector::DOWN * 35.0f);
 		});
 
 		FSM.ChangeState(MainPlayerState::Idle);

@@ -50,12 +50,19 @@ void Block0::Break()
 		
 		FlashForBlock = GetWorld()->SpawnActor<Flash>();
 		FlashForBlock->SetActorLocation(CurLocation);
+
 		Debris1 = GetWorld()->SpawnActor<Debris>();
 		Debris1->SetActorLocation(CurLocation);
+
+		Debris2 = GetWorld()->SpawnActor<Debris>();
+		Debris2->SetActorLocation(CurLocation);
+
 		SmokeBall1 = GetWorld()->SpawnActor<SmokeBall>();
 		SmokeBall1->SetActorLocation(CurLocation);
+
 		SmokeBall2 = GetWorld()->SpawnActor<SmokeBall>();
 		SmokeBall2->SetActorLocation(CurLocation);
+
 		Destroy();
 	}
 }

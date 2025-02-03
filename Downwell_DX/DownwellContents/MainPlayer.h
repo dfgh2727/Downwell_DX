@@ -52,6 +52,7 @@ private:
 	std::shared_ptr<class USpriteRenderer> PlayerRenderer = nullptr;
 	std::shared_ptr<class UCollision> CollisionBox = nullptr;
 	std::shared_ptr<class NormalBullet> NBullet = nullptr;
+	std::shared_ptr<class GunShotSmoke> Smoke = nullptr;
 
 	class UTileMapRenderer* TRenderer = nullptr;
 	struct FTileData* TData = nullptr;

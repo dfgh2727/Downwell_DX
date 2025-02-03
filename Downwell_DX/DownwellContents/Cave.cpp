@@ -28,6 +28,9 @@ Cave::Cave()
 
 	GetWorld()->CreateCollisionProfile("MainPlayer");
 	GetWorld()->CreateCollisionProfile("Monster");
+	GetWorld()->CreateCollisionProfile("Block");
+	GetWorld()->CreateCollisionProfile("Bullet");
+	GetWorld()->CreateCollisionProfile("Debris");
 }
 
 Cave::~Cave()
