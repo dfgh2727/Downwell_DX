@@ -1,5 +1,6 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include <EngineBase/EngineRandom.h>
 
 // Ό³Έν :
 class SmokeBall : public AActor
@@ -21,8 +22,11 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> SmokeBallRenderer;
-
+	class UEngineRandom UEngineRandomInst;
 	float Timer = 0.8f;
+
+	float Random1;
+	float Random2;
 
 };
 

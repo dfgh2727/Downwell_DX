@@ -6,8 +6,8 @@ class UEngineRandom
 {
 public:
 	// constrcuter destructer
-	UEngineRandom() {}
-	~UEngineRandom() {}
+	ENGINEAPI UEngineRandom() {}
+	ENGINEAPI~UEngineRandom() {}
 
 	// delete Function
 	UEngineRandom(const UEngineRandom& _Other) = delete;
@@ -15,7 +15,7 @@ public:
 	UEngineRandom& operator=(const UEngineRandom& _Other) = delete;
 	UEngineRandom& operator=(UEngineRandom&& _Other) noexcept = delete;
 
-	void SetSeed(__int64 _Seed)
+	ENGINEAPI void SetSeed(__int64 _Seed)
 	{
 		MtGen = std::mt19937_64(_Seed);
 	}
@@ -37,7 +37,7 @@ public:
 		return RandomCreate.operator()(MtGen);
 	}
 
-	float Randomfloat(float _Min, float _Max)
+	ENGINEAPI float Randomfloat(float _Min, float _Max)
 	{
 		if (_Max < _Min)
 		{

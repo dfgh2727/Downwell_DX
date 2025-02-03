@@ -2,6 +2,7 @@
 #include "SmokeBall.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
+//#include <EngineBase/EngineRandom.h>
 
 SmokeBall::SmokeBall()
 {
@@ -30,7 +31,10 @@ void SmokeBall::Tick(float _DeltaTime)
 
 	Timer -= _DeltaTime;
 
-	AddActorLocation((FVector::RIGHT + FVector::DOWN) * 50.0f * _DeltaTime);
+	Random1 = UEngineRandomInst.Randomfloat(-50.0f, 50.0f);
+	Random2 = UEngineRandomInst.Randomfloat(-50.0f, 50.0f);
+
+	AddActorLocation((FVector::RIGHT * Random1 + FVector::DOWN * Random2)*30.0f* _DeltaTime);
 
 	if (Timer < 0.0f)
 	{
