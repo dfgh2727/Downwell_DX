@@ -11,7 +11,7 @@ Flash::Flash()
 	// 랜더러를 만든다.
 	FlashRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	FlashRenderer->SetupAttachment(RootComponent);
-	FlashRenderer->SetTexture("Flash.png", true, 1.0f);
+	FlashRenderer->SetTexture("Flash.png", true, 1.5f);
 }
 
 Flash::~Flash()

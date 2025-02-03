@@ -20,7 +20,7 @@ Debris::Debris()
 
 	CollisionBox = CreateDefaultSubObject<UCollision>();
 	CollisionBox->SetupAttachment(RootComponent);
-	CollisionBox->SetCollisionProfileName("Bullet");
+	CollisionBox->SetCollisionProfileName("Debris");
 	CollisionBox->SetScale3D({ 15.0f, 15.0f });
 
 	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
@@ -33,6 +33,9 @@ Debris::~Debris()
 void Debris::BeginPlay()
 {
 	AActor::BeginPlay();
+
+	Velocity.X = UEngineRandomInst.Randomfloat(-100.0f, 100.0f);
+	Velocity.Y = UEngineRandomInst.Randomfloat(-50.0f, 0.0f);
 }
 
 void Debris::Tick(float _DeltaTime)
@@ -47,6 +50,8 @@ void Debris::Tick(float _DeltaTime)
 	{
 		Destroy();
 	}
+
+	AddActorLocation(Velocity * _DeltaTime);
 }
 
 bool Debris::TileCheck(FVector _AddPos)

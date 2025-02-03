@@ -22,7 +22,7 @@ protected:
 private:
 	std::shared_ptr<class USpriteRenderer> FlashRenderer;
 
-	float Timer = 0.08f;
+	float Timer = 0.1f;
 
 };
 

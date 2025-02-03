@@ -35,6 +35,7 @@ Cavern1::Cavern1()
 	GetWorld()->CreateCollisionProfile("Monster");
 	GetWorld()->CreateCollisionProfile("Block");
 	GetWorld()->CreateCollisionProfile("Bullet");
+	GetWorld()->CreateCollisionProfile("Debris");
 }
 
 Cavern1::~Cavern1()

@@ -23,6 +23,9 @@ SmokeBall::~SmokeBall()
 void SmokeBall::BeginPlay()
 {
 	AActor::BeginPlay();
+
+	Velocity.X = UEngineRandomInst.Randomfloat(-20.0f, 20.0f);
+	Velocity.Y = UEngineRandomInst.Randomfloat(-20.0f, 20.0f);
 }
 
 void SmokeBall::Tick(float _DeltaTime)
@@ -31,10 +34,7 @@ void SmokeBall::Tick(float _DeltaTime)
 
 	Timer -= _DeltaTime;
 
-	Random1 = UEngineRandomInst.Randomfloat(-50.0f, 50.0f);
-	Random2 = UEngineRandomInst.Randomfloat(-50.0f, 50.0f);
-
-	AddActorLocation((FVector::RIGHT * Random1 + FVector::DOWN * Random2)*30.0f* _DeltaTime);
+	AddActorLocation(Velocity * _DeltaTime);
 
 	if (Timer < 0.0f)
 	{

@@ -1,5 +1,6 @@
 #pragma once
 #include "EngineCore/Actor.h"
+#include "EngineBase/EngineRandom.h"
 
 // Ό³Έν :
 class Debris : public AActor
@@ -32,6 +33,7 @@ protected:
 private:
 	class UTileMapRenderer* TRenderer = nullptr;
 	struct FTileData* TData = nullptr;
+	class UEngineRandom UEngineRandomInst;
 
 	std::shared_ptr<class USpriteRenderer> DebrisRenderer = nullptr;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
@@ -46,5 +48,6 @@ private:
 	FVector Gravity = FVector::ZERO;
 
 	FVector PrevLocation = FVector::ZERO;
+	FVector Velocity = FVector::ZERO;
 };
 

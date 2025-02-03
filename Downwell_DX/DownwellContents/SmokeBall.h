@@ -25,8 +25,7 @@ private:
 	class UEngineRandom UEngineRandomInst;
 	float Timer = 0.8f;
 
-	float Random1;
-	float Random2;
+	FVector Velocity = FVector::ZERO;
 
 };
 
