@@ -54,6 +54,8 @@ void Block0::Break()
 		Debris1->SetActorLocation(CurLocation);
 		SmokeBall1 = GetWorld()->SpawnActor<SmokeBall>();
 		SmokeBall1->SetActorLocation(CurLocation);
+		SmokeBall2 = GetWorld()->SpawnActor<SmokeBall>();
+		SmokeBall2->SetActorLocation(CurLocation);
 		Destroy();
 	}
 }

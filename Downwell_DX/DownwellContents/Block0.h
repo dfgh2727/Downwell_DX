@@ -27,6 +27,7 @@ private:
 	std::shared_ptr<class Flash> FlashForBlock;
 	std::shared_ptr<class Debris> Debris1;
 	std::shared_ptr<class SmokeBall> SmokeBall1;
+	std::shared_ptr<class SmokeBall> SmokeBall2;
 
 	std::shared_ptr<class UCollision> CollisionBox;
 
