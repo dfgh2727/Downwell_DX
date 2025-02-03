@@ -73,6 +73,7 @@ void MainPlayer::BeginPlay()
 			FVector PlayerPos = GetActorLocation();
 			NBullet = GetWorld()->SpawnActor<NormalBullet>();
 			NBullet->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
+			NBullet->SetTileMapRenderer(TRenderer);
 			TempCart = GetWorld()->SpawnActor<Cartridge>();
 			TempCart->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
 			Smoke = GetWorld()->SpawnActor<GunShotSmoke>();

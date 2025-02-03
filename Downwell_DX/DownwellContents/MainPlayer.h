@@ -34,6 +34,12 @@ public:
 		TRenderer = _Renderer;
 	}
 
+	UTileMapRenderer* GetTileMapRenderer()
+	{
+		return TRenderer;
+	}
+
+
 	bool TileCheck(FVector _AddPos);
 	void GravityManager(float _DeltaTime);
 
