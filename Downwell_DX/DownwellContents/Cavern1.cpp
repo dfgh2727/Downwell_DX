@@ -166,6 +166,15 @@ void Cavern1::Tick(float _DeltaTime)
 		UEngineCore::OpenLevel("Paused");
 	}
 
+	if (true == MainPlayerInst->IsShooting)
+	{
+		ShakeCamera(_DeltaTime);
+	}
+	else
+	{
+		ShakingTime = 1.0f;
+	}
+
 }
 
 void Cavern1::MapManager()
@@ -186,5 +195,32 @@ void Cavern1::GoToSelectScreen(float _DeltaTime)
 	if (PlayerPos.X <= -150.0f)
 	{
 		UEngineCore::OpenLevel("Cave");
+	}
+}
+
+void Cavern1::ShakeCamera(float _DeltaTime)
+{
+	FVector ShakeDirU = FVector::UP * 1000.0f;
+	FVector ShakeDirD = FVector::DOWN * 500.0f;
+	FVector ShakeDirL = FVector::LEFT * 500.0f;
+	FVector ShakeDirR = FVector::RIGHT* 500.0f;
+
+	ShakingTime -= _DeltaTime;
+
+	if (0.3< ShakingTime)
+	{
+		Camera->AddActorLocation(ShakeDirU * _DeltaTime);
+	}
+	if (0.4 < ShakingTime < 0.7f)
+	{
+		Camera->AddActorLocation(ShakeDirR * _DeltaTime);
+	}
+	if (0.2 < ShakingTime < 0.5f)
+	{
+		//Camera->AddActorLocation(ShakeDirD * _DeltaTime);
+	}
+	if (0.0 < ShakingTime < 0.3f)
+	{
+		Camera->AddActorLocation(ShakeDirL * _DeltaTime);
 	}
 }

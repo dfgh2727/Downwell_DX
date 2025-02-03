@@ -43,6 +43,7 @@ public:
 	bool TileCheck(FVector _AddPos);
 	void GravityManager(float _DeltaTime);
 
+	bool IsShooting = false;
 
 	void Idle(float _DeltaTime);
 	void Run(float _DeltaTime);

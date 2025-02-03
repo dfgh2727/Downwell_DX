@@ -69,6 +69,8 @@ void MainPlayer::BeginPlay()
 	FSM.CreateState(MainPlayerState::Shoot, std::bind(&MainPlayer::Shoot, this, std::placeholders::_1),
 		[this]()
 		{
+			IsShooting = true;
+
 			PlayerRenderer->ChangeAnimation("Shoot");
 			FVector PlayerPos = GetActorLocation();
 			NBullet = GetWorld()->SpawnActor<NormalBullet>();
@@ -229,5 +231,6 @@ void MainPlayer::Shoot(float _DeltaTime)
 	if (true == IsOnTheGround)
 	{
 		FSM.ChangeState(MainPlayerState::Idle);
+		IsShooting = false;
 	}
 }

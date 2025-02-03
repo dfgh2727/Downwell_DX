@@ -22,6 +22,7 @@ public:
 
 	void CreateMap(FIntPoint StartPos, int _MapIndex);
 	void GoToSelectScreen(float _DeltaTime);
+	void ShakeCamera(float _DeltaTime);
 
 protected:
 
@@ -32,13 +33,8 @@ private:
 	std::shared_ptr<class UEngineWinImage> ColMap;
 	std::shared_ptr<class Bat> TempBat;
 	std::shared_ptr<class BulletChange> ShowBullet;
-
 	std::shared_ptr<class Block0> Block00;
-
 	std::shared_ptr<class Debris> Debris0;
-
-
-
 
 	class UEngineFile ColMapFile;
 
@@ -52,6 +48,9 @@ private:
 
 	int STileIndex_Y = 0;
 	int RTileIndex_Y = 0;
+
+	float ShakingTime = 1.0f;
+	float Timer = 1.0f;
 
 };
 

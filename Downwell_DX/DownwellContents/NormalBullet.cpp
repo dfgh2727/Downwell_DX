@@ -51,7 +51,7 @@ void NormalBullet::Tick(float _DeltaTime)
 
 	if (nullptr != TRenderer)
 	{
-		TData = TRenderer->GetTile(GetActorLocation() + FVector::DOWN * 500.0f * _DeltaTime);
+		TData = TRenderer->GetTile(GetActorLocation() + FVector::DOWN * 5.0f + FVector::DOWN * 500.0f * _DeltaTime);
 		
 		if (nullptr != TData)
 		{
