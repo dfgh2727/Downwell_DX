@@ -37,6 +37,7 @@ void NormalBullet::BeginPlay()
 void NormalBullet::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
+	AddActorLocation(FVector::DOWN * 500.0f * _DeltaTime);
 	//Break();
 
 	Timer -= _DeltaTime;
@@ -47,11 +48,11 @@ void NormalBullet::Tick(float _DeltaTime)
 	}
 }
 
-//void NormalBullet::Break()
-//{
-//	std::vector<UCollision*> BlockCollision;
-//	if (true == CollisionBox->CollisionCheck("Block",BlockCollision))
-//	{
-//		Destroy();
-//	}
-//}
+void NormalBullet::Break()
+{
+	std::vector<UCollision*> BlockCollision;
+	if (true == CollisionBox->CollisionCheck("Block",BlockCollision))
+	{
+		Destroy();
+	}
+}

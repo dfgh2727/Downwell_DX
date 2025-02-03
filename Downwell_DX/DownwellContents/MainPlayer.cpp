@@ -72,6 +72,8 @@ void MainPlayer::BeginPlay()
 			NBullet = GetWorld()->SpawnActor<NormalBullet>();
 			FVector PlayerPos = GetActorLocation();
 			NBullet->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
+			TempCart = GetWorld()->SpawnActor<Cartridge>();
+			TempCart->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
 		});
 
 		FSM.ChangeState(MainPlayerState::Idle);
@@ -210,7 +212,7 @@ void MainPlayer::Jump(float _DeltaTime)
 
 void MainPlayer::Shoot(float _DeltaTime)
 {
-	NBullet->AddActorLocation(FVector::DOWN * 500.0f * _DeltaTime);
+	//NBullet->AddActorLocation(FVector::DOWN * 500.0f * _DeltaTime);
 	//NBullet->Destroy();
 
 	TimeEventComponent->AddEndEvent(0.5f,

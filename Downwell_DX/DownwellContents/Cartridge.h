@@ -24,5 +24,7 @@ protected:
 private:
 	std::shared_ptr<class USpriteRenderer> CartridgeRenderer;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
+
+	float Timer = 1.0f;
 };
 
