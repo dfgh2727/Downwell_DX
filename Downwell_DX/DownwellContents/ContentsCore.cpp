@@ -44,8 +44,8 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 	// 넌 컨텐츠잖아 엔진이 관리하는 윈도우라는게 존재하는지도 몰라야한다.
 
 	_Data.WindowPos = { 540, 200 };
-	//_Data.WindowSize = { 760, 570 };
-	_Data.WindowSize = { 1000, 800 };
+	_Data.WindowSize = { 760, 570 };
+	//_Data.WindowSize = { 1000, 800 };
 
 	{
 		UEngineDirectory Dir;

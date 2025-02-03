@@ -152,7 +152,7 @@ void Cavern1::Tick(float _DeltaTime)
 	GoToSelectScreen(_DeltaTime);
 
 	{
-		CameraPos.X = PlayerPos.X;
+		//CameraPos.X = PlayerPos.X;
 		CameraPos.Y = PlayerPos.Y;
 		Camera->SetActorLocation(CameraPos);
 	}
@@ -194,7 +194,7 @@ void Cavern1::MapManager()
 void Cavern1::GoToSelectScreen(float _DeltaTime)
 {
 	FVector PlayerPos = MainPlayerInst->GetActorLocation();
-	if (PlayerPos.X <= -150.0f)
+	if (PlayerPos.X <= -180.0f)
 	{
 		UEngineCore::OpenLevel("Cave");
 	}

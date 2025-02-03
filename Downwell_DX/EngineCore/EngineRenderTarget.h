@@ -50,7 +50,7 @@ public:
 protected:
 
 private:
-	float4 ClearColor = float4(0.0f, 0.6f, 0.4f, 1.0f);
+	float4 ClearColor = float4(0.0f, 0.0f, 0.0f, 1.0f);
 
 	std::vector<std::shared_ptr<class UEngineTexture>> ArrTexture;
 	std::vector<ID3D11RenderTargetView*> ArrRTVs;
