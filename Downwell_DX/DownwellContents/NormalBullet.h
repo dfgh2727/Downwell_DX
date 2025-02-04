@@ -23,7 +23,7 @@ public:
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
-	void Break();
+	void Break(float _DeltaTime);
 
 private:
 	std::shared_ptr<class USpriteRenderer> NormalBulletRenderer = nullptr;
@@ -33,6 +33,8 @@ private:
 
 	std::shared_ptr<class UCollision> CollisionBox;
 	float Timer = 0.5f;
+	float BreakTimer = 0.03f;
+
 	FVector Velocity = FVector::DOWN * 500.0f;
 
 	//std::vector<UCollision*> BlockCollision;

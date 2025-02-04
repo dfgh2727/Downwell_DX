@@ -164,7 +164,9 @@ void MainPlayer::Run(float _DeltaTime)
 
 	if (UEngineInput::IsPress('A'))
 	{
-		FVector GoLeft = FVector::LEFT * 100.0f * _DeltaTime;
+		MoveDir = -1.0f;
+
+		FVector GoLeft = MoveVect * _DeltaTime;
 		if (false == TileCheck(GoLeft))
 		{
 			AddActorLocation(GoLeft);
@@ -172,7 +174,9 @@ void MainPlayer::Run(float _DeltaTime)
 	}
 	else if (UEngineInput::IsPress('D'))
 	{
-		FVector GoRight = FVector::RIGHT * 100.0f * _DeltaTime;
+		MoveDir = 1.0f;
+
+		FVector GoRight = MoveVect * _DeltaTime;
 		if (false == TileCheck(GoRight))
 		{
 			AddActorLocation(GoRight);
@@ -217,9 +221,6 @@ void MainPlayer::Jump(float _DeltaTime)
 
 void MainPlayer::Shoot(float _DeltaTime)
 {
-	//NBullet->AddActorLocation(FVector::DOWN * 500.0f * _DeltaTime);
-	//NBullet->Destroy();
-
 	TimeEventComponent->AddEndEvent(0.5f,
 		[this]()
 		{
