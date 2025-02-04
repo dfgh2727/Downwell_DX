@@ -89,13 +89,11 @@ void MainPlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 	GravityManager(_DeltaTime);
+	//CollisionLR(_DeltaTime);
 
 	FSM.Update(_DeltaTime);
 
-	if (UEngineInput::IsDown('C'))
-	{
-		TempCart = GetWorld()->SpawnActor<Cartridge>();
-	}
+	
 }
 
 bool MainPlayer::TileCheck(FVector _AddPos)
@@ -162,6 +160,7 @@ void MainPlayer::Idle(float _DeltaTime)
 
 void MainPlayer::Run(float _DeltaTime)
 {
+	MoveVect.X = LRVelocity * MoveDir;
 
 	if (UEngineInput::IsPress('A'))
 	{
@@ -232,5 +231,24 @@ void MainPlayer::Shoot(float _DeltaTime)
 	{
 		FSM.ChangeState(MainPlayerState::Idle);
 		IsShooting = false;
+	}
+}
+
+void MainPlayer::CollisionLR(float _DeltaTime)
+{
+	FVector CurLocation = CollisionBox->GetWorldLocation();
+	FVector GoLeftVect = FVector::LEFT * 100.0f * _DeltaTime;
+	//GoLeftVect.Y -= 15.0f;
+	FVector GoRightVect = FVector::RIGHT * 100.0f * _DeltaTime;
+	//GoRightVect.Y -= 15.0f;
+
+	std::vector<UCollision*> BlockCollisionLR;
+	if (true == CollisionBox->CollisionCheck("Block", GoLeftVect, BlockCollisionLR))
+	{
+		SetActorLocation(CurLocation);
+	}
+	if (true == CollisionBox->CollisionCheck("Block", GoRightVect, BlockCollisionLR))
+	{
+		SetActorLocation(CurLocation);
 	}
 }

@@ -123,12 +123,10 @@ void Cavern1::BeginPlay()
 
 	{
 		//int Index = 0;
-		CreateMap({ 0, 0 }, 3);
-		CreateMap({ 0, -18 }, 4);
+		CreateMap({ 0, 0 }, 1);
+		/*CreateMap({ 0, -18 }, 4);
 		CreateMap({ 0, -36 }, 5);
-		CreateMap({ 0, -54 }, 6);
-
-		//TileMap->DataSetting({ 0, -18 }, ReadDatas[1]);
+		CreateMap({ 0, -54 }, 6);*/
 	}
 
 	{
@@ -136,13 +134,6 @@ void Cavern1::BeginPlay()
 		MainPlayerInst->SetActorLocation({ 0.0f, 0.0f, -10.0f });
 		MainPlayerInst->SetTileMapRenderer(TileMap.get());
 	}
-
-	/*{
-		Debris0 = GetWorld()->SpawnActor<Debris>();
-		Debris0->SetActorLocation({ 0.0f, 100.0f, -10.0f });
-		Debris0->SetTileMapRenderer(TileMap.get());
-
-	}*/
 }
 
 void Cavern1::Tick(float _DeltaTime)

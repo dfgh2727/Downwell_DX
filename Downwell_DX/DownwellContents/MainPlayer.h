@@ -50,6 +50,8 @@ public:
 	void Jump(float _DeltaTime);
 	void Shoot(float _DeltaTime);
 
+	void CollisionLR(float _DeltaTime);
+
 
 protected:
 	void BeginPlay() override;
@@ -75,5 +77,9 @@ private:
 
 	bool IsTile = false;
 	bool IsOnTheGround = false;
+
+	float LRVelocity = 100.0f;
+	float MoveDir = 1.0f;
+	FVector MoveVect = FVector::ZERO;
 };
 
