@@ -21,7 +21,7 @@ MainPlayer::MainPlayer()
 	PlayerRenderer->SetupAttachment(RootComponent);
 
 	PlayerRenderer->CreateAnimation("Idle", "Player_Idle.png", 0, 3, 0.2f);
-	//PlayerRenderer->CreateAnimation("Balancing", "Player_Balancing.png", 0, 23, 0.09f);
+	PlayerRenderer->CreateAnimation("Fall", "Player_Fall.png", 0, 2, 0.1f, false);
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
 	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.5f);
 	PlayerRenderer->CreateAnimation("Shoot", "Player_Shoot.png", 0, 3, 0.1f, false);
@@ -123,7 +123,6 @@ void MainPlayer::GravityManager(float _DeltaTime)
 	if (true == CollisionBox->CollisionCheck("Block", Gravity * _DeltaTime, BlockCollision))
 	{
 		IsOnTheBlock = true;
-		//IsOnTheGround = true;
 	}
 
 	if (true == IsOnTheBlock)
@@ -164,6 +163,12 @@ void MainPlayer::Run(float _DeltaTime)
 
 	if (UEngineInput::IsPress('A'))
 	{
+		if (MoveDir > 0.0f)
+		{
+			//PlayerRenderer->AddWorldRotation({ 0.0f, 180.0f, 0.0f });
+			AddActorRotation({ 0.0f, 180.0f, 0.0f });
+		}
+
 		MoveDir = -1.0f;
 
 		FVector GoLeft = MoveVect * _DeltaTime;
@@ -174,6 +179,10 @@ void MainPlayer::Run(float _DeltaTime)
 	}
 	else if (UEngineInput::IsPress('D'))
 	{
+		if (MoveDir < 0.0f)
+		{
+			AddActorRotation({ 0.0f, 180.0f, 0.0f });
+		}
 		MoveDir = 1.0f;
 
 		FVector GoRight = MoveVect * _DeltaTime;
@@ -203,14 +212,28 @@ void MainPlayer::Jump(float _DeltaTime)
 		FSM.ChangeState(MainPlayerState::Shoot);
 	}
 
+	MoveVect.X = LRVelocity * MoveDir;
+
 	if (UEngineInput::IsPress('A'))
 	{
-		AddActorLocation(FVector{ -100.0f * _DeltaTime, 0.0f, 0.0f });
+		if (MoveDir > 0.0f)
+		{
+			AddActorRotation({ 0.0f, 180.0f, 0.0f });
+		}
+
+		MoveDir = -1.0f;
+		AddActorLocation(MoveVect * _DeltaTime);
 	}
 
 	if (UEngineInput::IsPress('D'))
 	{
-		AddActorLocation(FVector{ 100.0f * _DeltaTime, 0.0f, 0.0f });
+		if (MoveDir < 0.0f)
+		{
+			AddActorRotation({ 0.0f, 180.0f, 0.0f });
+		}
+
+		MoveDir = 1.0f;
+		AddActorLocation(MoveVect * _DeltaTime);
 	}
 
 	if (true == IsOnTheGround)
@@ -221,6 +244,8 @@ void MainPlayer::Jump(float _DeltaTime)
 
 void MainPlayer::Shoot(float _DeltaTime)
 {
+	// 방향전환 추가 필요
+
 	TimeEventComponent->AddEndEvent(0.5f,
 		[this]()
 		{

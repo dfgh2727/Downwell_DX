@@ -77,6 +77,7 @@ private:
 
 	bool IsTile = false;
 	bool IsOnTheGround = false;
+	//bool IsOnTheBlock = false;
 
 	float LRVelocity = 100.0f;
 	float MoveDir = 1.0f;
