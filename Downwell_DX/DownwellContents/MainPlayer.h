@@ -16,7 +16,7 @@ enum class MainPlayerState
 
 };
 
-class MainPlayer: public AActor//APawn
+class MainPlayer : public AActor//APawn
 {
 public:
 	// constrcuter destructer
@@ -49,7 +49,6 @@ public:
 	void Run(float _DeltaTime);
 	void Jump(float _DeltaTime);
 	void Shoot(float _DeltaTime);
-	void Fall(float _DeltaTime);
 
 	void CollisionLR(float _DeltaTime);
 

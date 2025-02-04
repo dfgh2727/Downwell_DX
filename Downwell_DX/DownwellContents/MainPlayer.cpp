@@ -86,14 +86,8 @@ void MainPlayer::BeginPlay()
 			Smoke = GetWorld()->SpawnActor<GunShotSmoke>();
 			Smoke->SetActorLocation(PlayerPos + Direction * 15.0f + FVector::DOWN * 35.0f);
 		});
-	FSM.CreateState(MainPlayerState::Fall, std::bind(&MainPlayer::Fall, this, std::placeholders::_1),
-		[this]()
-		{
-			PlayerRenderer->ChangeAnimation("Fall");
-			CollisionBox->SetScale3D({ 25.0f, 20.0f });
-			CollisionBox->SetRelativeLocation({ 15.0f, 15.0f });
-		});
-		FSM.ChangeState(MainPlayerState::Idle);
+
+	FSM.ChangeState(MainPlayerState::Idle);
 }
 
 void MainPlayer::Tick(float _DeltaTime)
@@ -104,7 +98,7 @@ void MainPlayer::Tick(float _DeltaTime)
 
 	FSM.Update(_DeltaTime);
 
-	
+
 }
 
 bool MainPlayer::TileCheck(FVector _AddPos)
@@ -121,8 +115,8 @@ bool MainPlayer::TileCheck(FVector _AddPos)
 		{
 			IsTile = false;
 		}
-		return IsTile;	
-	}	
+		return IsTile;
+	}
 }
 
 void MainPlayer::GravityManager(float _DeltaTime)
@@ -157,64 +151,15 @@ void MainPlayer::Idle(float _DeltaTime)
 {
 	SetActorLocation(PrevLocation);
 
-	if (UEngineInput::IsPress('A')|| UEngineInput::IsPress('D'))
+	if (UEngineInput::IsPress('A') || UEngineInput::IsPress('D'))
 	{
 		FSM.ChangeState(MainPlayerState::Run);
-	}
-
-	if (false == IsOnTheGround)
-	{
-		FSM.ChangeState(MainPlayerState::Fall);
 	}
 
 	if (UEngineInput::IsPress(VK_SPACE))
 	{
 		FSM.ChangeState(MainPlayerState::Jump);
 	}
-}
-
-void MainPlayer::Fall(float _DeltaTime)
-{
-	if (UEngineInput::IsPress('A'))
-	{
-		if (MoveDir > 0.0f)
-		{
-			AddActorRotation({ 0.0f, 180.0f, 0.0f });
-		}
-
-		MoveDir = -1.0f;
-
-		FVector GoLeft = MoveVect * _DeltaTime;
-		if (false == TileCheck(GoLeft))
-		{
-			AddActorLocation(GoLeft);
-		}
-	}
-	else if (UEngineInput::IsPress('D'))
-	{
-		if (MoveDir < 0.0f)
-		{
-			AddActorRotation({ 0.0f, 180.0f, 0.0f });
-		}
-		MoveDir = 1.0f;
-
-		FVector GoRight = MoveVect * _DeltaTime;
-		if (false == TileCheck(GoRight))
-		{
-			AddActorLocation(GoRight);
-		}
-	}
-
-	if (UEngineInput::IsDown(VK_SPACE))
-	{
-		FSM.ChangeState(MainPlayerState::Shoot);
-	}
-
-	if (true == IsOnTheGround)
-	{
-		FSM.ChangeState(MainPlayerState::Idle);
-	}
-	
 }
 
 void MainPlayer::Run(float _DeltaTime)
@@ -260,10 +205,6 @@ void MainPlayer::Run(float _DeltaTime)
 		FSM.ChangeState(MainPlayerState::Jump);
 	}
 
-	if (false == IsOnTheGround)
-	{
-		FSM.ChangeState(MainPlayerState::Fall);
-	}
 }
 
 void MainPlayer::Jump(float _DeltaTime)
@@ -318,9 +259,7 @@ void MainPlayer::Shoot(float _DeltaTime)
 
 	if (true == IsOnTheGround)
 	{
-		//FSM.ChangeState(MainPlayerState::Idle);
-
-		FSM.ChangeState(MainPlayerState::Fall);
+		FSM.ChangeState(MainPlayerState::Idle);
 		IsShooting = false;
 	}
 }
