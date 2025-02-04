@@ -56,8 +56,6 @@ void Block0::Break()
 		Debris1->UEngineRandomPtr = RandomPtr;
 		Debris1->SetActorLocation(CurLocation);
 
-		int a = 0;
-
 		Debris2 = GetWorld()->SpawnActor<Debris>();
 		Debris2->UEngineRandomPtr = RandomPtr;
 		Debris2->SetActorLocation(CurLocation);

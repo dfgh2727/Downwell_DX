@@ -22,6 +22,7 @@ public:
 	}
 
 	class UEngineRandom* UEngineRandomPtr;
+	FVector Velocity = FVector::ZERO;
 
 protected:
 	void BeginPlay() override;
@@ -49,6 +50,5 @@ private:
 	FVector Gravity = FVector::ZERO;
 
 	FVector PrevLocation = FVector::ZERO;
-	FVector Velocity = FVector::ZERO;
 };
 

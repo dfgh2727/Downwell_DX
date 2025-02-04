@@ -54,6 +54,7 @@ void Debris::Tick(float _DeltaTime)
 	}
 
 	AddActorLocation(Velocity * _DeltaTime);
+	int a = 0;
 }
 
 bool Debris::TileCheck(FVector _AddPos)
@@ -76,7 +77,7 @@ bool Debris::TileCheck(FVector _AddPos)
 
 void Debris::GravityManager(float _DeltaTime)
 {
-	IsOnTheGround = TileCheck(Gravity * _DeltaTime);
+	//IsOnTheGround = TileCheck(Gravity * _DeltaTime);
 	bool IsOnTheBlock = false;
 
 	std::vector<UCollision*> BlockCollision;
