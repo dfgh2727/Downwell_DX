@@ -170,7 +170,6 @@ void MainPlayer::Run(float _DeltaTime)
 	{
 		if (MoveDir > 0.0f)
 		{
-			//PlayerRenderer->AddWorldRotation({ 0.0f, 180.0f, 0.0f });
 			AddActorRotation({ 0.0f, 180.0f, 0.0f });
 		}
 
