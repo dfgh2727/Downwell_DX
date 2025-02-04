@@ -73,13 +73,18 @@ void MainPlayer::BeginPlay()
 
 			PlayerRenderer->ChangeAnimation("Shoot");
 			FVector PlayerPos = GetActorLocation();
+			FVector Direction = FVector::ZERO;
+			Direction.X = MoveDir;
+
 			NBullet = GetWorld()->SpawnActor<NormalBullet>();
-			NBullet->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
+			NBullet->SetActorLocation(PlayerPos + Direction * 15.0f);
 			NBullet->SetTileMapRenderer(TRenderer);
+
 			TempCart = GetWorld()->SpawnActor<Cartridge>();
-			TempCart->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f);
+			TempCart->SetActorLocation(PlayerPos + Direction * 15.0f);
+
 			Smoke = GetWorld()->SpawnActor<GunShotSmoke>();
-			Smoke->SetActorLocation(PlayerPos + FVector::RIGHT * 15.0f + FVector::DOWN * 35.0f);
+			Smoke->SetActorLocation(PlayerPos + Direction * 15.0f + FVector::DOWN * 35.0f);
 		});
 
 		FSM.ChangeState(MainPlayerState::Idle);
