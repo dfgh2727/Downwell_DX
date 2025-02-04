@@ -2,6 +2,7 @@
 #include "SpawnedActor.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EnginePlatform/EngineWinImage.h>
+#include <EngineBase/EngineRandom.h>
 
 // Ό³Έν :
 class Block0 : public SpawnedActor
@@ -31,6 +32,8 @@ private:
 	std::shared_ptr<class SmokeBall> SmokeBall2;
 
 	std::shared_ptr<class UCollision> CollisionBox;
+
+	UEngineRandom UEngineRandomInst;
 
 	FVector CurLocation = FVector::ZERO;
 

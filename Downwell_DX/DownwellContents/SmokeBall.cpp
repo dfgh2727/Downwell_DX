@@ -2,7 +2,9 @@
 #include "SmokeBall.h"
 #include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/DefaultSceneComponent.h>
-//#include <EngineBase/EngineRandom.h>
+#include <EngineBase/EngineRandom.h>
+
+#include "Debris.h"
 
 SmokeBall::SmokeBall()
 {
@@ -24,8 +26,10 @@ void SmokeBall::BeginPlay()
 {
 	AActor::BeginPlay();
 
-	Velocity.X = UEngineRandomInst.Randomfloat(-20.0f, 20.0f);
-	Velocity.Y = UEngineRandomInst.Randomfloat(-20.0f, 20.0f);
+	Velocity.X = UEngineRandomPtr->Randomfloat(-20.0f, 20.0f);
+	Velocity.Y = UEngineRandomPtr->Randomfloat(-20.0f, 20.0f);
+
+	int a = 0;
 }
 
 void SmokeBall::Tick(float _DeltaTime)

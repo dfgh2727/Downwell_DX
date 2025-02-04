@@ -123,7 +123,7 @@ void Cavern1::BeginPlay()
 
 	{
 		//int Index = 0;
-		CreateMap({ 0, 0 }, 1);
+		CreateMap({ 0, 0 }, 3);
 		/*CreateMap({ 0, -18 }, 4);
 		CreateMap({ 0, -36 }, 5);
 		CreateMap({ 0, -54 }, 6);*/

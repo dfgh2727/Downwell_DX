@@ -34,8 +34,10 @@ void Debris::BeginPlay()
 {
 	AActor::BeginPlay();
 
-	Velocity.X = UEngineRandomInst.Randomfloat(-100.0f, 100.0f);
-	Velocity.Y = UEngineRandomInst.Randomfloat(-50.0f, 0.0f);
+	Velocity.X = UEngineRandomPtr->Randomfloat(-100.0f, 100.0f);
+	Velocity.Y = UEngineRandomPtr->Randomfloat(-50.0f, 0.0f);
+
+	int a = 0;
 }
 
 void Debris::Tick(float _DeltaTime)

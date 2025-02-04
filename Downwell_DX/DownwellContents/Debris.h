@@ -21,6 +21,8 @@ public:
 		TRenderer = _Renderer;
 	}
 
+	class UEngineRandom* UEngineRandomPtr;
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -33,7 +35,6 @@ protected:
 private:
 	class UTileMapRenderer* TRenderer = nullptr;
 	struct FTileData* TData = nullptr;
-	class UEngineRandom UEngineRandomInst;
 
 	std::shared_ptr<class USpriteRenderer> DebrisRenderer = nullptr;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;

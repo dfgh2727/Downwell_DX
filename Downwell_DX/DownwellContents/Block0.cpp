@@ -47,20 +47,27 @@ void Block0::Break()
 	std::vector<UCollision*> BulletCollision;
 	if (true == CollisionBox->CollisionCheck("Bullet", BulletCollision))
 	{
-		
+		UEngineRandom* RandomPtr = &UEngineRandomInst;
+
 		FlashForBlock = GetWorld()->SpawnActor<Flash>();
 		FlashForBlock->SetActorLocation(CurLocation);
 
 		Debris1 = GetWorld()->SpawnActor<Debris>();
+		Debris1->UEngineRandomPtr = RandomPtr;
 		Debris1->SetActorLocation(CurLocation);
 
+		int a = 0;
+
 		Debris2 = GetWorld()->SpawnActor<Debris>();
+		Debris2->UEngineRandomPtr = RandomPtr;
 		Debris2->SetActorLocation(CurLocation);
 
 		SmokeBall1 = GetWorld()->SpawnActor<SmokeBall>();
+		SmokeBall1->UEngineRandomPtr = RandomPtr;
 		SmokeBall1->SetActorLocation(CurLocation);
 
 		SmokeBall2 = GetWorld()->SpawnActor<SmokeBall>();
+		SmokeBall2->UEngineRandomPtr = RandomPtr;
 		SmokeBall2->SetActorLocation(CurLocation);
 
 		Destroy();
