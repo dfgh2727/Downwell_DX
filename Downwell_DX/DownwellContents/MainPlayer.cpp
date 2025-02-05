@@ -23,7 +23,7 @@ MainPlayer::MainPlayer()
 	PlayerRenderer->CreateAnimation("Idle", "Player_Idle.png", 0, 3, 0.2f);
 	PlayerRenderer->CreateAnimation("Fall", "Player_Fall.png", 0, 2, 0.1f, false);
 	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
-	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.5f);
+	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.5f, false);
 	PlayerRenderer->CreateAnimation("Shoot", "Player_Shoot.png", 0, 3, 0.1f, false);
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
