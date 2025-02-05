@@ -250,12 +250,23 @@ void MainPlayer::Shoot(float _DeltaTime)
 {
 	// 방향전환 추가 필요
 
-	TimeEventComponent->AddEndEvent(0.5f,
+	if (UEngineInput::IsPress(VK_SPACE))
+	{
+		Timer -= _DeltaTime;
+
+		if (Timer < 0.0f)
+		{
+			FSM.ChangeState(MainPlayerState::Shoot);
+			Timer = 0.2f;
+		}
+	}
+
+	/*TimeEventComponent->AddEndEvent(0.5f,
 		[this]()
 		{
 			FSM.ChangeState(MainPlayerState::Idle);
 		},
-		false);
+		false);*/
 
 	if (true == IsOnTheGround)
 	{

@@ -66,10 +66,10 @@ void OpeningScene::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
-	if (UEngineInput::IsDown('P'))
+	/*if (UEngineInput::IsDown('P'))
 	{
 		UEngineCore::OpenLevel("Title");
-	}
+	}*/
 }
 
 void OpeningScene::ShowDevelopers()

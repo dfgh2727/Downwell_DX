@@ -81,6 +81,8 @@ private:
 
 	float LRVelocity = 100.0f;
 	float MoveDir = 1.0f;
+
+	float Timer = 0.2f;
 	FVector MoveVect = FVector::ZERO;
 };
 
