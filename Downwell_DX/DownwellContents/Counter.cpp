@@ -9,17 +9,15 @@ Counter::Counter()
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 
-	MinusRenderer = CreateDefaultSubObject<USpriteRenderer>();
+	/*MinusRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	MinusRenderer->SetupAttachment(RootComponent);
 	MinusRenderer->SetSprite("CMnumMinus.png");
-	MinusRenderer->SetAutoScale(1.0f);
+	MinusRenderer->SetAutoScale(1.0f);*/
 
 	for (size_t i = 0; i < 12; i++)
 	{
-		// 카메라가 움직여도 이녀석은 움직이지 않는다.
-		/*USpriteRenderer* Sprite = CreateDefaultSubObject<USpriteRenderer>();
-		Sprite->SetCameraEffect(false);*/
-		//NumRenderer.push_back(Sprite);
+		std::shared_ptr<class USpriteRenderer> Sprite = CreateDefaultSubObject<USpriteRenderer>();
+		NumRenderer.push_back(Sprite);
 	}
 }
 

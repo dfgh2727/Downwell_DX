@@ -45,8 +45,8 @@ private:
 
 	std::string TextSpriteName;
 	FVector TextScale;
-	std::shared_ptr<class USpriteRenderer> MinusRenderer;
-	std::vector<class USpriteRenderer*> NumRenderer;
+	//std::shared_ptr<class USpriteRenderer> MinusRenderer;
+	std::vector<std::shared_ptr<class USpriteRenderer>> NumRenderer;
 
 };
 
