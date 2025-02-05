@@ -117,7 +117,7 @@ public:
 			}
 
 
-			if (true == UEngineInput::IsPress(VK_LBUTTON))
+			if (true == UEngineInput::IsPress(VK_LBUTTON) && false == UEngineCore::GetMainWindow().IsMouseScreenOut())
 			{
 				FVector ScreenPos = GetWorld()->GetMainCamera()->ScreenMousePosToWorldPos();
 
@@ -167,7 +167,7 @@ public:
 		}
 
 		{
-			if (true == UEngineInput::IsDown(VK_LBUTTON))
+			if (true == UEngineInput::IsDown(VK_LBUTTON) && false == UEngineCore::GetMainWindow().IsMouseScreenOut())
 			{
 				//ESpawnList SelectDummy = static_cast<ESpawnList>(SelectItem);
 				std::shared_ptr<class ACameraActor> Camera = GetWorld()->GetMainCamera();
@@ -221,22 +221,22 @@ public:
 			}
 
 
-			if (0 < Arr.size())
-			{
-				ImGui::ListBox("AllActorList", &ObjectItem, &Arr[0], static_cast<int>(Arr.size()));
+			//if (0 < Arr.size())
+			//{
+			//	ImGui::ListBox("AllActorList", &ObjectItem, &Arr[0], static_cast<int>(Arr.size()));
 
-				if (ObjectItem != -1)
-				{
+			//	if (ObjectItem != -1)
+			//	{
 
-				}
+			//	}
 
-				if (true == ImGui::Button("Delete"))
-				{
-					AllDummyList[ObjectItem]->Destroy();
-					ObjectItem = -1;
-				}
+			//	if (true == ImGui::Button("Delete"))
+			//	{
+			//		AllDummyList[ObjectItem]->Destroy();
+			//		ObjectItem = -1;
+			//	}
 
-			}
+			//}
 		}
 	}
 
@@ -281,6 +281,7 @@ public:
 				for (std::shared_ptr<Dummy> Actor : AllDummyList)
 				{
 
+					ESpawnType Type = Actor->SpawnTypeValue;
 					Ser << static_cast<int>(Actor->SpawnTypeValue);
 					Ser << Actor->GetActorLocation();
 					// 여기 저장된다는 이야기
@@ -343,6 +344,7 @@ public:
 					ESpawnType SpawnType = static_cast<ESpawnType>(DummyTypeValue);
 
 					std::shared_ptr<Dummy> NewDummy = GetWorld()->SpawnActor<Dummy>();
+					NewDummy->SpawnTypeValue = SpawnType;
 					NewDummy->SetActorLocation(Pos);
 					NewDummy->DummyRenderer->SetSprite("Dummy", DummyTypeValue);
 
