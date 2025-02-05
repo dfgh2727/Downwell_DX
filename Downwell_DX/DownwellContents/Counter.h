@@ -33,7 +33,7 @@ public:
 
 	void SetValue(int _Score);
 
-	void ShowMinus();
+	//void ShowMinus();
 
 
 protected:
