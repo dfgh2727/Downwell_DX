@@ -156,6 +156,7 @@
     <ClCompile Include="GunShotSmoke.cpp">
       <Filter>Images</Filter>
     </ClCompile>
+    <ClCompile Include="Counter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -316,6 +317,7 @@
     <ClInclude Include="GunShotSmoke.h">
       <Filter>Images</Filter>
     </ClInclude>
+    <ClInclude Include="Counter.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">

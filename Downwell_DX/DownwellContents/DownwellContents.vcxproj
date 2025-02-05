@@ -153,6 +153,7 @@
     <ClCompile Include="Block2.cpp" />
     <ClCompile Include="Block3.cpp" />
     <ClCompile Include="BulletChange.cpp" />
+    <ClCompile Include="Counter.cpp" />
     <ClCompile Include="Crawler.cpp" />
     <ClCompile Include="Debris.cpp" />
     <ClCompile Include="Flash.cpp" />
@@ -261,6 +262,7 @@
     <ClInclude Include="Block2.h" />
     <ClInclude Include="Block3.h" />
     <ClInclude Include="BulletChange.h" />
+    <ClInclude Include="Counter.h" />
     <ClInclude Include="Crawler.h" />
     <ClInclude Include="Debris.h" />
     <ClInclude Include="Flash.h" />
