@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-#include <EngineCore/SpriteRenderer.h>
 #include <EngineCore/Actor.h>
 
 // Ό³Έν :
