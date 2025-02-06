@@ -86,6 +86,17 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 
 		UEngineSprite::CreateSpriteToFolder(Dir.GetPathToString());
 	}
+	{
+		UEngineDirectory Dir;
+		if (false == Dir.MoveParentToDirectory("ContentsResources"))
+		{
+			MSGASSERT("리소스 폴더를 찾지 못했습니다.");
+			return;
+		}
+		Dir.Append("Image/UI/BoldNum");
+
+		UEngineSprite::CreateSpriteToFolder(Dir.GetPathToString());
+	}
 
 	{
 		UEngineDirectory Dir;

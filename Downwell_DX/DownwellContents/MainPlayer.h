@@ -59,9 +59,12 @@ protected:
 
 private:
 	std::shared_ptr<class USpriteRenderer> PlayerRenderer = nullptr;
+
 	std::shared_ptr<class UCollision> CollisionBox = nullptr;
 	std::shared_ptr<class NormalBullet> NBullet = nullptr;
 	std::shared_ptr<class GunShotSmoke> Smoke = nullptr;
+	std::shared_ptr<class EmptyText> TXT1 = nullptr;
+	std::shared_ptr<class BulletCounter> BulletNum = nullptr;
 
 	class UTileMapRenderer* TRenderer = nullptr;
 	struct FTileData* TData = nullptr;
@@ -83,6 +86,7 @@ private:
 	float MoveDir = 1.0f;
 
 	float Timer = 0.2f;
+	int Pistol = 8;
 	FVector MoveVect = FVector::ZERO;
 };
 

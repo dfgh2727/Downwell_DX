@@ -10,6 +10,8 @@
 #include "Cartridge.h"
 #include "NormalBullet.h"
 #include "GunShotSmoke.h"
+#include "EmptyText.h"
+#include "BulletCounter.h"
 
 MainPlayer::MainPlayer()
 {
@@ -31,6 +33,9 @@ MainPlayer::MainPlayer()
 	CollisionBox = CreateDefaultSubObject<UCollision>();
 	CollisionBox->SetupAttachment(RootComponent);
 	CollisionBox->SetCollisionProfileName("MainPlayer");
+
+	
+	
 
 	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
 }
@@ -211,9 +216,17 @@ void MainPlayer::Jump(float _DeltaTime)
 {
 	AddActorLocation(FVector::UP * 250.0f * _DeltaTime);
 
-	if (UEngineInput::IsDown(VK_SPACE))
+	if (Pistol > 0)
 	{
-		FSM.ChangeState(MainPlayerState::Shoot);
+		if (UEngineInput::IsDown(VK_SPACE))
+		{
+			FSM.ChangeState(MainPlayerState::Shoot);
+		}
+	}
+	else
+	{
+		TXT1 = GetWorld()->SpawnActor<EmptyText>();
+		TXT1->SetActorLocation(FVector::UP * 20.0f);
 	}
 
 	MoveVect.X = LRVelocity * MoveDir;
@@ -252,12 +265,20 @@ void MainPlayer::Shoot(float _DeltaTime)
 
 	if (UEngineInput::IsPress(VK_SPACE))
 	{
-		Timer -= _DeltaTime;
-
-		if (Timer < 0.0f)
+		if (Pistol > 0)
 		{
-			FSM.ChangeState(MainPlayerState::Shoot);
-			Timer = 0.2f;
+			Timer -= _DeltaTime;
+
+			if (Timer < 0.0f)
+			{
+				FSM.ChangeState(MainPlayerState::Shoot);
+				Timer = 0.2f;
+			}
+		}
+		else
+		{
+			TXT1 = GetWorld()->SpawnActor<EmptyText>();
+			TXT1->SetActorLocation(FVector::UP * 20.0f);
 		}
 	}
 
