@@ -34,9 +34,6 @@ MainPlayer::MainPlayer()
 	CollisionBox->SetupAttachment(RootComponent);
 	CollisionBox->SetCollisionProfileName("MainPlayer");
 
-	
-	
-
 	TimeEventComponent = CreateDefaultSubObject<UTimeEventComponent>();
 }
 
@@ -221,6 +218,7 @@ void MainPlayer::Jump(float _DeltaTime)
 		if (UEngineInput::IsDown(VK_SPACE))
 		{
 			FSM.ChangeState(MainPlayerState::Shoot);
+			Pistol--;
 		}
 	}
 	else
@@ -272,6 +270,7 @@ void MainPlayer::Shoot(float _DeltaTime)
 			if (Timer < 0.0f)
 			{
 				FSM.ChangeState(MainPlayerState::Shoot);
+				Pistol--;
 				Timer = 0.2f;
 			}
 		}

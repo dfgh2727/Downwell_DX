@@ -7,7 +7,7 @@
 BulletCounter::BulletCounter()
 {
 	CountBullet = GetWorld()->SpawnActor<Counter>();
-	CountBullet->SetValue(Num);
+	CountBullet->SetTextSpriteName("BoldNum");
 }
 
 BulletCounter::~BulletCounter()
@@ -23,7 +23,5 @@ void BulletCounter::BeginPlay()
 void BulletCounter::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
-
-
-
+	CountBullet->SetValue(Num);
 }
