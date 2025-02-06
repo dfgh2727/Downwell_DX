@@ -36,6 +36,8 @@ private:
 	std::shared_ptr<class Block0> Block00;
 	std::shared_ptr<class Debris> Debris0;
 
+	std::shared_ptr<class BasicUI> UI;
+
 	class UEngineFile ColMapFile;
 
 	std::vector<UEngineFile> MapDataFiles;

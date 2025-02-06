@@ -17,6 +17,8 @@
 #include "BulletChange.h"
 #include "Debris.h"
 
+#include "BasicUI.h"
+
 
 Cavern1::Cavern1()
 {
@@ -36,6 +38,8 @@ Cavern1::Cavern1()
 	GetWorld()->CreateCollisionProfile("Block");
 	GetWorld()->CreateCollisionProfile("Bullet");
 	GetWorld()->CreateCollisionProfile("Debris");
+
+	//UI = GetWorld()->GetHUD()->
 }
 
 Cavern1::~Cavern1()
