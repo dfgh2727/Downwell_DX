@@ -25,15 +25,35 @@ public:
 	// 내가 교체 당했을때
 	void LevelChangeEnd();
 
+	template<typename Type>
+	Type* GetGameMode()
+	{
+		return dynamic_cast<Type*>(GameMode);
+	}
+
+
 	class AGameMode* GetGameMode()
 	{
 		return GameMode;
+	}
+
+	template<typename Type>
+	Type* GetMainPawn()
+	{
+		return dynamic_cast<Type*>(MainPawn);
 	}
 
 	class APawn* GetMainPawn()
 	{
 		return MainPawn;
 	}
+
+	template<typename Type>
+	Type* GetHUD()
+	{
+		return dynamic_cast<Type*>(HUD);
+	}
+
 
 	class AHUD* GetHUD()
 	{
@@ -77,7 +97,7 @@ public:
 	std::shared_ptr<class ACameraActor> SpawnCamera(int _Order);
 
 	template<typename ActorType>
-	std::shared_ptr<ActorType> SpawnActor(std::string_view _Name ="")
+	std::shared_ptr<ActorType> SpawnActor(std::string_view _Name = "")
 	{
 		// AMonster : public AActor
 		// SpawnActor<AMonster>();
@@ -122,10 +142,10 @@ public:
 
 	ENGINEAPI void LinkCollisionProfile(std::string_view _LeftProfileName, std::string_view _RightProfileName);
 
-// #ifdef _DEBUG
-	// 에디터에서는 빠른지 느린지를 따지지 않는다.
-	// 에디터기능을 만들때는 최적화를 신경안쓰는 경우가 많다.
-	// 실제 플레이와는 전혀 관련이 없으니까.
+	// #ifdef _DEBUG
+		// 에디터에서는 빠른지 느린지를 따지지 않는다.
+		// 에디터기능을 만들때는 최적화를 신경안쓰는 경우가 많다.
+		// 실제 플레이와는 전혀 관련이 없으니까.
 	template<typename ConvertType>
 	ENGINEAPI std::list<std::shared_ptr<ConvertType>> GetAllActorListByClass()
 	{
@@ -161,7 +181,7 @@ public:
 
 		return List;
 	}
-// #endif
+	// #endif
 
 protected:
 

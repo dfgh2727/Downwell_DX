@@ -39,7 +39,6 @@ Cavern1::Cavern1()
 	GetWorld()->CreateCollisionProfile("Bullet");
 	GetWorld()->CreateCollisionProfile("Debris");
 
-	//UI = GetWorld()->GetHUD()->
 }
 
 Cavern1::~Cavern1()
