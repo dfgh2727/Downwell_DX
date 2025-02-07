@@ -8,6 +8,7 @@
 #include "EngineConstantBuffer.h"
 #include "EngineGUI.h"
 #include "Level.h"
+#include "GameInstance.h"
 
 
 UEngineGraphicDevice& UEngineCore::GetDevice()
@@ -23,6 +24,11 @@ UEngineWindow& UEngineCore::GetMainWindow()
 std::map<std::string, std::shared_ptr<class ULevel>> UEngineCore::GetAllLevelMap()
 {
 	return GEngine->LevelMap;
+}
+
+UGameInstance* UEngineCore::GetGameInstance()
+{
+	return GEngine->GameInstance.get();
 }
 
 UEngineCore* GEngine = nullptr;
@@ -116,7 +122,7 @@ void UEngineCore::EngineStart(HINSTANCE _Instance, std::string_view _DllName)
 			GEngine->Device.CreateBackBuffer(GEngine->MainWindow);
 			// 디바이스가 만들어지지 않으면 리소스 로드도 할수가 없다.
 			// 여기부터 리소스 로드가 가능하다.
-			
+
 			UEngineGUI::Init();
 		},
 		[]()
@@ -138,7 +144,7 @@ void UEngineCore::EngineStart(HINSTANCE _Instance, std::string_view _DllName)
 
 	// Window 띄워줘야 한다.
 
-	
+
 }
 
 // 헤더 순환 참조를 막기 위한 함수분리
@@ -146,18 +152,18 @@ std::shared_ptr<ULevel> UEngineCore::NewLevelCreate(std::string_view _Name)
 {
 	if (true == GEngine->LevelMap.contains(_Name.data()))
 	{
-		MSGASSERT("같은 이름의 레벨을 또 만들수는 없습니다." + std::string( _Name.data()));
+		MSGASSERT("같은 이름의 레벨을 또 만들수는 없습니다." + std::string(_Name.data()));
 		return nullptr;
 	}
 
 	// 만들기만 하고 보관을 안하면 앤 그냥 지워집니다. <= 
-	
+
 	// 만들면 맵에 넣어서 레퍼런스 카운트를 증가시킵니다.
 	// UObject의 기능이었습니다.
 	std::shared_ptr<ULevel> Ptr = std::make_shared<ULevel>();
 	Ptr->SetName(_Name);
 
-	GEngine->LevelMap.insert({ _Name.data(), Ptr});
+	GEngine->LevelMap.insert({ _Name.data(), Ptr });
 
 	std::cout << "NewLevelCreate" << std::endl;
 
@@ -173,7 +179,7 @@ void UEngineCore::OpenLevel(std::string_view _Name)
 		MSGASSERT("만들지 않은 레벨로 변경하려고 했습니다." + UpperString);
 		return;
 	}
-	
+
 
 	GEngine->NextLevel = GEngine->LevelMap[UpperString];
 }
@@ -203,7 +209,7 @@ void UEngineCore::EngineFrame()
 	else {
 		UEngineInput::KeyReset();
 	}
-	
+
 	GEngine->CurLevel->Tick(DeltaTime);
 	GEngine->CurLevel->Render(DeltaTime);
 	// GUI랜더링은 기존 랜더링이 다 끝나고 해주는게 좋다.

@@ -2,6 +2,11 @@
 #include "Actor.h"
 #include "SceneComponent.h"
 
+UGameInstance* AActor::GetGameInstance()
+{
+	return GEngine->GetGameInstance();
+}
+
 AActor::AActor()
 {
 }
@@ -22,7 +27,7 @@ void AActor::BeginPlay()
 	{
 		ActorComponent->BeginPlay();
 	}
-	
+
 }
 
 void AActor::Tick(float _DeltaTime)
@@ -42,7 +47,7 @@ void AActor::Tick(float _DeltaTime)
 			RootComponent->ComponentTick(_DeltaTime);
 		}
 	}
-	
+
 
 	for (std::shared_ptr<class UActorComponent> ActorComponent : ActorComponentList)
 	{
