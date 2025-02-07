@@ -137,6 +137,7 @@ void Cavern1::BeginPlay()
 		MainPlayerInst = GetWorld()->SpawnActor<MainPlayer>();
 		MainPlayerInst->SetActorLocation({ 0.0f, 0.0f, -10.0f });
 		MainPlayerInst->SetTileMapRenderer(TileMap.get());
+		
 	}
 }
 
@@ -171,6 +172,8 @@ void Cavern1::Tick(float _DeltaTime)
 	{
 		ShakingTime = 1.0f;
 	}
+
+	PlayerBullet = MainPlayerInst->Pistol;
 
 }
 

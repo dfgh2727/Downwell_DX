@@ -54,5 +54,7 @@ private:
 	float ShakingTime = 1.0f;
 	float Timer = 1.0f;
 
+	int PlayerBullet = 0;
+
 };
 
