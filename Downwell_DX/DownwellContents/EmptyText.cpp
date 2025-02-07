@@ -11,7 +11,7 @@ EmptyText::EmptyText()
 	// 랜더러를 만든다.
 	TextRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	TextRenderer->SetupAttachment(RootComponent);
-	TextRenderer->SetTexture("Empty.png", true, 1.5f);
+	TextRenderer->SetTexture("Empty.png", true, 1.0f);
 }
 
 EmptyText::~EmptyText()

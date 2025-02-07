@@ -96,6 +96,7 @@ void MainPlayer::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 	GravityManager(_DeltaTime);
+	BulletManager();
 	//CollisionLR(_DeltaTime);
 
 	FSM.Update(_DeltaTime);
@@ -146,6 +147,14 @@ void MainPlayer::GravityManager(float _DeltaTime)
 		AddActorLocation(Gravity * _DeltaTime);
 		PrevLocation = GetActorLocation();
 		Gravity += GForce * _DeltaTime;
+	}
+}
+
+void MainPlayer::BulletManager()
+{
+	if (true == IsOnTheGround)
+	{
+		Pistol = 8;
 	}
 }
 
@@ -213,19 +222,23 @@ void MainPlayer::Jump(float _DeltaTime)
 {
 	AddActorLocation(FVector::UP * 250.0f * _DeltaTime);
 
-	if (Pistol > 0)
+	if (UEngineInput::IsDown(VK_SPACE))
 	{
-		if (UEngineInput::IsDown(VK_SPACE))
+		if (Pistol > 0)
 		{
 			FSM.ChangeState(MainPlayerState::Shoot);
 			Pistol--;
 		}
+		else
+		{
+			FVector TXT1Pos = GetActorLocation();
+			TXT1Pos += FVector::UP * 50.0f + FVector::RIGHT * MoveDir* 15.0f;
+
+			TXT1 = GetWorld()->SpawnActor<EmptyText>();
+			TXT1->SetActorLocation(TXT1Pos);
+		}
 	}
-	else
-	{
-		TXT1 = GetWorld()->SpawnActor<EmptyText>();
-		TXT1->SetActorLocation(FVector::UP * 20.0f);
-	}
+	
 
 	MoveVect.X = LRVelocity * MoveDir;
 
@@ -276,8 +289,11 @@ void MainPlayer::Shoot(float _DeltaTime)
 		}
 		else
 		{
+			FVector TXT1Pos = GetActorLocation();
+			TXT1Pos += FVector::UP * 50.0f + FVector::RIGHT * MoveDir * 15.0f;
+
 			TXT1 = GetWorld()->SpawnActor<EmptyText>();
-			TXT1->SetActorLocation(FVector::UP * 20.0f);
+			TXT1->SetActorLocation(TXT1Pos);
 		}
 	}
 

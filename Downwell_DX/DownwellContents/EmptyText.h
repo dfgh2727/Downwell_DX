@@ -22,7 +22,7 @@ protected:
 private:
 	std::shared_ptr<class USpriteRenderer>TextRenderer;
 
-	float Timer = 0.1f;
+	float Timer = 0.3f;
 
 };
 

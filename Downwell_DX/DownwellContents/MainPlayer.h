@@ -51,6 +51,8 @@ public:
 	void Shoot(float _DeltaTime);
 
 	void CollisionLR(float _DeltaTime);
+	void BulletManager();
+
 
 	int Pistol = 8;
 
