@@ -304,8 +304,8 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 
 	//UEngineCore::OpenLevel("MapEditor");
 
-	UEngineCore::OpenLevel("Cavern1");
-	//UEngineCore::OpenLevel("Opening");
+	//UEngineCore::OpenLevel("Cavern1");
+	UEngineCore::OpenLevel("Opening");
 }
 
 void UContentsCore::EngineTick(float _DeltaTime)

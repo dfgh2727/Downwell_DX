@@ -101,6 +101,7 @@ void TitleScreen::GoToSelectScreen(float _DeltaTime)
 	FVector PlayerPos = MainPlayerRenderer->GetActorLocation();
 	if (PlayerPos.Y <= -400.0f)
 	{
-		UEngineCore::OpenLevel("Select");
+		//UEngineCore::OpenLevel("Select");
+		UEngineCore::OpenLevel("Cavern1");
 	}
 }

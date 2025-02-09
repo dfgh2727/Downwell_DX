@@ -126,10 +126,13 @@ void Cavern1::BeginPlay()
 
 	{
 		//int Index = 0;
-		CreateMap({ 0, 0 }, 3);
-		/*CreateMap({ 0, -18 }, 4);
-		CreateMap({ 0, -36 }, 5);
-		CreateMap({ 0, -54 }, 6);*/
+		//CreateMap({ 0, 0 }, 0);
+		CreateMap({ 0, 0 }, 2);
+		CreateMap({ 0, -18 }, 3);
+		CreateMap({ 0, -36 }, 4);
+		CreateMap({ 0, -54 }, 5);
+		CreateMap({ 0, -72 }, 6);
+
 	}
 
 	{
@@ -174,6 +177,12 @@ void Cavern1::Tick(float _DeltaTime)
 
 	PlayerBullet = MainPlayerInst->Pistol;
 
+	FVector PlayerPos = MainPlayerInst->GetActorLocation();
+	if (PlayerPos.Y <= -4000.0f)
+	{
+		UEngineCore::OpenLevel("Title");
+		//UEngineCore::OpenLevel("Cavern1");
+	}
 }
 
 void Cavern1::MapManager()
