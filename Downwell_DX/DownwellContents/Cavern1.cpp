@@ -65,6 +65,7 @@ void Cavern1::CreateMap(FIntPoint StartPos, int _MapIndex)
 			ESpawnType MonsterType = static_cast<ESpawnType>(MonsterTypeValue);
 			FVector MonsterLocation;
 			Ser >> MonsterLocation;
+			MonsterLocation.Y += static_cast<float>(StartPos.Y) * 32.0f;
 
 			switch (MonsterType)
 			{
