@@ -128,11 +128,12 @@ void Cavern1::BeginPlay()
 	{
 		//int Index = 0;
 		//CreateMap({ 0, 0 }, 0);
-		CreateMap({ 0, 0 }, 2);
-		CreateMap({ 0, -18 }, 3);
-		CreateMap({ 0, -36 }, 4);
-		CreateMap({ 0, -54 }, 5);
-		CreateMap({ 0, -72 }, 6);
+		CreateMap({ 0, 0 }, 1);
+		CreateMap({ 0, -18 }, 2);
+		CreateMap({ 0, -36 }, 3);
+		CreateMap({ 0, -54 }, 4);
+		CreateMap({ 0, -72 }, 5);
+		CreateMap({ 0, -90 }, 6);
 
 	}
 
@@ -167,14 +168,14 @@ void Cavern1::Tick(float _DeltaTime)
 		UEngineCore::OpenLevel("Paused");
 	}
 
-	if (true == MainPlayerInst->IsShooting)
+	/*if (true == MainPlayerInst->IsShooting)
 	{
 		ShakeCamera(_DeltaTime);
 	}
 	else
 	{
 		ShakingTime = 1.0f;
-	}
+	}*/
 
 	PlayerBullet = MainPlayerInst->Pistol;
 
