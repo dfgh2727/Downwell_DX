@@ -7,6 +7,7 @@
 #include <EngineCore/DefaultSceneComponent.h>
 #include <EngineCore/TileMapRenderer.h>
 #include <EnginePlatform/EngineWinImage.h>
+#include <EngineCore/EngineCore.h>
 
 #include "DitherFullScreen.h"
 #include "Bat.h"
@@ -18,6 +19,8 @@
 #include "Debris.h"
 
 #include "BasicUI.h"
+#include "TitleScreen.h"
+#include <EngineCore/Pawn.h>
 
 
 Cavern1::Cavern1()
@@ -182,6 +185,7 @@ void Cavern1::Tick(float _DeltaTime)
 	FVector PlayerPos = MainPlayerInst->GetActorLocation();
 	if (PlayerPos.Y <= -4000.0f)
 	{
+		UEngineCore::ResetLevel<TitleScreen, APawn, BasicUI>("Title");
 		UEngineCore::OpenLevel("Title");
 		//UEngineCore::OpenLevel("Cavern1");
 	}
