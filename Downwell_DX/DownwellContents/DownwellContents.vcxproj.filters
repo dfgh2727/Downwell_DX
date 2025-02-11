@@ -163,6 +163,9 @@
     <ClCompile Include="EmptyText.cpp">
       <Filter>Images</Filter>
     </ClCompile>
+    <ClCompile Include="DWInstance.cpp">
+      <Filter>GameInstance</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -330,6 +333,9 @@
     <ClInclude Include="EmptyText.h">
       <Filter>Images</Filter>
     </ClInclude>
+    <ClInclude Include="DWInstance.h">
+      <Filter>GameInstance</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -388,6 +394,9 @@
     </Filter>
     <Filter Include="Interactive Thing\SpawnedActor\Block">
       <UniqueIdentifier>{ab946c5d-496d-4f87-b4bd-f4da4570a75f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameInstance">
+      <UniqueIdentifier>{8e5eaec8-58cc-4732-8a65-e9fe3f362f0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

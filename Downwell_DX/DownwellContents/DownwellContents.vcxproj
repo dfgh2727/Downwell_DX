@@ -160,6 +160,10 @@
     <ClCompile Include="Counter.cpp" />
     <ClCompile Include="Crawler.cpp" />
     <ClCompile Include="Debris.cpp" />
+    <ClCompile Include="DWInstance.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="EmptyText.cpp" />
     <ClCompile Include="Flash.cpp" />
     <ClCompile Include="Frog.cpp" />
@@ -274,6 +278,10 @@
     <ClInclude Include="Counter.h" />
     <ClInclude Include="Crawler.h" />
     <ClInclude Include="Debris.h" />
+    <ClInclude Include="DWInstance.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="EmptyText.h" />
     <ClInclude Include="Flash.h" />
     <ClInclude Include="Frog.h" />
