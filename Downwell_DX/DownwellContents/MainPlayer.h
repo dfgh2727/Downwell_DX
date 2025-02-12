@@ -53,8 +53,8 @@ public:
 	void CollisionLR(float _DeltaTime);
 	void BulletManager();
 
+	void SynchBullet();
 
-	int Pistol = 8;
 
 protected:
 	void BeginPlay() override;
@@ -67,6 +67,7 @@ private:
 	std::shared_ptr<class NormalBullet> NBullet = nullptr;
 	std::shared_ptr<class GunShotSmoke> Smoke = nullptr;
 	std::shared_ptr<class EmptyText> TXT1 = nullptr;
+	
 	//std::shared_ptr<class BulletCounter> BulletNum = nullptr;
 
 	class UTileMapRenderer* TRenderer = nullptr;
@@ -90,5 +91,7 @@ private:
 
 	float Timer = 0.2f;
 	FVector MoveVect = FVector::ZERO;
+
+	int Pistol = 0;
 };
 

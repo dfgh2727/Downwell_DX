@@ -6,7 +6,9 @@
 #include <EngineCore/Collision.h>
 #include <EngineCore/TileMapRenderer.h>
 #include <EngineCore/TimeEventComponent.h>
+//#include <EngineCore/EngineCore.h>
 
+#include "DWInstance.h"
 #include "Cartridge.h"
 #include "NormalBullet.h"
 #include "GunShotSmoke.h"
@@ -44,6 +46,8 @@ MainPlayer::~MainPlayer()
 void MainPlayer::BeginPlay()
 {
 	AActor::BeginPlay();
+
+	Pistol = GetGameInstance<DWInstance>()->BulletCount;
 
 	FSM.CreateState(MainPlayerState::Idle, std::bind(&MainPlayer::Idle, this, std::placeholders::_1),
 		[this]()
@@ -155,6 +159,7 @@ void MainPlayer::BulletManager()
 	if (true == IsOnTheGround)
 	{
 		Pistol = 8;
+		SynchBullet();
 	}
 }
 
@@ -228,6 +233,7 @@ void MainPlayer::Jump(float _DeltaTime)
 		{
 			FSM.ChangeState(MainPlayerState::Shoot);
 			Pistol--;
+			SynchBullet();
 		}
 		else
 		{
@@ -284,6 +290,7 @@ void MainPlayer::Shoot(float _DeltaTime)
 			{
 				FSM.ChangeState(MainPlayerState::Shoot);
 				Pistol--;
+				SynchBullet();
 				Timer = 0.2f;
 			}
 		}
@@ -328,4 +335,9 @@ void MainPlayer::CollisionLR(float _DeltaTime)
 	{
 		SetActorLocation(CurLocation);
 	}
+}
+
+void MainPlayer::SynchBullet()
+{
+	GetGameInstance<DWInstance>()->BulletCount = Pistol;
 }

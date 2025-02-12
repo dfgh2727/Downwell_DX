@@ -14,6 +14,8 @@ public:
 	DWInstance& operator=(const DWInstance& _Other) = delete;
 	DWInstance& operator=(DWInstance&& _Other) noexcept = delete;
 
+	int BulletCount = 8;
+
 protected:
 
 private:
