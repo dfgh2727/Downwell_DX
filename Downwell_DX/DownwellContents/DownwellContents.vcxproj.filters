@@ -157,14 +157,14 @@
       <Filter>Images</Filter>
     </ClCompile>
     <ClCompile Include="Counter.cpp" />
-    <ClCompile Include="BulletCounter.cpp">
-      <Filter>Interactive Thing\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="EmptyText.cpp">
       <Filter>Images</Filter>
     </ClCompile>
     <ClCompile Include="DWInstance.cpp">
       <Filter>GameInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletCounter.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -327,14 +327,14 @@
       <Filter>Images</Filter>
     </ClInclude>
     <ClInclude Include="Counter.h" />
-    <ClInclude Include="BulletCounter.h">
-      <Filter>Interactive Thing\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="EmptyText.h">
       <Filter>Images</Filter>
     </ClInclude>
     <ClInclude Include="DWInstance.h">
       <Filter>GameInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletCounter.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

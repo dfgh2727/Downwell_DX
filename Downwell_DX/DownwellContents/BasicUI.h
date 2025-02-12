@@ -32,7 +32,8 @@ private:
 	std::shared_ptr<class GemStatus> GemStatusImage;
 	std::shared_ptr<class HealthStatus> HealthStatusImage;
 	std::shared_ptr<class BulletStatus> BulletStatusImage;
-	std::shared_ptr<class BulletChange> ShowBulletChange;
+	std::shared_ptr<class BulletCounter> BulletNumber;
+	//std::shared_ptr<class BulletChange> ShowBulletChange;
 
 	std::shared_ptr<class ACameraActor> Camera;
 	FVector ScreenPos = FVector::ZERO;
@@ -41,6 +42,7 @@ private:
 	FVector GemStatusPos = { 316.0f, 249.0f, -200.0f };
 	FVector HealthStatusPos = { -258.0f, 251.0f, -200.0f };
 	FVector BulletStatusPos = { 225.0f, 0.0f, -200.0f };
+	FVector BulletNumPos = { 225.0f, -200.0f, -200.0f };
 
 };
 

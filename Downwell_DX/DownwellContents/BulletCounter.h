@@ -23,7 +23,7 @@ private:
 	std::shared_ptr<class Counter> CountBullet;
 	std::shared_ptr<class MainPlayer> PlayerPtr;
 
-	int Num = 8;
+	int Num = 0;
 
 };
 

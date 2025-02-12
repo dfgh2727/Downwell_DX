@@ -1,8 +1,10 @@
 #include "PreCompile.h"
 #include "BulletCounter.h"
 
+#include "DWInstance.h"
 #include "Counter.h"
 #include "MainPlayer.h"
+
 
 BulletCounter::BulletCounter()
 {
@@ -17,7 +19,7 @@ BulletCounter::~BulletCounter()
 void BulletCounter::BeginPlay()
 {
 	AActor::BeginPlay();
-
+	Num = GetGameInstance<DWInstance>()->BulletCount;
 }
 
 void BulletCounter::Tick(float _DeltaTime)

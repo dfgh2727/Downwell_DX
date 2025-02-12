@@ -10,6 +10,7 @@
 #include "HealthStatus.h"
 #include "BulletStatus.h"
 #include "BulletChange.h"
+#include "BulletCounter.h"
 
 BasicUI::BasicUI()
 {
@@ -47,7 +48,10 @@ void BasicUI::BeginPlay()
 		BulletStatusImage = UIWidget->GetWorld()->SpawnActor<BulletStatus>();
 		BulletStatusImage->SetActorLocation(BulletStatusPos);
 	}
-
+	{
+		BulletNumber = UIWidget->GetWorld()->SpawnActor<BulletCounter>();
+		BulletNumber->SetActorLocation(BulletNumPos);
+	}
 	/*{
 		ShowBulletChange = UIWidget->GetWorld()->SpawnActor<BulletChange>();
 		ShowBulletChange->SetActorLocation(BulletStatusPos);
@@ -73,7 +77,6 @@ void BasicUI::SetUIPos()
 	GemStatusImage->SetActorLocation(GemStatusPos + ScreenPos);
 	HealthStatusImage->SetActorLocation(HealthStatusPos + ScreenPos);
 	BulletStatusImage->SetActorLocation(BulletStatusPos + ScreenPos);
+	BulletNumber->SetActorLocation(BulletNumPos + ScreenPos);
 	//ShowBulletChange->SetActorLocation(BulletStatusPos + ScreenPos);
-
-
 }
