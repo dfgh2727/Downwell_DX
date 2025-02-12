@@ -3,7 +3,7 @@
 
 #include "DWInstance.h"
 #include "Counter.h"
-#include "MainPlayer.h"
+//#include "MainPlayer.h"
 
 
 BulletCounter::BulletCounter()
@@ -26,4 +26,6 @@ void BulletCounter::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 	CountBullet->SetValue(Num);
+
+	int a = 0;
 }

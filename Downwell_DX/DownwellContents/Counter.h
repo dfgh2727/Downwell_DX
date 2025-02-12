@@ -18,18 +18,18 @@ public:
 
 	void SetTextSpriteName(const std::string _Text);
 
-	void SetTextScale(FVector _TextScale)
+	/*void SetTextScale(FVector _TextScale)
 	{
 		TextScale = _TextScale;
-	}
+	}*/
 
-	template<typename EnumType>
+	/*template<typename EnumType>
 	void SetOrder(EnumType _Order)
 	{
 		SetOrder(static_cast<int>(_Order));
-	}
+	}*/
 
-	void SetOrder(int _Order);
+	//void SetOrder(int _Order);
 
 	void SetValue(int _Score);
 
@@ -44,7 +44,7 @@ protected:
 private:
 
 	std::string TextSpriteName;
-	FVector TextScale;
+	//FVector TextScale;
 	//std::shared_ptr<class USpriteRenderer> MinusRenderer;
 	std::vector<std::shared_ptr<class USpriteRenderer>> NumRenderer;
 

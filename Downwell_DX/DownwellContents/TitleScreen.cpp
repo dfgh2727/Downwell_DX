@@ -93,6 +93,12 @@ void TitleScreen::Tick(float _DeltaTime)
 		UEngineCore::OpenLevel("Cavern1");
 	}
 
+	if (UEngineInput::IsDown('P'))
+	{
+		std::shared_ptr<ACameraActor> Camera = GetWorld()->GetMainCamera();
+		Camera->FreeCameraOn();
+	}
+
 	GoToSelectScreen(_DeltaTime);
 }
 

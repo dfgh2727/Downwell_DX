@@ -21,7 +21,7 @@ protected:
 
 private:
 	std::shared_ptr<class Counter> CountBullet;
-	std::shared_ptr<class MainPlayer> PlayerPtr;
+	//std::shared_ptr<class MainPlayer> PlayerPtr;
 
 	int Num = 0;
 
