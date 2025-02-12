@@ -1,7 +1,8 @@
 #pragma once
+#include <EngineCore/GameInstance.h>
 
 // Ό³Έν :
-class DWInstance
+class DWInstance : public UGameInstance
 {
 public:
 	// constrcuter destructer

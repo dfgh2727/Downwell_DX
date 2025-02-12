@@ -180,7 +180,7 @@ void Cavern1::Tick(float _DeltaTime)
 		ShakingTime = 1.0f;
 	}*/
 
-	PlayerBullet = MainPlayerInst->Pistol;
+	//PlayerBullet = MainPlayerInst->Pistol;
 
 	FVector PlayerPos = MainPlayerInst->GetActorLocation();
 	if (PlayerPos.Y <= -4000.0f)
