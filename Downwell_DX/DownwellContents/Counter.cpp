@@ -9,11 +9,16 @@ Counter::Counter()
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 
+	TempRenderer= CreateDefaultSubObject<USpriteRenderer>();
+	TempRenderer->SetupAttachment(RootComponent);
+	TempRenderer->SetTexture("Test.png", true, 10.0f);
+	TempRenderer->SetWorldLocation(FVector::ZERO);
 
 	for (size_t i = 0; i < 11; i++)
 	{
 		std::shared_ptr<class USpriteRenderer> Sprite = CreateDefaultSubObject<USpriteRenderer>();
 		NumRenderer.push_back(Sprite);
+		NumRenderer[i]->SetupAttachment(RootComponent);
 	}
 }
 
@@ -61,20 +66,13 @@ void Counter::SetValue(int _Score)
 		return;
 	}
 
-
-	//FVector Pos = FVector::ZERO;
-
 	for (size_t i = 0; i < Number.size(); i++)
 	{
 		char Value = Number[i] - '0';
 		NumRenderer[i]->SetSprite(TextSpriteName, Value);
 		NumRenderer[i]->SetAutoScaleRatio(1.0f);
-		//NumRenderer[i]->SetComponentLocation(Pos);
-		//Pos.X += TextScale.X;
 		NumRenderer[i]->SetActive(true);
 	}
-
-	//MinusRenderer->SetComponentLocation({ -TextScale.X, 0.0f});
 
 	for (size_t i = Number.size(); i < NumRenderer.size(); i++)
 	{

@@ -21,9 +21,9 @@ protected:
 
 private:
 	std::shared_ptr<class Counter> CountBullet;
-	//std::shared_ptr<class MainPlayer> PlayerPtr;
+	std::shared_ptr<class Bat> TestBat;
+	//std::shared_ptr<class USpriteRenderer> TempRenderer;
 
 	int Num = 0;
-
 };
 
