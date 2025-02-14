@@ -18,17 +18,7 @@ public:
 
 	void SetTextSpriteName(const std::string _Text);
 
-	/*template<typename EnumType>
-	void SetOrder(EnumType _Order)
-	{
-		SetOrder(static_cast<int>(_Order));
-	}*/
-
-	//void SetOrder(int _Order);
-
 	void SetValue(int _Score);
-
-	//void ShowMinus();
 
 
 protected:

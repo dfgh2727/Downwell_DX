@@ -39,18 +39,9 @@ void Counter::SetTextSpriteName(const std::string _Text)
 	for (size_t i = 0; i < NumRenderer.size(); i++)
 	{
 		NumRenderer[i]->SetSprite(TextSpriteName);
-	
 	}
 }
 
-//void Counter::SetOrder(int _Order)
-//{
-//	for (size_t i = 0; i < NumRenderer.size(); i++)
-//	{
-//		NumRenderer[i]->SetOrder(_Order);
-//	}
-//
-//}
 
 void Counter::SetValue(int _Score)
 {
