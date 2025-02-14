@@ -9,16 +9,12 @@ Counter::Counter()
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 
-	TempRenderer= CreateDefaultSubObject<USpriteRenderer>();
-	TempRenderer->SetupAttachment(RootComponent);
-	TempRenderer->SetTexture("Test.png", true, 10.0f);
-	TempRenderer->SetWorldLocation(FVector::ZERO);
-
 	for (size_t i = 0; i < 11; i++)
 	{
 		std::shared_ptr<class USpriteRenderer> Sprite = CreateDefaultSubObject<USpriteRenderer>();
 		NumRenderer.push_back(Sprite);
-		NumRenderer[i]->SetupAttachment(RootComponent);
+		NumRenderer[i]->SetupAttachment(RootComponent);	
+		NumRenderer[i]->SetAutoScaleRatio(5.0f);
 	}
 }
 
@@ -28,11 +24,12 @@ Counter::~Counter()
 
 void Counter::BeginPlay()
 {
+	AActor::BeginPlay();
 }
 
 void Counter::Tick(float _DeltaTime)
 {
-
+	AActor::Tick(_DeltaTime);
 }
 
 void Counter::SetTextSpriteName(const std::string _Text)
@@ -42,8 +39,7 @@ void Counter::SetTextSpriteName(const std::string _Text)
 	for (size_t i = 0; i < NumRenderer.size(); i++)
 	{
 		NumRenderer[i]->SetSprite(TextSpriteName);
-
-		//NumRenderer[i]->SetAutoScaleRatio(2.0f);
+	
 	}
 }
 
