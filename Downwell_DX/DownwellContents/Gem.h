@@ -25,6 +25,6 @@ private:
 	std::shared_ptr<class USpriteRenderer> GemRenderer;
 	std::shared_ptr<class UTimeEventComponent> TimeEventComponent;
 
-	float Timer = 1.0f;
+	float Timer = 3.0f;
 };
 
