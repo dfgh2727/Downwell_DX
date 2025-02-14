@@ -167,6 +167,7 @@
     <ClCompile Include="EmptyText.cpp" />
     <ClCompile Include="Flash.cpp" />
     <ClCompile Include="Frog.cpp" />
+    <ClCompile Include="Gem.cpp" />
     <ClCompile Include="GemBlock.cpp" />
     <ClCompile Include="GunShotSmoke.cpp" />
     <ClCompile Include="Jelly.cpp" />
@@ -285,6 +286,7 @@
     <ClInclude Include="EmptyText.h" />
     <ClInclude Include="Flash.h" />
     <ClInclude Include="Frog.h" />
+    <ClInclude Include="Gem.h" />
     <ClInclude Include="GemBlock.h" />
     <ClInclude Include="GunShotSmoke.h" />
     <ClInclude Include="Jelly.h" />

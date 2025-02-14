@@ -166,6 +166,9 @@
     <ClCompile Include="BulletCounter.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="Gem.cpp">
+      <Filter>Interactive Thing\Gem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PreCompile.h" />
@@ -336,6 +339,9 @@
     <ClInclude Include="BulletCounter.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Gem.h">
+      <Filter>Interactive Thing\Gem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Level">
@@ -397,6 +403,9 @@
     </Filter>
     <Filter Include="GameInstance">
       <UniqueIdentifier>{8e5eaec8-58cc-4732-8a65-e9fe3f362f0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interactive Thing\Gem">
+      <UniqueIdentifier>{46eb42d7-0637-4c43-bfd4-a39d7dc13462}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
