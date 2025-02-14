@@ -14,7 +14,7 @@ Counter::Counter()
 		std::shared_ptr<class USpriteRenderer> Sprite = CreateDefaultSubObject<USpriteRenderer>();
 		NumRenderer.push_back(Sprite);
 		NumRenderer[i]->SetupAttachment(RootComponent);	
-		NumRenderer[i]->SetAutoScaleRatio(5.0f);
+		//NumRenderer[i]->SetAutoScaleRatio(5.0f);
 	}
 }
 
@@ -57,7 +57,7 @@ void Counter::SetValue(int _Score)
 	{
 		char Value = Number[i] - '0';
 		NumRenderer[i]->SetSprite(TextSpriteName, Value);
-		NumRenderer[i]->SetAutoScaleRatio(1.0f);
+		NumRenderer[i]->SetAutoScaleRatio(3.0f);
 		NumRenderer[i]->SetActive(true);
 	}
 

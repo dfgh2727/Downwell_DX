@@ -24,6 +24,7 @@ private:
 	std::shared_ptr<class Bat> TestBat;
 	//std::shared_ptr<class USpriteRenderer> TempRenderer;
 
+	//FVector CurPos = FVector::ZERO;
 	int Num = 0;
 };
 
