@@ -14,7 +14,7 @@ GemCounter::GemCounter()
 
 	CountGem = GetWorld()->SpawnActor<Counter>();
 	CountGem->SetTextSpriteName("BoldNum");
-	CountGem->Ratio = 1.15f;
+	CountGem->Ratio = 1.0f;
 }
 
 GemCounter::~GemCounter()

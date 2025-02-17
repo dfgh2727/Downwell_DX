@@ -44,7 +44,7 @@ private:
 	FVector HealthStatusPos = { -258.0f, 251.0f, -200.0f };
 	FVector BulletStatusPos = { 225.0f, 0.0f, -200.0f };
 	FVector BulletNumPos = { 225.0f, -205.0f, -200.0f };
-	FVector GemNumPos = { 225.0f, 200.0f, -200.0f };
+	FVector GemNumPos = { 335.0f, 252.0f, -200.0f };
 
 };
 
