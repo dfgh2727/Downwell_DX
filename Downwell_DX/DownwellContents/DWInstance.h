@@ -16,6 +16,7 @@ public:
 	DWInstance& operator=(DWInstance&& _Other) noexcept = delete;
 
 	int BulletCount = 8;
+	int GemCount = 0;
 
 protected:
 

@@ -30,7 +30,7 @@ void GemCounter::Tick(float _DeltaTime)
 {
 	AActor::Tick(_DeltaTime);
 
-	Num = GetGameInstance<DWInstance>()->BulletCount;
+	Num = GetGameInstance<DWInstance>()->GemCount;
 	CountGem->SetValue(Num);
 	
 	FVector CurPos = GetActorLocation();
