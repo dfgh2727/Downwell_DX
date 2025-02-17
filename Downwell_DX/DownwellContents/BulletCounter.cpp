@@ -14,7 +14,7 @@ BulletCounter::BulletCounter()
 
 	CountBullet = GetWorld()->SpawnActor<Counter>();
 	CountBullet->SetTextSpriteName("BoldNum");
-	CountBullet->Ratio = 1.2f;
+	CountBullet->Ratio = 1.15f;
 }
 
 BulletCounter::~BulletCounter()
