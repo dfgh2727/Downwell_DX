@@ -56,7 +56,7 @@ void Counter::SetValue(int _Score)
 	{
 		char Value = Number[i] - '0';
 		NumRenderer[i]->SetSprite(TextSpriteName, Value);
-		NumRenderer[i]->SetAutoScaleRatio(1.2f);
+		NumRenderer[i]->SetAutoScaleRatio(Ratio);
 		NumRenderer[i]->SetActive(true);
 	}
 

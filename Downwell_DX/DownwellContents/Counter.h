@@ -20,6 +20,7 @@ public:
 
 	void SetValue(int _Score);
 
+	float Ratio = 1.0;
 
 protected:
 
@@ -33,6 +34,7 @@ private:
 	//std::shared_ptr<class USpriteRenderer> MinusRenderer;
 	std::vector<std::shared_ptr<class USpriteRenderer>> NumRenderer;
 	std::shared_ptr<class USpriteRenderer> TempRenderer;
+
 
 };
 
