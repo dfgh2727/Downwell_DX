@@ -11,6 +11,7 @@
 #include "BulletStatus.h"
 #include "BulletChange.h"
 #include "BulletCounter.h"
+#include "GemCounter.h"
 
 BasicUI::BasicUI()
 {
@@ -51,6 +52,10 @@ void BasicUI::BeginPlay()
 	{
 		BulletNumber = UIWidget->GetWorld()->SpawnActor<BulletCounter>();
 		BulletNumber->SetActorLocation(BulletNumPos);
+	}
+	{
+		GemNumber = UIWidget->GetWorld()->SpawnActor<GemCounter>();
+		GemNumber->SetActorLocation(GemNumPos);
 	}
 	/*{
 		ShowBulletChange = UIWidget->GetWorld()->SpawnActor<BulletChange>();

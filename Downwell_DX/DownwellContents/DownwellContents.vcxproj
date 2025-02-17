@@ -169,6 +169,7 @@
     <ClCompile Include="Frog.cpp" />
     <ClCompile Include="Gem.cpp" />
     <ClCompile Include="GemBlock.cpp" />
+    <ClCompile Include="GemCounter.cpp" />
     <ClCompile Include="GunShotSmoke.cpp" />
     <ClCompile Include="Jelly.cpp" />
     <ClCompile Include="NormalBullet.cpp">
@@ -288,6 +289,7 @@
     <ClInclude Include="Frog.h" />
     <ClInclude Include="Gem.h" />
     <ClInclude Include="GemBlock.h" />
+    <ClInclude Include="GemCounter.h" />
     <ClInclude Include="GunShotSmoke.h" />
     <ClInclude Include="Jelly.h" />
     <ClInclude Include="NormalBullet.h">
