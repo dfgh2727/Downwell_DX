@@ -25,6 +25,6 @@ private:
 	//std::shared_ptr<class USpriteRenderer> TempRenderer;
 
 	//FVector CurPos = FVector::ZERO;
-	int Num = 0;
+	int Num = 10;
 };
 

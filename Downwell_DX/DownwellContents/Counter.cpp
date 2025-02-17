@@ -44,6 +44,7 @@ void Counter::SetTextSpriteName(const std::string _Text)
 
 void Counter::SetValue(int _Score)
 {
+
 	std::string Number = std::to_string(_Score);
 
 	if (NumRenderer.size() <= Number.size())
@@ -52,11 +53,16 @@ void Counter::SetValue(int _Score)
 		return;
 	}
 
+	//FVector Pos = FVector::ZERO;
+
 	for (size_t i = 0; i < Number.size(); i++)
 	{
 		char Value = Number[i] - '0';
 		NumRenderer[i]->SetSprite(TextSpriteName, Value);
 		NumRenderer[i]->SetAutoScaleRatio(Ratio);
+		/*FVector TextSize = NumRenderer[i]->GetWorldScale3D();
+		Pos.X -= TextSize.X;
+		NumRenderer[i]->SetWorldLocation(Pos);*/
 		NumRenderer[i]->SetActive(true);
 	}
 
