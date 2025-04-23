@@ -104,8 +104,6 @@ void MainPlayer::Tick(float _DeltaTime)
 	//CollisionLR(_DeltaTime);
 
 	FSM.Update(_DeltaTime);
-
-
 }
 
 bool MainPlayer::TileCheck(FVector _AddPos)
@@ -273,6 +271,7 @@ void MainPlayer::Jump(float _DeltaTime)
 	if (true == IsOnTheGround)
 	{
 		FSM.ChangeState(MainPlayerState::Idle);
+		ShowOnce = true;
 	}
 }
 
@@ -296,11 +295,15 @@ void MainPlayer::Shoot(float _DeltaTime)
 		}
 		else
 		{
-			FVector TXT1Pos = GetActorLocation();
-			TXT1Pos += FVector::UP * 50.0f + FVector::RIGHT * MoveDir * 15.0f;
+			if (true == ShowOnce)
+			{
+				FVector TXT1Pos = GetActorLocation();
+				TXT1Pos += FVector::UP * 50.0f + FVector::RIGHT * MoveDir * 15.0f;
 
-			TXT1 = GetWorld()->SpawnActor<EmptyText>();
-			TXT1->SetActorLocation(TXT1Pos);
+				TXT1 = GetWorld()->SpawnActor<EmptyText>();
+				TXT1->SetActorLocation(TXT1Pos);
+				ShowOnce = false;
+			}
 		}
 	}
 
@@ -315,6 +318,7 @@ void MainPlayer::Shoot(float _DeltaTime)
 	{
 		FSM.ChangeState(MainPlayerState::Idle);
 		IsShooting = false;
+		ShowOnce = true;
 	}
 }
 

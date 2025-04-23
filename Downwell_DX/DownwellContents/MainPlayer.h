@@ -86,6 +86,8 @@ private:
 	bool IsOnTheGround = false;
 	//bool IsOnTheBlock = false;
 
+	bool ShowOnce = true;
+
 	float LRVelocity = 100.0f;
 	float MoveDir = 1.0f;
 
