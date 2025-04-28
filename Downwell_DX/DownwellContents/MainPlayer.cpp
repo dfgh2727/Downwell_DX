@@ -24,11 +24,16 @@ MainPlayer::MainPlayer()
 	PlayerRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	PlayerRenderer->SetupAttachment(RootComponent);
 
-	PlayerRenderer->CreateAnimation("Idle", "Player_Idle.png", 0, 3, 0.2f);
-	PlayerRenderer->CreateAnimation("Fall", "Player_Fall.png", 0, 2, 0.1f, false);
-	PlayerRenderer->CreateAnimation("Run", "Player_Run.png", 0, 7, 0.08f);
-	PlayerRenderer->CreateAnimation("Jump", "Player_Jump.png", 0, 4, 0.5f, false);
-	PlayerRenderer->CreateAnimation("Shoot", "Player_Shoot.png", 0, 3, 0.1f, false);
+	PlayerRenderer->CreateAnimation("IdleR", "Player_IdleR.png", 0, 3, 0.2f);
+	PlayerRenderer->CreateAnimation("FallR", "Player_FallR.png", 0, 2, 0.1f, false);
+	PlayerRenderer->CreateAnimation("RunR", "Player_RunR.png", 0, 7, 0.08f);
+	PlayerRenderer->CreateAnimation("JumpR", "Player_JumpR.png", 0, 4, 0.5f, false);
+	PlayerRenderer->CreateAnimation("ShootR", "Player_ShootR.png", 0, 3, 0.1f, false);
+	PlayerRenderer->CreateAnimation("IdleL", "Player_IdleL.png", 0, 3, 0.2f);
+	PlayerRenderer->CreateAnimation("FallL", "Player_FallL.png", 0, 2, 0.1f, false);
+	PlayerRenderer->CreateAnimation("RunL", "Player_RunL.png", 0, 7, 0.08f);
+	PlayerRenderer->CreateAnimation("JumpL", "Player_JumpL.png", 0, 4, 0.5f, false);
+	PlayerRenderer->CreateAnimation("ShootL", "Player_ShootL.png", 0, 3, 0.1f, false);
 
 	PlayerRenderer->SetAutoScaleRatio(2.0f);
 
@@ -326,9 +331,9 @@ void MainPlayer::CollisionLR(float _DeltaTime)
 {
 	FVector CurLocation = CollisionBox->GetWorldLocation();
 	FVector GoLeftVect = FVector::LEFT * 100.0f * _DeltaTime;
-	//GoLeftVect.Y -= 15.0f;
+	GoLeftVect.Y += 15.0f;
 	FVector GoRightVect = FVector::RIGHT * 100.0f * _DeltaTime;
-	//GoRightVect.Y -= 15.0f;
+	GoRightVect.Y += 15.0f;
 
 	std::vector<UCollision*> BlockCollisionLR;
 	if (true == CollisionBox->CollisionCheck("Block", GoLeftVect, BlockCollisionLR))
