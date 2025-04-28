@@ -20,7 +20,6 @@ MainPlayer::MainPlayer()
 	std::shared_ptr<UDefaultSceneComponent> Default = CreateDefaultSubObject<UDefaultSceneComponent>();
 	RootComponent = Default;
 
-	// 랜더러를 만든다.
 	PlayerRenderer = CreateDefaultSubObject<USpriteRenderer>();
 	PlayerRenderer->SetupAttachment(RootComponent);
 
@@ -73,7 +72,6 @@ void MainPlayer::BeginPlay()
 	FSM.CreateState(MainPlayerState::Run, std::bind(&MainPlayer::Run, this, std::placeholders::_1),
 		[this]()
 		{
-			//PlayerRenderer->ChangeAnimation("Run");
 			if (MoveDir < 0.0f)
 			{
 				PlayerRenderer->ChangeAnimation("RunR");
@@ -89,7 +87,6 @@ void MainPlayer::BeginPlay()
 	FSM.CreateState(MainPlayerState::Jump, std::bind(&MainPlayer::Jump, this, std::placeholders::_1),
 		[this]()
 		{
-			//PlayerRenderer->ChangeAnimation("Jump");
 			if (MoveDir < 0.0f)
 			{
 				PlayerRenderer->ChangeAnimation("JumpR");
@@ -106,7 +103,6 @@ void MainPlayer::BeginPlay()
 		{
 			IsShooting = true;
 
-			//PlayerRenderer->ChangeAnimation("Shoot");
 			if (MoveDir < 0.0f)
 			{
 				PlayerRenderer->ChangeAnimation("ShootR");
@@ -130,6 +126,7 @@ void MainPlayer::BeginPlay()
 			Smoke->SetActorLocation(PlayerPos + Direction * 15.0f + FVector::DOWN * 35.0f);
 		});
 
+	PlayerRenderer->ChangeAnimation("IdleR");
 	FSM.ChangeState(MainPlayerState::Idle);
 }
 
@@ -138,7 +135,6 @@ void MainPlayer::Tick(float _DeltaTime)
 	AActor::Tick(_DeltaTime);
 	GravityManager(_DeltaTime);
 	BulletManager();
-	//CollisionLR(_DeltaTime);
 
 	FSM.Update(_DeltaTime);
 }
@@ -219,11 +215,6 @@ void MainPlayer::Run(float _DeltaTime)
 
 	if (UEngineInput::IsPress('A'))
 	{
-	/*	if (MoveDir > 0.0f)
-		{
-			AddActorRotation({ 0.0f, 180.0f, 0.0f });
-		}*/
-
 		MoveDir = -1.0f;
 
 		FVector GoLeft = MoveVect * _DeltaTime;
@@ -234,10 +225,6 @@ void MainPlayer::Run(float _DeltaTime)
 	}
 	else if (UEngineInput::IsPress('D'))
 	{
-		/*if (MoveDir < 0.0f)
-		{
-			AddActorRotation({ 0.0f, 180.0f, 0.0f });
-		}*/
 		MoveDir = 1.0f;
 
 		FVector GoRight = MoveVect * _DeltaTime;
@@ -280,27 +267,16 @@ void MainPlayer::Jump(float _DeltaTime)
 		}
 	}
 	
-
 	MoveVect.X = LRVelocity * MoveDir;
 
 	if (UEngineInput::IsPress('A'))
 	{
-	/*	if (MoveDir > 0.0f)
-		{
-			AddActorRotation({ 0.0f, 180.0f, 0.0f });
-		}*/
-
 		MoveDir = -1.0f;
 		AddActorLocation(MoveVect * _DeltaTime);
 	}
 
 	if (UEngineInput::IsPress('D'))
 	{
-		//if (MoveDir < 0.0f)
-		//{
-		//	AddActorRotation({ 0.0f, 180.0f, 0.0f });
-		//}
-
 		MoveDir = 1.0f;
 		AddActorLocation(MoveVect * _DeltaTime);
 	}
@@ -343,13 +319,6 @@ void MainPlayer::Shoot(float _DeltaTime)
 			}
 		}
 	}
-
-	/*TimeEventComponent->AddEndEvent(0.5f,
-		[this]()
-		{
-			FSM.ChangeState(MainPlayerState::Idle);
-		},
-		false);*/
 
 	if (true == IsOnTheGround)
 	{
