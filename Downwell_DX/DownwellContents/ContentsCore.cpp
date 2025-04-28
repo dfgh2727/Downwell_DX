@@ -283,12 +283,19 @@ void UContentsCore::EngineStart(UEngineInitData& _Data)
 		}
 	}
 
-	UEngineSprite::CreateSpriteToMeta("Player_Idle.png", ".sdata");
-	UEngineSprite::CreateSpriteToMeta("Player_Run.png", ".sdata");
-	UEngineSprite::CreateSpriteToMeta("Player_Balancing.png", ".sdata");
-	UEngineSprite::CreateSpriteToMeta("Player_Jump.png", ".sdata");
-	UEngineSprite::CreateSpriteToMeta("Player_Shoot.png", ".sdata");
-	UEngineSprite::CreateSpriteToMeta("Player_Fall.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_IdleL.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_RunL.png", ".sdata");
+	//UEngineSprite::CreateSpriteToMeta("Player_BalancingL.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_JumpL.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_ShootL.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_FallL.png", ".sdata");
+
+	UEngineSprite::CreateSpriteToMeta("Player_IdleR.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_RunR.png", ".sdata");
+	//UEngineSprite::CreateSpriteToMeta("Player_BalancingR.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_JumpR.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_ShootR.png", ".sdata");
+	UEngineSprite::CreateSpriteToMeta("Player_FallR.png", ".sdata");
 
 	// 주인공 APawn 상속 받으세요.
 	UEngineCore::CreateLevel<TitleScreen, APawn, BasicUI>("Title");
