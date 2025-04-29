@@ -57,14 +57,7 @@ void MainPlayer::BeginPlay()
 	FSM.CreateState(MainPlayerState::Idle, std::bind(&MainPlayer::Idle, this, std::placeholders::_1),
 		[this]()
 		{
-			if (MoveDir < 0.0f)
-			{
-				PlayerRenderer->ChangeAnimation("IdleR");
-			}
-			else
-			{
-				PlayerRenderer->ChangeAnimation("IdleL");
-			}
+			PlayerRenderer->ChangeAnimation("Idle" + DirString);
 			CollisionBox->SetScale3D({ 20.0f, 30.0f });
 			CollisionBox->SetRelativeLocation({ 0.0f, 15.0f });
 		});
@@ -72,14 +65,7 @@ void MainPlayer::BeginPlay()
 	FSM.CreateState(MainPlayerState::Run, std::bind(&MainPlayer::Run, this, std::placeholders::_1),
 		[this]()
 		{
-			if (MoveDir < 0.0f)
-			{
-				PlayerRenderer->ChangeAnimation("RunR");
-			}
-			else
-			{
-				PlayerRenderer->ChangeAnimation("RunL");
-			}
+			PlayerRenderer->ChangeAnimation("Run" + DirString);
 			CollisionBox->SetScale3D({ 25.0f, 20.0f });
 			CollisionBox->SetRelativeLocation({ 15.0f, 15.0f });
 		});
@@ -87,14 +73,7 @@ void MainPlayer::BeginPlay()
 	FSM.CreateState(MainPlayerState::Jump, std::bind(&MainPlayer::Jump, this, std::placeholders::_1),
 		[this]()
 		{
-			if (MoveDir < 0.0f)
-			{
-				PlayerRenderer->ChangeAnimation("JumpR");
-			}
-			else
-			{
-				PlayerRenderer->ChangeAnimation("JumpL");
-			}
+			PlayerRenderer->ChangeAnimation("Jump" + DirString);
 			CollisionBox->SetScale3D({ 25.0f, 20.0f });
 			CollisionBox->SetRelativeLocation({ 15.0f, 15.0f });
 		});
@@ -103,14 +82,7 @@ void MainPlayer::BeginPlay()
 		{
 			IsShooting = true;
 
-			if (MoveDir < 0.0f)
-			{
-				PlayerRenderer->ChangeAnimation("ShootR");
-			}
-			else
-			{
-				PlayerRenderer->ChangeAnimation("ShootL");
-			}
+			PlayerRenderer->ChangeAnimation("Shoot" + DirString);
 			FVector PlayerPos = GetActorLocation();
 			FVector Direction = FVector::ZERO;
 			Direction.X = MoveDir;
@@ -135,6 +107,7 @@ void MainPlayer::Tick(float _DeltaTime)
 	AActor::Tick(_DeltaTime);
 	GravityManager(_DeltaTime);
 	BulletManager();
+	CheckDirection();
 
 	FSM.Update(_DeltaTime);
 }
@@ -211,6 +184,7 @@ void MainPlayer::Idle(float _DeltaTime)
 
 void MainPlayer::Run(float _DeltaTime)
 {
+	float CurDir = MoveDir;
 	MoveVect.X = LRVelocity * MoveDir;
 
 	if (UEngineInput::IsPress('A'))
@@ -218,6 +192,12 @@ void MainPlayer::Run(float _DeltaTime)
 		MoveDir = -1.0f;
 
 		FVector GoLeft = MoveVect * _DeltaTime;
+
+		if (CurDir > MoveDir)
+		{
+			PlayerRenderer->ChangeAnimation("Run" + DirString);
+		}
+
 		if (false == TileCheck(GoLeft))
 		{
 			AddActorLocation(GoLeft);
@@ -228,6 +208,12 @@ void MainPlayer::Run(float _DeltaTime)
 		MoveDir = 1.0f;
 
 		FVector GoRight = MoveVect * _DeltaTime;
+
+		if (CurDir < MoveDir)
+		{
+			PlayerRenderer->ChangeAnimation("Run" + DirString);
+		}
+
 		if (false == TileCheck(GoRight))
 		{
 			AddActorLocation(GoRight);
@@ -247,6 +233,7 @@ void MainPlayer::Run(float _DeltaTime)
 
 void MainPlayer::Jump(float _DeltaTime)
 {
+	float CurDir = MoveDir;
 	AddActorLocation(FVector::UP * 250.0f * _DeltaTime);
 
 	if (UEngineInput::IsDown(VK_SPACE))
@@ -272,12 +259,24 @@ void MainPlayer::Jump(float _DeltaTime)
 	if (UEngineInput::IsPress('A'))
 	{
 		MoveDir = -1.0f;
+
+		if (CurDir > MoveDir)
+		{
+			PlayerRenderer->ChangeAnimation("Jump" + DirString);
+		}
+
 		AddActorLocation(MoveVect * _DeltaTime);
 	}
 
 	if (UEngineInput::IsPress('D'))
 	{
 		MoveDir = 1.0f;
+
+		if (CurDir < MoveDir)
+		{
+			PlayerRenderer->ChangeAnimation("Jump" + DirString);
+		}
+
 		AddActorLocation(MoveVect * _DeltaTime);
 	}
 
@@ -350,4 +349,16 @@ void MainPlayer::CollisionLR(float _DeltaTime)
 void MainPlayer::SynchBullet()
 {
 	GetGameInstance<DWInstance>()->BulletCount = Pistol;
+}
+
+void MainPlayer::CheckDirection()
+{
+	if (MoveDir < 0.0f)
+	{
+		DirString = "L";
+	}
+	else
+	{
+		DirString = "R";
+	}
 }

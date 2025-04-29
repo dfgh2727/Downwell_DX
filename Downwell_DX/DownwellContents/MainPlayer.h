@@ -54,6 +54,7 @@ public:
 	void BulletManager();
 
 	void SynchBullet();
+	void CheckDirection();
 
 
 protected:
@@ -93,6 +94,8 @@ private:
 
 	float Timer = 0.2f;
 	FVector MoveVect = FVector::ZERO;
+
+	std::string DirString = "R";
 
 	int Pistol = 0;
 };
