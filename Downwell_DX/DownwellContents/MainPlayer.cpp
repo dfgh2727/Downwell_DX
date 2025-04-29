@@ -184,7 +184,6 @@ void MainPlayer::Idle(float _DeltaTime)
 
 void MainPlayer::Run(float _DeltaTime)
 {
-	float CurDir = MoveDir;
 	MoveVect.X = LRVelocity * MoveDir;
 
 	if (UEngineInput::IsPress('A'))
@@ -225,7 +224,6 @@ void MainPlayer::Run(float _DeltaTime)
 
 void MainPlayer::Jump(float _DeltaTime)
 {
-	float CurDir = MoveDir;
 	AddActorLocation(FVector::UP * 250.0f * _DeltaTime);
 
 	if (UEngineInput::IsDown(VK_SPACE))
@@ -273,8 +271,6 @@ void MainPlayer::Jump(float _DeltaTime)
 
 void MainPlayer::Shoot(float _DeltaTime)
 {
-	// 방향전환 추가 필요
-
 	if (UEngineInput::IsPress(VK_SPACE))
 	{
 		if (Pistol > 0)
