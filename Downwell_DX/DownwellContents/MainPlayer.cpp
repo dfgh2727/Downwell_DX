@@ -75,7 +75,7 @@ void MainPlayer::BeginPlay()
 		{
 			PlayerRenderer->ChangeAnimation("Jump" + DirString);
 			CollisionBox->SetScale3D({ 25.0f, 20.0f });
-			CollisionBox->SetRelativeLocation({ 15.0f, 15.0f });
+			//CollisionBox->SetRelativeLocation({ 15.0f, 15.0f });
 		});
 	FSM.CreateState(MainPlayerState::Shoot, std::bind(&MainPlayer::Shoot, this, std::placeholders::_1),
 		[this]()
@@ -184,6 +184,8 @@ void MainPlayer::Idle(float _DeltaTime)
 
 void MainPlayer::Run(float _DeltaTime)
 {
+	//움직이는 와중에 발밑 체크 필요
+
 	MoveVect.X = LRVelocity * MoveDir;
 
 	if (UEngineInput::IsPress('A'))
