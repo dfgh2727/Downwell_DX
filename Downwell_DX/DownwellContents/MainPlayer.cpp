@@ -190,13 +190,9 @@ void MainPlayer::Run(float _DeltaTime)
 	if (UEngineInput::IsPress('A'))
 	{
 		MoveDir = -1.0f;
+		PlayerRenderer->ChangeAnimation("Run" + DirString);
 
 		FVector GoLeft = MoveVect * _DeltaTime;
-
-		if (CurDir > MoveDir)
-		{
-			PlayerRenderer->ChangeAnimation("Run" + DirString);
-		}
 
 		if (false == TileCheck(GoLeft))
 		{
@@ -206,13 +202,9 @@ void MainPlayer::Run(float _DeltaTime)
 	else if (UEngineInput::IsPress('D'))
 	{
 		MoveDir = 1.0f;
+		PlayerRenderer->ChangeAnimation("Run" + DirString);
 
 		FVector GoRight = MoveVect * _DeltaTime;
-
-		if (CurDir < MoveDir)
-		{
-			PlayerRenderer->ChangeAnimation("Run" + DirString);
-		}
 
 		if (false == TileCheck(GoRight))
 		{
@@ -259,11 +251,7 @@ void MainPlayer::Jump(float _DeltaTime)
 	if (UEngineInput::IsPress('A'))
 	{
 		MoveDir = -1.0f;
-
-		if (CurDir > MoveDir)
-		{
-			PlayerRenderer->ChangeAnimation("Jump" + DirString);
-		}
+		PlayerRenderer->ChangeAnimation("Jump" + DirString);
 
 		AddActorLocation(MoveVect * _DeltaTime);
 	}
@@ -271,11 +259,7 @@ void MainPlayer::Jump(float _DeltaTime)
 	if (UEngineInput::IsPress('D'))
 	{
 		MoveDir = 1.0f;
-
-		if (CurDir < MoveDir)
-		{
-			PlayerRenderer->ChangeAnimation("Jump" + DirString);
-		}
+		PlayerRenderer->ChangeAnimation("Jump" + DirString);
 
 		AddActorLocation(MoveVect * _DeltaTime);
 	}
