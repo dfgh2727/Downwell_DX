@@ -49,6 +49,7 @@ public:
 	void Run(float _DeltaTime);
 	void Jump(float _DeltaTime);
 	void Shoot(float _DeltaTime);
+	void Fall(float _DeltaTime);
 
 	void CollisionLR(float _DeltaTime);
 	void BulletManager();

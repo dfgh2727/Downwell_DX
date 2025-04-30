@@ -98,6 +98,14 @@ void MainPlayer::BeginPlay()
 			Smoke->SetActorLocation(PlayerPos + FVector::DOWN * 35.0f);
 		});
 
+	FSM.CreateState(MainPlayerState::Fall, std::bind(&MainPlayer::Fall, this, std::placeholders::_1),
+		[this]()
+		{
+			PlayerRenderer->ChangeAnimation("Fall" + DirString);
+			CollisionBox->SetScale3D({ 25.0f, 20.0f });
+			CollisionBox->SetRelativeLocation({ 0.0f, 15.0f });
+		});
+
 	PlayerRenderer->ChangeAnimation("IdleR");
 	FSM.ChangeState(MainPlayerState::Idle);
 }
@@ -169,6 +177,7 @@ void MainPlayer::BulletManager()
 
 void MainPlayer::Idle(float _DeltaTime)
 {
+	//ShowOnce = true;
 	SetActorLocation(PrevLocation);
 
 	if (UEngineInput::IsPress('A') || UEngineInput::IsPress('D'))
@@ -179,6 +188,11 @@ void MainPlayer::Idle(float _DeltaTime)
 	if (UEngineInput::IsPress(VK_SPACE))
 	{
 		FSM.ChangeState(MainPlayerState::Jump);
+	}
+
+	if (false == IsOnTheGround)
+	{
+		FSM.ChangeState(MainPlayerState::Fall);
 	}
 }
 
@@ -273,6 +287,8 @@ void MainPlayer::Jump(float _DeltaTime)
 
 void MainPlayer::Shoot(float _DeltaTime)
 {
+	AddActorLocation(FVector::UP * 50.0f * _DeltaTime);
+
 	if (UEngineInput::IsPress(VK_SPACE))
 	{
 		if (Pistol > 0)
@@ -306,6 +322,46 @@ void MainPlayer::Shoot(float _DeltaTime)
 		FSM.ChangeState(MainPlayerState::Idle);
 		IsShooting = false;
 		ShowOnce = true;
+	}
+}
+
+void MainPlayer::Fall(float _DeltaTime)
+{
+	MoveVect.X = LRVelocity * MoveDir;
+
+	if (UEngineInput::IsPress('A'))
+	{
+		MoveDir = -1.0f;
+		//PlayerRenderer->ChangeAnimation("Fall" + DirString);
+
+		FVector GoLeft = MoveVect * _DeltaTime;
+
+		if (false == TileCheck(GoLeft))
+		{
+			AddActorLocation(GoLeft);
+		}
+	}
+	else if (UEngineInput::IsPress('D'))
+	{
+		MoveDir = 1.0f;
+		//PlayerRenderer->ChangeAnimation("Fall" + DirString);
+
+		FVector GoRight = MoveVect * _DeltaTime;
+
+		if (false == TileCheck(GoRight))
+		{
+			AddActorLocation(GoRight);
+		}
+	}
+
+	if(true == IsOnTheGround)
+	{
+		FSM.ChangeState(MainPlayerState::Idle);
+	}
+
+	if (UEngineInput::IsPress(VK_SPACE))
+	{
+		FSM.ChangeState(MainPlayerState::Shoot);
 	}
 }
 
