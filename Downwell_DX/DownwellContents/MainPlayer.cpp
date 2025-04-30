@@ -24,13 +24,13 @@ MainPlayer::MainPlayer()
 	PlayerRenderer->SetupAttachment(RootComponent);
 
 	PlayerRenderer->CreateAnimation("IdleR", "Player_IdleR.png", 0, 3, 0.2f);
-	PlayerRenderer->CreateAnimation("FallR", "Player_FallR.png", 0, 2, 0.1f, false);
+	PlayerRenderer->CreateAnimation("FallR", "Player_FallR.png", 0, 2, 0.08f, false);
 	PlayerRenderer->CreateAnimation("RunR", "Player_RunR.png", 0, 7, 0.08f);
 	PlayerRenderer->CreateAnimation("JumpR", "Player_JumpR.png", 0, 4, 0.5f, false);
 	PlayerRenderer->CreateAnimation("ShootR", "Player_ShootR.png", 0, 3, 0.1f, false);
 
 	PlayerRenderer->CreateAnimation("IdleL", "Player_IdleL.png", 0, 3, 0.2f);
-	PlayerRenderer->CreateAnimation("FallL", "Player_FallL.png", 0, 2, 0.1f, false);
+	PlayerRenderer->CreateAnimation("FallL", "Player_FallL.png", 0, 2, 0.08f, false);
 	PlayerRenderer->CreateAnimation("RunL", "Player_RunL.png", 0, 7, 0.08f);
 	PlayerRenderer->CreateAnimation("JumpL", "Player_JumpL.png", 0, 4, 0.5f, false);
 	PlayerRenderer->CreateAnimation("ShootL", "Player_ShootL.png", 0, 3, 0.1f, false);
@@ -190,10 +190,10 @@ void MainPlayer::Idle(float _DeltaTime)
 		FSM.ChangeState(MainPlayerState::Jump);
 	}
 
-	if (false == IsOnTheGround)
-	{
-		FSM.ChangeState(MainPlayerState::Fall);
-	}
+	//if (false == IsOnTheGround)
+	//{
+	//	FSM.ChangeState(MainPlayerState::Fall);
+	//}
 }
 
 void MainPlayer::Run(float _DeltaTime)
@@ -287,7 +287,7 @@ void MainPlayer::Jump(float _DeltaTime)
 
 void MainPlayer::Shoot(float _DeltaTime)
 {
-	AddActorLocation(FVector::UP * 50.0f * _DeltaTime);
+	AddActorLocation(FVector::UP * 100.0f * _DeltaTime);
 
 	if (UEngineInput::IsPress(VK_SPACE))
 	{
