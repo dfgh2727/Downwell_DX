@@ -88,14 +88,14 @@ void MainPlayer::BeginPlay()
 			Direction.X = MoveDir;
 
 			NBullet = GetWorld()->SpawnActor<NormalBullet>();
-			NBullet->SetActorLocation(PlayerPos + Direction * 15.0f);
+			NBullet->SetActorLocation(PlayerPos /*+ Direction * 15.0f*/);
 			NBullet->SetTileMapRenderer(TRenderer);
 
 			TempCart = GetWorld()->SpawnActor<Cartridge>();
 			TempCart->SetActorLocation(PlayerPos + Direction * 15.0f);
 
 			Smoke = GetWorld()->SpawnActor<GunShotSmoke>();
-			Smoke->SetActorLocation(PlayerPos + Direction * 15.0f + FVector::DOWN * 35.0f);
+			Smoke->SetActorLocation(PlayerPos /*+ Direction * 15.0f*/ + FVector::DOWN * 35.0f);
 		});
 
 	PlayerRenderer->ChangeAnimation("IdleR");
