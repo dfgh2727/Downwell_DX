@@ -51,6 +51,8 @@ protected:
 
 private:
 	float4 ClearColor = float4(0.0f, 0.4f, 0.6f, 1.0f);
+	//float4 ClearColor = float4(0.0f, 0.0f, 0.0f, 1.0f);
+	// 배경색 변경
 
 	std::vector<std::shared_ptr<class UEngineTexture>> ArrTexture;
 	std::vector<ID3D11RenderTargetView*> ArrRTVs;
